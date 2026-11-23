@@ -1,0 +1,22 @@
+source_col_a,source_col_b,coaligned_runs,total_runs,agreement_rate,status,target_field_names
+account.acc_type,account.account_type,3,3,1.0,STABLE,account.account_type
+account.account_no,account.account_id,3,3,1.0,STABLE,account.account_id; account_branch.account_id
+account.balance,account.account_balance,3,3,1.0,STABLE,account.account_balance_amount; account.balance_amount
+account.branch_id,account.branch_id,3,3,1.0,STABLE,account.branch_id; account.home_branch_id; account_branch.branch_id
+availed_by.custid,borrower.customer_id,3,3,1.0,STABLE,borrower.customer_id; customer_loan.customer_id; loan_borrower.customer_id
+availed_by.loan_id,borrower.loan_id,3,3,1.0,STABLE,borrower.loan_id; customer_loan.loan_id; loan_borrower.loan_id
+branch.address,branch.branch_address,3,3,1.0,STABLE,branch.address_text; branch.branch_address; branch.postal_address
+branch.branch_id,branch.branch_id,3,3,1.0,STABLE,branch.branch_id
+branch.name,branch.branch_name,3,3,1.0,STABLE,branch.branch_name
+customer.custid,customer.customer_id,3,3,1.0,STABLE,customer.customer_id
+customer.name,customer.customer_name,3,3,1.0,STABLE,customer.customer_name
+customer.phone,customer.mobileno,3,3,1.0,STABLE,customer.phone_number
+hold_by.account_no,customer.account_id,3,3,1.0,STABLE,customer_account.account_id
+hold_by.custid,customer.customer_id,3,3,1.0,STABLE,customer_account.customer_id
+loan.amount,loan.issued_amount,3,3,1.0,STABLE,loan.issued_amount
+loan.branch_id,loan.branch_id,3,3,1.0,STABLE,loan.branch_id; loan.originating_branch_id; loan_branch.branch_id
+loan.loan_id,loan.loan_id,3,3,1.0,STABLE,loan.loan_id; loan_branch.loan_id
+maintain.account_no,account.account_id,1,3,0.3333,VOLATILE,account_branch.account_id
+maintain.branch_id,account.branch_id,1,3,0.3333,VOLATILE,account_branch.branch_id
+offer.branch_id,loan.branch_id,1,3,0.3333,VOLATILE,loan_branch.branch_id
+offer.loan_id,loan.loan_id,1,3,0.3333,VOLATILE,loan_branch.loan_id

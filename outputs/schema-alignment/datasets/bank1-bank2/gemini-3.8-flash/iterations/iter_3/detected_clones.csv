@@ -1,0 +1,3 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+customer_account,customer_id,account_id,integer,0.9546,bank1.hold_by.custid; bank2.customer.customer_id,bank1.hold_by.account_no; bank2.customer.account_id,Identifier of the customer holding the account.,Identifier of the account held by the customer.
+loan_borrower,customer_id,loan_id,integer,0.9264,bank1.availed_by.custid; bank2.borrower.customer_id,bank1.availed_by.loan_id; bank2.borrower.loan_id,Customer who availed or borrowed the loan.,Loan associated with the customer.

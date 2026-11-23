@@ -1,0 +1,186 @@
+{
+  "schema_name": "source_b",
+  "title": null,
+  "resources": [
+    {
+      "name": "businesses",
+      "path": "businesses.parquet",
+      "schema": {
+        "primaryKey": "biz_id",
+        "fields": [
+          {
+            "name": "biz_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "location_ref",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "sector",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "turnover_eur",
+            "type": "number",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "location_ref"
+            ],
+            "reference": {
+              "resource": "locations",
+              "fields": [
+                "loc_id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "locations",
+      "path": "locations.parquet",
+      "schema": {
+        "primaryKey": "loc_id",
+        "fields": [
+          {
+            "name": "loc_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "street",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "workers",
+      "path": "workers.parquet",
+      "schema": {
+        "primaryKey": "worker_id",
+        "fields": [
+          {
+            "name": "worker_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "business_ref",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "first_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "last_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "job_title",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "business_ref"
+            ],
+            "reference": {
+              "resource": "businesses",
+              "fields": [
+                "biz_id"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

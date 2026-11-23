@@ -1,0 +1,8 @@
+{
+  "dataset_id": "books",
+  "entity_id_column": "ISBN",
+  "attributes": [
+    "Title",
+    "Author"
+  ]
+}

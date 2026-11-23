@@ -1,0 +1,17 @@
+{
+  "mode": "dispersion_boost",
+  "beta": 2.5,
+  "std_high": 0.0722,
+  "lower_threshold": 0.4761,
+  "upper_threshold": 0.6567,
+  "centroids": [
+    0.2454,
+    0.3288,
+    0.4761
+  ],
+  "cluster_sizes": [
+    163122,
+    107258,
+    22202
+  ]
+}

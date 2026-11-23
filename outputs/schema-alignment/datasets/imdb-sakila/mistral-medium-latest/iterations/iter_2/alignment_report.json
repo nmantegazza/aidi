@@ -1,0 +1,1015 @@
+{
+  "target_schema": {
+    "name": "unified_media_schema",
+    "title": "Unified Global Schema for IMDb and Sakila Data",
+    "resources": [
+      {
+        "name": "person",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "person_id",
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Global unique identifier for a person (unifies nconst, actor_id, staff_id, customer_id)",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst",
+                "sakila.actor.actor_id",
+                "sakila.staff.staff_id",
+                "sakila.customer.customer_id"
+              ]
+            },
+            {
+              "name": "full_name",
+              "type": "string",
+              "description": "Primary name by which the person is most often credited",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.primaryname"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": "Person's first name",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.first_name",
+                "sakila.staff.first_name",
+                "sakila.customer.first_name"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": "Person's last name",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.last_name",
+                "sakila.staff.last_name",
+                "sakila.customer.last_name"
+              ]
+            },
+            {
+              "name": "birth_year",
+              "type": "integer",
+              "description": "Year of birth (YYYY)",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.birthyear"
+              ]
+            },
+            {
+              "name": "death_year",
+              "type": "integer",
+              "description": "Year of death (YYYY) if applicable",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.deathyear"
+              ]
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "description": "Email address of the person",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.email",
+                "sakila.customer.email"
+              ]
+            },
+            {
+              "name": "is_active",
+              "type": "boolean",
+              "description": "Indicates if the person is active (e.g., employee or customer status)",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.active",
+                "sakila.customer.active"
+              ]
+            },
+            {
+              "name": "person_type",
+              "type": "string",
+              "description": "Type of person (e.g., 'person', 'actor', 'staff', 'customer')",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "last_updated",
+              "type": "date",
+              "description": "Timestamp when the record was last updated",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.last_update",
+                "sakila.staff.last_update",
+                "sakila.customer.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "person_profession",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "person_id",
+            "profession"
+          ],
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Foreign key to person table",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst"
+              ]
+            },
+            {
+              "name": "profession",
+              "type": "string",
+              "description": "Profession of the person (e.g., 'Actor', 'Director')",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.primaryprofession"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "person_known_for_work",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "person_id",
+            "work_id"
+          ],
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Foreign key to person table",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst"
+              ]
+            },
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work table",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.knownfortitles"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "work",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "work_id",
+          "fields": [
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Global unique identifier for a work (unifies tconst and film_id)",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.tconst",
+                "sakila.film.film_id"
+              ]
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "Primary title of the work",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.primarytitle",
+                "sakila.film.title"
+              ]
+            },
+            {
+              "name": "original_title",
+              "type": "string",
+              "description": "Original title in the original language",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.originaltitle"
+              ]
+            },
+            {
+              "name": "work_type",
+              "type": "string",
+              "description": "Type of work (e.g., 'movie', 'short', 'tvseries')",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.titletype"
+              ]
+            },
+            {
+              "name": "is_adult",
+              "type": "boolean",
+              "description": "Indicates if the work is adult-rated",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.isadult"
+              ]
+            },
+            {
+              "name": "release_year",
+              "type": "integer",
+              "description": "Year the work was released or series started",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.startyear",
+                "sakila.film.release_year"
+              ]
+            },
+            {
+              "name": "end_year",
+              "type": "integer",
+              "description": "Year a TV series ended",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.endyear"
+              ]
+            },
+            {
+              "name": "runtime_minutes",
+              "type": "integer",
+              "description": "Primary runtime in minutes",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.runtimeminutes",
+                "sakila.film.length"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "work_episode",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "work_id",
+          "fields": [
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work table (the episode)",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_episode.tconst"
+              ]
+            },
+            {
+              "name": "parent_work_id",
+              "type": "string",
+              "description": "Foreign key to work table (parent TV series)",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_episode.parenttconst"
+              ]
+            },
+            {
+              "name": "season_number",
+              "type": "integer",
+              "description": "Season number",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_episode.seasonnumber"
+              ]
+            },
+            {
+              "name": "episode_number",
+              "type": "integer",
+              "description": "Episode number",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_episode.episodenumber"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "work_rating",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "work_id",
+          "fields": [
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work table",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_ratings.tconst"
+              ]
+            },
+            {
+              "name": "average_rating",
+              "type": "number",
+              "description": "Weighted average user rating",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_ratings.averagerating"
+              ]
+            },
+            {
+              "name": "num_votes",
+              "type": "integer",
+              "description": "Number of user votes",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_ratings.numvotes"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "genre",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "genre_id",
+          "fields": [
+            {
+              "name": "genre_id",
+              "type": "string",
+              "description": "Surrogate primary key",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": "Genre name",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.genres",
+                "sakila.category.name"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "work_genre",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "work_id",
+            "genre_id"
+          ],
+          "fields": [
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.tconst",
+                "sakila.film.film_id"
+              ]
+            },
+            {
+              "name": "genre_id",
+              "type": "string",
+              "description": "Foreign key to genre",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "language",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "language_id",
+          "fields": [
+            {
+              "name": "language_id",
+              "type": "string",
+              "description": "Surrogate primary key",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": "Language name",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.language",
+                "sakila.language.name"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "work_language",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "work_id",
+            "language_id"
+          ],
+          "fields": [
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.film.film_id"
+              ]
+            },
+            {
+              "name": "language_id",
+              "type": "string",
+              "description": "Foreign key to language",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.film.language_id",
+                "sakila.film.original_language_id"
+              ]
+            },
+            {
+              "name": "is_original",
+              "type": "boolean",
+              "description": "True if original language",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "alternative_title",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "alternative_title_id",
+          "fields": [
+            {
+              "name": "alternative_title_id",
+              "type": "string",
+              "description": "Surrogate primary key",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.titleid"
+              ]
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "Alternative title text",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.title"
+              ]
+            },
+            {
+              "name": "region",
+              "type": "string",
+              "description": "Region for this title",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.region"
+              ]
+            },
+            {
+              "name": "is_original_title",
+              "type": "boolean",
+              "description": "True if original title",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.isoriginaltitle"
+              ]
+            },
+            {
+              "name": "ordering",
+              "type": "integer",
+              "description": "Ordering index",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.ordering"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "alternative_title_type",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "alternative_title_id",
+            "type"
+          ],
+          "fields": [
+            {
+              "name": "alternative_title_id",
+              "type": "string",
+              "description": "Foreign key to alternative_title",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "description": "Type descriptor",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.types"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "alternative_title_attribute",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "alternative_title_id",
+            "attribute"
+          ],
+          "fields": [
+            {
+              "name": "alternative_title_id",
+              "type": "string",
+              "description": "Foreign key to alternative_title",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "attribute",
+              "type": "string",
+              "description": "Attribute descriptor",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.attributes"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "person_work_role",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "person_work_role_id",
+          "fields": [
+            {
+              "name": "person_work_role_id",
+              "type": "string",
+              "description": "Surrogate primary key",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Foreign key to person",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst",
+                "imdb.title_principals.nconst",
+                "imdb.title_crew.directors",
+                "imdb.title_crew.writers",
+                "sakila.actor.actor_id",
+                "sakila.film_actor.actor_id"
+              ]
+            },
+            {
+              "name": "work_id",
+              "type": "string",
+              "description": "Foreign key to work",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_principals.tconst",
+                "imdb.title_crew.tconst",
+                "sakila.film_actor.film_id"
+              ]
+            },
+            {
+              "name": "role_type",
+              "type": "string",
+              "description": "Role category",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.category"
+              ]
+            },
+            {
+              "name": "job_title",
+              "type": "string",
+              "description": "Specific job title",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.job"
+              ]
+            },
+            {
+              "name": "character_name",
+              "type": "string",
+              "description": "Character name (for actors)",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.characters"
+              ]
+            },
+            {
+              "name": "ordering",
+              "type": "integer",
+              "description": "Ordering index",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.ordering"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      }
+    ]
+  },
+  "conflict_report": [
+    {
+      "conflict_type": "Naming",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.name_basics.nconst",
+            "sakila.actor.actor_id",
+            "sakila.staff.staff_id",
+            "sakila.customer.customer_id"
+          ],
+          "description": "Person identifiers use different naming conventions: IMDb uses 'nconst' (alphanumeric natural key) while Sakila uses separate surrogate keys ('actor_id', 'staff_id', 'customer_id').",
+          "resolution": "Unified under 'person_id' in 'person' table using string type. 'person_type' field preserves source context."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.tconst",
+            "sakila.film.film_id"
+          ],
+          "description": "Work identifiers: IMDb 'tconst' vs Sakila 'film_id'.",
+          "resolution": "Unified as 'work_id' in 'work' table with string type."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.primarytitle",
+            "sakila.film.title"
+          ],
+          "description": "Primary title field: IMDb 'primarytitle' (mis-typed as integer) vs Sakila 'title'.",
+          "resolution": "Standardized as 'title' in 'work' with string type, correcting IMDb's type error."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.startyear",
+            "sakila.film.release_year"
+          ],
+          "description": "Release year synonyms: 'startyear' vs 'release_year'.",
+          "resolution": "Mapped to 'release_year' in 'work' with integer type."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.runtimeminutes",
+            "sakila.film.length"
+          ],
+          "description": "Runtime field: 'runtimeminutes' vs 'length'.",
+          "resolution": "Unified as 'runtime_minutes' in 'work' with integer type (SI unit)."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "sakila.category.name"
+          ],
+          "description": "Genre representation: string array vs normalized table.",
+          "resolution": "Created 'genre' and 'work_genre' tables to normalize both."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.language",
+            "sakila.language.name"
+          ],
+          "description": "Language: field in title_akas vs separate table.",
+          "resolution": "Unified into 'language' table with 'name' from both sources."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Type",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.name_basics.nconst",
+            "imdb.title_basics.tconst"
+          ],
+          "description": "IMDb defines nconst/tconst as 'number' but they are alphanumeric strings.",
+          "resolution": "Changed to string type in target."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.primarytitle"
+          ],
+          "description": "IMDb's primarytitle is typed as integer but is string.",
+          "resolution": "Corrected to string type."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.startyear",
+            "imdb.title_basics.endyear",
+            "imdb.name_basics.birthyear",
+            "imdb.name_basics.deathyear",
+            "sakila.film.release_year"
+          ],
+          "description": "Year fields stored as strings but represent integers.",
+          "resolution": "Converted to integer type."
+        },
+        {
+          "source_references": [
+            "sakila.film.length",
+            "sakila.payment.amount",
+            "sakila.film.rental_rate",
+            "sakila.film.replacement_cost"
+          ],
+          "description": "Numeric values stored as strings in Sakila.",
+          "resolution": "Converted to number/integer types."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.knownfortitles",
+            "imdb.name_basics.primaryprofession",
+            "imdb.title_basics.genres",
+            "imdb.title_akas.types",
+            "imdb.title_akas.attributes",
+            "imdb.title_crew.directors",
+            "imdb.title_crew.writers"
+          ],
+          "description": "IMDb stores multi-valued data in single columns as arrays/strings.",
+          "resolution": "Normalized into dedicated tables (person_known_for_work, person_profession, etc.)."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Data Semantic",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "sakila.category.name"
+          ],
+          "description": "IMDb free-form genres vs Sakila controlled vocabulary, but values overlap.",
+          "resolution": "Mapped to unified 'genre' table."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.language",
+            "sakila.language.name"
+          ],
+          "description": "Language names from both schemas represent the same semantic concept.",
+          "resolution": "Unified in 'language' table."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Structure",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.name_basics",
+            "sakila.actor",
+            "sakila.staff",
+            "sakila.customer"
+          ],
+          "description": "IMDb: single person table vs Sakila: separate tables for actors/staff/customers.",
+          "resolution": "Unified into 'person' table with 'person_type' discriminator."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics",
+            "sakila.film"
+          ],
+          "description": "IMDb supports TV series episodes; Sakila is movie-only.",
+          "resolution": "Created 'work' table with 'work_type', and 'work_episode' for series data."
+        },
+        {
+          "source_references": [
+            "imdb.title_crew",
+            "sakila.film_actor"
+          ],
+          "description": "IMDb: arrays in title_crew vs Sakila: normalized film_actor table.",
+          "resolution": "Created 'person_work_role' table for all roles."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "sakila.film_category"
+          ],
+          "description": "IMDb: genres as string array vs Sakila: normalized film_category.",
+          "resolution": "Created 'genre' and 'work_genre' tables."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas",
+            "sakila.language"
+          ],
+          "description": "IMDb: language in title_akas vs Sakila: separate language table.",
+          "resolution": "Unified language handling in 'language' and 'work_language' tables."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Cardinality",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_crew.directors",
+            "imdb.title_crew.writers"
+          ],
+          "description": "Arrays in title_crew imply 1:N but denormalized.",
+          "resolution": "Normalized to M:N via 'person_work_role' with role_type."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.knownfortitles"
+          ],
+          "description": "Array in name_basics implies 1:N but denormalized.",
+          "resolution": "Normalized to M:N via 'person_known_for_work'."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Key",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.name_basics.nconst",
+            "sakila.actor.actor_id"
+          ],
+          "description": "IMDb: natural keys vs Sakila: surrogate keys for persons.",
+          "resolution": "Unified as string 'person_id' with 'person_type' context."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas"
+          ],
+          "description": "IMDb's title_akas lacks primary key.",
+          "resolution": "Added synthetic 'alternative_title_id'."
+        },
+        {
+          "source_references": [
+            "imdb.title_crew",
+            "imdb.title_principals",
+            "imdb.title_episode"
+          ],
+          "description": "Multiple IMDb tables lack primary keys.",
+          "resolution": "Added synthetic primary keys where needed."
+        }
+      ]
+    }
+  ]
+}

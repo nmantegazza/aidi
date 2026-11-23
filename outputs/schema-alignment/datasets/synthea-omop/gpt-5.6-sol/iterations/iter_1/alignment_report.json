@@ -1,0 +1,3004 @@
+{
+  "target_schema": {
+    "name": "unified_healthcare",
+    "title": "Unified Synthea and OMOP Healthcare Schema",
+    "resources": [
+      {
+        "name": "person",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "person_id",
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Unique person identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.patients.id",
+                "omop.person.person_id"
+              ]
+            },
+            {
+              "name": "person_source_value",
+              "type": "string",
+              "description": "Source-system person identifier retained for traceability.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.person_source_value"
+              ]
+            },
+            {
+              "name": "birth_date",
+              "type": "date",
+              "description": "Person date of birth.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.birthdate",
+                "omop.person.birth_datetime"
+              ]
+            },
+            {
+              "name": "death_date",
+              "type": "date",
+              "description": "Person date of death when known.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.deathdate",
+                "omop.death.death_date"
+              ]
+            },
+            {
+              "name": "name_prefix",
+              "type": "string",
+              "description": "Name prefix.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.prefix"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": "Given name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.first"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": "Family name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.last"
+              ]
+            },
+            {
+              "name": "maiden_name",
+              "type": "string",
+              "description": "Maiden family name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.maiden"
+              ]
+            },
+            {
+              "name": "name_suffix",
+              "type": "string",
+              "description": "Name suffix.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.suffix"
+              ]
+            },
+            {
+              "name": "birth_place",
+              "type": "string",
+              "description": "Birth place as source text.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.birthplace"
+              ]
+            },
+            {
+              "name": "gender_source_value",
+              "type": "string",
+              "description": "Gender value as represented by the source.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.gender",
+                "omop.person.gender_source_value"
+              ]
+            },
+            {
+              "name": "gender_concept_id",
+              "type": "string",
+              "description": "Standardized gender concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.gender_concept_id"
+              ]
+            },
+            {
+              "name": "race_source_value",
+              "type": "string",
+              "description": "Race value as represented by the source.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.race",
+                "omop.person.race_source_value"
+              ]
+            },
+            {
+              "name": "race_concept_id",
+              "type": "string",
+              "description": "Standardized race concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.race_concept_id"
+              ]
+            },
+            {
+              "name": "ethnicity_source_value",
+              "type": "string",
+              "description": "Ethnicity value as represented by the source.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.ethnicity",
+                "omop.person.ethnicity_source_value"
+              ]
+            },
+            {
+              "name": "ethnicity_concept_id",
+              "type": "string",
+              "description": "Standardized ethnicity concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.ethnicity_concept_id"
+              ]
+            },
+            {
+              "name": "marital_status_source_value",
+              "type": "string",
+              "description": "Marital status value as represented by the source.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.marital"
+              ]
+            },
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": "Residence location identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.location_id"
+              ]
+            },
+            {
+              "name": "primary_provider_id",
+              "type": "string",
+              "description": "Primary provider identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.provider_id"
+              ]
+            },
+            {
+              "name": "primary_care_site_id",
+              "type": "string",
+              "description": "Primary care site identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.care_site_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "gender_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "race_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "ethnicity_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "location_id",
+              "reference": {
+                "resource": "location",
+                "fields": "location_id"
+              }
+            },
+            {
+              "fields": "primary_provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "primary_care_site_id",
+              "reference": {
+                "resource": "care_site",
+                "fields": "care_site_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "person_identifier",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "person_identifier_id",
+          "fields": [
+            {
+              "name": "person_identifier_id",
+              "type": "string",
+              "description": "Synthetic identifier record key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person owning the identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.patients.id"
+              ]
+            },
+            {
+              "name": "identifier_type",
+              "type": "string",
+              "description": "Atomic identifier category such as driver_license, passport, or social_security_number.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "identifier_value",
+              "type": "string",
+              "description": "Identifier value.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.patients.drivers",
+                "synthea.patients.passport",
+                "synthea.patients.ssn"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "location",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "location_id",
+          "fields": [
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": "Unique geographic location identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.location.location_id"
+              ]
+            },
+            {
+              "name": "location_source_value",
+              "type": "string",
+              "description": "Source location identifier or verbatim identifying value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.location_source_value"
+              ]
+            },
+            {
+              "name": "address_line_1",
+              "type": "string",
+              "description": "Primary street address line.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.address",
+                "synthea.organizations.address",
+                "synthea.providers.address",
+                "omop.location.address_1"
+              ]
+            },
+            {
+              "name": "address_line_2",
+              "type": "string",
+              "description": "Secondary street address line.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.address_2"
+              ]
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "description": "City.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.city",
+                "synthea.organizations.city",
+                "synthea.providers.city",
+                "omop.location.city"
+              ]
+            },
+            {
+              "name": "county",
+              "type": "string",
+              "description": "County.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.county"
+              ]
+            },
+            {
+              "name": "state_region",
+              "type": "string",
+              "description": "State or administrative region.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.state",
+                "synthea.organizations.state",
+                "synthea.providers.state",
+                "omop.location.state"
+              ]
+            },
+            {
+              "name": "postal_code",
+              "type": "string",
+              "description": "Postal code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.zip",
+                "synthea.organizations.zip",
+                "synthea.providers.zip",
+                "omop.location.zip"
+              ]
+            },
+            {
+              "name": "country_source_value",
+              "type": "string",
+              "description": "Country source value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.country_source_value"
+              ]
+            },
+            {
+              "name": "country_concept_id",
+              "type": "string",
+              "description": "Standardized country concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.country_concept_id"
+              ]
+            },
+            {
+              "name": "latitude_degrees",
+              "type": "number",
+              "description": "Latitude in decimal degrees.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.latitude"
+              ]
+            },
+            {
+              "name": "longitude_degrees",
+              "type": "number",
+              "description": "Longitude in decimal degrees.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.longitude"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "country_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "care_site",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "care_site_id",
+          "fields": [
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": "Unique care site identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.organizations.id",
+                "omop.care_site.care_site_id"
+              ]
+            },
+            {
+              "name": "care_site_name",
+              "type": "string",
+              "description": "Care site name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.name",
+                "omop.care_site.care_site_name"
+              ]
+            },
+            {
+              "name": "care_site_source_value",
+              "type": "string",
+              "description": "Source care site identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.care_site_source_value"
+              ]
+            },
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": "Care site location.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.location_id"
+              ]
+            },
+            {
+              "name": "phone_number",
+              "type": "string",
+              "description": "Care site telephone number.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.phone"
+              ]
+            },
+            {
+              "name": "place_of_service_concept_id",
+              "type": "string",
+              "description": "Standardized place-of-service concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.place_of_service_concept_id"
+              ]
+            },
+            {
+              "name": "place_of_service_source_value",
+              "type": "string",
+              "description": "Source place-of-service value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.place_of_service_source_value"
+              ]
+            },
+            {
+              "name": "encounter_count",
+              "type": "integer",
+              "description": "Reported number of encounters performed by the care site.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.utilization"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "location_id",
+              "reference": {
+                "resource": "location",
+                "fields": "location_id"
+              }
+            },
+            {
+              "fields": "place_of_service_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "provider",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "provider_id",
+          "fields": [
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Unique provider identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.providers.id",
+                "omop.provider.provider_id"
+              ]
+            },
+            {
+              "name": "provider_source_value",
+              "type": "string",
+              "description": "Source provider identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.provider_source_value"
+              ]
+            },
+            {
+              "name": "provider_name",
+              "type": "string",
+              "description": "Provider display name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.name",
+                "omop.provider.provider_name"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": "Provider's principal care site.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.organization",
+                "omop.provider.care_site_id"
+              ]
+            },
+            {
+              "name": "gender_source_value",
+              "type": "string",
+              "description": "Provider gender source value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.gender",
+                "omop.provider.gender_source_value"
+              ]
+            },
+            {
+              "name": "gender_concept_id",
+              "type": "string",
+              "description": "Standardized provider gender concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.gender_concept_id"
+              ]
+            },
+            {
+              "name": "specialty_source_value",
+              "type": "string",
+              "description": "Provider specialty source value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.speciality",
+                "omop.provider.specialty_source_value"
+              ]
+            },
+            {
+              "name": "specialty_concept_id",
+              "type": "string",
+              "description": "Standardized provider specialty concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.specialty_concept_id"
+              ]
+            },
+            {
+              "name": "npi",
+              "type": "string",
+              "description": "National Provider Identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.npi"
+              ]
+            },
+            {
+              "name": "dea_number",
+              "type": "string",
+              "description": "Drug Enforcement Administration identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.dea"
+              ]
+            },
+            {
+              "name": "birth_year",
+              "type": "integer",
+              "description": "Provider year of birth.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.year_of_birth"
+              ]
+            },
+            {
+              "name": "encounter_count",
+              "type": "integer",
+              "description": "Reported number of encounters performed by the provider.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.utilization"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "care_site",
+                "fields": "care_site_id"
+              }
+            },
+            {
+              "fields": "gender_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "specialty_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "visit",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "visit_id",
+          "fields": [
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Unique visit or encounter identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.encounters.id",
+                "omop.visit_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person receiving care.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.encounters.patient",
+                "omop.visit_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Associated clinician provider.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": "Visited care site.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.provider",
+                "omop.visit_occurrence.care_site_id"
+              ]
+            },
+            {
+              "name": "visit_concept_id",
+              "type": "string",
+              "description": "Standardized visit concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_concept_id"
+              ]
+            },
+            {
+              "name": "visit_source_code",
+              "type": "string",
+              "description": "Source encounter or visit code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.code",
+                "omop.visit_occurrence.visit_source_value"
+              ]
+            },
+            {
+              "name": "visit_description",
+              "type": "string",
+              "description": "Source description of the encounter type.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.description"
+              ]
+            },
+            {
+              "name": "visit_class_source_value",
+              "type": "string",
+              "description": "Source encounter class.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.encounterclass"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": "Visit start date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.start",
+                "omop.visit_occurrence.visit_start_datetime",
+                "omop.visit_occurrence.visit_start_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": "Visit end date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.stop",
+                "omop.visit_occurrence.visit_end_datetime",
+                "omop.visit_occurrence.visit_end_date"
+              ]
+            },
+            {
+              "name": "reason_source_code",
+              "type": "string",
+              "description": "Source code for the principal visit reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": "Description of the principal visit reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.reasondescription"
+              ]
+            },
+            {
+              "name": "preceding_visit_id",
+              "type": "string",
+              "description": "Immediately preceding visit.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.preceding_visit_occurrence_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "care_site",
+                "fields": "care_site_id"
+              }
+            },
+            {
+              "fields": "visit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "preceding_visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "condition",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "condition_id",
+          "fields": [
+            {
+              "name": "condition_id",
+              "type": "string",
+              "description": "Unique condition occurrence identifier; generated for sources without an event key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_occurrence_id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person experiencing the condition.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.conditions.patient",
+                "omop.condition_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit during which the condition was recorded.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.encounter",
+                "omop.condition_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Provider responsible for recording the condition.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "condition_concept_id",
+              "type": "string",
+              "description": "Standardized condition concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_concept_id"
+              ]
+            },
+            {
+              "name": "condition_source_code",
+              "type": "string",
+              "description": "Source condition code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.code",
+                "omop.condition_occurrence.condition_source_value"
+              ]
+            },
+            {
+              "name": "condition_description",
+              "type": "string",
+              "description": "Source condition description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.description"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": "Condition onset or recording date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.start",
+                "omop.condition_occurrence.condition_start_datetime",
+                "omop.condition_occurrence.condition_start_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": "Condition end date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.stop",
+                "omop.condition_occurrence.condition_end_datetime",
+                "omop.condition_occurrence.condition_end_date"
+              ]
+            },
+            {
+              "name": "status_concept_id",
+              "type": "string",
+              "description": "Standardized condition status concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_status_concept_id"
+              ]
+            },
+            {
+              "name": "status_source_value",
+              "type": "string",
+              "description": "Source condition status.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_status_source_value"
+              ]
+            },
+            {
+              "name": "stop_reason",
+              "type": "string",
+              "description": "Reason the condition ended.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.stop_reason"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "condition_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "status_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "drug_exposure",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "drug_exposure_id",
+          "fields": [
+            {
+              "name": "drug_exposure_id",
+              "type": "string",
+              "description": "Unique drug exposure identifier; generated for sources without an event key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_exposure_id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person receiving the drug.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.medications.patient",
+                "synthea.immunizations.patient",
+                "omop.drug_exposure.person_id"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit associated with the drug exposure.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.encounter",
+                "synthea.immunizations.encounter",
+                "omop.drug_exposure.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Prescribing or administering provider.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.provider_id"
+              ]
+            },
+            {
+              "name": "drug_concept_id",
+              "type": "string",
+              "description": "Standardized drug concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_concept_id"
+              ]
+            },
+            {
+              "name": "drug_source_code",
+              "type": "string",
+              "description": "Source drug or vaccine code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.code",
+                "synthea.immunizations.code",
+                "omop.drug_exposure.drug_source_value"
+              ]
+            },
+            {
+              "name": "drug_description",
+              "type": "string",
+              "description": "Source drug or vaccine description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.description",
+                "synthea.immunizations.description"
+              ]
+            },
+            {
+              "name": "exposure_category",
+              "type": "string",
+              "description": "Atomic category distinguishing medication from immunization.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": "Drug exposure start or administration date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.start",
+                "synthea.immunizations.date",
+                "omop.drug_exposure.drug_exposure_start_datetime",
+                "omop.drug_exposure.drug_exposure_start_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": "Drug exposure end date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.stop",
+                "omop.drug_exposure.drug_exposure_end_datetime",
+                "omop.drug_exposure.drug_exposure_end_date"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": "Drug quantity.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.quantity"
+              ]
+            },
+            {
+              "name": "days_supply",
+              "type": "integer",
+              "description": "Number of days supplied.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.days_supply"
+              ]
+            },
+            {
+              "name": "refill_count",
+              "type": "integer",
+              "description": "Number of refills.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.refills"
+              ]
+            },
+            {
+              "name": "route_concept_id",
+              "type": "string",
+              "description": "Standardized administration route.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.route_concept_id"
+              ]
+            },
+            {
+              "name": "route_source_value",
+              "type": "string",
+              "description": "Source administration route.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.route_source_value"
+              ]
+            },
+            {
+              "name": "lot_number",
+              "type": "string",
+              "description": "Manufacturer lot identifier.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.lot_number"
+              ]
+            },
+            {
+              "name": "prescription_directions",
+              "type": "string",
+              "description": "Verbatim prescription directions.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.sig"
+              ]
+            },
+            {
+              "name": "reason_source_code",
+              "type": "string",
+              "description": "Source code for the prescribing reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": "Description of the prescribing reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.reasondescription"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "drug_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "route_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "procedure",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "procedure_id",
+          "fields": [
+            {
+              "name": "procedure_id",
+              "type": "string",
+              "description": "Unique procedure identifier; generated for sources without an event key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_occurrence_id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person receiving the procedure.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.procedures.patient",
+                "omop.procedure_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit during which the procedure occurred.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.encounter",
+                "omop.procedure_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Provider responsible for the procedure.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "procedure_concept_id",
+              "type": "string",
+              "description": "Standardized procedure concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_concept_id"
+              ]
+            },
+            {
+              "name": "procedure_source_code",
+              "type": "string",
+              "description": "Source procedure code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.code",
+                "omop.procedure_occurrence.procedure_source_value"
+              ]
+            },
+            {
+              "name": "procedure_description",
+              "type": "string",
+              "description": "Source procedure description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.description"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": "Procedure start date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.date",
+                "omop.procedure_occurrence.procedure_datetime",
+                "omop.procedure_occurrence.procedure_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": "Procedure end date and time.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_end_datetime",
+                "omop.procedure_occurrence.procedure_end_date"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": "Number of procedures performed.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.quantity"
+              ]
+            },
+            {
+              "name": "reason_source_code",
+              "type": "string",
+              "description": "Source code for the procedure reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": "Description of the procedure reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.reasondescription"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "procedure_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "clinical_observation",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "clinical_observation_id",
+          "fields": [
+            {
+              "name": "clinical_observation_id",
+              "type": "string",
+              "description": "Unique observation or measurement identifier; generated for sources without an event key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.observation.observation_id",
+                "omop.measurement.measurement_id"
+              ]
+            },
+            {
+              "name": "observation_kind",
+              "type": "string",
+              "description": "Atomic classification as observation or measurement.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person about whom the value was recorded.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.observations.patient",
+                "omop.observation.person_id",
+                "omop.measurement.person_id"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Associated visit.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.encounter",
+                "omop.observation.visit_occurrence_id",
+                "omop.measurement.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Provider responsible for the observation.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.provider_id",
+                "omop.measurement.provider_id"
+              ]
+            },
+            {
+              "name": "observation_concept_id",
+              "type": "string",
+              "description": "Standardized observation or measurement concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_concept_id",
+                "omop.measurement.measurement_concept_id"
+              ]
+            },
+            {
+              "name": "source_code",
+              "type": "string",
+              "description": "Source observation or measurement code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.code",
+                "omop.observation.observation_source_value",
+                "omop.measurement.measurement_source_value"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": "Source observation description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.description"
+              ]
+            },
+            {
+              "name": "observed_datetime",
+              "type": "datetime",
+              "description": "Date and time of observation.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.date",
+                "omop.observation.observation_datetime",
+                "omop.observation.observation_date",
+                "omop.measurement.measurement_datetime",
+                "omop.measurement.measurement_date"
+              ]
+            },
+            {
+              "name": "value_number",
+              "type": "number",
+              "description": "Numeric result, normalized to the applicable SI unit when the quantity is physical and convertible.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.value",
+                "omop.observation.value_as_number",
+                "omop.measurement.value_as_number"
+              ]
+            },
+            {
+              "name": "value_string",
+              "type": "string",
+              "description": "Textual result.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.value",
+                "omop.observation.value_as_string",
+                "omop.observation.value_source_value",
+                "omop.measurement.value_source_value"
+              ]
+            },
+            {
+              "name": "value_concept_id",
+              "type": "string",
+              "description": "Standardized categorical result concept.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.value_as_concept_id",
+                "omop.measurement.value_as_concept_id"
+              ]
+            },
+            {
+              "name": "source_value_type",
+              "type": "string",
+              "description": "Source-declared result datatype.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.type"
+              ]
+            },
+            {
+              "name": "unit_source_value",
+              "type": "string",
+              "description": "Verbatim source unit.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.units",
+                "omop.observation.unit_source_value",
+                "omop.measurement.unit_source_value"
+              ]
+            },
+            {
+              "name": "unit_concept_id",
+              "type": "string",
+              "description": "Standardized unit concept, representing the SI unit where applicable.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.unit_concept_id",
+                "omop.measurement.unit_concept_id"
+              ]
+            },
+            {
+              "name": "range_low",
+              "type": "number",
+              "description": "Lower reference limit in the same normalized unit as the result.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.range_low"
+              ]
+            },
+            {
+              "name": "range_high",
+              "type": "number",
+              "description": "Upper reference limit in the same normalized unit as the result.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.range_high"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "observation_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "value_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "allergy",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "allergy_id",
+          "fields": [
+            {
+              "name": "allergy_id",
+              "type": "string",
+              "description": "Synthetic allergy event identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person with the allergy.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.allergies.patient"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit at diagnosis.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.encounter"
+              ]
+            },
+            {
+              "name": "allergy_source_code",
+              "type": "string",
+              "description": "Source allergy code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.code"
+              ]
+            },
+            {
+              "name": "allergy_description",
+              "type": "string",
+              "description": "Allergy description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.description"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": "Allergy diagnosis date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.start"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": "Allergy end date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.stop"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "care_plan",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "care_plan_id",
+          "fields": [
+            {
+              "name": "care_plan_id",
+              "type": "string",
+              "description": "Unique care plan identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.careplans.id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person receiving the plan.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.careplans.patient"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit where the plan was initiated.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.encounter"
+              ]
+            },
+            {
+              "name": "care_plan_source_code",
+              "type": "string",
+              "description": "Source care plan code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.code"
+              ]
+            },
+            {
+              "name": "care_plan_description",
+              "type": "string",
+              "description": "Care plan description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.description"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": "Care plan start date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.start"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": "Care plan end date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.stop"
+              ]
+            },
+            {
+              "name": "reason_source_code",
+              "type": "string",
+              "description": "Source diagnosis code addressed by the plan.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": "Description of the plan reason.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.reasondescription"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "imaging_study",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "imaging_study_id",
+          "fields": [
+            {
+              "name": "imaging_study_id",
+              "type": "string",
+              "description": "Unique imaging study identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Person imaged.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.patient"
+              ]
+            },
+            {
+              "name": "visit_id",
+              "type": "string",
+              "description": "Visit where imaging occurred.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.encounter"
+              ]
+            },
+            {
+              "name": "study_date",
+              "type": "date",
+              "description": "Imaging study date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.date"
+              ]
+            },
+            {
+              "name": "body_site_code",
+              "type": "string",
+              "description": "SNOMED body-site code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.body site code"
+              ]
+            },
+            {
+              "name": "body_site_description",
+              "type": "string",
+              "description": "Body-site description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.body site description"
+              ]
+            },
+            {
+              "name": "modality_code",
+              "type": "string",
+              "description": "DICOM modality code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.modality code"
+              ]
+            },
+            {
+              "name": "modality_description",
+              "type": "string",
+              "description": "Imaging modality description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.modality description"
+              ]
+            },
+            {
+              "name": "sop_code",
+              "type": "string",
+              "description": "DICOM SOP code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.sop code"
+              ]
+            },
+            {
+              "name": "sop_description",
+              "type": "string",
+              "description": "DICOM SOP description.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.sop description"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "visit_id",
+              "reference": {
+                "resource": "visit",
+                "fields": "visit_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "cost",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "cost_id",
+          "fields": [
+            {
+              "name": "cost_id",
+              "type": "string",
+              "description": "Unique cost record identifier; generated for source rows without a cost key.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.cost.cost_id"
+              ]
+            },
+            {
+              "name": "cost_event_id",
+              "type": "string",
+              "description": "Identifier of the clinical event to which the cost applies.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.cost_event_id"
+              ]
+            },
+            {
+              "name": "cost_domain_id",
+              "type": "string",
+              "description": "Domain identifying the event resource.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.cost_domain_id"
+              ]
+            },
+            {
+              "name": "cost_category",
+              "type": "string",
+              "description": "Atomic category for source line-item or encounter base cost.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "source_cost_amount",
+              "type": "number",
+              "description": "Cost amount supplied by Synthea for the associated source event.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.cost",
+                "synthea.immunizations.cost",
+                "synthea.medications.cost",
+                "synthea.procedures.cost"
+              ]
+            },
+            {
+              "name": "currency_concept_id",
+              "type": "string",
+              "description": "Currency concept for monetary amounts.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.currency_concept_id"
+              ]
+            },
+            {
+              "name": "total_charge",
+              "type": "number",
+              "description": "Total amount charged.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_charge"
+              ]
+            },
+            {
+              "name": "total_cost",
+              "type": "number",
+              "description": "Provider-incurred cost.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_cost"
+              ]
+            },
+            {
+              "name": "total_paid",
+              "type": "number",
+              "description": "Total amount paid.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_paid"
+              ]
+            },
+            {
+              "name": "paid_by_patient",
+              "type": "number",
+              "description": "Amount paid by the patient.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_by_patient"
+              ]
+            },
+            {
+              "name": "paid_by_payer",
+              "type": "number",
+              "description": "Amount paid by payer.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_by_payer"
+              ]
+            },
+            {
+              "name": "amount_allowed",
+              "type": "number",
+              "description": "Contractually allowed amount.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.amount_allowed"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "currency_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "cost_domain_id",
+              "reference": {
+                "resource": "domain",
+                "fields": "domain_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "concept",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "concept_id",
+          "fields": [
+            {
+              "name": "concept_id",
+              "type": "string",
+              "description": "Unique standardized concept identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.concept.concept_id"
+              ]
+            },
+            {
+              "name": "concept_code",
+              "type": "string",
+              "description": "Code within the source vocabulary.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_code"
+              ]
+            },
+            {
+              "name": "concept_name",
+              "type": "string",
+              "description": "Concept name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_name"
+              ]
+            },
+            {
+              "name": "domain_id",
+              "type": "string",
+              "description": "Concept domain.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.domain_id"
+              ]
+            },
+            {
+              "name": "vocabulary_id",
+              "type": "string",
+              "description": "Concept vocabulary.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.vocabulary_id"
+              ]
+            },
+            {
+              "name": "concept_class_id",
+              "type": "string",
+              "description": "Concept class.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_class_id"
+              ]
+            },
+            {
+              "name": "standard_concept_flag",
+              "type": "string",
+              "description": "Standard or classification concept flag.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.standard_concept"
+              ]
+            },
+            {
+              "name": "valid_start_date",
+              "type": "date",
+              "description": "Concept validity start date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.valid_start_date"
+              ]
+            },
+            {
+              "name": "valid_end_date",
+              "type": "date",
+              "description": "Concept validity end date.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.valid_end_date"
+              ]
+            },
+            {
+              "name": "invalid_reason",
+              "type": "string",
+              "description": "Concept invalidation reason code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.invalid_reason"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "domain_id",
+              "reference": {
+                "resource": "domain",
+                "fields": "domain_id"
+              }
+            },
+            {
+              "fields": "vocabulary_id",
+              "reference": {
+                "resource": "vocabulary",
+                "fields": "vocabulary_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "domain",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "domain_id",
+          "fields": [
+            {
+              "name": "domain_id",
+              "type": "string",
+              "description": "Unique domain identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.domain.domain_id"
+              ]
+            },
+            {
+              "name": "domain_name",
+              "type": "string",
+              "description": "Domain name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.domain.domain_name"
+              ]
+            },
+            {
+              "name": "domain_concept_id",
+              "type": "string",
+              "description": "Concept representing the domain.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.domain.domain_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "domain_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "vocabulary",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "vocabulary_id",
+          "fields": [
+            {
+              "name": "vocabulary_id",
+              "type": "string",
+              "description": "Unique vocabulary identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_id"
+              ]
+            },
+            {
+              "name": "vocabulary_name",
+              "type": "string",
+              "description": "Vocabulary name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_name"
+              ]
+            },
+            {
+              "name": "vocabulary_reference",
+              "type": "string",
+              "description": "External vocabulary reference.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_reference"
+              ]
+            },
+            {
+              "name": "vocabulary_version",
+              "type": "string",
+              "description": "Vocabulary version.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_version"
+              ]
+            },
+            {
+              "name": "vocabulary_concept_id",
+              "type": "string",
+              "description": "Concept representing the vocabulary.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "vocabulary_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "conflict_report": [
+    {
+      "conflict_type": "Naming",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients",
+            "omop.person"
+          ],
+          "description": "The same human subject entity is named patients in Synthea and person in OMOP, with differing attribute names such as birthdate versus birth_datetime.",
+          "resolution": "Adopted the singular canonical resource person and descriptive snake_case field names while retaining exact source provenance."
+        },
+        {
+          "source_references": [
+            "synthea.encounters",
+            "omop.visit_occurrence"
+          ],
+          "description": "Synthea encounter and OMOP visit occurrence represent the same high-level care interaction under different terminology.",
+          "resolution": "Unified both as visit; OMOP visit detail remains a finer-grained source structure rather than being conflated with the encounter identity."
+        },
+        {
+          "source_references": [
+            "synthea.providers.speciality",
+            "omop.provider.specialty_source_value"
+          ],
+          "description": "Equivalent provider specialty attributes use a misspelling and different naming conventions.",
+          "resolution": "Standardized the target name to specialty_source_value."
+        },
+        {
+          "source_references": [
+            "synthea.imaging_studies.body site code",
+            "synthea.imaging_studies.modality code"
+          ],
+          "description": "Several Synthea imaging columns contain spaces and violate target naming conventions.",
+          "resolution": "Converted all target identifiers to snake_case without changing their semantics."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Type",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.encounters.cost",
+            "synthea.immunizations.cost",
+            "synthea.medications.cost",
+            "synthea.procedures.cost",
+            "omop.cost.total_cost",
+            "omop.cost.total_charge",
+            "omop.cost.total_paid"
+          ],
+          "description": "Monetary amounts are mostly declared as strings, despite representing numeric quantities.",
+          "resolution": "Represented monetary amounts as number and retained currency separately through a concept identifier."
+        },
+        {
+          "source_references": [
+            "synthea.organizations.utilization",
+            "synthea.providers.utilization",
+            "omop.condition_era.condition_occurrence_count",
+            "omop.drug_era.drug_exposure_count"
+          ],
+          "description": "Counts are represented as strings in multiple source structures.",
+          "resolution": "Canonical count attributes use integer."
+        },
+        {
+          "source_references": [
+            "synthea.observations.type",
+            "synthea.observations.value",
+            "omop.observation.value_as_number",
+            "omop.observation.value_as_string",
+            "omop.measurement.value_as_number"
+          ],
+          "description": "Synthea declares the value datatype as number while storing the actual result as string; OMOP separates typed result columns.",
+          "resolution": "Used separate numeric, string, and concept-valued result fields and retained the source datatype declaration independently."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.start",
+            "synthea.encounters.stop",
+            "omop.visit_occurrence.visit_start_datetime",
+            "omop.visit_occurrence.visit_end_datetime"
+          ],
+          "description": "Fields described as date-times are declared as date in both source schemas.",
+          "resolution": "Canonical event timestamps use datetime, while genuinely date-only attributes remain date."
+        },
+        {
+          "source_references": [
+            "omop.concept.invalid_reason",
+            "omop.concept_relationship.invalid_reason",
+            "omop.source_to_concept_map.invalid_reason"
+          ],
+          "description": "Invalidation reason codes are incorrectly typed as date in several OMOP resources.",
+          "resolution": "Canonical invalidation reason attributes use string."
+        },
+        {
+          "source_references": [
+            "omop.vocabulary.vocabulary_name",
+            "omop.drug_exposure.sig"
+          ],
+          "description": "Textual values are incorrectly declared as integer.",
+          "resolution": "Canonical names and prescription directions use string."
+        },
+        {
+          "source_references": [
+            "omop.location.latitude",
+            "omop.location.longitude"
+          ],
+          "description": "Coordinates are declared as strings.",
+          "resolution": "Coordinates use number in decimal degrees."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Data Semantic",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.conditions.code",
+            "omop.condition_occurrence.condition_concept_id",
+            "omop.condition_occurrence.condition_source_value"
+          ],
+          "description": "Synthea stores a SNOMED source code directly, whereas OMOP distinguishes a standardized concept identifier from the verbatim source code.",
+          "resolution": "Kept standardized concept identity and source code in separate fields; no source code was treated as an OMOP concept identifier without vocabulary mapping."
+        },
+        {
+          "source_references": [
+            "synthea.observations.units",
+            "omop.measurement.unit_source_value",
+            "omop.measurement.unit_concept_id"
+          ],
+          "description": "Units may be free text, source codes, or standardized concepts and may use non-SI scales.",
+          "resolution": "Retained verbatim units separately and defined numeric physical results to be normalized to the applicable SI unit, with the standardized unit concept recording the normalized unit."
+        },
+        {
+          "source_references": [
+            "synthea.patients.gender",
+            "omop.person.gender_source_value",
+            "omop.person.gender_concept_id"
+          ],
+          "description": "Synthea uses compact M/F encoding while OMOP distinguishes source values from standardized concepts.",
+          "resolution": "Preserved source encoding in gender_source_value and kept the standardized concept in a distinct foreign key."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.provider",
+            "omop.visit_occurrence.provider_id",
+            "omop.visit_occurrence.care_site_id"
+          ],
+          "description": "The Synthea encounter field named provider semantically references an organization, while OMOP provider_id references a clinician.",
+          "resolution": "Mapped the Synthea field only to care_site_id and kept clinician provider_id semantically separate."
+        },
+        {
+          "source_references": [
+            "synthea.medications.code",
+            "synthea.immunizations.code",
+            "omop.drug_exposure.drug_source_value"
+          ],
+          "description": "Medication codes use RxNorm, immunization codes use CVX, and OMOP drug source values can use multiple vocabularies.",
+          "resolution": "Unified them as drug exposures but retained the source code and an explicit exposure category; standardized concept assignment remains vocabulary-aware."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.cost",
+            "omop.cost.total_cost",
+            "omop.cost.total_charge",
+            "omop.cost.total_paid"
+          ],
+          "description": "Synthea cost is a base or line-item amount, while OMOP distinguishes charged, incurred, and paid amounts.",
+          "resolution": "Preserved Synthea amounts as source_cost_amount and kept OMOP financial measures separate rather than asserting false equivalence."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Structure",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients.address",
+            "synthea.organizations.address",
+            "synthea.providers.address",
+            "omop.location"
+          ],
+          "description": "Synthea repeats address attributes inside person, organization, and provider tables, while OMOP normalizes addresses into location.",
+          "resolution": "Adopted a normalized location resource referenced by people and care sites; provider location can be represented through its care site."
+        },
+        {
+          "source_references": [
+            "synthea.patients.drivers",
+            "synthea.patients.passport",
+            "synthea.patients.ssn"
+          ],
+          "description": "Multiple identifier types are stored as separate columns on the patient record.",
+          "resolution": "Normalized identifiers into person_identifier with one atomic identifier type and value per row."
+        },
+        {
+          "source_references": [
+            "synthea.observations",
+            "omop.observation",
+            "omop.measurement"
+          ],
+          "description": "Synthea combines laboratory measurements and observations, while OMOP decomposes them into domain-specific tables.",
+          "resolution": "Created a common clinical_observation resource with an explicit observation_kind discriminator and typed values."
+        },
+        {
+          "source_references": [
+            "synthea.immunizations",
+            "synthea.medications",
+            "omop.drug_exposure"
+          ],
+          "description": "Synthea separates immunizations from medications, while OMOP can represent administrations in drug exposure.",
+          "resolution": "Unified both event forms in drug_exposure and preserved their category explicitly."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.cost",
+            "synthea.medications.cost",
+            "synthea.immunizations.cost",
+            "synthea.procedures.cost",
+            "omop.cost"
+          ],
+          "description": "Synthea embeds costs on clinical event rows, while OMOP stores cost in a separate polymorphic resource.",
+          "resolution": "Normalized all financial values into cost, linked conceptually to the applicable clinical event."
+        },
+        {
+          "source_references": [
+            "omop.visit_occurrence",
+            "omop.visit_detail",
+            "synthea.encounters"
+          ],
+          "description": "OMOP supports a two-level visit hierarchy, whereas Synthea provides only a single encounter level.",
+          "resolution": "Used visit as the common encounter level; OMOP visit-detail hierarchy is retained as optional finer-grained information rather than merged into unrelated event identifiers."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Cardinality",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients.address",
+            "synthea.organizations.address",
+            "synthea.providers.address",
+            "omop.location.location_id"
+          ],
+          "description": "Embedded source addresses imply one address snapshot per entity row, while a normalized location may be shared by many entities.",
+          "resolution": "Modeled many people or care sites to one location through foreign keys and avoided embedding composite addresses."
+        },
+        {
+          "source_references": [
+            "synthea.patients.drivers",
+            "synthea.patients.passport",
+            "synthea.patients.ssn"
+          ],
+          "description": "The wide Synthea patient row limits each identifier category to at most one value, while identifiers are conceptually repeatable.",
+          "resolution": "Modeled person to person_identifier as one-to-many."
+        },
+        {
+          "source_references": [
+            "synthea.encounters",
+            "omop.visit_occurrence",
+            "omop.visit_detail"
+          ],
+          "description": "Synthea has one encounter level, while OMOP permits one visit occurrence to contain many visit details.",
+          "resolution": "Kept the common visit grain and treated detail records as optional children when that OMOP granularity is needed."
+        },
+        {
+          "source_references": [
+            "synthea.observations.value",
+            "omop.observation.value_as_number",
+            "omop.observation.value_as_string",
+            "omop.observation.value_as_concept_id"
+          ],
+          "description": "A source observation has one polymorphic result, represented through different physical columns in OMOP.",
+          "resolution": "Retained mutually exclusive typed value columns on one clinical observation row rather than creating multiple observation rows."
+        },
+        {
+          "source_references": [
+            "omop.cohort.subject_id",
+            "omop.fact_relationship.fact_id_1",
+            "omop.fact_relationship.fact_id_2"
+          ],
+          "description": "Several OMOP resources use polymorphic references that can target multiple entity domains and cannot be represented by one ordinary foreign key.",
+          "resolution": "Kept domain/type metadata conceptually separate from event identifiers and did not collapse polymorphic identifiers into person, provider, or visit foreign keys."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Key",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients.id",
+            "omop.person.person_id"
+          ],
+          "description": "Equivalent person entities use different primary-key names, and Synthea does not formally declare its documented key.",
+          "resolution": "Defined person_id as the required primary key with provenance from both source identifiers."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.id",
+            "omop.visit_occurrence.visit_occurrence_id"
+          ],
+          "description": "Equivalent encounter entities use differently named identifiers and only OMOP formally declares the key.",
+          "resolution": "Defined visit_id as the unified primary key with provenance from both source identifiers."
+        },
+        {
+          "source_references": [
+            "synthea.organizations.id",
+            "omop.care_site.care_site_id"
+          ],
+          "description": "Organization and care-site identifiers name the same facility identity differently.",
+          "resolution": "Defined care_site_id as the unified facility key with provenance from both sources."
+        },
+        {
+          "source_references": [
+            "synthea.conditions",
+            "synthea.medications",
+            "synthea.procedures",
+            "synthea.observations",
+            "omop.condition_occurrence.condition_occurrence_id",
+            "omop.drug_exposure.drug_exposure_id",
+            "omop.procedure_occurrence.procedure_occurrence_id",
+            "omop.observation.observation_id",
+            "omop.measurement.measurement_id"
+          ],
+          "description": "Several Synthea event tables have no declared or documented event key, while corresponding OMOP resources have event identifiers that are not consistently declared as primary keys.",
+          "resolution": "Established required target event keys; OMOP identifiers supply provenance where present, and deterministic surrogate values are generated for keyless source rows."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.provider",
+            "synthea.providers.id",
+            "omop.visit_occurrence.provider_id",
+            "omop.visit_occurrence.care_site_id"
+          ],
+          "description": "The name provider is a foreign-key homonym: it points to an organization in Synthea encounters but to a clinician in OMOP visits.",
+          "resolution": "Defined separate care_site_id and provider_id foreign keys and never combined their provenance."
+        },
+        {
+          "source_references": [
+            "omop.episode_event.event_id",
+            "omop.cost.cost_event_id",
+            "omop.fact_relationship.fact_id_1",
+            "omop.fact_relationship.fact_id_2"
+          ],
+          "description": "OMOP polymorphic event identifiers do not reference a single declared resource key.",
+          "resolution": "Preserved domain/type discriminators with polymorphic identifiers and avoided declaring invalid ordinary foreign keys."
+        }
+      ]
+    }
+  ]
+}

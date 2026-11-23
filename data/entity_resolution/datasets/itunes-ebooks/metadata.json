@@ -1,0 +1,24 @@
+{
+  "name": "itunes-ebooks",
+  "domain": "ebooks",
+  "ground_truth_type": "sampled",
+  "table_a": {
+    "file": "itunes.csv",
+    "id_column": "record_id"
+  },
+  "table_b": {
+    "file": "ebooks.csv",
+    "id_column": "record_id"
+  },
+  "ground_truth": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.record_id",
+    "column_b": "rtable.record_id",
+    "label_column": "gold"
+  },
+  "candidates": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.record_id",
+    "column_b": "rtable.record_id"
+  }
+}

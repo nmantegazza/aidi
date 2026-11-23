@@ -1,0 +1,284 @@
+{
+  "rules": [
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "musicianID",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "musician"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "musicianName",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "musicianLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "genderType",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "genderLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "birthDate",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "birthDate"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "city",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "cityLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "familyName",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "familyNameLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "forename",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "givenNameLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "fatherName",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "fatherLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "motherName",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "motherLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "spouse",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "partner"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "NChildren",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "numberOfChildren"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "kind",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "genreLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "webpage",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "websiteLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "residence",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "residenceLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "ethnicity",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "ethnicityLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "religionLabel",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "religionLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "kickoff",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "activityStart"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "twitterUsername",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "twitterNameLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "geniusNameLabel",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "geniusNameLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "Musicians_unionable_target",
+      "target_column": "recordCompany",
+      "source_label": "Musicians_unionable_source",
+      "source_table": "Musicians_unionable_source",
+      "source_columns": [
+        "recordLabelLabel"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    }
+  ]
+}

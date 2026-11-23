@@ -1,0 +1,753 @@
+{
+  "dataset_name": "synthea-omop",
+  "domain": "Clinical & Healthcare",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "matches_count": 124,
+  "matches": [
+    {
+      "source_table": "patients",
+      "source_column": "gender",
+      "target_table": "person",
+      "target_column": "gender_concept_id"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "birthdate",
+      "target_table": "person",
+      "target_column": "year_of_birth"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "birthdate",
+      "target_table": "person",
+      "target_column": "month_of_birth"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "birthdate",
+      "target_table": "person",
+      "target_column": "day_of_birth"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "birthdate",
+      "target_table": "person",
+      "target_column": "birth_datetime"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "deathdate",
+      "target_table": "death",
+      "target_column": "death_datetime"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "deathdate",
+      "target_table": "death",
+      "target_column": "death_date"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "ethnicity",
+      "target_table": "person",
+      "target_column": "ethnicity_concept_id"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "ethnicity",
+      "target_table": "person",
+      "target_column": "ethnicity_source_value"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "ethnicity",
+      "target_table": "person",
+      "target_column": "ethnicity_source_concept_id"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "id",
+      "target_table": "person",
+      "target_column": "person_source_value"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "gender",
+      "target_table": "person",
+      "target_column": "gender_source_value"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "race",
+      "target_table": "person",
+      "target_column": "race_source_value"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "race",
+      "target_table": "person",
+      "target_column": "race_concept_id"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "race",
+      "target_table": "person",
+      "target_column": "race_source_concept_id"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "city",
+      "target_table": "location",
+      "target_column": "city"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "state",
+      "target_table": "location",
+      "target_column": "state"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "zip",
+      "target_table": "location",
+      "target_column": "zip"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "zip",
+      "target_table": "location",
+      "target_column": "location_source_value"
+    },
+    {
+      "source_table": "patients",
+      "source_column": "birthplace",
+      "target_table": "location",
+      "target_column": "city"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "provider",
+      "target_table": "provider",
+      "target_column": "provider_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "patient",
+      "target_table": "visit_occurrence",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "encounterclass",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_concept_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "start",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_start_date"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "start",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_start_datetime"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "stop",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_end_date"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "stop",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_end_datetime"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "encounterclass",
+      "target_table": "visit_occurrence",
+      "target_column": "visit_source_value"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "provider",
+      "target_table": "visit_detail",
+      "target_column": "provider_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "patient",
+      "target_table": "visit_detail",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "encounterclass",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_concept_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "start",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_start_date"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "start",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_start_datetime"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "stop",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_end_date"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "stop",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_end_datetime"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "encounterclass",
+      "target_table": "visit_detail",
+      "target_column": "visit_detail_source_value"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "patient",
+      "target_table": "measurement",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "patient",
+      "target_table": "measurement",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_concept_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_concept_id"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "date",
+      "target_table": "measurement",
+      "target_column": "measurement_date"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "date",
+      "target_table": "measurement",
+      "target_column": "measurement_date"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "date",
+      "target_table": "measurement",
+      "target_column": "measurement_datetime"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "date",
+      "target_table": "measurement",
+      "target_column": "measurement_datetime"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "date",
+      "target_table": "measurement",
+      "target_column": "measurement_time"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "value",
+      "target_table": "measurement",
+      "target_column": "value_as_number"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "encounter",
+      "target_table": "measurement",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "encounter",
+      "target_table": "measurement",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_source_value"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_source_value"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_source_concept_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "measurement",
+      "target_column": "measurement_source_concept_id"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "units",
+      "target_table": "measurement",
+      "target_column": "unit_source_value"
+    },
+    {
+      "source_table": "observations",
+      "source_column": "value",
+      "target_table": "measurement",
+      "target_column": "value_source_value"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "patient",
+      "target_table": "procedure_occurrence",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_concept_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "date",
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_date"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "date",
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_datetime"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "encounter",
+      "target_table": "procedure_occurrence",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_source_value"
+    },
+    {
+      "source_table": "procedures",
+      "source_column": "code",
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_source_concept_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "patient",
+      "target_table": "condition_occurrence",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_concept_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_start_date"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_start_datetime"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "stop",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_end_date"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "stop",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_end_datetime"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "encounter",
+      "target_table": "condition_occurrence",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "encounter",
+      "target_table": "condition_occurrence",
+      "target_column": "visit_detail_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_source_value"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "condition_occurrence",
+      "target_column": "condition_source_concept_id"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "patient",
+      "target_table": "observation",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "patient",
+      "target_table": "observation",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_concept_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_concept_id"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "start",
+      "target_table": "observation",
+      "target_column": "observation_date"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "observation",
+      "target_column": "observation_date"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "start",
+      "target_table": "observation",
+      "target_column": "observation_datetime"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "observation",
+      "target_column": "observation_datetime"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "encounter",
+      "target_table": "observation",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "encounter",
+      "target_table": "observation",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_source_value"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_source_value"
+    },
+    {
+      "source_table": "allergies",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_source_concept_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "observation",
+      "target_column": "observation_source_concept_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "patient",
+      "target_table": "observation_period",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "start",
+      "target_table": "observation_period",
+      "target_column": "observation_period_start_date"
+    },
+    {
+      "source_table": "encounters",
+      "source_column": "stop",
+      "target_table": "observation_period",
+      "target_column": "observation_period_end_date"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "patient",
+      "target_table": "drug_exposure",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "patient",
+      "target_table": "drug_exposure",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "patient",
+      "target_table": "drug_exposure",
+      "target_column": "person_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_concept_id"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_concept_id"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_concept_id"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_date"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "date",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_date"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_date"
+    },
+    {
+      "source_table": "conditions",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_datetime"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "date",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_datetime"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_datetime"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "date",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_date"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_date"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "stop",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_date"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "date",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_datetime"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_datetime"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "stop",
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_datetime"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "date",
+      "target_table": "drug_exposure",
+      "target_column": "verbatim_end_date"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "stop",
+      "target_table": "drug_exposure",
+      "target_column": "verbatim_end_date"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "start",
+      "target_table": "drug_exposure",
+      "target_column": "days_supply"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "stop",
+      "target_table": "drug_exposure",
+      "target_column": "days_supply"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "encounter",
+      "target_table": "drug_exposure",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "encounter",
+      "target_table": "drug_exposure",
+      "target_column": "visit_occurrence_id"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_value"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_value"
+    },
+    {
+      "source_table": "immunizations",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_concept_id"
+    },
+    {
+      "source_table": "medications",
+      "source_column": "code",
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_concept_id"
+    },
+    {
+      "source_table": "organizations",
+      "source_column": "name",
+      "target_table": "care_site",
+      "target_column": "care_site_name"
+    },
+    {
+      "source_table": "organizations",
+      "source_column": "id",
+      "target_table": "care_site",
+      "target_column": "care_site_source_value"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "name",
+      "target_table": "provider",
+      "target_column": "provider_name"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "id",
+      "target_table": "provider",
+      "target_column": "provider_source_value"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "gender",
+      "target_table": "provider",
+      "target_column": "gender_concept_id"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "gender",
+      "target_table": "provider",
+      "target_column": "gender_source_value"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "gender",
+      "target_table": "provider",
+      "target_column": "gender_source_concept_id"
+    },
+    {
+      "source_table": "providers",
+      "source_column": "specialty",
+      "target_table": "provider",
+      "target_column": "specialty_source_value"
+    }
+  ]
+}

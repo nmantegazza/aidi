@@ -1,0 +1,2 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+customer_loan,customer_id,loan_id,integer,0.898,bank1.availed_by.custid; bank2.borrower.customer_id,bank1.availed_by.loan_id; bank2.borrower.loan_id,Customer holding/availing the loan,Loan availed by the customer

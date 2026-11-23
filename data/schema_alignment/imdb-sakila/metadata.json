@@ -1,0 +1,15 @@
+{
+  "dataset_name": "imdb-sakila",
+  "domain": "Media & Entertainment",
+  "source_a": {
+    "schema_name": "imdb",
+    "table_count": 7,
+    "column_count": 39
+  },
+  "source_b": {
+    "schema_name": "sakila",
+    "table_count": 16,
+    "column_count": 90
+  },
+  "ground_truth_synonyms_count": 35
+}

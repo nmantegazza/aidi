@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-09-20T10:18:42.245836",
+  "agent_name": "FusionPolicyAgent",
+  "model_name": "gemini-3.8-flash",
+  "provider": "google-cloud",
+  "thinking_level": "low",
+  "system_prompt": "You are an expert Data Integration Engineer tasked with defining a TableFusionPolicy for a database table.\nA TableFusionPolicy maps every column in a table to a specific ResolutionStrategy, either as a standalone policy or as part of a FusionGroup.\n\nYour goal is to choose the most appropriate resolution strategy for each column to merge conflicting records from two sources while:\n1. Ensuring data quality and coherence (preventing \"Frankenstein records\").\n2. Adhering strictly to the Strategy Compatibility Matrix.\n3. Making sure 100% of columns are covered exactly once.\n\n### Strategy Compatibility Matrix\nOnly select strategies compatible with each column's Physical Type as defined below:\n- **INTEGER**: trust_source, coalesce, numeric_max, numeric_min\n- **FLOAT**: trust_source, coalesce, numeric_max, numeric_min, numeric_avg\n- **BOOLEAN**: trust_source, coalesce\n- **DATETIME**: trust_source, coalesce, most_recent\n- **TEXT**: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n\n*Note: The format_preserving strategy is also eligible, but ONLY for columns with physical type TEXT where semantic type is NOT NONE (i.e. EMAIL, PHONE, URL, GEOSPATIAL, UUID).*\n\n### Primary Objective: Attribute-Level Conflict Resolution\nThe primary objective of Data Fusion is **attribute-level conflict resolution**, selecting the optimal and most accurate value for each individual attribute independently. Columns describing the same entity are normally independent and should be resolved separately with standalone column policies unless a strict atomic dependency exists between them.\n\n### Fusion Groups Rules\nA Fusion Group is strictly defined as an **atomic, indivisible unit with strong functional, physical, or mathematical dependency** where combining values from different sources creates an impossible, contradictory, or nonsensical entity state. When grouped, all member columns resolve jointly from the single winning source determined by the designated `leader_column`.\n\n#### The Independent Validity Test (CRITICAL)\nBefore creating any Fusion Group, you MUST apply this test:\n> \"Before creating a Fusion Group, ask: If Source A provides the optimal value for Column 1, and Source B provides the optimal value for Column 2, does combining them result in an impossible, contradictory, or corrupted entity? If NO, DO NOT group them.\"\n\n#### When to Group (Valid Atomic Clusters)\nOnly create a Fusion Group when an unbreakable atomic dependency exists:\n- **Coupled Physical/Spatial Coordinates**: e.g., `coordinate_lat` + `coordinate_lon`, or `x_pos` + `y_pos`.\n- **Value and Unit Pairs**: e.g., `amount` + `currency`, `weight` + `weight_unit`, `dimension_length` + `measurement_unit`.\n- **Atomic Compound Address Components**: e.g., `street_address` + `postal_code` + `city` where postal codes are strictly bound to specific streets.\n- **Person Name Components**: `first_name`, `last_name`, `middle_name`, `honorific_salutation` (e.g., Dr./Mr./Ms.) should be grouped. Do NOT confuse honorific salutations with work titles, article titles, or role descriptions.\n- **Mathematical Dependencies**: Columns tied by strict arithmetic relationships where values must originate from the exact same temporal snapshot.\n\n#### Negative Rules (When NOT to Group - Strict Restrictions)\n- **Do NOT group independent descriptive attributes**: Attributes that describe different aspects of an entity (e.g., identifier vs description, creation vs creator, dimensions vs category, status vs notes) MUST be resolved independently. Taking a more complete description from Source A and a cleaner name/title from Source B is valid and preferred.\n- **Do NOT group multi-valued or set attributes**: Multi-valued attributes (e.g., list of contributors, tags, classifications) must remain separate to allow set-based resolution strategies (such as union or intersection).\n- **Do NOT group primary entity identifiers with descriptive attributes**: Keys, IDs, or codes (`primary_record_id`, `code`, `uuid`) must never be grouped with descriptive or metadata columns.\n- **Default to standalone policies**: When in doubt, do NOT create a Fusion Group. Standalone column resolution is the expected standard.\n\nFor each Fusion Group:\n- You must designate a `leader_column` that belongs to the group.\n- The `strategy` of the group is applied to the `leader_column` to decide the winning source for the entire group.\n- The leader column should be the most discriminative/trustworthy column in the group (usually the one with higher conflict rate or clearer data).\n- The strategy for the group must be compatible with the leader column's physical type (or semantic type check for format_preserving).\n- Must contain \u22652 columns (use standalone policies for single columns).\n\n### General Policy Requirements\n- Every single column from the input table profile MUST be covered.\n- No column may be covered more than once (e.g. cannot be in a standalone policy and a fusion group, or in multiple fusion groups).\n- All strategy assignments must be compatible with the corresponding column's (or leader column's) physical type.\n",
+  "user_prompt": "Define a fusion policy for table 'data'.\nTotal record pairs to merge: 2194\n\nColumns metadata:\n- **Column**: FlightID\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 0.00%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.50\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n\n- **Column**: ScheduledDep\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 100.00%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.59\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: 11:55aDec 18 | Source B: 11:55 AM  Sun 18-Dec-2011\n    - Source A: 7:10aDec 22 | Source B: 07:10 AM  Thu 22-Dec-2011\n    - Source A: 6:40aDec 11 | Source B: 06:30 AM  Sun 11-Dec-2011\n\n- **Column**: ActualDep\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 92.66%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.50\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: 7:09aDec 17 | Source B: 07:09 AM  Sat 17-Dec-2011\n    - Source A: 7:03aDec 10 | Source B: 07:03 AM  Sat 10-Dec-2011\n    - Source A: 2:28pDec 11 | Source B: 02:28 PM  Sun 11-Dec-2011\n\n- **Column**: DepGate\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 34.73%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.46\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: - | Source B: D23\n    - Source A: - | Source B: D23\n    - Source A: 92 | Source B: G92\n\n- **Column**: ScheduledArr\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 100.00%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.59\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: 9:43aDec 13 | Source B: \n    - Source A: 7:55pDec 20 | Source B: 07:55 PM  Tue 20-Dec-2011\n    - Source A: 4:38pDec 28 | Source B: \n\n- **Column**: ActualArr\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 90.70%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.49\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: 12:18pDec 22 | Source B: 12:18 PM  Thu 22-Dec-2011\n    - Source A: 2:03pDec 11 | Source B: 2011-12-11 02:03 PM\n    - Source A: 9:35aDec 4 | Source B: 09:35 AM  Sun 04-Dec-2011\n\n- **Column**: ArrGate\n  - Physical Type: TEXT\n  - Semantic Type: NONE\n  - Conflict Rate: 28.17%\n  - Source A Null Rate: 0.00%\n  - Source B Null Rate: 0.00%\n  - Source Trust Score: 0.46\n  - Eligible Strategies: trust_source, coalesce, longest_string, shortest_string, union, intersection, most_words\n  - Sample Conflict Pairs:\n    - Source A: 46A | Source B: 45\n    - Source A: 33 | Source B: C33\n    - Source A: 44I | Source B: 44\n\nAnalyze the table profile above. Construct the TableFusionPolicy, identifying any necessary fusion groups (with leader column and compatible strategy), and assigning standalone column policies for all other columns.",
+  "dependencies": "table_name='data' total_pairs=2194 columns={'FlightID': ColumnConflictProfile(column_name='FlightID', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=0.0, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.5, samples=[]), 'ScheduledDep': ColumnConflictProfile(column_name='ScheduledDep', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=1.0, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.5909221834649254, samples=[ConflictSample(value_a='11:55aDec 18', value_b='11:55 AM  Sun 18-Dec-2011'), ConflictSample(value_a='7:10aDec 22', value_b='07:10 AM  Thu 22-Dec-2011'), ConflictSample(value_a='6:40aDec 11', value_b='06:30 AM  Sun 11-Dec-2011'), ConflictSample(value_a='10:15aDec 13', value_b='10:15 AM  Tue 13-Dec-2011'), ConflictSample(value_a='8:35aDec 22', value_b='08:35 AM  Thu 22-Dec-2011')]), 'ActualDep': ColumnConflictProfile(column_name='ActualDep', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=0.9266180492251596, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.4998314620394003, samples=[ConflictSample(value_a='7:09aDec 17', value_b='07:09 AM  Sat 17-Dec-2011'), ConflictSample(value_a='7:03aDec 10', value_b='07:03 AM  Sat 10-Dec-2011'), ConflictSample(value_a='2:28pDec 11', value_b='02:28 PM  Sun 11-Dec-2011'), ConflictSample(value_a='11:53aDec 13', value_b='11:53 AM  Tue 13-Dec-2011'), ConflictSample(value_a='8:31aDec 3', value_b='08:48 AM  Sat 03-Dec-2011')]), 'DepGate': ColumnConflictProfile(column_name='DepGate', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=0.3473108477666363, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.4648744123590006, samples=[ConflictSample(value_a='-', value_b='D23'), ConflictSample(value_a='-', value_b='D23'), ConflictSample(value_a='92', value_b='G92'), ConflictSample(value_a='E16', value_b='16'), ConflictSample(value_a='-', value_b='D14')]), 'ScheduledArr': ColumnConflictProfile(column_name='ScheduledArr', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=1.0, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.5909186149546427, samples=[ConflictSample(value_a='9:43aDec 13', value_b=''), ConflictSample(value_a='7:55pDec 20', value_b='07:55 PM  Tue 20-Dec-2011'), ConflictSample(value_a='4:38pDec 28', value_b=''), ConflictSample(value_a='3:50pDec 1', value_b='03:50 PM  Thu 01-Dec-2011'), ConflictSample(value_a='2:25pDec 17', value_b='02:25 PM  Sat 17-Dec-2011')]), 'ActualArr': ColumnConflictProfile(column_name='ActualArr', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=0.9070191431175935, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.4867945530590421, samples=[ConflictSample(value_a='12:18pDec 22', value_b='12:18 PM  Thu 22-Dec-2011'), ConflictSample(value_a='2:03pDec 11', value_b='2011-12-11 02:03 PM'), ConflictSample(value_a='9:35aDec 4', value_b='09:35 AM  Sun 04-Dec-2011'), ConflictSample(value_a='8:02pDec 31', value_b='08:02 PM  Sat 31-Dec-2011'), ConflictSample(value_a='12:42pDec 29', value_b='12:42 PM  Thu 29-Dec-2011')]), 'ArrGate': ColumnConflictProfile(column_name='ArrGate', physical_type=<PhysicalType.TEXT: 'TEXT'>, semantic_type=<SemanticType.NONE: 'NONE'>, conflict_rate=0.28167730173199634, source_a_null_rate=0.0, source_b_null_rate=0.0, source_trust_score=0.457817950153984, samples=[ConflictSample(value_a='46A', value_b='45'), ConflictSample(value_a='33', value_b='C33'), ConflictSample(value_a='44I', value_b='44'), ConflictSample(value_a='-', value_b='58'), ConflictSample(value_a='-', value_b='C17')])}",
+  "execution_time_seconds": 5.4769692919999216,
+  "status": "success",
+  "cost_usd": 0.003864,
+  "retry_count": 0,
+  "retry_log": [],
+  "usage": {
+    "input_tokens": 2647,
+    "cache_write_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 501,
+    "input_audio_tokens": 0,
+    "cache_audio_read_tokens": 0,
+    "output_audio_tokens": 0,
+    "details": {
+      "text_prompt_tokens": 2647,
+      "text_candidates_tokens": 501
+    },
+    "cost": "0.00386400",
+    "requests": 1,
+    "tool_calls": 0
+  },
+  "response": {
+    "table_name": "data",
+    "fusion_groups": [],
+    "column_policies": [
+      {
+        "column_name": "FlightID",
+        "strategy": "coalesce",
+        "delimiters": null,
+        "reasoning": "Zero conflict rate and serves as an entity identifier. Coalesce safely takes the non-null identifier."
+      },
+      {
+        "column_name": "ScheduledDep",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Source B contains full, clear timestamp information with year and day of week (e.g. '11:55 AM Sun 18-Dec-2011' vs '11:55aDec 18'). Longest string selects the richer representation."
+      },
+      {
+        "column_name": "ActualDep",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Longer strings contain more complete formatting with full date, year, and AM/PM indicators."
+      },
+      {
+        "column_name": "DepGate",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Longest string favors specific gate codes (e.g. 'D23' over '-' and 'G92' over '92')."
+      },
+      {
+        "column_name": "ScheduledArr",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Longest string picks complete date/time representations and avoids empty or missing values."
+      },
+      {
+        "column_name": "ActualArr",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Longest string captures the complete date and time representation (including year/weekday)."
+      },
+      {
+        "column_name": "ArrGate",
+        "strategy": "longest_string",
+        "delimiters": null,
+        "reasoning": "Longest string prefers detailed gate information (e.g., terminal/concourse prefixes like 'C33' over '33' or '46A' over '45')."
+      }
+    ],
+    "reasoning": "Each column represents an independent flight attribute (departure time, arrival time, gate assignments). Per the independent validity test, gates and departure/arrival times are independently observable and do not form an atomic compound structure (such as lat/lon or person names). Therefore, all columns are best resolved independently using standalone attribute-level policies."
+  }
+}

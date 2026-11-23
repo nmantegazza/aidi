@@ -1,0 +1,2 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+genre,genre_id,genre_name,string,0.8732,sakila.category.category_id,sakila.category.name; imdb.title_basics.genres,Genre/category identifier.,Genre/category name.

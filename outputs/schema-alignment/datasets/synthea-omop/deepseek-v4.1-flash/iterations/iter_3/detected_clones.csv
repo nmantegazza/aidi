@@ -1,0 +1,13 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+location,address_1,address_2,string,0.9419,omop.location.address_1; synthea.patients.address; synthea.organizations.address; synthea.providers.address,omop.location.address_2,,
+care_site,care_site_id,care_site_name,string,0.8794,synthea.organizations.id; omop.care_site.care_site_id,synthea.organizations.name; omop.care_site.care_site_name,,
+provider,provider_id,provider_name,string,0.8742,synthea.providers.id; omop.provider.provider_id,synthea.providers.name; omop.provider.provider_name,,
+encounter,encounter_id,encounter_concept_id,string,0.8998,synthea.encounters.id; omop.visit_occurrence.visit_occurrence_id,omop.visit_occurrence.visit_concept_id,,
+encounter,start_date,start_datetime,date,0.8825,synthea.encounters.start; omop.visit_occurrence.visit_start_date,omop.visit_occurrence.visit_start_datetime,,
+encounter,end_date,end_datetime,date,0.8939,synthea.encounters.stop; omop.visit_occurrence.visit_end_date,omop.visit_occurrence.visit_end_datetime,,
+condition_occurrence,start_date,start_datetime,date,0.8825,synthea.conditions.start; omop.condition_occurrence.condition_start_date,omop.condition_occurrence.condition_start_datetime,,
+condition_occurrence,end_date,end_datetime,date,0.8939,synthea.conditions.stop; omop.condition_occurrence.condition_end_date,omop.condition_occurrence.condition_end_datetime,,
+procedure_occurrence,procedure_date,procedure_datetime,date,0.9108,synthea.procedures.date; omop.procedure_occurrence.procedure_date,omop.procedure_occurrence.procedure_datetime,,
+drug_exposure,start_date,start_datetime,date,0.8825,synthea.medications.start; omop.drug_exposure.drug_exposure_start_date,omop.drug_exposure.drug_exposure_start_datetime,,
+drug_exposure,end_date,end_datetime,date,0.8939,synthea.medications.stop; omop.drug_exposure.drug_exposure_end_date,omop.drug_exposure.drug_exposure_end_datetime,,
+death,death_date,death_datetime,date,0.8906,omop.death.death_date; synthea.patients.deathdate,omop.death.death_datetime,,

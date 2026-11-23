@@ -1,0 +1,219 @@
+{
+  "dataset_name": "imdb-sakila",
+  "domain": "Media & Entertainment",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "matches_count": 35,
+  "matches": [
+    {
+      "source_table": "title_akas",
+      "source_column": "titleid",
+      "target_table": "film",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "titleid",
+      "target_table": "film_actor",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "titleid",
+      "target_table": "film_category",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "titleid",
+      "target_table": "film_text",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "title",
+      "target_table": "film",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "title",
+      "target_table": "film_text",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "region",
+      "target_table": "film",
+      "target_column": "original_language_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "language",
+      "target_table": "film",
+      "target_column": "language_id"
+    },
+    {
+      "source_table": "title_akas",
+      "source_column": "language",
+      "target_table": "language",
+      "target_column": "language_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "tconst",
+      "target_table": "film",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "tconst",
+      "target_table": "film_actor",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "tconst",
+      "target_table": "film_category",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "tconst",
+      "target_table": "film_text",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "genres",
+      "target_table": "category",
+      "target_column": "category_id"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "genres",
+      "target_table": "category",
+      "target_column": "name"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "primarytitle",
+      "target_table": "film",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "originaltitle",
+      "target_table": "film",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "primarytitle",
+      "target_table": "film_text",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "originaltitle",
+      "target_table": "film_text",
+      "target_column": "title"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "isadult",
+      "target_table": "film",
+      "target_column": "rating"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "startyear",
+      "target_table": "film",
+      "target_column": "release_year"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "endyear",
+      "target_table": "film",
+      "target_column": "release_year"
+    },
+    {
+      "source_table": "title_basics",
+      "source_column": "runtimeminutes",
+      "target_table": "film",
+      "target_column": "length"
+    },
+    {
+      "source_table": "title_crew",
+      "source_column": "tconst",
+      "target_table": "film",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_crew",
+      "source_column": "tconst",
+      "target_table": "film_actor",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_crew",
+      "source_column": "tconst",
+      "target_table": "film_category",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_crew",
+      "source_column": "tconst",
+      "target_table": "film_text",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_ratings",
+      "source_column": "tconst",
+      "target_table": "film",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_ratings",
+      "source_column": "tconst",
+      "target_table": "film_actor",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_ratings",
+      "source_column": "tconst",
+      "target_table": "film_category",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "title_ratings",
+      "source_column": "tconst",
+      "target_table": "film_text",
+      "target_column": "film_id"
+    },
+    {
+      "source_table": "name_basics",
+      "source_column": "nconst",
+      "target_table": "actor",
+      "target_column": "actor_id"
+    },
+    {
+      "source_table": "name_basics",
+      "source_column": "primaryname",
+      "target_table": "actor",
+      "target_column": "first_name"
+    },
+    {
+      "source_table": "name_basics",
+      "source_column": "primaryname",
+      "target_table": "actor",
+      "target_column": "last_name"
+    },
+    {
+      "source_table": "name_basics",
+      "source_column": "nconst",
+      "target_table": "film_actor",
+      "target_column": "actor_id"
+    }
+  ]
+}

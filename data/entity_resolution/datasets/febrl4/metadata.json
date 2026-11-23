@@ -1,0 +1,24 @@
+{
+  "name": "febrl4",
+  "domain": "synthetic",
+  "ground_truth_type": "exhaustive",
+  "table_a": {
+    "file": "table_a.csv",
+    "id_column": "rec_id"
+  },
+  "table_b": {
+    "file": "table_b.csv",
+    "id_column": "rec_id"
+  },
+  "ground_truth": {
+    "file": "ground_truth.csv",
+    "column_a": "id_a",
+    "column_b": "id_b",
+    "label_column": null
+  },
+  "candidates": {
+    "file": "candidate_pairs.csv",
+    "column_a": "id_a",
+    "column_b": "id_b"
+  }
+}

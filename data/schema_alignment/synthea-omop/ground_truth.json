@@ -1,0 +1,498 @@
+[
+  {
+    "source_a": "patients.gender",
+    "source_b": "person.gender_concept_id"
+  },
+  {
+    "source_a": "patients.birthdate",
+    "source_b": "person.year_of_birth"
+  },
+  {
+    "source_a": "patients.birthdate",
+    "source_b": "person.month_of_birth"
+  },
+  {
+    "source_a": "patients.birthdate",
+    "source_b": "person.day_of_birth"
+  },
+  {
+    "source_a": "patients.birthdate",
+    "source_b": "person.birth_datetime"
+  },
+  {
+    "source_a": "patients.deathdate",
+    "source_b": "death.death_datetime"
+  },
+  {
+    "source_a": "patients.deathdate",
+    "source_b": "death.death_date"
+  },
+  {
+    "source_a": "patients.ethnicity",
+    "source_b": "person.ethnicity_concept_id"
+  },
+  {
+    "source_a": "patients.ethnicity",
+    "source_b": "person.ethnicity_source_value"
+  },
+  {
+    "source_a": "patients.ethnicity",
+    "source_b": "person.ethnicity_source_concept_id"
+  },
+  {
+    "source_a": "patients.id",
+    "source_b": "person.person_source_value"
+  },
+  {
+    "source_a": "patients.gender",
+    "source_b": "person.gender_source_value"
+  },
+  {
+    "source_a": "patients.race",
+    "source_b": "person.race_source_value"
+  },
+  {
+    "source_a": "patients.race",
+    "source_b": "person.race_concept_id"
+  },
+  {
+    "source_a": "patients.race",
+    "source_b": "person.race_source_concept_id"
+  },
+  {
+    "source_a": "patients.city",
+    "source_b": "location.city"
+  },
+  {
+    "source_a": "patients.state",
+    "source_b": "location.state"
+  },
+  {
+    "source_a": "patients.zip",
+    "source_b": "location.zip"
+  },
+  {
+    "source_a": "patients.zip",
+    "source_b": "location.location_source_value"
+  },
+  {
+    "source_a": "patients.birthplace",
+    "source_b": "location.city"
+  },
+  {
+    "source_a": "encounters.provider",
+    "source_b": "provider.provider_id"
+  },
+  {
+    "source_a": "encounters.patient",
+    "source_b": "visit_occurrence.person_id"
+  },
+  {
+    "source_a": "encounters.encounterclass",
+    "source_b": "visit_occurrence.visit_concept_id"
+  },
+  {
+    "source_a": "encounters.start",
+    "source_b": "visit_occurrence.visit_start_date"
+  },
+  {
+    "source_a": "encounters.start",
+    "source_b": "visit_occurrence.visit_start_datetime"
+  },
+  {
+    "source_a": "encounters.stop",
+    "source_b": "visit_occurrence.visit_end_date"
+  },
+  {
+    "source_a": "encounters.stop",
+    "source_b": "visit_occurrence.visit_end_datetime"
+  },
+  {
+    "source_a": "encounters.encounterclass",
+    "source_b": "visit_occurrence.visit_source_value"
+  },
+  {
+    "source_a": "encounters.provider",
+    "source_b": "visit_detail.provider_id"
+  },
+  {
+    "source_a": "encounters.patient",
+    "source_b": "visit_detail.person_id"
+  },
+  {
+    "source_a": "encounters.encounterclass",
+    "source_b": "visit_detail.visit_detail_concept_id"
+  },
+  {
+    "source_a": "encounters.start",
+    "source_b": "visit_detail.visit_detail_start_date"
+  },
+  {
+    "source_a": "encounters.start",
+    "source_b": "visit_detail.visit_detail_start_datetime"
+  },
+  {
+    "source_a": "encounters.stop",
+    "source_b": "visit_detail.visit_detail_end_date"
+  },
+  {
+    "source_a": "encounters.stop",
+    "source_b": "visit_detail.visit_detail_end_datetime"
+  },
+  {
+    "source_a": "encounters.encounterclass",
+    "source_b": "visit_detail.visit_detail_source_value"
+  },
+  {
+    "source_a": "observations.patient",
+    "source_b": "measurement.person_id"
+  },
+  {
+    "source_a": "procedures.patient",
+    "source_b": "measurement.person_id"
+  },
+  {
+    "source_a": "observations.code",
+    "source_b": "measurement.measurement_concept_id"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "measurement.measurement_concept_id"
+  },
+  {
+    "source_a": "observations.date",
+    "source_b": "measurement.measurement_date"
+  },
+  {
+    "source_a": "procedures.date",
+    "source_b": "measurement.measurement_date"
+  },
+  {
+    "source_a": "observations.date",
+    "source_b": "measurement.measurement_datetime"
+  },
+  {
+    "source_a": "procedures.date",
+    "source_b": "measurement.measurement_datetime"
+  },
+  {
+    "source_a": "procedures.date",
+    "source_b": "measurement.measurement_time"
+  },
+  {
+    "source_a": "observations.value",
+    "source_b": "measurement.value_as_number"
+  },
+  {
+    "source_a": "observations.encounter",
+    "source_b": "measurement.visit_occurrence_id"
+  },
+  {
+    "source_a": "procedures.encounter",
+    "source_b": "measurement.visit_occurrence_id"
+  },
+  {
+    "source_a": "observations.code",
+    "source_b": "measurement.measurement_source_value"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "measurement.measurement_source_value"
+  },
+  {
+    "source_a": "observations.code",
+    "source_b": "measurement.measurement_source_concept_id"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "measurement.measurement_source_concept_id"
+  },
+  {
+    "source_a": "observations.units",
+    "source_b": "measurement.unit_source_value"
+  },
+  {
+    "source_a": "observations.value",
+    "source_b": "measurement.value_source_value"
+  },
+  {
+    "source_a": "procedures.patient",
+    "source_b": "procedure_occurrence.person_id"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "procedure_occurrence.procedure_concept_id"
+  },
+  {
+    "source_a": "procedures.date",
+    "source_b": "procedure_occurrence.procedure_date"
+  },
+  {
+    "source_a": "procedures.date",
+    "source_b": "procedure_occurrence.procedure_datetime"
+  },
+  {
+    "source_a": "procedures.encounter",
+    "source_b": "procedure_occurrence.visit_occurrence_id"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "procedure_occurrence.procedure_source_value"
+  },
+  {
+    "source_a": "procedures.code",
+    "source_b": "procedure_occurrence.procedure_source_concept_id"
+  },
+  {
+    "source_a": "conditions.patient",
+    "source_b": "condition_occurrence.person_id"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "condition_occurrence.condition_concept_id"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "condition_occurrence.condition_start_date"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "condition_occurrence.condition_start_datetime"
+  },
+  {
+    "source_a": "conditions.stop",
+    "source_b": "condition_occurrence.condition_end_date"
+  },
+  {
+    "source_a": "conditions.stop",
+    "source_b": "condition_occurrence.condition_end_datetime"
+  },
+  {
+    "source_a": "conditions.encounter",
+    "source_b": "condition_occurrence.visit_occurrence_id"
+  },
+  {
+    "source_a": "conditions.encounter",
+    "source_b": "condition_occurrence.visit_detail_id"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "condition_occurrence.condition_source_value"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "condition_occurrence.condition_source_concept_id"
+  },
+  {
+    "source_a": "allergies.patient",
+    "source_b": "observation.person_id"
+  },
+  {
+    "source_a": "conditions.patient",
+    "source_b": "observation.person_id"
+  },
+  {
+    "source_a": "allergies.code",
+    "source_b": "observation.observation_concept_id"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "observation.observation_concept_id"
+  },
+  {
+    "source_a": "allergies.start",
+    "source_b": "observation.observation_date"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "observation.observation_date"
+  },
+  {
+    "source_a": "allergies.start",
+    "source_b": "observation.observation_datetime"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "observation.observation_datetime"
+  },
+  {
+    "source_a": "allergies.encounter",
+    "source_b": "observation.visit_occurrence_id"
+  },
+  {
+    "source_a": "conditions.encounter",
+    "source_b": "observation.visit_occurrence_id"
+  },
+  {
+    "source_a": "allergies.code",
+    "source_b": "observation.observation_source_value"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "observation.observation_source_value"
+  },
+  {
+    "source_a": "allergies.code",
+    "source_b": "observation.observation_source_concept_id"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "observation.observation_source_concept_id"
+  },
+  {
+    "source_a": "encounters.patient",
+    "source_b": "observation_period.person_id"
+  },
+  {
+    "source_a": "encounters.start",
+    "source_b": "observation_period.observation_period_start_date"
+  },
+  {
+    "source_a": "encounters.stop",
+    "source_b": "observation_period.observation_period_end_date"
+  },
+  {
+    "source_a": "conditions.patient",
+    "source_b": "drug_exposure.person_id"
+  },
+  {
+    "source_a": "immunizations.patient",
+    "source_b": "drug_exposure.person_id"
+  },
+  {
+    "source_a": "medications.patient",
+    "source_b": "drug_exposure.person_id"
+  },
+  {
+    "source_a": "conditions.code",
+    "source_b": "drug_exposure.drug_concept_id"
+  },
+  {
+    "source_a": "immunizations.code",
+    "source_b": "drug_exposure.drug_concept_id"
+  },
+  {
+    "source_a": "medications.code",
+    "source_b": "drug_exposure.drug_concept_id"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "drug_exposure.drug_exposure_start_date"
+  },
+  {
+    "source_a": "immunizations.date",
+    "source_b": "drug_exposure.drug_exposure_start_date"
+  },
+  {
+    "source_a": "medications.start",
+    "source_b": "drug_exposure.drug_exposure_start_date"
+  },
+  {
+    "source_a": "conditions.start",
+    "source_b": "drug_exposure.drug_exposure_start_datetime"
+  },
+  {
+    "source_a": "immunizations.date",
+    "source_b": "drug_exposure.drug_exposure_start_datetime"
+  },
+  {
+    "source_a": "medications.start",
+    "source_b": "drug_exposure.drug_exposure_start_datetime"
+  },
+  {
+    "source_a": "immunizations.date",
+    "source_b": "drug_exposure.drug_exposure_end_date"
+  },
+  {
+    "source_a": "medications.start",
+    "source_b": "drug_exposure.drug_exposure_end_date"
+  },
+  {
+    "source_a": "medications.stop",
+    "source_b": "drug_exposure.drug_exposure_end_date"
+  },
+  {
+    "source_a": "immunizations.date",
+    "source_b": "drug_exposure.drug_exposure_end_datetime"
+  },
+  {
+    "source_a": "medications.start",
+    "source_b": "drug_exposure.drug_exposure_end_datetime"
+  },
+  {
+    "source_a": "medications.stop",
+    "source_b": "drug_exposure.drug_exposure_end_datetime"
+  },
+  {
+    "source_a": "immunizations.date",
+    "source_b": "drug_exposure.verbatim_end_date"
+  },
+  {
+    "source_a": "medications.stop",
+    "source_b": "drug_exposure.verbatim_end_date"
+  },
+  {
+    "source_a": "medications.start",
+    "source_b": "drug_exposure.days_supply"
+  },
+  {
+    "source_a": "medications.stop",
+    "source_b": "drug_exposure.days_supply"
+  },
+  {
+    "source_a": "immunizations.encounter",
+    "source_b": "drug_exposure.visit_occurrence_id"
+  },
+  {
+    "source_a": "medications.encounter",
+    "source_b": "drug_exposure.visit_occurrence_id"
+  },
+  {
+    "source_a": "immunizations.code",
+    "source_b": "drug_exposure.drug_source_value"
+  },
+  {
+    "source_a": "medications.code",
+    "source_b": "drug_exposure.drug_source_value"
+  },
+  {
+    "source_a": "immunizations.code",
+    "source_b": "drug_exposure.drug_source_concept_id"
+  },
+  {
+    "source_a": "medications.code",
+    "source_b": "drug_exposure.drug_source_concept_id"
+  },
+  {
+    "source_a": "organizations.name",
+    "source_b": "care_site.care_site_name"
+  },
+  {
+    "source_a": "organizations.id",
+    "source_b": "care_site.care_site_source_value"
+  },
+  {
+    "source_a": "providers.name",
+    "source_b": "provider.provider_name"
+  },
+  {
+    "source_a": "providers.id",
+    "source_b": "provider.provider_source_value"
+  },
+  {
+    "source_a": "providers.gender",
+    "source_b": "provider.gender_concept_id"
+  },
+  {
+    "source_a": "providers.gender",
+    "source_b": "provider.gender_source_value"
+  },
+  {
+    "source_a": "providers.gender",
+    "source_b": "provider.gender_source_concept_id"
+  },
+  {
+    "source_a": "providers.specialty",
+    "source_b": "provider.specialty_source_value"
+  }
+]

@@ -1,0 +1,200 @@
+{
+  "rules": [
+    {
+      "target_table": "actor",
+      "target_column": "actor_id",
+      "source_label": "imdb",
+      "source_table": "name_basics",
+      "source_columns": [
+        "nconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "actor",
+      "target_column": "first_name",
+      "source_label": "imdb",
+      "source_table": "name_basics",
+      "source_columns": [
+        "primaryname"
+      ],
+      "transformations": [
+        {
+          "type": "split_extract",
+          "delimiter": " ",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "target_table": "actor",
+      "target_column": "last_name",
+      "source_label": "imdb",
+      "source_table": "name_basics",
+      "source_columns": [
+        "primaryname"
+      ],
+      "transformations": [
+        {
+          "type": "split_extract",
+          "delimiter": " ",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "target_table": "film",
+      "target_column": "film_id",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "tconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film",
+      "target_column": "title",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "primarytitle"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film",
+      "target_column": "release_year",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "startyear"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "film",
+      "target_column": "length",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "runtimeminutes"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film_actor",
+      "target_column": "actor_id",
+      "source_label": "imdb",
+      "source_table": "title_principals",
+      "source_columns": [
+        "nconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film_actor",
+      "target_column": "film_id",
+      "source_label": "imdb",
+      "source_table": "title_principals",
+      "source_columns": [
+        "tconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "category",
+      "target_column": "name",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "genres"
+      ],
+      "transformations": [
+        {
+          "type": "split_unnest",
+          "delimiter": ","
+        }
+      ]
+    },
+    {
+      "target_table": "film_category",
+      "target_column": "film_id",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "tconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film_text",
+      "target_column": "film_id",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "tconst"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    },
+    {
+      "target_table": "film_text",
+      "target_column": "title",
+      "source_label": "imdb",
+      "source_table": "title_basics",
+      "source_columns": [
+        "primarytitle"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "string"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "schema_name": "source_a",
+  "title": null,
+  "resources": [
+    {
+      "name": "organizations",
+      "path": "organizations.parquet",
+      "schema": {
+        "primaryKey": "org_id",
+        "fields": [
+          {
+            "name": "org_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "org_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "org_address",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "industry",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "revenue_usd",
+            "type": "number",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "departments",
+      "path": "departments.parquet",
+      "schema": {
+        "primaryKey": "dept_id",
+        "fields": [
+          {
+            "name": "dept_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "org_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "dept_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "budget_usd",
+            "type": "number",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "org_id"
+            ],
+            "reference": {
+              "resource": "organizations",
+              "fields": [
+                "org_id"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "staff",
+      "path": "staff.parquet",
+      "schema": {
+        "primaryKey": "emp_id",
+        "fields": [
+          {
+            "name": "emp_id",
+            "type": "integer",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "org_id",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "first_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "last_name",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": true
+            },
+            "source_provenance": null
+          },
+          {
+            "name": "role",
+            "type": "string",
+            "description": null,
+            "constraints": {
+              "required": false
+            },
+            "source_provenance": null
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "org_id"
+            ],
+            "reference": {
+              "resource": "organizations",
+              "fields": [
+                "org_id"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

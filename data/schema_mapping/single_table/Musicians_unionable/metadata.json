@@ -1,0 +1,11 @@
+{
+  "name": "Musicians_unionable",
+  "domain": "Wikidata",
+  "scenario": "Real-World Web Graph",
+  "source_rows": 10845,
+  "source_cols": 20,
+  "target_rows": 10845,
+  "target_cols": 20,
+  "gold_matches": 20,
+  "category": "single_table"
+}

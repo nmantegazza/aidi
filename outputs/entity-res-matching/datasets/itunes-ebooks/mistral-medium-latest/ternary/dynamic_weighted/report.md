@@ -1,0 +1,277 @@
+# Matching Benchmark: itunes-ebooks — Dynamic Weighted
+
+- **Domain**: ebooks
+- **Strategy**: Dynamic Weighted
+- **Model**: mistral-medium-latest
+- **Classification Mode**: ClassificationMode.TERNARY
+- **Successful Iterations**: 3 / 3
+
+## Aggregated Metrics
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Precision | 0.9597 | 0.0083 |
+| Recall | 0.9084 | 0.0132 |
+| F1 Score | 0.9333 | 0.0106 |
+| Execution Time (s) | 0.6867 | 0.0536 |
+| Peak Memory (MB) | 6.73 | 0.01 |
+
+## Telemetry
+
+| Metric | Value |
+| :--- | :--- |
+| Prompt Tokens | 20,943 |
+| Completion Tokens | 41,527 |
+| Total Tokens | 62,470 |
+| Estimated Cost (USD) | $0.3429 |
+
+## Triage Perspective Metrics (Cascaded Tier 1)
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Potential Recall Ceiling | 1.0000 | 0.0000 |
+| Potential F1 Ceiling | 0.9794 | 0.0043 |
+| LLM Workload Ratio | 19.7% | - |
+| Unrecoverable Loss | 0.0000 | - |
+| Uncertain Purity | 15.4% | - |
+
+## Deterministic Flakiness Analysis
+
+| Metric | Value |
+| :--- | :--- |
+| Stability Ratio | 93.75% |
+| Consistent Matches | 120 |
+| Flaky Matches | 8 |
+
+## Iterations
+
+| Iter | Status | Precision | Recall | F1 | Pot-R | Pot-F1 | Workload | Purity | TP | FP | FN | Time (s) | Mem (MB) | Tokens | Cost (USD) | Error |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | SUCCESS | 0.9600 | 0.9160 | 0.9375 | 1.0000 | 0.9796 | 21.5% | 12.8% | 120 | 5 | 11 | 0.6981 | 6.72 | 21143 | $0.1167 |  |
+| 2 | SUCCESS | 0.9512 | 0.8931 | 0.9213 | 1.0000 | 0.9750 | 18.0% | 19.4% | 117 | 6 | 14 | 0.6283 | 6.72 | 23287 | $0.1328 |  |
+| 3 | SUCCESS | 0.9677 | 0.9160 | 0.9412 | 1.0000 | 0.9836 | 19.5% | 14.1% | 120 | 4 | 11 | 0.7336 | 6.74 | 18040 | $0.0934 |  |
+
+## Dynamic Thresholds
+
+| Iter | Mode | Lower Threshold | Upper Threshold | Centroids (Low, Mid, High) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | dynamic_skew | 0.5362 | 0.7746 | [0.4465, 0.6260, 0.8737] |
+| 2 | dynamic_skew | 0.5834 | 0.8115 | [0.4901, 0.6766, 0.9014] |
+| 3 | dynamic_skew | 0.5539 | 0.8051 | [0.4551, 0.6528, 0.9066] |
+
+## LLM Strategy Configuration & Prompts
+
+- **Model**: `mistral-medium-latest`
+- **Provider**: `mistral`
+- **Latency**: `80.70s`
+- **Log File**: `outputs/logs/llm_calls/20260919_170108_226890_IndexingConfigWeightedScoreMatchingConfig.json`
+
+### LLM Output (Generated Strategy Configuration)
+
+```json
+{
+  "reasoning": "### Mandatory 4-Step Column Reasoning Protocol\n\n**title**\n1. **Inspect Exemplar Candidate Matches**: All three exemplar pairs show identical titles across sources (\"blasted heaths and blessed green\", \"39 days of gazza\", \"les andes guide dalpinisme guide complet\"). While no variations are observed in these samples, book titles in real-world data often contain minor typos, punctuation differences, or spacing quirks (e.g., \"ProBook\" vs \"Pro Book\").\n2. **Inspect Statistical Profile**: Null percentage is 0.0% in Source A and 0.02% in Source B (both <50%), cardinality is 6445 and 13595 (both >1), and average length is 28.0 and 24.87 characters (short to medium strings).\n3. **Algorithm Trade-off Evaluation**: The average length (24-28 characters) falls within the short-string range where `jarowinkler` excels. `cosine` is designed for much longer text (truly effective at 100+ chars) and operates at the word/token level, failing to detect sub-word similarities like typos. `jarowinkler` is prefix-weighted and handles character-level variations typical in titles. `damerau_levenshtein` is intended for alphanumeric codes, not natural language, and `exact` would fail on any minor discrepancy.\n4. **Weight Justification**: Title is a core identity attribute for books, directly identifying the work. Assigned high weight of **0.9**.\n\n**author**\n1. **Inspect Exemplar Candidate Matches**: All exemplar pairs show identical author names (\"james w finegan\", \"steve pitts\", \"john biggar\"). Author names frequently contain typos, missing middle initials, or phonetic spellings in practice (e.g., \"Jon\" vs \"John\", \"Smith\" vs \"Smyth\").\n2. **Inspect Statistical Profile**: Null percentage is 0.05% in A and 0.12% in B (both <50%), cardinality is 4801 and 10724 (both >1), average length is 15.54 and 18.74 characters (short strings).\n3. **Algorithm Trade-off Evaluation**: The average length (15-19 characters) is firmly in the short-string domain. `jarowinkler` is the gold standard for name matching, handling character-level transpositions and substitutions. `cosine` fails on short strings because it cannot detect sub-word similarities at the token level. `damerau_levenshtein` is less optimal for natural language names compared to `jarowinkler`'s prefix weighting.\n4. **Weight Justification**: Author is a core identity attribute for books. Assigned high weight of **0.9**.\n\n**description**\n1. **Inspect Exemplar Candidate Matches**: Descriptions are extremely long (900-1000+ characters) and nearly identical across sources, with only minor truncations at the end (e.g., Source B sometimes has \" less\" appended). The text is rich, multi-word free-form content describing the book's content.\n2. **Inspect Statistical Profile**: Null percentage is 0.02% in A and 0.3% in B (both <50%), cardinality is 6314 and 13937 (very high), average length is 942.72 and 1028.85 characters (very long).\n3. **Algorithm Trade-off Evaluation**: The very long average length and multi-word nature make `cosine` (TF-IDF cosine similarity) the only viable option. It is completely order-invariant and resilient to token additions, omissions, or permutations. `jarowinkler` is designed for short strings and would perform poorly on text of this length. `exact` would fail on any minor difference, and character-level algorithms are semantically inappropriate for such long text.\n4. **Weight Justification**: Description is a strong descriptive attribute providing rich contextual evidence. Assigned high weight of **0.7**.\n\n**publisher**\n1. **Inspect Exemplar Candidate Matches**: Two pairs show identical publishers (\"simon schuster\", \"john blake\"), but one pair shows significant variation (\"nevicata\" in A vs \"primento digital publishing\" in B). This indicates the same book can have different publishers across sources (e.g., original publisher vs digital publisher).\n2. **Inspect Statistical Profile**: Null percentage is 0.0% in A and 0.02% in B (both <50%), cardinality is 1667 and 662 (both >1), average length is 16.18 and 17.0 characters (short to medium strings).\n3. **Algorithm Trade-off Evaluation**: The average length (16-17 characters) is in the short-string range. `jarowinkler` can detect similarity between publisher names with minor variations (e.g., \"Simon & Schuster\" vs \"Simon Schuster\"). While it gives low similarity for completely different publishers (correctly, as they *are* different), this is balanced by high scores from other attributes. `cosine` is not suitable for such short text, and `exact` would be too strict.\n4. **Weight Justification**: Publisher is a primary descriptive attribute but can legitimately vary. Assigned medium-high weight of **0.6**.\n\n**date**\n1. **Inspect Exemplar Candidate Matches**: Dates are very close but not always identical, with differences of 1-29 days observed (\"2008-06-30\" vs \"2008-06-01\", \"2014-12-16\" vs \"2014-12-01\"). This is likely the publication date.\n2. **Inspect Statistical Profile**: Null percentage is 0.0% in A and 1.32% in B (both <50%), cardinality is 2292 and 333 (both >1).\n3. **Algorithm Trade-off Evaluation**: The `date` algorithm uses a calendar hierarchy where year matches are most important, then month, then day. Small day-level differences yield high but not perfect similarity, matching observed variations. `exact` would fail on any day difference. Numeric algorithms (`numeric_linear`, `numeric_relative`) do not respect calendar hierarchy (e.g., Dec 31 and Jan 1 are 1 day apart calendrically but numerically distant).\n4. **Weight Justification**: Date is a contextual attribute providing supporting evidence. Assigned medium weight of **0.5**.\n\n**short_description**\n1. **Inspect Exemplar Candidate Matches**: When present, short descriptions match exactly (\"a golfers pilgrimage to the courses of scotland\"). In some cases, they are empty in both sources.\n2. **Inspect Statistical Profile**: Null percentage is 42.82% in A and 33.2% in B (both <50%), cardinality is 3409 and 8630 (both >1), average length is 46.25 and 43.78 characters (~7-8 words).\n3. **Algorithm Trade-off Evaluation**: The average length (43-46 characters) is above the 20-character threshold where `cosine` becomes effective for multi-word text. While shorter than full descriptions, it is still multi-word free text. `jarowinkler` could work but is less optimal for this length. `cosine` handles the multi-word nature and minor variations well.\n4. **Weight Justification**: Short description is a secondary descriptive attribute. Assigned medium weight of **0.4**.\n\n**length**\n1. **Inspect Exemplar Candidate Matches**: All matching pairs have identical lengths (\"288\", \"288\", \"306\"). These represent page counts.\n2. **Inspect Statistical Profile**: Null percentage is 0.0% in both sources, cardinality is 537 and 617 (both >1).\n3. **Algorithm Trade-off Evaluation**: Length is a numeric value where absolute difference matters (a 1-page difference is significant regardless of total length). `numeric_linear` measures absolute uniform distance |x1 - x2|, which is appropriate. `numeric_relative` would give the same penalty for a 1-page difference on a 100-page book (1%) as on a 1000-page book (0.1%), which is less intuitive for page counts. `exact` would be too strict.\n4. **Weight Justification**: Length is a contextual attribute. Assigned lower weight of **0.3**.\n\n**price**\n1. **Inspect Exemplar Candidate Matches**: All matching pairs have identical prices (\"14.99\", \"5.99\", \"22.99\").\n2. **Inspect Statistical Profile**: Null percentage is 0.0% in both sources, cardinality is 68 and 734 (both >1, though relatively low, indicating many books share the same price).\n3. **Algorithm Trade-off Evaluation**: Price is a monetary amount that can span orders of magnitude. `numeric_relative` (percentage difference) is scale-invariant: a $1 difference on a $10 item (10%) is penalized more than on a $100 item (1%). This matches the semantic meaning of price similarity. `numeric_linear` would distort scale, and `exact` would be too strict given potential rounding differences between sources.\n4. **Weight Justification**: Price is a contextual attribute that can vary between sources. Assigned lower weight of **0.3**.",
+  "matching_columns": {
+    "title": {
+      "algorithm": "jarowinkler",
+      "weight": 0.9
+    },
+    "author": {
+      "algorithm": "jarowinkler",
+      "weight": 0.9
+    },
+    "description": {
+      "algorithm": "cosine",
+      "weight": 0.7
+    },
+    "publisher": {
+      "algorithm": "jarowinkler",
+      "weight": 0.6
+    },
+    "date": {
+      "algorithm": "date",
+      "weight": 0.5
+    },
+    "short_description": {
+      "algorithm": "cosine",
+      "weight": 0.4
+    },
+    "length": {
+      "algorithm": "numeric_linear",
+      "weight": 0.3
+    },
+    "price": {
+      "algorithm": "numeric_relative",
+      "weight": 0.3
+    }
+  }
+}
+```
+
+### LLM Input Prompts
+
+<details>
+<summary><b>System Prompt</b> (click to expand)</summary>
+
+```text
+You are an expert Data Steward configuring the Scoring and Classification stage of an Entity Resolution pipeline.
+
+You will receive comparative metadata for two source datasets (null %, uniqueness %, cardinality, average field length) AND a set of **Exemplar Candidate Matching Pairs** discovered via holistic zero-configuration row-level textual overlap.
+
+These exemplar pairs represent high-probability matches of the same real-world entity across Source A and Source B. You MUST carefully inspect these aligned pairs to observe how identical entities are represented across sources on each column (e.g., whether they exhibit minor typos, abbreviations, unit shifts, or divergent taxonomies), and use these direct empirical observations to select the most effective comparison algorithm and weight.
+
+Your goal is to select the columns that best determine whether two records refer to the same real-world entity, assign appropriate comparison algorithms, and assign importance weights for aggregate similarity scoring.
+
+## Task 1 — Select Matching Columns and Assign Comparison Algorithms
+
+### Step 1a: Understand each column semantically
+- **Identity attributes** (names, emails, tax IDs, phone numbers) → these directly identify an entity.
+- **Descriptive attributes** (addresses, descriptions, categories) → these characterize the entity and can confirm or disambiguate matches.
+- **Contextual attributes** (dates, amounts, coordinates) → these add supporting evidence.
+- **System/internal attributes** (auto-increment IDs, UUIDs, row numbers) → exclude these.
+
+### Step 1b: Apply exclusion rules
+Exclude columns with:
+- **Source-specific keys**: `id`, `uuid`, `row_id`, or internal auto-generated keys.
+- **High nulls**: > 50% null in either source.
+- **No variance**: cardinality = 1 in either source.
+
+### Comparison Algorithms & Explicit Trade-Offs
+
+Select the algorithm that best fits each column's semantic type and empirical variation:
+
+- **`cosine` (Token / Word-Level TF-IDF Cosine Similarity)**:
+  - **Strengths**: Multi-word free text (avg length >= 20), long descriptions, multi-word titles, article abstracts. Completely order-invariant, resilient to token permutations, additions, or omissions of other words.
+  - **Weaknesses / Critical Limitations**:
+    - **Zero tolerance for sub-word typos or spelling variants**: Operates strictly at the word/token level. If a word has a typo, abbreviation, or hyphenation variation (e.g. "MDR-7506" vs "MDR7506", "Smith" vs "Smyth", "ProBook" vs "Pro Book"), word-level TF-IDF treats them as completely distinct orthogonal tokens with 0 similarity.
+    - **Fails on short strings, codes, and single words (< 20 chars)**: If a single-word name or brand has even a 1-character typo, the entire token match fails (score drops to 0.0). Always use `jarowinkler` or `damerau_levenshtein` instead!
+    - **Fails on divergent taxonomies**: Different vocabularies (e.g. "electronics" vs "consumer audio") yield 0.0 similarity.
+  - **When to use**: Multi-word descriptions, article abstracts, long titles, full addresses where individual words are standard dictionary words or consistently spelled tokens.
+
+- **`jarowinkler` (Prefix-Weighted Character Alignment)**:
+  - **Strengths**: Short strings (avg length < 20-30), single words, names, brands, cities. Extremely robust to typos, phonetic variants, or suffix truncations on short words.
+  - **Weaknesses**: Word order shifts, long multi-word text.
+  - **When to use**: Person/author names, brand names, cities, single-phrase titles, short labels.
+
+- **`damerau_levenshtein` (Edit Distance with Transpositions)**:
+  - **Strengths**: Preserves exact character positions and lengths; detects single digit/char flips or swaps.
+  - **Weaknesses**: Heavy penalty on length mismatches; useless on multi-word reordering.
+  - **When to use**: Alphanumeric codes, serial numbers, part codes, phone numbers, tax IDs, SKUs.
+
+- **`numeric_relative` (Percentage Difference)**:
+  - **Strengths**: Scale-invariant; measures relative gap (|x1 - x2| / (max(|x1|, |x2|) + eps)). A $10 difference on a $20 item is penalized heavily (50%), while a $10 difference on a $1,500 item is penalized minimally (0.7%).
+  - **Weaknesses**: Nonsensical on interval scales like calendar years.
+  - **When to use**: Prices, monetary amounts, weights, physical dimensions, measurements spanning multiple orders of magnitude.
+
+- **`numeric_linear` (Absolute Uniform Distance)**:
+  - **Strengths**: Measures uniform absolute distance |x1 - x2| regardless of baseline.
+  - **Weaknesses**: Distorts scale when values span orders of magnitude.
+  - **When to use**: Uniform interval scales where absolute difference is constant: calendar years, ages, page counts.
+
+- **`exact` (Strict Binary Identity)**:
+  - **Strengths**: Zero tolerance for false positives.
+  - **Weaknesses**: Zero tolerance for typos or format quirks.
+  - **When to use**: Standardized codes, status booleans, or discrete identifier/temporal keys where any discrepancy indicates distinct entities.
+
+- **`date` (Calendar Hierarchy Matcher)**:
+  - **When to use**: Full calendar dates, birth dates, timestamps where small day/month/year shifts should yield continuous similarity.
+
+### Step 1d: Assign importance weights (0.0 to 1.0)
+- **0.8-1.0**: Core identity attributes (emails, tax IDs, phone numbers).
+- **0.5-0.7**: Strong descriptive attributes (names, titles).
+- **0.2-0.4**: Supporting contextual attributes (dates, amounts).
+- **0.05-0.19**: Weak signals.
+
+## Task 2 — Structured Reasoning
+
+In your `reasoning` field, follow this exact protocol:
+### Mandatory 4-Step Column Reasoning Protocol
+
+For EACH evaluated column, your reasoning MUST follow this exact 4-step sequence:
+1. **Inspect Exemplar Candidate Matches**: Observe how matching entities actually differ on this column (typos, abbreviations, units, taxonomy).
+2. **Inspect Statistical Profile**: Check null percentage, cardinality, and avg length. Exclude if >50% null or cardinality = 1.
+3. **Algorithm Trade-off Evaluation**: Explicitly justify why the chosen algorithm fits the sample data and why competing alternatives would fail on this column.
+4. **Weight Justification**: Assign importance weight based on whether the attribute is core identity (0.8-1.0), primary descriptive (0.5-0.7), or auxiliary context (0.2-0.4).
+```
+</details>
+
+<details>
+<summary><b>User Prompt (Comparative Profile & Exemplars)</b> (click to expand)</summary>
+
+```markdown
+### 1. Dataset Comparison Summary
+| Metric | Source A | Source B |
+| :--- | :--- | :--- |
+| **Total Rows** | 6500 | 14110 |
+| **Column Count** | 16 | 12 |
+
+### 2. Exemplar Candidate Matches (High-Confidence Entity Pairs)
+The following candidate pairs were discovered via holistic zero-configuration row-level textual overlap.
+Inspect how field values, units, abbreviations, typos, and taxonomies vary across matching records:
+
+#### Candidate Match 1 (Overall Text Match Score: 0.99)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| record_id | "3871" | "10662" |
+| publisher | "simon schuster" | "simon schuster" |
+| date | "2008-06-30 00:00:00" | "2008-06-01 00:00:00" |
+| description | "every golfer alive knows that he or she has two ancestral homes ones own and scotland on her rolling shores the game of golf had its origins and to walk the links of st andrews is to feel at one with the shepherd who decided one day to see how far he could whack a stone with his crook most serious golfers will make the pilgrimage to scotland to try to hit the postage stamp green at troon to trace the footsteps of ben hogan at carnoustie and to brave the challenge of the road hole at st andrews all golfers dream of taking such a tripfor the tourist or the dreamer there can be no better guide than james w finegan a passionate advocate of the game thats played on the links between land and sea finegan combines a writers eye a historians knowledge and a golfers sense of wonder and apprehension to provide an impossibly ambitious grand tour of golfs native landin a loop of a thousand miles that begins in edinburgh and ends across the firth of forth in st andrews finegan covers some sixty courses visiting the true shrines of the game the courses that are well known and respected and the littleknown gems you might otherwise pass right by he shares the history of the courses both of their creation and of the most famous matches played there he also writes marvelously about the scenic and strategic charms to be found as you play them yourself and he provides all the information you need to make your arrangements to do just that because unlike most championship courses in the united states the great courses of scotland are available to the publicin addition to his delightful descriptions of the golf to be found there finegan gives us his recommendations for places to stay ranging from the most modest bedandbreakfast to the most magnificent castle hotel he describes the pleasures to be found off the beaten track the spectacular views from a country road or the ancient cathedral thats worth a stop on the way to the first tee and because all the travel within the country is done by car he spells out the actual routes from town to town and course to courseblasted heaths and blessed greens is a book to be read to be savored and to be tucked away in your suitcase when you finally undertake the journey of your dreams" | "every golfer alive knows that he or she has two ancestral homes ones own and scotland on her rolling shores the game of golf had its origins and to walk the links of st andrews is to feel at one with the shepherd who decided one day to see how far he could whack a stone with his crook most serious golfers will make the pilgrimage to scotland to try to hit the postage stamp green at troon to trace the footsteps of ben hogan at carnoustie and to brave the challenge of the road hole at st andrews all golfers dream of taking such a tripfor the tourist or the dreamer there can be no better guide than james w finegan a passionate advocate of the game thats played on the links between land and sea finegan combines a writers eye a historians knowledge and a golfers sense of wonder and apprehension to provide an impossibly ambitious grand tour of golfs native landin a loop of a thousand miles that begins in edinburgh and ends across the firth of forth in st andrews finegan covers some sixty courses visiting the true shrines of the game the courses that are well known and respected and the littleknown gems you might otherwise pass right by he shares the history of the courses both of their creation and of the most famous matches played there he also writes marvelously about the scenic and strategic charms to be found as you play them yourself and he provides all the information you need to make your arrangements to do just that because unlike most championship courses in the united states the great courses of scotland are available to the publicin addition to his delightful descriptions of the golf to be found there finegan gives us his recommendations for places to stay ranging from the most modest bedandbreakfast to the most magnificent castle hotel he describes the pleasures to be found off the beaten track the spectacular views from a country road or the ancient cathedral thats worth a stop on the way to the first tee and because all the travel within the country is done by car he spells out the actual routes from town to town and course to courseblasted heaths and blessed greens is a book to be read to be savored and to be tucked away in your suitcase when you finally undertake the journey of your dreams less" |
+| title | "blasted heaths and blessed green" | "blasted heaths and blessed green" |
+| rating_value | "" | "" |
+| price | "14.99" | "14.99" |
+| author | "james w finegan" | "james w finegan" |
+| short_description | "a golfers pilgrimage to the courses of scotland" | "a golfers pilgrimage to the courses of scotland" |
+| length | "288" | "288" |
+
+#### Candidate Match 2 (Overall Text Match Score: 0.99)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| record_id | "1011" | "2020" |
+| publisher | "john blake" | "john blake" |
+| date | "2013-03-01 00:00:00" | "2013-03-01 00:00:00" |
+| description | "the tragicomic story of how the disintegration of paul gascoignes managerial role impacted many peoples lives not least his own as the firsttime manager of a provincial nonleague football team former england star paul gascoigne promised to fulfill their dreams but then in the space of just 39 days both manager and team saw a dramatic reversal of fortune gazza was the english football icon on the 1990s his magnificent midfield play provided some of englands most memorable moments and he enjoyed a headlinegrabbing career with newcastle united tottenham lazio glasgow rangers middlesbrough and everton then it all went terribly wrong he still made the headlines but for all the wrong reasonsalcoholism drugs wifebeating personality disorder runins with the law and nervous breakdown gascoigne seemed to have passed a personal point of no return then in the autumn of 2005 he was given a chance to rebuild his career with his first job as a football manager as part of a consortium which bought kettering town gazza reinvented himself appearing to have his personal problems under control he took charge full of big ideas about steering the club into the football league and towards the big time the people of kettering were starstruck by the celebrity among them and yet within just a few short weeks after gascoigne was appointed manager he would be sacked amid an increasingly bizarre series of allegations leaving a once hopeful club on its knees" | "the tragicomic story of how the disintegration of paul gascoignes managerial role impacted many peoples lives not least his ownas the firsttime manager of a provincial nonleague football team former england star paul gascoigne promised to fulfill their dreams but then in the space of just 39 days both manager and team saw a dramatic reversal of fortune gazza was the english football icon on the 1990s his magnificent midfield play provided some of englands most memorable moments and he enjoyed a headlinegrabbing career with newcastle united tottenham lazio glasgow rangers middlesbrough and everton then it all went terribly wrong he still made the headlines but for all the wrong reasonsalcoholism drugs wifebeating personality disorder runins with the law and nervous breakdown gascoigne seemed to have passed a personal point of no return then in the autumn of 2005 he was given a chance to rebuild his career with his first job as a football manager as part of a consortium which bought kettering town gazza reinvented himself appearing to have his personal problems under control he took charge full of big ideas about steering the club into the football league and towards the big time the people of kettering were starstruck by the celebrity among them and yet within just a few short weeks after gascoigne was appointed manager he would be sacked amid an increasingly bizarre series of allegations leaving a once hopeful club on its knees less" |
+| title | "39 days of gazza" | "39 days of gazza" |
+| rating_value | "" | "" |
+| price | "5.99" | "5.99" |
+| author | "steve pitts" | "steve pitts" |
+| short_description | "" | "" |
+| length | "288" | "288" |
+
+#### Candidate Match 3 (Overall Text Match Score: 0.99)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| record_id | "3194" | "3425" |
+| publisher | "nevicata" | "primento digital publishing" |
+| date | "2014-12-16 00:00:00" | "2014-12-01 00:00:00" |
+| description | "le premier topo dalpinisme couvrant lensemble de la cordillere des andes du venezuela a la patagonie et la terre de feu quel amateur de montagne na reve de decouvrir un jour lamerique du sud par ses plus belles montagnesdestine aux alpinistes et aux randonneurs ce guide complet reprend tous les sommets de plus de 6000 metres daltitude les 5000 les plus importants et les principales montagnes de patagonie et de terre de feu sans oublier les principaux sites descalade et de bloc au total plus de 400 sommets decrits en detail avec des milliers dinformations uniques ainsi que de nombreuses cartes et photos de locean pacifique aux confins de laltiplano des grandes parois aux volcans les plus faciles de la montagne la plus proche a la cordillere la plus reculee vous trouverez dans ce guide le sommet de vos reves pour preparer et realiser un voyage inoubliable ce quen pense la critiquele premier ouvrage publie par cette nouvelle maison dedition comble un vide dans les livres consacres a la montagne voyages voyages un ouvrage incontournable a destination des alpinistesbaroudeurs francophones montagnes magazine les amateurs de montagnes lointaines trouveront leur compte de reves et de projets dans ce guide les alpes a propos de lauteurinstructeur de montagne professionnel john biggar grimpe regulierement dans les andes depuis une quinzaine dannees lorsquil nest pas en amerique du sud il vit a castle douglas en ecosse ou il dirige andes une agence de voyages specialisee en trekking alpinisme et ski dans les andes" | "le premier topo dalpinisme couvrant lensemble de la cordillere des andes du venezuela a la patagonie et la terre de feu quel amateur de montagne na reve de decouvrir un jour lamerique du sud par ses plus belles montagnesdestine aux alpinistes et aux randonneurs ce guide complet reprend tous les sommets de plus de 6000 metres daltitude les 5000 les plus importants et les principales montagnes de patagonie et de terre de feu sans oublier les principaux sites descalade et de bloc au total plus de 400 sommets decrits en detail avec des milliers dinformations uniques ainsi que de nombreuses cartes et photos de locean pacifique aux confins de laltiplano des grandes parois aux volcans les plus faciles de la montagne la plus proche a la cordillere la plus reculee vous trouverez dans ce guide le sommet de vos reves pour preparer et realiser un voyage inoubliable ce quen pense la critiquele premier ouvrage publie par cette nouvelle maison dedition comble un vide dans les livres consacres a la montagne voyages voyages un ouvrage incontournable a destination des alpinistesbaroudeurs francophones montagnes magazine les amateurs de montagnes lointaines trouveront leur compte de reves et de projets dans ce guide les alpes a propos de lauteurinstructeur de montagne professionnel john biggar grimpe regulierement dans les andes depuis une quinzaine dannees lorsquil nest pas en amerique du sud il vit a castle douglas en ecosse ou il dirige andes une agence de voyages specialisee en trekking alpinisme et ski dans les andes less" |
+| title | "les andes guide dalpinisme guide complet" | "les andes guide dalpinisme guide complet" |
+| rating_value | "" | "" |
+| price | "22.99" | "22.99" |
+| author | "john biggar" | "john biggar" |
+| short_description | "" | "" |
+| length | "306" | "306" |
+
+### 3. Integrated Column Profile (Comparison)
+| Column | Null % (A|B) | Unique % (A|B) | Card. (A|B) | Avg Len (A|B) | Aligned Match (Source A ↔ Source B) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **record_id** | 0.0% | 0.0% | 100.0% | 100.0% | 6500 | 14110 | N/A | N/A | "3871" ↔ "10662" |
+| **publisher** | 0.0% | 0.02% | 25.65% | 4.69% | 1667 | 662 | 16.18 | 17.0 | "simon schuster" ↔ "simon schuster" |
+| **date** | 0.0% | 1.32% | 35.26% | 2.36% | 2292 | 333 | N/A | N/A | "2008-06-30 00:00:00" ↔ "2008-06-01 00:00:00" |
+| **description** | 0.02% | 0.3% | 97.14% | 98.77% | 6314 | 13937 | 942.72 | 1028.85 | "every golfer alive knows that he or she has two ancestral homes ones own and scotland on her rolling shores the game of golf had its origins and to walk the links of st andrews is to feel at one with the shepherd who decided one day to see how far he could whack a stone with his crook most serious golfers will make the pilgrimage to scotland to try to hit the postage stamp green at troon to trace the footsteps of ben hogan at carnoustie and to brave the challenge of the road hole at st andrews all golfers dream of taking such a tripfor the tourist or the dreamer there can be no better guide than james w finegan a passionate advocate of the game thats played on the links between land and sea finegan combines a writers eye a historians knowledge and a golfers sense of wonder and apprehension to provide an impossibly ambitious grand tour of golfs native landin a loop of a thousand miles that begins in edinburgh and ends across the firth of forth in st andrews finegan covers some sixty courses visiting the true shrines of the game the courses that are well known and respected and the littleknown gems you might otherwise pass right by he shares the history of the courses both of their creation and of the most famous matches played there he also writes marvelously about the scenic and strategic charms to be found as you play them yourself and he provides all the information you need to make your arrangements to do just that because unlike most championship courses in the united states the great courses of scotland are available to the publicin addition to his delightful descriptions of the golf to be found there finegan gives us his recommendations for places to stay ranging from the most modest bedandbreakfast to the most magnificent castle hotel he describes the pleasures to be found off the beaten track the spectacular views from a country road or the ancient cathedral thats worth a stop on the way to the first tee and because all the travel within the country is done by car he spells out the actual routes from town to town and course to courseblasted heaths and blessed greens is a book to be read to be savored and to be tucked away in your suitcase when you finally undertake the journey of your dreams" ↔ "every golfer alive knows that he or she has two ancestral homes ones own and scotland on her rolling shores the game of golf had its origins and to walk the links of st andrews is to feel at one with the shepherd who decided one day to see how far he could whack a stone with his crook most serious golfers will make the pilgrimage to scotland to try to hit the postage stamp green at troon to trace the footsteps of ben hogan at carnoustie and to brave the challenge of the road hole at st andrews all golfers dream of taking such a tripfor the tourist or the dreamer there can be no better guide than james w finegan a passionate advocate of the game thats played on the links between land and sea finegan combines a writers eye a historians knowledge and a golfers sense of wonder and apprehension to provide an impossibly ambitious grand tour of golfs native landin a loop of a thousand miles that begins in edinburgh and ends across the firth of forth in st andrews finegan covers some sixty courses visiting the true shrines of the game the courses that are well known and respected and the littleknown gems you might otherwise pass right by he shares the history of the courses both of their creation and of the most famous matches played there he also writes marvelously about the scenic and strategic charms to be found as you play them yourself and he provides all the information you need to make your arrangements to do just that because unlike most championship courses in the united states the great courses of scotland are available to the publicin addition to his delightful descriptions of the golf to be found there finegan gives us his recommendations for places to stay ranging from the most modest bedandbreakfast to the most magnificent castle hotel he describes the pleasures to be found off the beaten track the spectacular views from a country road or the ancient cathedral thats worth a stop on the way to the first tee and because all the travel within the country is done by car he spells out the actual routes from town to town and course to courseblasted heaths and blessed greens is a book to be read to be savored and to be tucked away in your suitcase when you finally undertake the journey of your dreams less" |
+| **language** | 0.0% | N/A | 0.34% | N/A | 22 | N/A | 6.98 | N/A | N/A |
+| **title** | 0.0% | 0.02% | 99.15% | 96.35% | 6445 | 13595 | 28.0 | 24.87 | "blasted heaths and blessed green" ↔ "blasted heaths and blessed green" |
+| **url** | 0.0% | N/A | 100.0% | N/A | 6500 | N/A | 59.12 | N/A | N/A |
+| **rating_value** | 90.57% | 99.67% | 4.97% | 0.03% | 323 | 4 | N/A | N/A | "" ↔ "" |
+| **price** | 0.0% | 0.0% | 1.05% | 5.2% | 68 | 734 | N/A | N/A | "14.99" ↔ "14.99" |
+| **author** | 0.05% | 0.12% | 73.86% | 76.0% | 4801 | 10724 | 15.54 | 18.74 | "james w finegan" ↔ "james w finegan" |
+| **rating_star** | 0.0% | N/A | 0.14% | N/A | 9 | N/A | N/A | N/A | N/A |
+| **seller** | 0.69% | N/A | 11.69% | N/A | 760 | N/A | 23.09 | N/A | N/A |
+| **short_description** | 42.82% | 33.2% | 52.45% | 61.16% | 3409 | 8630 | 46.25 | 43.78 | "a golfers pilgrimage to the courses of scotland" ↔ "a golfers pilgrimage to the courses of scotland" |
+| **length** | 0.0% | 0.0% | 8.26% | 4.37% | 537 | 617 | N/A | N/A | "288" ↔ "288" |
+| **genre** | 0.0% | N/A | 1.51% | N/A | 98 | N/A | 9.7 | N/A | N/A |
+| **page_id** | 0.06% | N/A | 99.94% | N/A | 6496 | N/A | N/A | N/A | N/A |
+| **ISBN** | N/A | 1.32% | N/A | 98.36% | N/A | 13878 | N/A | N/A | N/A |
+| **review_count** | N/A | 99.67% | N/A | 0.02% | N/A | 3 | N/A | N/A | N/A |
+```
+</details>
+

@@ -1,0 +1,148 @@
+{
+  "dataset_id": "flights",
+  "model_name": "gpt-5.6-sol",
+  "status": "SUCCESS",
+  "iterations": [
+    {
+      "iteration_index": 1,
+      "status": "SUCCESS",
+      "error_message": null,
+      "traceback": null,
+      "absolute_metrics": {
+        "precision": 0.6728,
+        "recall": 0.676,
+        "f1": 0.6744
+      },
+      "reachable_metrics": {
+        "precision": 0.6728,
+        "recall": 0.9209,
+        "f1": 0.7775
+      },
+      "latency_seconds": 20.049,
+      "profiling_latency_seconds": 0.0344,
+      "policy_synthesis_latency_seconds": 19.3989,
+      "execution_latency_seconds": 0.6099,
+      "llm_call_log_path": "iterations/iter_1/llm_call.json",
+      "token_usage": {
+        "prompt_tokens": 2429,
+        "completion_tokens": 993,
+        "cached_tokens": 1180,
+        "reasoning_tokens": 543,
+        "total_tokens": 3422,
+        "latency_seconds": 20.0432,
+        "cost_usd": 0.026455
+      },
+      "audit_log": {
+        "FlightID": "coalesce",
+        "ScheduledDep": "longest_string",
+        "ActualDep": "longest_string",
+        "DepGate": "longest_string",
+        "ScheduledArr": "longest_string",
+        "ActualArr": "longest_string",
+        "ArrGate": "longest_string"
+      }
+    },
+    {
+      "iteration_index": 2,
+      "status": "SUCCESS",
+      "error_message": null,
+      "traceback": null,
+      "absolute_metrics": {
+        "precision": 0.6728,
+        "recall": 0.676,
+        "f1": 0.6744
+      },
+      "reachable_metrics": {
+        "precision": 0.6728,
+        "recall": 0.9209,
+        "f1": 0.7775
+      },
+      "latency_seconds": 24.6767,
+      "profiling_latency_seconds": 0.0333,
+      "policy_synthesis_latency_seconds": 23.5781,
+      "execution_latency_seconds": 1.0603,
+      "llm_call_log_path": "iterations/iter_2/llm_call.json",
+      "token_usage": {
+        "prompt_tokens": 2477,
+        "completion_tokens": 1280,
+        "cached_tokens": 1180,
+        "reasoning_tokens": 715,
+        "total_tokens": 3757,
+        "latency_seconds": 24.6717,
+        "cost_usd": 0.032435
+      },
+      "audit_log": {
+        "FlightID": "coalesce",
+        "DepGate": "longest_string",
+        "ArrGate": "longest_string",
+        "ScheduledDep": "longest_string",
+        "ScheduledArr": "longest_string",
+        "ActualDep": "longest_string",
+        "ActualArr": "longest_string"
+      }
+    },
+    {
+      "iteration_index": 3,
+      "status": "SUCCESS",
+      "error_message": null,
+      "traceback": null,
+      "absolute_metrics": {
+        "precision": 0.6728,
+        "recall": 0.676,
+        "f1": 0.6744
+      },
+      "reachable_metrics": {
+        "precision": 0.6728,
+        "recall": 0.9209,
+        "f1": 0.7775
+      },
+      "latency_seconds": 16.3519,
+      "profiling_latency_seconds": 0.0351,
+      "policy_synthesis_latency_seconds": 15.702,
+      "execution_latency_seconds": 0.6095,
+      "llm_call_log_path": "iterations/iter_3/llm_call.json",
+      "token_usage": {
+        "prompt_tokens": 2477,
+        "completion_tokens": 833,
+        "cached_tokens": 1180,
+        "reasoning_tokens": 426,
+        "total_tokens": 3310,
+        "latency_seconds": 16.3466,
+        "cost_usd": 0.023495
+      },
+      "audit_log": {
+        "FlightID": "coalesce",
+        "ScheduledDep": "longest_string",
+        "ActualDep": "longest_string",
+        "DepGate": "longest_string",
+        "ScheduledArr": "longest_string",
+        "ActualArr": "longest_string",
+        "ArrGate": "longest_string"
+      }
+    }
+  ],
+  "mean_abs_precision": 0.6728,
+  "std_abs_precision": 0.0,
+  "mean_abs_recall": 0.676,
+  "std_abs_recall": 0.0,
+  "mean_abs_f1": 0.6744,
+  "std_abs_f1": 0.0,
+  "mean_reach_precision": 0.6728,
+  "std_reach_precision": 0.0,
+  "mean_reach_recall": 0.9209,
+  "std_reach_recall": 0.0,
+  "mean_reach_f1": 0.7775,
+  "std_reach_f1": 0.0,
+  "mean_latency_seconds": 20.3592,
+  "std_latency_seconds": 4.17106,
+  "mean_synthesis_latency_seconds": 19.559667,
+  "std_synthesis_latency_seconds": 3.94051,
+  "prompt_tokens": 7383,
+  "completion_tokens": 3106,
+  "cached_tokens": 3540,
+  "reasoning_tokens": 1684,
+  "total_tokens": 10489,
+  "estimated_cost_usd": 0.082385,
+  "strategy_consensus_ratio": 1.0,
+  "flaky_attributes": {}
+}

@@ -1,0 +1,68 @@
+source_col_a,source_col_b,coaligned_runs,total_runs,agreement_rate,status,target_field_names
+conditions.code,condition_occurrence.condition_concept_id,1,2,0.5,VOLATILE,condition_occurrence.condition_concept_id
+conditions.code,condition_occurrence.condition_source_value,2,2,1.0,STABLE,condition_occurrence.condition_source_value
+conditions.encounter,condition_occurrence.visit_occurrence_id,2,2,1.0,STABLE,condition_occurrence.visit_occurrence_id
+conditions.patient,condition_occurrence.person_id,2,2,1.0,STABLE,condition_occurrence.person_id
+conditions.start,condition_occurrence.condition_start_date,2,2,1.0,STABLE,condition_occurrence.condition_start_date
+conditions.stop,condition_occurrence.condition_end_date,2,2,1.0,STABLE,condition_occurrence.condition_end_date
+encounters.code,visit_occurrence.visit_source_value,1,2,0.5,VOLATILE,visit_occurrence.visit_source_value
+encounters.id,visit_occurrence.visit_occurrence_id,2,2,1.0,STABLE,visit_occurrence.visit_occurrence_id
+encounters.patient,visit_occurrence.person_id,2,2,1.0,STABLE,visit_occurrence.person_id
+encounters.provider,visit_occurrence.care_site_id,1,2,0.5,VOLATILE,visit_occurrence.organization_id
+encounters.provider,visit_occurrence.provider_id,1,2,0.5,VOLATILE,visit_occurrence.provider_id
+encounters.start,visit_occurrence.visit_start_date,2,2,1.0,STABLE,visit_occurrence.visit_start_date
+encounters.stop,visit_occurrence.visit_end_date,2,2,1.0,STABLE,visit_occurrence.visit_end_date
+medications.code,drug_exposure.drug_concept_id,2,2,1.0,STABLE,drug_exposure.drug_concept_id
+medications.code,drug_exposure.drug_source_value,2,2,1.0,STABLE,drug_exposure.drug_source_value
+medications.encounter,drug_exposure.visit_occurrence_id,2,2,1.0,STABLE,drug_exposure.visit_occurrence_id
+medications.patient,drug_exposure.person_id,2,2,1.0,STABLE,drug_exposure.person_id
+medications.start,drug_exposure.drug_exposure_start_date,2,2,1.0,STABLE,drug_exposure.drug_exposure_start_date; drug_exposure.start_date
+medications.stop,drug_exposure.drug_exposure_end_date,2,2,1.0,STABLE,drug_exposure.drug_exposure_end_date; drug_exposure.end_date
+observations.code,measurement.measurement_concept_id,2,2,1.0,STABLE,measurement.measurement_concept_id; observation.observation_concept_id
+observations.code,measurement.measurement_source_value,2,2,1.0,STABLE,measurement.measurement_source_value; observation.observation_source_value
+observations.code,observation.observation_concept_id,2,2,1.0,STABLE,observation.observation_concept_id
+observations.code,observation.observation_source_value,2,2,1.0,STABLE,observation.observation_source_value
+observations.date,measurement.measurement_date,2,2,1.0,STABLE,measurement.measurement_date; observation.observation_date
+observations.date,observation.observation_date,2,2,1.0,STABLE,observation.observation_date
+observations.encounter,measurement.visit_occurrence_id,2,2,1.0,STABLE,measurement.visit_occurrence_id; observation.visit_occurrence_id
+observations.encounter,observation.visit_occurrence_id,2,2,1.0,STABLE,observation.visit_occurrence_id
+observations.patient,measurement.person_id,2,2,1.0,STABLE,measurement.person_id; observation.person_id
+observations.patient,observation.person_id,2,2,1.0,STABLE,observation.person_id
+observations.units,measurement.unit_concept_id,2,2,1.0,STABLE,measurement.unit_concept_id; observation.unit_concept_id
+observations.units,measurement.unit_source_value,2,2,1.0,STABLE,measurement.unit_source_value; observation.unit_source_value
+observations.units,observation.unit_concept_id,1,2,0.5,VOLATILE,observation.unit_concept_id
+observations.units,observation.unit_source_value,2,2,1.0,STABLE,observation.unit_source_value
+observations.value,measurement.value_as_number,1,2,0.5,VOLATILE,measurement.value_as_number
+observations.value,measurement.value_source_value,2,2,1.0,STABLE,measurement.value_source_value; observation.value_source_value
+observations.value,observation.value_as_string,1,2,0.5,VOLATILE,observation.value_as_string
+observations.value,observation.value_source_value,1,2,0.5,VOLATILE,observation.value_source_value
+organizations.address,location.address_1,2,2,1.0,STABLE,location.address_1
+organizations.city,location.city,2,2,1.0,STABLE,location.city
+organizations.id,care_site.care_site_id,2,2,1.0,STABLE,care_site.care_site_id; organization.organization_id
+organizations.name,care_site.care_site_name,2,2,1.0,STABLE,care_site.care_site_name; organization.name
+organizations.state,location.state,2,2,1.0,STABLE,location.state
+organizations.zip,location.zip,2,2,1.0,STABLE,location.zip
+patients.address,location.address_1,2,2,1.0,STABLE,location.address_1
+patients.birthdate,person.birth_datetime,1,2,0.5,VOLATILE,person.birth_date
+patients.city,location.city,2,2,1.0,STABLE,location.city
+patients.deathdate,death.death_date,2,2,1.0,STABLE,death.death_date; person.death_date
+patients.ethnicity,person.ethnicity_source_value,1,2,0.5,VOLATILE,person.ethnicity_source_value
+patients.gender,person.gender_source_value,1,2,0.5,VOLATILE,person.gender_source_value
+patients.id,person.person_id,2,2,1.0,STABLE,person.person_id
+patients.race,person.race_source_value,1,2,0.5,VOLATILE,person.race_source_value
+patients.state,location.state,2,2,1.0,STABLE,location.state
+patients.zip,location.zip,2,2,1.0,STABLE,location.zip
+procedures.code,procedure_occurrence.procedure_concept_id,2,2,1.0,STABLE,procedure_occurrence.procedure_concept_id
+procedures.code,procedure_occurrence.procedure_source_value,2,2,1.0,STABLE,procedure_occurrence.procedure_source_value
+procedures.date,procedure_occurrence.procedure_date,2,2,1.0,STABLE,procedure_occurrence.procedure_date
+procedures.encounter,procedure_occurrence.visit_occurrence_id,2,2,1.0,STABLE,procedure_occurrence.visit_occurrence_id
+procedures.patient,procedure_occurrence.person_id,2,2,1.0,STABLE,procedure_occurrence.person_id
+providers.address,location.address_1,2,2,1.0,STABLE,location.address_1
+providers.city,location.city,2,2,1.0,STABLE,location.city
+providers.gender,provider.gender_source_value,1,2,0.5,VOLATILE,provider.gender_source_value
+providers.id,provider.provider_id,2,2,1.0,STABLE,provider.provider_id
+providers.name,provider.provider_name,2,2,1.0,STABLE,provider.name; provider.provider_name
+providers.organization,provider.care_site_id,2,2,1.0,STABLE,provider.care_site_id; provider.organization_id
+providers.speciality,provider.specialty_source_value,1,2,0.5,VOLATILE,provider.specialty_source_value
+providers.state,location.state,2,2,1.0,STABLE,location.state
+providers.zip,location.zip,2,2,1.0,STABLE,location.zip

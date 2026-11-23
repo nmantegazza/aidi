@@ -1,0 +1,4 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+location,address_1,address_2,string,0.9494,synthea.patients.address; synthea.organizations.address; synthea.providers.address; omop.location.address_1,omop.location.address_2,Street address line 1.,Street address line 2.
+visit_occurrence,visit_start_date,visit_end_date,date,0.8552,synthea.encounters.start; omop.visit_occurrence.visit_start_date,synthea.encounters.stop; omop.visit_occurrence.visit_end_date,Start date of the visit.,End date of the visit.
+drug_exposure,drug_exposure_start_date,drug_exposure_end_date,date,0.8884,synthea.medications.start; omop.drug_exposure.drug_exposure_start_date,synthea.medications.stop; omop.drug_exposure.drug_exposure_end_date,Prescription or administration start date.,Prescription end date.

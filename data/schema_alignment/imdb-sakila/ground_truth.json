@@ -1,0 +1,142 @@
+[
+  {
+    "source_a": "title_akas.titleid",
+    "source_b": "film.film_id"
+  },
+  {
+    "source_a": "title_akas.titleid",
+    "source_b": "film_actor.film_id"
+  },
+  {
+    "source_a": "title_akas.titleid",
+    "source_b": "film_category.film_id"
+  },
+  {
+    "source_a": "title_akas.titleid",
+    "source_b": "film_text.film_id"
+  },
+  {
+    "source_a": "title_akas.title",
+    "source_b": "film.title"
+  },
+  {
+    "source_a": "title_akas.title",
+    "source_b": "film_text.title"
+  },
+  {
+    "source_a": "title_akas.region",
+    "source_b": "film.original_language_id"
+  },
+  {
+    "source_a": "title_akas.language",
+    "source_b": "film.language_id"
+  },
+  {
+    "source_a": "title_akas.language",
+    "source_b": "language.language_id"
+  },
+  {
+    "source_a": "title_basics.tconst",
+    "source_b": "film.film_id"
+  },
+  {
+    "source_a": "title_basics.tconst",
+    "source_b": "film_actor.film_id"
+  },
+  {
+    "source_a": "title_basics.tconst",
+    "source_b": "film_category.film_id"
+  },
+  {
+    "source_a": "title_basics.tconst",
+    "source_b": "film_text.film_id"
+  },
+  {
+    "source_a": "title_basics.genres",
+    "source_b": "category.category_id"
+  },
+  {
+    "source_a": "title_basics.genres",
+    "source_b": "category.name"
+  },
+  {
+    "source_a": "title_basics.primarytitle",
+    "source_b": "film.title"
+  },
+  {
+    "source_a": "title_basics.originaltitle",
+    "source_b": "film.title"
+  },
+  {
+    "source_a": "title_basics.primarytitle",
+    "source_b": "film_text.title"
+  },
+  {
+    "source_a": "title_basics.originaltitle",
+    "source_b": "film_text.title"
+  },
+  {
+    "source_a": "title_basics.isadult",
+    "source_b": "film.rating"
+  },
+  {
+    "source_a": "title_basics.startyear",
+    "source_b": "film.release_year"
+  },
+  {
+    "source_a": "title_basics.endyear",
+    "source_b": "film.release_year"
+  },
+  {
+    "source_a": "title_basics.runtimeminutes",
+    "source_b": "film.length"
+  },
+  {
+    "source_a": "title_crew.tconst",
+    "source_b": "film.film_id"
+  },
+  {
+    "source_a": "title_crew.tconst",
+    "source_b": "film_actor.film_id"
+  },
+  {
+    "source_a": "title_crew.tconst",
+    "source_b": "film_category.film_id"
+  },
+  {
+    "source_a": "title_crew.tconst",
+    "source_b": "film_text.film_id"
+  },
+  {
+    "source_a": "title_ratings.tconst",
+    "source_b": "film.film_id"
+  },
+  {
+    "source_a": "title_ratings.tconst",
+    "source_b": "film_actor.film_id"
+  },
+  {
+    "source_a": "title_ratings.tconst",
+    "source_b": "film_category.film_id"
+  },
+  {
+    "source_a": "title_ratings.tconst",
+    "source_b": "film_text.film_id"
+  },
+  {
+    "source_a": "name_basics.nconst",
+    "source_b": "actor.actor_id"
+  },
+  {
+    "source_a": "name_basics.primaryname",
+    "source_b": "actor.first_name"
+  },
+  {
+    "source_a": "name_basics.primaryname",
+    "source_b": "actor.last_name"
+  },
+  {
+    "source_a": "name_basics.nconst",
+    "source_b": "film_actor.actor_id"
+  }
+]

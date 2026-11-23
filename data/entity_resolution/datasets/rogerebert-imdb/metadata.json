@@ -1,0 +1,24 @@
+{
+  "name": "rogerebert-imdb",
+  "domain": "movies",
+  "ground_truth_type": "sampled",
+  "table_a": {
+    "file": "roger_ebert.csv",
+    "id_column": "id"
+  },
+  "table_b": {
+    "file": "imdb.csv",
+    "id_column": "id"
+  },
+  "ground_truth": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.id",
+    "column_b": "rtable.id",
+    "label_column": "gold"
+  },
+  "candidates": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.id",
+    "column_b": "rtable.id"
+  }
+}

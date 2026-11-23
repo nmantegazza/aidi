@@ -1,0 +1,3883 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "schema_info": {
+    "dataset_name": "bank1-bank2",
+    "domain": "Financial & Banking",
+    "scenario": "Multi-Table Relational Schema",
+    "category": "multi_table",
+    "source_table": {
+      "table_name": "bank",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    "target_table": {
+      "table_name": "branch",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "assets",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_address",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    "source_tables": [
+      {
+        "table_name": "bank",
+        "row_count": 0,
+        "column_count": 3,
+        "columns": [
+          {
+            "name": "code",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "branch",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "bank_code",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "loan",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "loan_type",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "amount",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "customer",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "custid",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "account",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "account_no",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "acc_type",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "balance",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "offer",
+        "row_count": 0,
+        "column_count": 2,
+        "columns": [
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "maintain",
+        "row_count": 0,
+        "column_count": 2,
+        "columns": [
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "account_no",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "availed_by",
+        "row_count": 0,
+        "column_count": 2,
+        "columns": [
+          {
+            "name": "custid",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "hold_by",
+        "row_count": 0,
+        "column_count": 2,
+        "columns": [
+          {
+            "name": "custid",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "account_no",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "target_tables": [
+      {
+        "table_name": "branch",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "branch_name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "assets",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "branch_address",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "banker_info",
+        "row_count": 0,
+        "column_count": 3,
+        "columns": [
+          {
+            "name": "banker_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "banker_name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "account",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "account_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "account_type",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "account_balance",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "transaction",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          {
+            "name": "transaction_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "amount",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "customer_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "account_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "customer",
+        "row_count": 0,
+        "column_count": 5,
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "customer_name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "mobileno",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "dob",
+            "type": "date",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "account_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "customer_credit_card",
+        "row_count": 0,
+        "column_count": 5,
+        "columns": [
+          {
+            "name": "credit_card_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "expiry_date",
+            "type": "date",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "card_limit",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "customer_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "account_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "loan",
+        "row_count": 0,
+        "column_count": 5,
+        "columns": [
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "issued_amount",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "remaining_amount",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "branch_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "account_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "loan_payment",
+        "row_count": 0,
+        "column_count": 3,
+        "columns": [
+          {
+            "name": "loan_payment_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "amount",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "table_name": "borrower",
+        "row_count": 0,
+        "column_count": 3,
+        "columns": [
+          {
+            "name": "borrower_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "customer_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "loan_id",
+            "type": "integer",
+            "constraints": {
+              "required": true
+            }
+          }
+        ]
+      }
+    ],
+    "ground_truth_pairs": [
+      [
+        "account.acc_type",
+        "account.account_type"
+      ],
+      [
+        "account.account_no",
+        "account.account_id"
+      ],
+      [
+        "account.balance",
+        "account.account_balance"
+      ],
+      [
+        "account.branch_id",
+        "account.branch_id"
+      ],
+      [
+        "availed_by.custid",
+        "borrower.customer_id"
+      ],
+      [
+        "availed_by.loan_id",
+        "borrower.loan_id"
+      ],
+      [
+        "branch.address",
+        "branch.branch_address"
+      ],
+      [
+        "branch.branch_id",
+        "branch.branch_id"
+      ],
+      [
+        "branch.name",
+        "branch.branch_name"
+      ],
+      [
+        "customer.custid",
+        "customer.customer_id"
+      ],
+      [
+        "customer.name",
+        "customer.customer_name"
+      ],
+      [
+        "customer.phone",
+        "customer.mobileno"
+      ],
+      [
+        "hold_by.account_no",
+        "customer.account_id"
+      ],
+      [
+        "hold_by.custid",
+        "customer.customer_id"
+      ],
+      [
+        "loan.amount",
+        "loan.issued_amount"
+      ],
+      [
+        "loan.branch_id",
+        "loan.branch_id"
+      ],
+      [
+        "loan.loan_id",
+        "loan.loan_id"
+      ]
+    ]
+  },
+  "model_name": "deepseek-v4.1-flash",
+  "iterations": 3,
+  "aggregated_metrics": {
+    "precision_mean": 0.7852,
+    "precision_std": 0.1118,
+    "recall_mean": 0.9412,
+    "recall_std": 0.0,
+    "f1_mean": 0.8532,
+    "f1_std": 0.0677,
+    "latency_mean_sec": 25.732,
+    "latency_std_sec": 14.107,
+    "total_tokens": 41838,
+    "estimated_cost_usd": 0.0
+  },
+  "iteration_results": [
+    {
+      "iteration_index": 1,
+      "category": "multi_table",
+      "metrics": {
+        "precision": 0.8889,
+        "recall": 0.9412,
+        "f1": 0.9143,
+        "true_positives": 16,
+        "false_positives": 2,
+        "false_negatives": 1,
+        "predicted_pairs_count": 18,
+        "gold_pairs_count": 17,
+        "tp_pairs": [
+          [
+            "account.acc_type",
+            "account.account_type"
+          ],
+          [
+            "account.account_no",
+            "account.account_id"
+          ],
+          [
+            "account.balance",
+            "account.account_balance"
+          ],
+          [
+            "account.branch_id",
+            "account.branch_id"
+          ],
+          [
+            "availed_by.custid",
+            "borrower.customer_id"
+          ],
+          [
+            "availed_by.loan_id",
+            "borrower.loan_id"
+          ],
+          [
+            "branch.address",
+            "branch.branch_address"
+          ],
+          [
+            "branch.branch_id",
+            "branch.branch_id"
+          ],
+          [
+            "branch.name",
+            "branch.branch_name"
+          ],
+          [
+            "customer.custid",
+            "customer.customer_id"
+          ],
+          [
+            "customer.name",
+            "customer.customer_name"
+          ],
+          [
+            "customer.phone",
+            "customer.mobileno"
+          ],
+          [
+            "hold_by.account_no",
+            "customer.account_id"
+          ],
+          [
+            "loan.amount",
+            "loan.issued_amount"
+          ],
+          [
+            "loan.branch_id",
+            "loan.branch_id"
+          ],
+          [
+            "loan.loan_id",
+            "loan.loan_id"
+          ]
+        ],
+        "fp_pairs": [
+          [
+            "bank.code",
+            "banker_info.banker_id"
+          ],
+          [
+            "bank.name",
+            "banker_info.banker_name"
+          ]
+        ],
+        "fn_pairs": [
+          [
+            "hold_by.custid",
+            "customer.customer_id"
+          ]
+        ]
+      },
+      "latency_seconds": 18.301,
+      "token_usage": {
+        "prompt_tokens": 7339,
+        "completion_tokens": 4872,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 12211,
+        "latency_seconds": 18.301,
+        "cost_usd": null
+      },
+      "predicted_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ]
+      ],
+      "fp_pairs": [
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ]
+      ],
+      "fn_pairs": [
+        [
+          "hold_by.custid",
+          "customer.customer_id"
+        ]
+      ],
+      "transformation_counts": {
+        "direct_copy": 15,
+        "type_cast": 3
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "branch",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_name",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_address",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "address"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_id",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "code"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_name",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_type",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "acc_type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_balance",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "balance"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_name",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "mobileno",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "phone"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "issued_amount",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "amount"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "branch.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "branch.branch_id"
+          ],
+          "predicted_source_columns": [
+            "branch.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.branch_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.name"
+          ],
+          "predicted_source_columns": [
+            "branch.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.assets",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "branch.branch_address",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.address"
+          ],
+          "predicted_source_columns": [
+            "branch.address"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.code"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_name",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.name"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "account.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.account_no"
+          ],
+          "predicted_source_columns": [
+            "account.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_type",
+          "target_type": "string",
+          "expected_source_columns": [
+            "account.acc_type"
+          ],
+          "predicted_source_columns": [
+            "account.acc_type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_balance",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.balance"
+          ],
+          "predicted_source_columns": [
+            "account.balance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "account.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.branch_id"
+          ],
+          "predicted_source_columns": [
+            "account.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "transaction.transaction_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "customer.custid",
+            "hold_by.custid"
+          ],
+          "predicted_source_columns": [
+            "customer.custid"
+          ],
+          "status": "PARTIAL MATCH",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.customer_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.name"
+          ],
+          "predicted_source_columns": [
+            "customer.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.mobileno",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.phone"
+          ],
+          "predicted_source_columns": [
+            "customer.phone"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.dob",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "hold_by.account_no"
+          ],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer_credit_card.credit_card_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.expiry_date",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.card_limit",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.loan_id"
+          ],
+          "predicted_source_columns": [
+            "loan.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.issued_amount",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.amount"
+          ],
+          "predicted_source_columns": [
+            "loan.amount"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.remaining_amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.branch_id"
+          ],
+          "predicted_source_columns": [
+            "loan.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_payment_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "borrower.borrower_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "borrower.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.custid"
+          ],
+          "predicted_source_columns": [
+            "availed_by.custid"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "borrower.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "predicted_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    },
+    {
+      "iteration_index": 2,
+      "category": "multi_table",
+      "metrics": {
+        "precision": 0.8,
+        "recall": 0.9412,
+        "f1": 0.8649,
+        "true_positives": 16,
+        "false_positives": 4,
+        "false_negatives": 1,
+        "predicted_pairs_count": 20,
+        "gold_pairs_count": 17,
+        "tp_pairs": [
+          [
+            "account.acc_type",
+            "account.account_type"
+          ],
+          [
+            "account.account_no",
+            "account.account_id"
+          ],
+          [
+            "account.balance",
+            "account.account_balance"
+          ],
+          [
+            "account.branch_id",
+            "account.branch_id"
+          ],
+          [
+            "availed_by.custid",
+            "borrower.customer_id"
+          ],
+          [
+            "availed_by.loan_id",
+            "borrower.loan_id"
+          ],
+          [
+            "branch.address",
+            "branch.branch_address"
+          ],
+          [
+            "branch.branch_id",
+            "branch.branch_id"
+          ],
+          [
+            "branch.name",
+            "branch.branch_name"
+          ],
+          [
+            "customer.custid",
+            "customer.customer_id"
+          ],
+          [
+            "customer.name",
+            "customer.customer_name"
+          ],
+          [
+            "customer.phone",
+            "customer.mobileno"
+          ],
+          [
+            "hold_by.account_no",
+            "customer.account_id"
+          ],
+          [
+            "loan.amount",
+            "loan.issued_amount"
+          ],
+          [
+            "loan.branch_id",
+            "loan.branch_id"
+          ],
+          [
+            "loan.loan_id",
+            "loan.loan_id"
+          ]
+        ],
+        "fp_pairs": [
+          [
+            "bank.code",
+            "banker_info.banker_id"
+          ],
+          [
+            "bank.name",
+            "banker_info.banker_name"
+          ],
+          [
+            "hold_by.account_no",
+            "transaction.account_id"
+          ],
+          [
+            "hold_by.custid",
+            "transaction.customer_id"
+          ]
+        ],
+        "fn_pairs": [
+          [
+            "hold_by.custid",
+            "customer.customer_id"
+          ]
+        ]
+      },
+      "latency_seconds": 42.001,
+      "token_usage": {
+        "prompt_tokens": 7339,
+        "completion_tokens": 10343,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 17682,
+        "latency_seconds": 42.001,
+        "cost_usd": null
+      },
+      "predicted_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "hold_by.account_no",
+          "transaction.account_id"
+        ],
+        [
+          "hold_by.custid",
+          "transaction.customer_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ]
+      ],
+      "fp_pairs": [
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ],
+        [
+          "hold_by.account_no",
+          "transaction.account_id"
+        ],
+        [
+          "hold_by.custid",
+          "transaction.customer_id"
+        ]
+      ],
+      "fn_pairs": [
+        [
+          "hold_by.custid",
+          "customer.customer_id"
+        ]
+      ],
+      "transformation_counts": {
+        "direct_copy": 17,
+        "type_cast": 3
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "branch",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_name",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_address",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "address"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_id",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "code"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_name",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_type",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "acc_type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_balance",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "balance"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_name",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "mobileno",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "phone"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "issued_amount",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "amount"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "transaction",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "transaction",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "branch.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "branch.branch_id"
+          ],
+          "predicted_source_columns": [
+            "branch.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.branch_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.name"
+          ],
+          "predicted_source_columns": [
+            "branch.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.assets",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "branch.branch_address",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.address"
+          ],
+          "predicted_source_columns": [
+            "branch.address"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.code"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_name",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.name"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "account.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.account_no"
+          ],
+          "predicted_source_columns": [
+            "account.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_type",
+          "target_type": "string",
+          "expected_source_columns": [
+            "account.acc_type"
+          ],
+          "predicted_source_columns": [
+            "account.acc_type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_balance",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.balance"
+          ],
+          "predicted_source_columns": [
+            "account.balance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "account.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.branch_id"
+          ],
+          "predicted_source_columns": [
+            "account.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "transaction.transaction_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "hold_by.custid"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "transaction.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "customer.custid",
+            "hold_by.custid"
+          ],
+          "predicted_source_columns": [
+            "customer.custid"
+          ],
+          "status": "PARTIAL MATCH",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.customer_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.name"
+          ],
+          "predicted_source_columns": [
+            "customer.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.mobileno",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.phone"
+          ],
+          "predicted_source_columns": [
+            "customer.phone"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.dob",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "hold_by.account_no"
+          ],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer_credit_card.credit_card_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.expiry_date",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.card_limit",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.loan_id"
+          ],
+          "predicted_source_columns": [
+            "loan.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.issued_amount",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.amount"
+          ],
+          "predicted_source_columns": [
+            "loan.amount"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.remaining_amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.branch_id"
+          ],
+          "predicted_source_columns": [
+            "loan.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_payment_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "borrower.borrower_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "borrower.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.custid"
+          ],
+          "predicted_source_columns": [
+            "availed_by.custid"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "borrower.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "predicted_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    },
+    {
+      "iteration_index": 3,
+      "category": "multi_table",
+      "metrics": {
+        "precision": 0.6667,
+        "recall": 0.9412,
+        "f1": 0.7805,
+        "true_positives": 16,
+        "false_positives": 8,
+        "false_negatives": 1,
+        "predicted_pairs_count": 24,
+        "gold_pairs_count": 17,
+        "tp_pairs": [
+          [
+            "account.acc_type",
+            "account.account_type"
+          ],
+          [
+            "account.account_no",
+            "account.account_id"
+          ],
+          [
+            "account.balance",
+            "account.account_balance"
+          ],
+          [
+            "account.branch_id",
+            "account.branch_id"
+          ],
+          [
+            "availed_by.custid",
+            "borrower.customer_id"
+          ],
+          [
+            "availed_by.loan_id",
+            "borrower.loan_id"
+          ],
+          [
+            "branch.address",
+            "branch.branch_address"
+          ],
+          [
+            "branch.branch_id",
+            "branch.branch_id"
+          ],
+          [
+            "branch.name",
+            "branch.branch_name"
+          ],
+          [
+            "customer.custid",
+            "customer.customer_id"
+          ],
+          [
+            "customer.name",
+            "customer.customer_name"
+          ],
+          [
+            "customer.phone",
+            "customer.mobileno"
+          ],
+          [
+            "hold_by.account_no",
+            "customer.account_id"
+          ],
+          [
+            "loan.amount",
+            "loan.issued_amount"
+          ],
+          [
+            "loan.branch_id",
+            "loan.branch_id"
+          ],
+          [
+            "loan.loan_id",
+            "loan.loan_id"
+          ]
+        ],
+        "fp_pairs": [
+          [
+            "bank.code",
+            "banker_info.banker_id"
+          ],
+          [
+            "bank.name",
+            "banker_info.banker_name"
+          ],
+          [
+            "branch.branch_id",
+            "banker_info.branch_id"
+          ],
+          [
+            "customer.custid",
+            "customer_credit_card.customer_id"
+          ],
+          [
+            "hold_by.account_no",
+            "customer_credit_card.account_id"
+          ],
+          [
+            "hold_by.account_no",
+            "transaction.account_id"
+          ],
+          [
+            "hold_by.custid",
+            "transaction.customer_id"
+          ],
+          [
+            "loan.loan_id",
+            "loan_payment.loan_id"
+          ]
+        ],
+        "fn_pairs": [
+          [
+            "hold_by.custid",
+            "customer.customer_id"
+          ]
+        ]
+      },
+      "latency_seconds": 16.893,
+      "token_usage": {
+        "prompt_tokens": 7339,
+        "completion_tokens": 4606,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 11945,
+        "latency_seconds": 16.893,
+        "cost_usd": null
+      },
+      "predicted_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "banker_info.branch_id"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.custid",
+          "customer_credit_card.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "hold_by.account_no",
+          "customer_credit_card.account_id"
+        ],
+        [
+          "hold_by.account_no",
+          "transaction.account_id"
+        ],
+        [
+          "hold_by.custid",
+          "transaction.customer_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan_payment.loan_id"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "account.acc_type",
+          "account.account_type"
+        ],
+        [
+          "account.account_no",
+          "account.account_id"
+        ],
+        [
+          "account.balance",
+          "account.account_balance"
+        ],
+        [
+          "account.branch_id",
+          "account.branch_id"
+        ],
+        [
+          "availed_by.custid",
+          "borrower.customer_id"
+        ],
+        [
+          "availed_by.loan_id",
+          "borrower.loan_id"
+        ],
+        [
+          "branch.address",
+          "branch.branch_address"
+        ],
+        [
+          "branch.branch_id",
+          "branch.branch_id"
+        ],
+        [
+          "branch.name",
+          "branch.branch_name"
+        ],
+        [
+          "customer.custid",
+          "customer.customer_id"
+        ],
+        [
+          "customer.name",
+          "customer.customer_name"
+        ],
+        [
+          "customer.phone",
+          "customer.mobileno"
+        ],
+        [
+          "hold_by.account_no",
+          "customer.account_id"
+        ],
+        [
+          "loan.amount",
+          "loan.issued_amount"
+        ],
+        [
+          "loan.branch_id",
+          "loan.branch_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan.loan_id"
+        ]
+      ],
+      "fp_pairs": [
+        [
+          "bank.code",
+          "banker_info.banker_id"
+        ],
+        [
+          "bank.name",
+          "banker_info.banker_name"
+        ],
+        [
+          "branch.branch_id",
+          "banker_info.branch_id"
+        ],
+        [
+          "customer.custid",
+          "customer_credit_card.customer_id"
+        ],
+        [
+          "hold_by.account_no",
+          "customer_credit_card.account_id"
+        ],
+        [
+          "hold_by.account_no",
+          "transaction.account_id"
+        ],
+        [
+          "hold_by.custid",
+          "transaction.customer_id"
+        ],
+        [
+          "loan.loan_id",
+          "loan_payment.loan_id"
+        ]
+      ],
+      "fn_pairs": [
+        [
+          "hold_by.custid",
+          "customer.customer_id"
+        ]
+      ],
+      "transformation_counts": {
+        "direct_copy": 21,
+        "type_cast": 3
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "branch",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_name",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "branch",
+            "target_column": "branch_address",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "address"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_id",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "code"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "banker_name",
+            "source_label": "bank1",
+            "source_table": "bank",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "banker_info",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "branch",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_type",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "acc_type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "account_balance",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "balance"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "account",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "account",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "transaction",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "transaction",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "customer_name",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "mobileno",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "phone"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer_credit_card",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "customer",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "customer_credit_card",
+            "target_column": "account_id",
+            "source_label": "bank1",
+            "source_table": "hold_by",
+            "source_columns": [
+              "account_no"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "issued_amount",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "amount"
+            ],
+            "transformations": [
+              {
+                "type": "type_cast",
+                "target_type": "integer"
+              }
+            ]
+          },
+          {
+            "target_table": "loan",
+            "target_column": "branch_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "branch_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "loan_payment",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "loan",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "customer_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "custid"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "borrower",
+            "target_column": "loan_id",
+            "source_label": "bank1",
+            "source_table": "availed_by",
+            "source_columns": [
+              "loan_id"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "branch.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "branch.branch_id"
+          ],
+          "predicted_source_columns": [
+            "branch.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.branch_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.name"
+          ],
+          "predicted_source_columns": [
+            "branch.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "branch.assets",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "branch.branch_address",
+          "target_type": "string",
+          "expected_source_columns": [
+            "branch.address"
+          ],
+          "predicted_source_columns": [
+            "branch.address"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.code"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.banker_name",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "bank.name"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "banker_info.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "branch.branch_id"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.account_no"
+          ],
+          "predicted_source_columns": [
+            "account.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_type",
+          "target_type": "string",
+          "expected_source_columns": [
+            "account.acc_type"
+          ],
+          "predicted_source_columns": [
+            "account.acc_type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "account.account_balance",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.balance"
+          ],
+          "predicted_source_columns": [
+            "account.balance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "account.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "account.branch_id"
+          ],
+          "predicted_source_columns": [
+            "account.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "transaction.transaction_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "transaction.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "hold_by.custid"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "transaction.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "customer.custid",
+            "hold_by.custid"
+          ],
+          "predicted_source_columns": [
+            "customer.custid"
+          ],
+          "status": "PARTIAL MATCH",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.customer_name",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.name"
+          ],
+          "predicted_source_columns": [
+            "customer.name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.mobileno",
+          "target_type": "string",
+          "expected_source_columns": [
+            "customer.phone"
+          ],
+          "predicted_source_columns": [
+            "customer.phone"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer.dob",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "hold_by.account_no"
+          ],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer_credit_card.credit_card_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.expiry_date",
+          "target_type": "date",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.card_limit",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "customer_credit_card.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "customer.custid"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "customer_credit_card.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "hold_by.account_no"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.loan_id"
+          ],
+          "predicted_source_columns": [
+            "loan.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.issued_amount",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.amount"
+          ],
+          "predicted_source_columns": [
+            "loan.amount"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "type_cast",
+              "target_type": "integer"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.remaining_amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan.branch_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "loan.branch_id"
+          ],
+          "predicted_source_columns": [
+            "loan.branch_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "loan.account_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_payment_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.amount",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "loan_payment.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [
+            "loan.loan_id"
+          ],
+          "status": "EXTRA (FP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "borrower.borrower_id",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "borrower.customer_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.custid"
+          ],
+          "predicted_source_columns": [
+            "availed_by.custid"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "borrower.loan_id",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "predicted_source_columns": [
+            "availed_by.loan_id"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    }
+  ],
+  "total_retries": 0,
+  "experiment_config": {
+    "prompt_template_snapshot": "You are a senior Schema Engineer expert in data integration.\nYour task is to establish explicit column-to-column mapping rules from a single source schema to a target global schema.\n\nGUIDELINES:\n1. Rule Requirements:\n   - For each target column that has a valid semantic correspondence in the source schema, produce a MappingRule.\n   - If a target column has NO corresponding source column in the source schema, you may omit the rule or provide a rule with source_columns: [] and no transformations.\n   - Specify fully-qualified source table, target table, target column, and source label.\n   - source_columns is a list of column names (e.g. [\"col_a\"] for 1:1, [\"first_name\", \"last_name\"] for N:1).\n   - All referenced source columns must exist in the source schema under source_table.\n   - All referenced target columns must exist in the target schema under target_table.\n\n2. Transformations:\n   - If no transformation is needed for mapped columns, include a single DirectCopy transformation.\n   - If multiple source columns are combined, use Concatenate with the appropriate delimiter.\n   - Use SplitUnnest with a delimiter when a delimited multi-value or array source column (e.g. \"Action,Drama\") must be unnested into multiple individual rows in the target table.\n   - Use SplitExtract, Substring, TypeCast, or Arithmetic for scalar value transformations.\n   - Chain transformations in logical execution order (e.g., SplitUnnest then TypeCast).\n\n3. Relational Structure & Cross-Table Mapping:\n   - Do not assume all columns in a target table originate from a single source table. Target schemas often consolidate or denormalize data from multiple related source tables.\n   - Avoid anchoring solely on table name identity: an entity in the target schema may be populated by attributes from the main source entity table as well as from connected associative/junction tables.\n   - When a target column (especially a foreign key, identifier, or related entity attribute) has no semantic match in the primary candidate source table, inspect related tables connected through foreign keys or bridge tables.\n   - Only map across tables if an explicit or logical relationship exists between them; do not map columns from unrelated source tables.\n",
+    "instance_preview_included": false,
+    "provider": "auto",
+    "model_name": "deepseek-v4.1-flash",
+    "temperature": null,
+    "max_retries": 2
+  }
+}

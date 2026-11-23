@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+
+# Runtime caches, logs & temporary staging
+.cache/
+data/cache/
+data/logs/
+data/staging/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,710 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "source_table": {
+    "table_name": "bank",
+    "row_count": 0,
+    "column_count": 3,
+    "columns": [
+      {
+        "name": "code",
+        "type": "string",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "target_table": {
+    "table_name": "branch",
+    "row_count": 0,
+    "column_count": 4,
+    "columns": [
+      {
+        "name": "branch_id",
+        "type": "integer",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "branch_name",
+        "type": "string",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "assets",
+        "type": "integer",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "branch_address",
+        "type": "string",
+        "constraints": {
+          "required": true
+        }
+      }
+    ]
+  },
+  "source_tables": [
+    {
+      "table_name": "bank",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "branch",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "bank_code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "loan",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "loan_type",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "customer",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "custid",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "account",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "account_no",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "acc_type",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "balance",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "offer",
+      "row_count": 0,
+      "column_count": 2,
+      "columns": [
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "maintain",
+      "row_count": 0,
+      "column_count": 2,
+      "columns": [
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "account_no",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "availed_by",
+      "row_count": 0,
+      "column_count": 2,
+      "columns": [
+        {
+          "name": "custid",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "hold_by",
+      "row_count": 0,
+      "column_count": 2,
+      "columns": [
+        {
+          "name": "custid",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "account_no",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "target_tables": [
+    {
+      "table_name": "branch",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "assets",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_address",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "banker_info",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "banker_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "banker_name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "account",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "account_type",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "account_balance",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "transaction",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "amount",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "customer_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "account_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "customer",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "customer_name",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "mobileno",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "account_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "customer_credit_card",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "credit_card_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "expiry_date",
+          "type": "date",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "card_limit",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "customer_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "account_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "loan",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "issued_amount",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "remaining_amount",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "branch_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "account_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "loan_payment",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "loan_payment_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "amount",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "borrower",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "borrower_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "customer_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "loan_id",
+          "type": "integer",
+          "constraints": {
+            "required": true
+          }
+        }
+      ]
+    }
+  ],
+  "ground_truth_pairs": [
+    [
+      "account.acc_type",
+      "account.account_type"
+    ],
+    [
+      "account.account_no",
+      "account.account_id"
+    ],
+    [
+      "account.balance",
+      "account.account_balance"
+    ],
+    [
+      "account.branch_id",
+      "account.branch_id"
+    ],
+    [
+      "availed_by.custid",
+      "borrower.customer_id"
+    ],
+    [
+      "availed_by.loan_id",
+      "borrower.loan_id"
+    ],
+    [
+      "branch.address",
+      "branch.branch_address"
+    ],
+    [
+      "branch.branch_id",
+      "branch.branch_id"
+    ],
+    [
+      "branch.name",
+      "branch.branch_name"
+    ],
+    [
+      "customer.custid",
+      "customer.customer_id"
+    ],
+    [
+      "customer.name",
+      "customer.customer_name"
+    ],
+    [
+      "customer.phone",
+      "customer.mobileno"
+    ],
+    [
+      "hold_by.account_no",
+      "customer.account_id"
+    ],
+    [
+      "hold_by.custid",
+      "customer.customer_id"
+    ],
+    [
+      "loan.amount",
+      "loan.issued_amount"
+    ],
+    [
+      "loan.branch_id",
+      "loan.branch_id"
+    ],
+    [
+      "loan.loan_id",
+      "loan.loan_id"
+    ]
+  ]
+}

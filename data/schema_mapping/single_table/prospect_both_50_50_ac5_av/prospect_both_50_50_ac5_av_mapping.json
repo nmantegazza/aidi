@@ -1,0 +1,52 @@
+{
+  "dataset_name": "prospect_both_50_50_ac5_av",
+  "domain": "TPC-DI",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "matches_count": 11,
+  "matches": [
+    {
+      "source_column": "AgencyID",
+      "target_column": "prospect_gncd"
+    },
+    {
+      "source_column": "AddressLine2",
+      "target_column": "prospect_ddrssln2"
+    },
+    {
+      "source_column": "City",
+      "target_column": "prospect_ct"
+    },
+    {
+      "source_column": "NumberCars",
+      "target_column": "prospect_nmbrcrs"
+    },
+    {
+      "source_column": "PostalCode",
+      "target_column": "prospect_pstlcd"
+    },
+    {
+      "source_column": "MiddleInitial",
+      "target_column": "prospect_mddlntl"
+    },
+    {
+      "source_column": "NumberCreditCards",
+      "target_column": "prospect_nmbrcrdtcrds"
+    },
+    {
+      "source_column": "AddressLine1",
+      "target_column": "prospect_ddrssln1"
+    },
+    {
+      "source_column": "FirstName",
+      "target_column": "prospect_frstnm"
+    },
+    {
+      "source_column": "Age",
+      "target_column": "prospect_g"
+    },
+    {
+      "source_column": "Country",
+      "target_column": "prospect_cntr"
+    }
+  ]
+}

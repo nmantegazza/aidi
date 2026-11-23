@@ -1,0 +1,4835 @@
+{
+  "dataset_name": "miller2_both_50_50_ac5_av",
+  "domain": "OpenData",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "category": "single_table",
+  "schema_info": {
+    "dataset_name": "miller2_both_50_50_ac5_av",
+    "domain": "OpenData",
+    "scenario": "Semantically-Joinable (Full Noise)",
+    "category": "single_table",
+    "source_table": {
+      "table_name": "miller2_both_50_50_ac5_av_source",
+      "row_count": 11627,
+      "column_count": 38,
+      "columns": [
+        {
+          "name": "Fiscal year",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Climate change adaptation (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Regional program (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Division ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Participatory development and good governance",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Enviromental sustainability (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Biodiversity (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Continent name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Climate change mitigation (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Branch name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Organisation sub-class",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Children issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Trade development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Knowledge for development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Maximum CIDA contribution (project-level)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "PBA type",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Fund centre name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Project number",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "CIDA business delivery model (old)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "CFLI (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Programming process (new)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Untied amount(Project-level budget)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Sector ID",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Branch ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Division name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Section ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Section name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Fund centre ID",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "FSTC percent",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "IRTC percent",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Bilateral aid (international marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Desertification (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Urban issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Youth issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Indigenous issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Disability issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ICT as a tool for development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    "target_table": {
+      "table_name": "miller2_both_50_50_ac5_av_target",
+      "row_count": 17440,
+      "column_count": 38,
+      "columns": [
+        {
+          "name": "miller2_fsclr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_stts",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_clmtchngdpttn(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnlprgrm(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_dvsnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prtcptrdvlpmntndgdgvrnnc",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_nvrmntlsstnblt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_bdvrst(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntnntnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_clmtchngmtgtn(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_brnchnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnsb-clss",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_chldrnsss(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_trddvlpmnt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_knwldgfrdvlpmnt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_pbtp",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_fndcntrnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prjctnmbr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cdbsnssdlvrmdl(ld)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cfl(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prgrmmngprcss(nw)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_ntdmnt(prjct-lvlbdgt)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrd",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_brnchd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_gndrqlt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstntp",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnclss",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntnntd",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prjctbrwsrcntrd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnprcnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrprcnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_mntspnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    "source_tables": [
+      {
+        "table_name": "miller2_both_50_50_ac5_av_source",
+        "row_count": 11627,
+        "column_count": 38,
+        "columns": [
+          {
+            "name": "Fiscal year",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Status",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Climate change adaptation (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Regional program (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Division ID",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Participatory development and good governance",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Enviromental sustainability (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Biodiversity (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Continent name",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Climate change mitigation (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Branch name",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Organisation sub-class",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Children issues (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Trade development (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Knowledge for development (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Maximum CIDA contribution (project-level)",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "PBA type",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Fund centre name",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Project number",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "CIDA business delivery model (old)",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "CFLI (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Programming process (new)",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Untied amount(Project-level budget)",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Sector ID",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Branch ID",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Division name",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Section ID",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Section name",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Fund centre ID",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "FSTC percent",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "IRTC percent",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Bilateral aid (international marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Desertification (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Urban issues (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Youth issues (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Indigenous issues (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Disability issues (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "ICT as a tool for development (marker)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "target_tables": [
+      {
+        "table_name": "miller2_both_50_50_ac5_av_target",
+        "row_count": 17440,
+        "column_count": 38,
+        "columns": [
+          {
+            "name": "miller2_fsclr",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_stts",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_clmtchngdpttn(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnlprgrm(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_dvsnd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_prtcptrdvlpmntndgdgvrnnc",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_nvrmntlsstnblt(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_bdvrst(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cntnntnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_clmtchngmtgtn(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_brnchnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnstnsb-clss",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_chldrnsss(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_trddvlpmnt(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_knwldgfrdvlpmnt(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_pbtp",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_fndcntrnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_prjctnmbr",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cdbsnssdlvrmdl(ld)",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cfl(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_prgrmmngprcss(nw)",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_ntdmnt(prjct-lvlbdgt)",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_sctrd",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_brnchd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_gndrqlt(mrkr)",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnstnd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnstnnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnstntp",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_rgnstnclss",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cntnntd",
+            "type": "integer",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_prjctbrwsrcntrd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cntrrgnd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cntrrgnnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_cntrrgnprcnt",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_sctrnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_sctrprcnt",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "miller2_mntspnt",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "ground_truth_pairs": [
+      [
+        "Biodiversity (marker)",
+        "miller2_bdvrst(mrkr)"
+      ],
+      [
+        "Branch ID",
+        "miller2_brnchd"
+      ],
+      [
+        "Branch name",
+        "miller2_brnchnm"
+      ],
+      [
+        "CFLI (marker)",
+        "miller2_cfl(mrkr)"
+      ],
+      [
+        "CIDA business delivery model (old)",
+        "miller2_cdbsnssdlvrmdl(ld)"
+      ],
+      [
+        "Children issues (marker)",
+        "miller2_chldrnsss(mrkr)"
+      ],
+      [
+        "Climate change adaptation (marker)",
+        "miller2_clmtchngdpttn(mrkr)"
+      ],
+      [
+        "Climate change mitigation (marker)",
+        "miller2_clmtchngmtgtn(mrkr)"
+      ],
+      [
+        "Continent name",
+        "miller2_cntnntnm"
+      ],
+      [
+        "Division ID",
+        "miller2_dvsnd"
+      ],
+      [
+        "Enviromental sustainability (marker)",
+        "miller2_nvrmntlsstnblt(mrkr)"
+      ],
+      [
+        "Fiscal year",
+        "miller2_fsclr"
+      ],
+      [
+        "Fund centre name",
+        "miller2_fndcntrnm"
+      ],
+      [
+        "Knowledge for development (marker)",
+        "miller2_knwldgfrdvlpmnt(mrkr)"
+      ],
+      [
+        "Maximum CIDA contribution (project-level)",
+        "miller2_mxmmcdcntrbtn(prjct-lvl)"
+      ],
+      [
+        "Organisation sub-class",
+        "miller2_rgnstnsb-clss"
+      ],
+      [
+        "PBA type",
+        "miller2_pbtp"
+      ],
+      [
+        "Participatory development and good governance",
+        "miller2_prtcptrdvlpmntndgdgvrnnc"
+      ],
+      [
+        "Programming process (new)",
+        "miller2_prgrmmngprcss(nw)"
+      ],
+      [
+        "Project number",
+        "miller2_prjctnmbr"
+      ],
+      [
+        "Regional program (marker)",
+        "miller2_rgnlprgrm(mrkr)"
+      ],
+      [
+        "Sector ID",
+        "miller2_sctrd"
+      ],
+      [
+        "Status",
+        "miller2_stts"
+      ],
+      [
+        "Trade development (marker)",
+        "miller2_trddvlpmnt(mrkr)"
+      ],
+      [
+        "Untied amount(Project-level budget)",
+        "miller2_ntdmnt(prjct-lvlbdgt)"
+      ]
+    ]
+  },
+  "model_name": "gpt-5.6-sol",
+  "iterations": 3,
+  "aggregated_metrics": {
+    "precision_mean": 1.0,
+    "precision_std": 0.0,
+    "recall_mean": 1.0,
+    "recall_std": 0.0,
+    "f1_mean": 1.0,
+    "f1_std": 0.0,
+    "latency_mean_sec": 18.784,
+    "latency_std_sec": 1.985,
+    "total_tokens": 22474,
+    "estimated_cost_usd": 0.175497
+  },
+  "iteration_results": [
+    {
+      "iteration_index": 1,
+      "category": "single_table",
+      "metrics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positives": 25,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "predicted_pairs_count": 25,
+        "gold_pairs_count": 25,
+        "tp_pairs": [
+          [
+            "Biodiversity (marker)",
+            "miller2_bdvrst(mrkr)"
+          ],
+          [
+            "Branch ID",
+            "miller2_brnchd"
+          ],
+          [
+            "Branch name",
+            "miller2_brnchnm"
+          ],
+          [
+            "CFLI (marker)",
+            "miller2_cfl(mrkr)"
+          ],
+          [
+            "CIDA business delivery model (old)",
+            "miller2_cdbsnssdlvrmdl(ld)"
+          ],
+          [
+            "Children issues (marker)",
+            "miller2_chldrnsss(mrkr)"
+          ],
+          [
+            "Climate change adaptation (marker)",
+            "miller2_clmtchngdpttn(mrkr)"
+          ],
+          [
+            "Climate change mitigation (marker)",
+            "miller2_clmtchngmtgtn(mrkr)"
+          ],
+          [
+            "Continent name",
+            "miller2_cntnntnm"
+          ],
+          [
+            "Division ID",
+            "miller2_dvsnd"
+          ],
+          [
+            "Enviromental sustainability (marker)",
+            "miller2_nvrmntlsstnblt(mrkr)"
+          ],
+          [
+            "Fiscal year",
+            "miller2_fsclr"
+          ],
+          [
+            "Fund centre name",
+            "miller2_fndcntrnm"
+          ],
+          [
+            "Knowledge for development (marker)",
+            "miller2_knwldgfrdvlpmnt(mrkr)"
+          ],
+          [
+            "Maximum CIDA contribution (project-level)",
+            "miller2_mxmmcdcntrbtn(prjct-lvl)"
+          ],
+          [
+            "Organisation sub-class",
+            "miller2_rgnstnsb-clss"
+          ],
+          [
+            "PBA type",
+            "miller2_pbtp"
+          ],
+          [
+            "Participatory development and good governance",
+            "miller2_prtcptrdvlpmntndgdgvrnnc"
+          ],
+          [
+            "Programming process (new)",
+            "miller2_prgrmmngprcss(nw)"
+          ],
+          [
+            "Project number",
+            "miller2_prjctnmbr"
+          ],
+          [
+            "Regional program (marker)",
+            "miller2_rgnlprgrm(mrkr)"
+          ],
+          [
+            "Sector ID",
+            "miller2_sctrd"
+          ],
+          [
+            "Status",
+            "miller2_stts"
+          ],
+          [
+            "Trade development (marker)",
+            "miller2_trddvlpmnt(mrkr)"
+          ],
+          [
+            "Untied amount(Project-level budget)",
+            "miller2_ntdmnt(prjct-lvlbdgt)"
+          ]
+        ],
+        "fp_pairs": [],
+        "fn_pairs": []
+      },
+      "latency_seconds": 16.553,
+      "token_usage": {
+        "prompt_tokens": 5069,
+        "completion_tokens": 2340,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 7409,
+        "latency_seconds": 16.553,
+        "cost_usd": 0.072023
+      },
+      "predicted_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "fp_pairs": [],
+      "fn_pairs": [],
+      "transformation_counts": {
+        "direct_copy": 25
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fsclr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fiscal year"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_stts",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Status"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngdpttn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change adaptation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnlprgrm(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Regional program (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_dvsnd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Division ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Participatory development and good governance"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Enviromental sustainability (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_bdvrst(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Biodiversity (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cntnntnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Continent name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngmtgtn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change mitigation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnstnsb-clss",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Organisation sub-class"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_chldrnsss(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Children issues (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_trddvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Trade development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Knowledge for development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Maximum CIDA contribution (project-level)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_pbtp",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "PBA type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fndcntrnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fund centre name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prjctnmbr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Project number"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CIDA business delivery model (old)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cfl(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CFLI (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prgrmmngprcss(nw)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Programming process (new)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Untied amount(Project-level budget)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_sctrd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Sector ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "miller2_fsclr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fiscal year"
+          ],
+          "predicted_source_columns": [
+            "Fiscal year"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_stts",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Status"
+          ],
+          "predicted_source_columns": [
+            "Status"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngdpttn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnlprgrm(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Regional program (marker)"
+          ],
+          "predicted_source_columns": [
+            "Regional program (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_dvsnd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Division ID"
+          ],
+          "predicted_source_columns": [
+            "Division ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "predicted_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "predicted_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_bdvrst(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "predicted_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cntnntnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Continent name"
+          ],
+          "predicted_source_columns": [
+            "Continent name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngmtgtn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch name"
+          ],
+          "predicted_source_columns": [
+            "Branch name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnstnsb-clss",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Organisation sub-class"
+          ],
+          "predicted_source_columns": [
+            "Organisation sub-class"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_chldrnsss(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Children issues (marker)"
+          ],
+          "predicted_source_columns": [
+            "Children issues (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_trddvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Trade development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Trade development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "predicted_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_pbtp",
+          "target_type": "string",
+          "expected_source_columns": [
+            "PBA type"
+          ],
+          "predicted_source_columns": [
+            "PBA type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_fndcntrnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fund centre name"
+          ],
+          "predicted_source_columns": [
+            "Fund centre name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prjctnmbr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Project number"
+          ],
+          "predicted_source_columns": [
+            "Project number"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "predicted_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cfl(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "CFLI (marker)"
+          ],
+          "predicted_source_columns": [
+            "CFLI (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prgrmmngprcss(nw)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Programming process (new)"
+          ],
+          "predicted_source_columns": [
+            "Programming process (new)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "predicted_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_sctrd",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Sector ID"
+          ],
+          "predicted_source_columns": [
+            "Sector ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch ID"
+          ],
+          "predicted_source_columns": [
+            "Branch ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_gndrqlt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstntp",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnclss",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntnntd",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_prjctbrwsrcntrd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_mntspnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    },
+    {
+      "iteration_index": 2,
+      "category": "single_table",
+      "metrics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positives": 25,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "predicted_pairs_count": 25,
+        "gold_pairs_count": 25,
+        "tp_pairs": [
+          [
+            "Biodiversity (marker)",
+            "miller2_bdvrst(mrkr)"
+          ],
+          [
+            "Branch ID",
+            "miller2_brnchd"
+          ],
+          [
+            "Branch name",
+            "miller2_brnchnm"
+          ],
+          [
+            "CFLI (marker)",
+            "miller2_cfl(mrkr)"
+          ],
+          [
+            "CIDA business delivery model (old)",
+            "miller2_cdbsnssdlvrmdl(ld)"
+          ],
+          [
+            "Children issues (marker)",
+            "miller2_chldrnsss(mrkr)"
+          ],
+          [
+            "Climate change adaptation (marker)",
+            "miller2_clmtchngdpttn(mrkr)"
+          ],
+          [
+            "Climate change mitigation (marker)",
+            "miller2_clmtchngmtgtn(mrkr)"
+          ],
+          [
+            "Continent name",
+            "miller2_cntnntnm"
+          ],
+          [
+            "Division ID",
+            "miller2_dvsnd"
+          ],
+          [
+            "Enviromental sustainability (marker)",
+            "miller2_nvrmntlsstnblt(mrkr)"
+          ],
+          [
+            "Fiscal year",
+            "miller2_fsclr"
+          ],
+          [
+            "Fund centre name",
+            "miller2_fndcntrnm"
+          ],
+          [
+            "Knowledge for development (marker)",
+            "miller2_knwldgfrdvlpmnt(mrkr)"
+          ],
+          [
+            "Maximum CIDA contribution (project-level)",
+            "miller2_mxmmcdcntrbtn(prjct-lvl)"
+          ],
+          [
+            "Organisation sub-class",
+            "miller2_rgnstnsb-clss"
+          ],
+          [
+            "PBA type",
+            "miller2_pbtp"
+          ],
+          [
+            "Participatory development and good governance",
+            "miller2_prtcptrdvlpmntndgdgvrnnc"
+          ],
+          [
+            "Programming process (new)",
+            "miller2_prgrmmngprcss(nw)"
+          ],
+          [
+            "Project number",
+            "miller2_prjctnmbr"
+          ],
+          [
+            "Regional program (marker)",
+            "miller2_rgnlprgrm(mrkr)"
+          ],
+          [
+            "Sector ID",
+            "miller2_sctrd"
+          ],
+          [
+            "Status",
+            "miller2_stts"
+          ],
+          [
+            "Trade development (marker)",
+            "miller2_trddvlpmnt(mrkr)"
+          ],
+          [
+            "Untied amount(Project-level budget)",
+            "miller2_ntdmnt(prjct-lvlbdgt)"
+          ]
+        ],
+        "fp_pairs": [],
+        "fn_pairs": []
+      },
+      "latency_seconds": 19.444,
+      "token_usage": {
+        "prompt_tokens": 5069,
+        "completion_tokens": 2427,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 7496,
+        "latency_seconds": 19.444,
+        "cost_usd": 0.0510068
+      },
+      "predicted_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "fp_pairs": [],
+      "fn_pairs": [],
+      "transformation_counts": {
+        "direct_copy": 25
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fsclr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fiscal year"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_stts",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Status"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngdpttn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change adaptation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnlprgrm(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Regional program (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_dvsnd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Division ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Participatory development and good governance"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Enviromental sustainability (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_bdvrst(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Biodiversity (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cntnntnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Continent name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngmtgtn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change mitigation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnstnsb-clss",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Organisation sub-class"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_chldrnsss(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Children issues (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_trddvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Trade development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Knowledge for development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Maximum CIDA contribution (project-level)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_pbtp",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "PBA type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fndcntrnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fund centre name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prjctnmbr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Project number"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CIDA business delivery model (old)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cfl(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CFLI (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prgrmmngprcss(nw)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Programming process (new)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Untied amount(Project-level budget)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_sctrd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Sector ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "miller2_fsclr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fiscal year"
+          ],
+          "predicted_source_columns": [
+            "Fiscal year"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_stts",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Status"
+          ],
+          "predicted_source_columns": [
+            "Status"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngdpttn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnlprgrm(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Regional program (marker)"
+          ],
+          "predicted_source_columns": [
+            "Regional program (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_dvsnd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Division ID"
+          ],
+          "predicted_source_columns": [
+            "Division ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "predicted_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "predicted_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_bdvrst(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "predicted_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cntnntnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Continent name"
+          ],
+          "predicted_source_columns": [
+            "Continent name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngmtgtn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch name"
+          ],
+          "predicted_source_columns": [
+            "Branch name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnstnsb-clss",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Organisation sub-class"
+          ],
+          "predicted_source_columns": [
+            "Organisation sub-class"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_chldrnsss(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Children issues (marker)"
+          ],
+          "predicted_source_columns": [
+            "Children issues (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_trddvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Trade development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Trade development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "predicted_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_pbtp",
+          "target_type": "string",
+          "expected_source_columns": [
+            "PBA type"
+          ],
+          "predicted_source_columns": [
+            "PBA type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_fndcntrnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fund centre name"
+          ],
+          "predicted_source_columns": [
+            "Fund centre name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prjctnmbr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Project number"
+          ],
+          "predicted_source_columns": [
+            "Project number"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "predicted_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cfl(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "CFLI (marker)"
+          ],
+          "predicted_source_columns": [
+            "CFLI (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prgrmmngprcss(nw)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Programming process (new)"
+          ],
+          "predicted_source_columns": [
+            "Programming process (new)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "predicted_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_sctrd",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Sector ID"
+          ],
+          "predicted_source_columns": [
+            "Sector ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch ID"
+          ],
+          "predicted_source_columns": [
+            "Branch ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_gndrqlt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstntp",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnclss",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntnntd",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_prjctbrwsrcntrd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_mntspnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    },
+    {
+      "iteration_index": 3,
+      "category": "single_table",
+      "metrics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positives": 25,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "predicted_pairs_count": 25,
+        "gold_pairs_count": 25,
+        "tp_pairs": [
+          [
+            "Biodiversity (marker)",
+            "miller2_bdvrst(mrkr)"
+          ],
+          [
+            "Branch ID",
+            "miller2_brnchd"
+          ],
+          [
+            "Branch name",
+            "miller2_brnchnm"
+          ],
+          [
+            "CFLI (marker)",
+            "miller2_cfl(mrkr)"
+          ],
+          [
+            "CIDA business delivery model (old)",
+            "miller2_cdbsnssdlvrmdl(ld)"
+          ],
+          [
+            "Children issues (marker)",
+            "miller2_chldrnsss(mrkr)"
+          ],
+          [
+            "Climate change adaptation (marker)",
+            "miller2_clmtchngdpttn(mrkr)"
+          ],
+          [
+            "Climate change mitigation (marker)",
+            "miller2_clmtchngmtgtn(mrkr)"
+          ],
+          [
+            "Continent name",
+            "miller2_cntnntnm"
+          ],
+          [
+            "Division ID",
+            "miller2_dvsnd"
+          ],
+          [
+            "Enviromental sustainability (marker)",
+            "miller2_nvrmntlsstnblt(mrkr)"
+          ],
+          [
+            "Fiscal year",
+            "miller2_fsclr"
+          ],
+          [
+            "Fund centre name",
+            "miller2_fndcntrnm"
+          ],
+          [
+            "Knowledge for development (marker)",
+            "miller2_knwldgfrdvlpmnt(mrkr)"
+          ],
+          [
+            "Maximum CIDA contribution (project-level)",
+            "miller2_mxmmcdcntrbtn(prjct-lvl)"
+          ],
+          [
+            "Organisation sub-class",
+            "miller2_rgnstnsb-clss"
+          ],
+          [
+            "PBA type",
+            "miller2_pbtp"
+          ],
+          [
+            "Participatory development and good governance",
+            "miller2_prtcptrdvlpmntndgdgvrnnc"
+          ],
+          [
+            "Programming process (new)",
+            "miller2_prgrmmngprcss(nw)"
+          ],
+          [
+            "Project number",
+            "miller2_prjctnmbr"
+          ],
+          [
+            "Regional program (marker)",
+            "miller2_rgnlprgrm(mrkr)"
+          ],
+          [
+            "Sector ID",
+            "miller2_sctrd"
+          ],
+          [
+            "Status",
+            "miller2_stts"
+          ],
+          [
+            "Trade development (marker)",
+            "miller2_trddvlpmnt(mrkr)"
+          ],
+          [
+            "Untied amount(Project-level budget)",
+            "miller2_ntdmnt(prjct-lvlbdgt)"
+          ]
+        ],
+        "fp_pairs": [],
+        "fn_pairs": []
+      },
+      "latency_seconds": 20.356,
+      "token_usage": {
+        "prompt_tokens": 5069,
+        "completion_tokens": 2500,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 7569,
+        "latency_seconds": 20.356,
+        "cost_usd": 0.0524668
+      },
+      "predicted_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "tp_pairs": [
+        [
+          "Biodiversity (marker)",
+          "miller2_bdvrst(mrkr)"
+        ],
+        [
+          "Branch ID",
+          "miller2_brnchd"
+        ],
+        [
+          "Branch name",
+          "miller2_brnchnm"
+        ],
+        [
+          "CFLI (marker)",
+          "miller2_cfl(mrkr)"
+        ],
+        [
+          "CIDA business delivery model (old)",
+          "miller2_cdbsnssdlvrmdl(ld)"
+        ],
+        [
+          "Children issues (marker)",
+          "miller2_chldrnsss(mrkr)"
+        ],
+        [
+          "Climate change adaptation (marker)",
+          "miller2_clmtchngdpttn(mrkr)"
+        ],
+        [
+          "Climate change mitigation (marker)",
+          "miller2_clmtchngmtgtn(mrkr)"
+        ],
+        [
+          "Continent name",
+          "miller2_cntnntnm"
+        ],
+        [
+          "Division ID",
+          "miller2_dvsnd"
+        ],
+        [
+          "Enviromental sustainability (marker)",
+          "miller2_nvrmntlsstnblt(mrkr)"
+        ],
+        [
+          "Fiscal year",
+          "miller2_fsclr"
+        ],
+        [
+          "Fund centre name",
+          "miller2_fndcntrnm"
+        ],
+        [
+          "Knowledge for development (marker)",
+          "miller2_knwldgfrdvlpmnt(mrkr)"
+        ],
+        [
+          "Maximum CIDA contribution (project-level)",
+          "miller2_mxmmcdcntrbtn(prjct-lvl)"
+        ],
+        [
+          "Organisation sub-class",
+          "miller2_rgnstnsb-clss"
+        ],
+        [
+          "PBA type",
+          "miller2_pbtp"
+        ],
+        [
+          "Participatory development and good governance",
+          "miller2_prtcptrdvlpmntndgdgvrnnc"
+        ],
+        [
+          "Programming process (new)",
+          "miller2_prgrmmngprcss(nw)"
+        ],
+        [
+          "Project number",
+          "miller2_prjctnmbr"
+        ],
+        [
+          "Regional program (marker)",
+          "miller2_rgnlprgrm(mrkr)"
+        ],
+        [
+          "Sector ID",
+          "miller2_sctrd"
+        ],
+        [
+          "Status",
+          "miller2_stts"
+        ],
+        [
+          "Trade development (marker)",
+          "miller2_trddvlpmnt(mrkr)"
+        ],
+        [
+          "Untied amount(Project-level budget)",
+          "miller2_ntdmnt(prjct-lvlbdgt)"
+        ]
+      ],
+      "fp_pairs": [],
+      "fn_pairs": [],
+      "transformation_counts": {
+        "direct_copy": 25
+      },
+      "mapping_report": {
+        "rules": [
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fsclr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fiscal year"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_stts",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Status"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngdpttn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change adaptation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnlprgrm(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Regional program (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_dvsnd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Division ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Participatory development and good governance"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Enviromental sustainability (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_bdvrst(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Biodiversity (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cntnntnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Continent name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_clmtchngmtgtn(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Climate change mitigation (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_rgnstnsb-clss",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Organisation sub-class"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_chldrnsss(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Children issues (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_trddvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Trade development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Knowledge for development (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Maximum CIDA contribution (project-level)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_pbtp",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "PBA type"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_fndcntrnm",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Fund centre name"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prjctnmbr",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Project number"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CIDA business delivery model (old)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_cfl(mrkr)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "CFLI (marker)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_prgrmmngprcss(nw)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Programming process (new)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Untied amount(Project-level budget)"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_sctrd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Sector ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          },
+          {
+            "target_table": "miller2_both_50_50_ac5_av_target",
+            "target_column": "miller2_brnchd",
+            "source_label": "miller2_both_50_50_ac5_av_source",
+            "source_table": "miller2_both_50_50_ac5_av_source",
+            "source_columns": [
+              "Branch ID"
+            ],
+            "transformations": [
+              {
+                "type": "direct_copy"
+              }
+            ]
+          }
+        ]
+      },
+      "field_inspections": [
+        {
+          "target_column": "miller2_fsclr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fiscal year"
+          ],
+          "predicted_source_columns": [
+            "Fiscal year"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_stts",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Status"
+          ],
+          "predicted_source_columns": [
+            "Status"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngdpttn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change adaptation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnlprgrm(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Regional program (marker)"
+          ],
+          "predicted_source_columns": [
+            "Regional program (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_dvsnd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Division ID"
+          ],
+          "predicted_source_columns": [
+            "Division ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prtcptrdvlpmntndgdgvrnnc",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "predicted_source_columns": [
+            "Participatory development and good governance"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_nvrmntlsstnblt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "predicted_source_columns": [
+            "Enviromental sustainability (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_bdvrst(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "predicted_source_columns": [
+            "Biodiversity (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cntnntnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Continent name"
+          ],
+          "predicted_source_columns": [
+            "Continent name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_clmtchngmtgtn(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "predicted_source_columns": [
+            "Climate change mitigation (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch name"
+          ],
+          "predicted_source_columns": [
+            "Branch name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_rgnstnsb-clss",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Organisation sub-class"
+          ],
+          "predicted_source_columns": [
+            "Organisation sub-class"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_chldrnsss(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Children issues (marker)"
+          ],
+          "predicted_source_columns": [
+            "Children issues (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_trddvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Trade development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Trade development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_knwldgfrdvlpmnt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "predicted_source_columns": [
+            "Knowledge for development (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "predicted_source_columns": [
+            "Maximum CIDA contribution (project-level)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_pbtp",
+          "target_type": "string",
+          "expected_source_columns": [
+            "PBA type"
+          ],
+          "predicted_source_columns": [
+            "PBA type"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_fndcntrnm",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Fund centre name"
+          ],
+          "predicted_source_columns": [
+            "Fund centre name"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prjctnmbr",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Project number"
+          ],
+          "predicted_source_columns": [
+            "Project number"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cdbsnssdlvrmdl(ld)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "predicted_source_columns": [
+            "CIDA business delivery model (old)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_cfl(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "CFLI (marker)"
+          ],
+          "predicted_source_columns": [
+            "CFLI (marker)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_prgrmmngprcss(nw)",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Programming process (new)"
+          ],
+          "predicted_source_columns": [
+            "Programming process (new)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_ntdmnt(prjct-lvlbdgt)",
+          "target_type": "number",
+          "expected_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "predicted_source_columns": [
+            "Untied amount(Project-level budget)"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_sctrd",
+          "target_type": "integer",
+          "expected_source_columns": [
+            "Sector ID"
+          ],
+          "predicted_source_columns": [
+            "Sector ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_brnchd",
+          "target_type": "string",
+          "expected_source_columns": [
+            "Branch ID"
+          ],
+          "predicted_source_columns": [
+            "Branch ID"
+          ],
+          "status": "MATCH (TP)",
+          "transformations": [
+            {
+              "type": "direct_copy"
+            }
+          ]
+        },
+        {
+          "target_column": "miller2_gndrqlt(mrkr)",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstntp",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_rgnstnclss",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntnntd",
+          "target_type": "integer",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_prjctbrwsrcntrd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnd",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_cntrrgnprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrnm",
+          "target_type": "string",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_sctrprcnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        },
+        {
+          "target_column": "miller2_mntspnt",
+          "target_type": "number",
+          "expected_source_columns": [],
+          "predicted_source_columns": [],
+          "status": "UNMAPPED",
+          "transformations": []
+        }
+      ],
+      "retry_count": 0,
+      "retry_log": [],
+      "error_message": null
+    }
+  ],
+  "total_retries": 0,
+  "experiment_config": {
+    "prompt_template_snapshot": "You are a senior Schema Engineer expert in data integration.\nYour task is to establish explicit column-to-column mapping rules from a single source schema to a target global schema.\n\nGUIDELINES:\n1. Rule Requirements:\n   - For each target column that has a valid semantic correspondence in the source schema, produce a MappingRule.\n   - If a target column has NO corresponding source column in the source schema, you may omit the rule or provide a rule with source_columns: [] and no transformations.\n   - Specify fully-qualified source table, target table, target column, and source label.\n   - source_columns is a list of column names (e.g. [\"col_a\"] for 1:1, [\"first_name\", \"last_name\"] for N:1).\n   - All referenced source columns must exist in the source schema under source_table.\n   - All referenced target columns must exist in the target schema under target_table.\n\n2. Transformations:\n   - If no transformation is needed for mapped columns, include a single DirectCopy transformation.\n   - If multiple source columns are combined, use Concatenate with the appropriate delimiter.\n   - Use SplitUnnest with a delimiter when a delimited multi-value or array source column (e.g. \"Action,Drama\") must be unnested into multiple individual rows in the target table.\n   - Use SplitExtract, Substring, TypeCast, or Arithmetic for scalar value transformations.\n   - Chain transformations in logical execution order (e.g., SplitUnnest then TypeCast).\n\n3. Relational Structure & Cross-Table Mapping:\n   - Do not assume all columns in a target table originate from a single source table. Target schemas often consolidate or denormalize data from multiple related source tables.\n   - Avoid anchoring solely on table name identity: an entity in the target schema may be populated by attributes from the main source entity table as well as from connected associative/junction tables.\n   - When a target column (especially a foreign key, identifier, or related entity attribute) has no semantic match in the primary candidate source table, inspect related tables connected through foreign keys or bridge tables.\n   - Only map across tables if an explicit or logical relationship exists between them; do not map columns from unrelated source tables.\n",
+    "instance_preview_included": false,
+    "provider": "auto",
+    "model_name": "gpt-5.6-sol",
+    "temperature": null,
+    "max_retries": 2
+  }
+}

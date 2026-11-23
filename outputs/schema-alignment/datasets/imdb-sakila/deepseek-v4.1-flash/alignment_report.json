@@ -1,0 +1,2164 @@
+{
+  "target_schema": {
+    "name": "global_media_catalog",
+    "title": "Unified IMDb / Sakila media catalog",
+    "resources": [
+      {
+        "name": "person",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "person_id",
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Unified identifier for a person (IMDb name or Sakila actor).",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst",
+                "sakila.actor.actor_id"
+              ]
+            },
+            {
+              "name": "primary_name",
+              "type": "string",
+              "description": "Full credited name of the person.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.primaryname"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": "Given name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.first_name"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": "Family name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.last_name"
+              ]
+            },
+            {
+              "name": "birth_year",
+              "type": "integer",
+              "description": "Year of birth.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.birthyear"
+              ]
+            },
+            {
+              "name": "death_year",
+              "type": "integer",
+              "description": "Year of death, if applicable.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.name_basics.deathyear"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.actor.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "person_profession",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "person_id",
+            "profession"
+          ],
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Reference to the person.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst"
+              ]
+            },
+            {
+              "name": "profession",
+              "type": "string",
+              "description": "One profession of the person.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.primaryprofession"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "person_known_for",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "person_id",
+            "title_id"
+          ],
+          "fields": [
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Reference to the person.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.nconst"
+              ]
+            },
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to a title the person is known for.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.name_basics.knownfortitles"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            },
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "title",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "title_id",
+          "fields": [
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Unified identifier for a title/film (IMDb tconst or Sakila film).",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.tconst",
+                "sakila.film.film_id"
+              ]
+            },
+            {
+              "name": "primary_title",
+              "type": "string",
+              "description": "Primary display title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.primarytitle",
+                "sakila.film.title"
+              ]
+            },
+            {
+              "name": "original_title",
+              "type": "string",
+              "description": "Title in its original language.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.originaltitle"
+              ]
+            },
+            {
+              "name": "title_type",
+              "type": "string",
+              "description": "Type/format of the title (movie, tvseries, ...).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.titletype"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": "Short plot summary.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.description",
+                "sakila.film_text.description"
+              ]
+            },
+            {
+              "name": "is_adult",
+              "type": "boolean",
+              "description": "Whether the title is adult content.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.isadult"
+              ]
+            },
+            {
+              "name": "release_year",
+              "type": "integer",
+              "description": "Year the title was released or the series started.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.startyear",
+                "sakila.film.release_year"
+              ]
+            },
+            {
+              "name": "end_year",
+              "type": "integer",
+              "description": "Year a TV series ended.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.endyear"
+              ]
+            },
+            {
+              "name": "runtime_minutes",
+              "type": "integer",
+              "description": "Primary runtime in minutes.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_basics.runtimeminutes",
+                "sakila.film.length"
+              ]
+            },
+            {
+              "name": "content_rating",
+              "type": "string",
+              "description": "Categorical content rating (G, PG, PG-13, R, NC-17).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.rating"
+              ]
+            },
+            {
+              "name": "rental_duration_days",
+              "type": "integer",
+              "description": "Rental period in days.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.rental_duration"
+              ]
+            },
+            {
+              "name": "rental_rate",
+              "type": "number",
+              "description": "Cost to rent the title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.rental_rate"
+              ]
+            },
+            {
+              "name": "replacement_cost",
+              "type": "number",
+              "description": "Replacement cost if lost or damaged.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.replacement_cost"
+              ]
+            },
+            {
+              "name": "special_features",
+              "type": "string",
+              "description": "Special features included (delimited list).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.special_features"
+              ]
+            },
+            {
+              "name": "language_id",
+              "type": "string",
+              "description": "Reference to the title language.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.language_id"
+              ]
+            },
+            {
+              "name": "original_language_id",
+              "type": "string",
+              "description": "Reference to the original language of the title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.original_language_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "language_id",
+              "reference": {
+                "resource": "language",
+                "fields": "language_id"
+              }
+            },
+            {
+              "fields": "original_language_id",
+              "reference": {
+                "resource": "language",
+                "fields": "language_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "genre",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "genre_id",
+          "fields": [
+            {
+              "name": "genre_id",
+              "type": "string",
+              "description": "Genre/category identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.category.category_id"
+              ]
+            },
+            {
+              "name": "genre_name",
+              "type": "string",
+              "description": "Genre/category name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.category.name",
+                "imdb.title_basics.genres"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.category.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "title_genre",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "title_id",
+            "genre_id"
+          ],
+          "fields": [
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.tconst",
+                "sakila.film_category.film_id"
+              ]
+            },
+            {
+              "name": "genre_id",
+              "type": "string",
+              "description": "Reference to the genre.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_basics.genres",
+                "sakila.film_category.category_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film_category.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            },
+            {
+              "fields": "genre_id",
+              "reference": {
+                "resource": "genre",
+                "fields": "genre_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "language",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "language_id",
+          "fields": [
+            {
+              "name": "language_id",
+              "type": "string",
+              "description": "Language identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.language.language_id"
+              ]
+            },
+            {
+              "name": "language_name",
+              "type": "string",
+              "description": "English name of the language.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.language.name"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.language.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "title_alternative",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "title_id",
+            "ordering"
+          ],
+          "fields": [
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the parent title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.titleid"
+              ]
+            },
+            {
+              "name": "ordering",
+              "type": "integer",
+              "description": "Sequence number distinguishing alternative titles of a title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_akas.ordering"
+              ]
+            },
+            {
+              "name": "alternative_title",
+              "type": "string",
+              "description": "Localized alternative title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.title"
+              ]
+            },
+            {
+              "name": "region",
+              "type": "string",
+              "description": "Region for this version of the title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.region"
+              ]
+            },
+            {
+              "name": "language_id",
+              "type": "string",
+              "description": "Reference to the language of the alternative title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.language"
+              ]
+            },
+            {
+              "name": "is_original_title",
+              "type": "boolean",
+              "description": "Whether this is the original title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.isoriginaltitle"
+              ]
+            },
+            {
+              "name": "attributes",
+              "type": "string",
+              "description": "Free-text descriptive attributes (delimited list).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.attributes"
+              ]
+            },
+            {
+              "name": "types",
+              "type": "string",
+              "description": "Enumerated types for this alternative title (delimited list).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_akas.types"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            },
+            {
+              "fields": "language_id",
+              "reference": {
+                "resource": "language",
+                "fields": "language_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "title_credit",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "title_credit_id",
+          "fields": [
+            {
+              "name": "title_credit_id",
+              "type": "string",
+              "description": "Synthetic surrogate key for the credit.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_principals.tconst",
+                "imdb.title_crew.tconst",
+                "sakila.film_actor.film_id"
+              ]
+            },
+            {
+              "name": "person_id",
+              "type": "string",
+              "description": "Reference to the credited person.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_principals.nconst",
+                "imdb.title_crew.directors",
+                "imdb.title_crew.writers",
+                "sakila.film_actor.actor_id"
+              ]
+            },
+            {
+              "name": "category",
+              "type": "string",
+              "description": "Credit category/role (actor, actress, director, writer, ...).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.category"
+              ]
+            },
+            {
+              "name": "job",
+              "type": "string",
+              "description": "Specific job title, if applicable.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.job"
+              ]
+            },
+            {
+              "name": "characters",
+              "type": "string",
+              "description": "Character(s) portrayed, if applicable.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.characters"
+              ]
+            },
+            {
+              "name": "ordering",
+              "type": "integer",
+              "description": "Sequence number distinguishing credits within a title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_principals.ordering"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.film_actor.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            },
+            {
+              "fields": "person_id",
+              "reference": {
+                "resource": "person",
+                "fields": "person_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "title_episode",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "title_id",
+          "fields": [
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the episode title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_episode.tconst"
+              ]
+            },
+            {
+              "name": "parent_title_id",
+              "type": "string",
+              "description": "Reference to the parent TV series.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_episode.parenttconst"
+              ]
+            },
+            {
+              "name": "season_number",
+              "type": "integer",
+              "description": "Season the episode belongs to.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_episode.seasonnumber"
+              ]
+            },
+            {
+              "name": "episode_number",
+              "type": "integer",
+              "description": "Episode number within the series.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_episode.episodenumber"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            },
+            {
+              "fields": "parent_title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "title_rating",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "title_id",
+          "fields": [
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the rated title.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "imdb.title_ratings.tconst"
+              ]
+            },
+            {
+              "name": "average_rating",
+              "type": "number",
+              "description": "Weighted average user rating (0-10 scale).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_ratings.averagerating"
+              ]
+            },
+            {
+              "name": "num_votes",
+              "type": "integer",
+              "description": "Number of votes received.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "imdb.title_ratings.numvotes"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "country",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "country_id",
+          "fields": [
+            {
+              "name": "country_id",
+              "type": "string",
+              "description": "Country identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.country.country_id"
+              ]
+            },
+            {
+              "name": "country_name",
+              "type": "string",
+              "description": "Name of the country.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.country.country"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.country.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "city",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "city_id",
+          "fields": [
+            {
+              "name": "city_id",
+              "type": "string",
+              "description": "City identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.city.city_id"
+              ]
+            },
+            {
+              "name": "city_name",
+              "type": "string",
+              "description": "Name of the city.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.city.city"
+              ]
+            },
+            {
+              "name": "country_id",
+              "type": "string",
+              "description": "Reference to the country.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.city.country_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.city.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "country_id",
+              "reference": {
+                "resource": "country",
+                "fields": "country_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "address",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "address_id",
+          "fields": [
+            {
+              "name": "address_id",
+              "type": "string",
+              "description": "Address identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.address.address_id"
+              ]
+            },
+            {
+              "name": "address_line1",
+              "type": "string",
+              "description": "First line of the address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.address"
+              ]
+            },
+            {
+              "name": "address_line2",
+              "type": "string",
+              "description": "Second line of the address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.address2"
+              ]
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "description": "Region/state/province of the address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.district"
+              ]
+            },
+            {
+              "name": "city_id",
+              "type": "string",
+              "description": "Reference to the city.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.city_id"
+              ]
+            },
+            {
+              "name": "postal_code",
+              "type": "string",
+              "description": "Postal/ZIP code.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.postal_code"
+              ]
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "description": "Telephone number.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.phone"
+              ]
+            },
+            {
+              "name": "location",
+              "type": "string",
+              "description": "Geospatial location value.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.location"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.address.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "city_id",
+              "reference": {
+                "resource": "city",
+                "fields": "city_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "customer_id",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "string",
+              "description": "Customer identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.customer.customer_id"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": "Customer first name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.first_name"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": "Customer last name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.last_name"
+              ]
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "description": "Customer email address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.email"
+              ]
+            },
+            {
+              "name": "active",
+              "type": "boolean",
+              "description": "Whether the customer is active.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.active"
+              ]
+            },
+            {
+              "name": "create_date",
+              "type": "date",
+              "description": "Date the customer was added.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.create_date"
+              ]
+            },
+            {
+              "name": "address_id",
+              "type": "string",
+              "description": "Reference to the customer address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.address_id"
+              ]
+            },
+            {
+              "name": "store_id",
+              "type": "string",
+              "description": "Reference to the customer home store.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.store_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.customer.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "address_id",
+              "reference": {
+                "resource": "address",
+                "fields": "address_id"
+              }
+            },
+            {
+              "fields": "store_id",
+              "reference": {
+                "resource": "store",
+                "fields": "store_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "staff",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "staff_id",
+          "fields": [
+            {
+              "name": "staff_id",
+              "type": "string",
+              "description": "Staff identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.staff.staff_id"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": "Staff first name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.first_name"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": "Staff last name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.last_name"
+              ]
+            },
+            {
+              "name": "email",
+              "type": "string",
+              "description": "Staff email address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.email"
+              ]
+            },
+            {
+              "name": "active",
+              "type": "boolean",
+              "description": "Whether the staff member is active.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.active"
+              ]
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "description": "Login user name.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.username"
+              ]
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "description": "Hashed password.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.password"
+              ]
+            },
+            {
+              "name": "picture",
+              "type": "string",
+              "description": "Photograph (binary content).",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.picture"
+              ]
+            },
+            {
+              "name": "address_id",
+              "type": "string",
+              "description": "Reference to the staff address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.address_id"
+              ]
+            },
+            {
+              "name": "store_id",
+              "type": "string",
+              "description": "Reference to the staff home store.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.store_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.staff.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "address_id",
+              "reference": {
+                "resource": "address",
+                "fields": "address_id"
+              }
+            },
+            {
+              "fields": "store_id",
+              "reference": {
+                "resource": "store",
+                "fields": "store_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "store",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "store_id",
+          "fields": [
+            {
+              "name": "store_id",
+              "type": "string",
+              "description": "Store identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.store.store_id"
+              ]
+            },
+            {
+              "name": "manager_staff_id",
+              "type": "string",
+              "description": "Reference to the store manager.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.store.manager_staff_id"
+              ]
+            },
+            {
+              "name": "address_id",
+              "type": "string",
+              "description": "Reference to the store address.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.store.address_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.store.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "manager_staff_id",
+              "reference": {
+                "resource": "staff",
+                "fields": "staff_id"
+              }
+            },
+            {
+              "fields": "address_id",
+              "reference": {
+                "resource": "address",
+                "fields": "address_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "inventory",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "inventory_id",
+          "fields": [
+            {
+              "name": "inventory_id",
+              "type": "string",
+              "description": "Inventory item identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.inventory.inventory_id"
+              ]
+            },
+            {
+              "name": "title_id",
+              "type": "string",
+              "description": "Reference to the stocked title.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.inventory.film_id"
+              ]
+            },
+            {
+              "name": "store_id",
+              "type": "string",
+              "description": "Reference to the stocking store.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.inventory.store_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.inventory.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "title_id",
+              "reference": {
+                "resource": "title",
+                "fields": "title_id"
+              }
+            },
+            {
+              "fields": "store_id",
+              "reference": {
+                "resource": "store",
+                "fields": "store_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "rental",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "rental_id",
+          "fields": [
+            {
+              "name": "rental_id",
+              "type": "string",
+              "description": "Rental identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.rental.rental_id"
+              ]
+            },
+            {
+              "name": "rental_date",
+              "type": "datetime",
+              "description": "Date and time the item was rented.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.rental_date"
+              ]
+            },
+            {
+              "name": "return_date",
+              "type": "datetime",
+              "description": "Date and time the item was returned.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.return_date"
+              ]
+            },
+            {
+              "name": "inventory_id",
+              "type": "string",
+              "description": "Reference to the rented inventory item.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.inventory_id"
+              ]
+            },
+            {
+              "name": "customer_id",
+              "type": "string",
+              "description": "Reference to the renting customer.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.customer_id"
+              ]
+            },
+            {
+              "name": "staff_id",
+              "type": "string",
+              "description": "Reference to the staff member who processed the rental.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.staff_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.rental.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "inventory_id",
+              "reference": {
+                "resource": "inventory",
+                "fields": "inventory_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "staff_id",
+              "reference": {
+                "resource": "staff",
+                "fields": "staff_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "payment",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "payment_id",
+          "fields": [
+            {
+              "name": "payment_id",
+              "type": "string",
+              "description": "Payment identifier.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "sakila.payment.payment_id"
+              ]
+            },
+            {
+              "name": "amount",
+              "type": "number",
+              "description": "Payment amount.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.amount"
+              ]
+            },
+            {
+              "name": "payment_date",
+              "type": "datetime",
+              "description": "Date and time the payment was processed.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.payment_date"
+              ]
+            },
+            {
+              "name": "rental_id",
+              "type": "string",
+              "description": "Reference to the related rental.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.rental_id"
+              ]
+            },
+            {
+              "name": "customer_id",
+              "type": "string",
+              "description": "Reference to the paying customer.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.customer_id"
+              ]
+            },
+            {
+              "name": "staff_id",
+              "type": "string",
+              "description": "Reference to the staff member who processed the payment.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.staff_id"
+              ]
+            },
+            {
+              "name": "last_update",
+              "type": "date",
+              "description": "Row creation/update timestamp.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "sakila.payment.last_update"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "rental_id",
+              "reference": {
+                "resource": "rental",
+                "fields": "rental_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "staff_id",
+              "reference": {
+                "resource": "staff",
+                "fields": "staff_id"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "conflict_report": [
+    {
+      "conflict_type": "Naming",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_basics",
+            "sakila.film"
+          ],
+          "description": "The same real-world concept (an audiovisual work / motion picture) is named 'title_basics' in IMDb and 'film' in Sakila. The word 'title' is also overloaded in IMDb (title_basics.primarytitle, title_akas.title).",
+          "resolution": "Both entities are unified into a single resource named 'title'; the term 'title' is reserved for the work entity, its display name is renamed 'primary_title', and alternative-titles are renamed 'alternative_title'."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics",
+            "sakila.actor"
+          ],
+          "description": "The person entity is named 'name_basics' in IMDb and 'actor' in Sakila, though both represent individuals involved in productions.",
+          "resolution": "Unified into a single resource named 'person'."
+        },
+        {
+          "source_references": [
+            "imdb.title_principals.category",
+            "sakila.category"
+          ],
+          "description": "Homonym: 'category' denotes the job/role of a credited person in IMDb, but a film genre lookup table in Sakila.",
+          "resolution": "The IMDb concept is kept as the 'category' (role) column of 'title_credit'; the Sakila lookup is renamed and modeled as the 'genre' resource."
+        },
+        {
+          "source_references": [
+            "sakila.category.name",
+            "sakila.language.name",
+            "sakila.city.city",
+            "sakila.country.country"
+          ],
+          "description": "Generic name columns ('name', 'city', 'country') are used to store the descriptive label of different lookups, causing name collisions across dimensions.",
+          "resolution": "Renamed to explicit, entity-qualified names: genre_name, language_name, city_name, country_name."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.primarytitle",
+            "imdb.title_akas.title",
+            "sakila.film.title",
+            "sakila.film_text.title"
+          ],
+          "description": "The column name 'title' refers to four different things: the primary title, the localized alternative title, and (twice) the film title in two Sakila tables.",
+          "resolution": "Disambiguated into 'primary_title' (unified IMDb primarytitle + Sakila film/title_text title) and 'alternative_title' (IMDb title_akas title)."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.language",
+            "sakila.language"
+          ],
+          "description": "The language concept is represented as an inline string column in IMDb and as an independent lookup table in Sakila.",
+          "resolution": "Modeled as a shared 'language' dimension; IMDb's per-alt-title language is captured via a language_id foreign key."
+        },
+        {
+          "source_references": [
+            "sakila.film_text",
+            "sakila.film"
+          ],
+          "description": "'film_text' duplicates the film title and description under a different name.",
+          "resolution": "Recognized as a denormalized copy of 'film'; merged into 'title' and not materialized as a separate resource."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.region",
+            "sakila.country"
+          ],
+          "description": "'region' (IMDb) and 'country' (Sakila) both denominate geographic areas but with different labelling and granularity.",
+          "resolution": "Kept distinct: 'region' remains a title-distribution attribute on 'title_alternative'; 'country' is modeled as a normalized dimension."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Type",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.name_basics.nconst",
+            "imdb.title_basics.tconst",
+            "imdb.title_akas.titleid",
+            "imdb.title_crew.tconst",
+            "imdb.title_episode.tconst",
+            "imdb.title_ratings.tconst"
+          ],
+          "description": "IMDb identifier columns are declared as 'number' although their descriptions state they are alphanumeric strings (e.g. 'tt0000001', 'nm0000001').",
+          "resolution": "Re-typed to 'string' across all target resources."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.birthyear",
+            "imdb.name_basics.deathyear",
+            "imdb.title_basics.startyear",
+            "imdb.title_basics.endyear",
+            "sakila.film.release_year"
+          ],
+          "description": "Year values are declared as 'string' (YYYY) in IMDb and as 'string' in Sakila even though they are numeric.",
+          "resolution": "Standardized to 'integer' (birth_year, death_year, release_year, end_year)."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.primarytitle"
+          ],
+          "description": "Declared as 'integer' although the description states it is the primary title string.",
+          "resolution": "Corrected to 'string' (primary_title)."
+        },
+        {
+          "source_references": [
+            "sakila.film.language_id",
+            "sakila.film.original_language_id",
+            "sakila.address.city_id",
+            "sakila.inventory.film_id",
+            "sakila.film.film_id",
+            "sakila.city.city_id"
+          ],
+          "description": "Sakila foreign-key columns are typed inconsistently: some 'integer' (film.language_id, address.city_id, inventory.film_id) while the referenced primary keys are 'string'.",
+          "resolution": "All identifier and foreign-key columns are uniformly typed as 'string'."
+        },
+        {
+          "source_references": [
+            "sakila.film.length",
+            "sakila.film.rental_duration",
+            "sakila.film.rental_rate",
+            "sakila.film.replacement_cost",
+            "sakila.payment.amount"
+          ],
+          "description": "Numeric measurements and money values are stored as 'string' in Sakila.",
+          "resolution": "Re-typed to 'integer' (rental_duration_days) and 'number' (rental_rate, replacement_cost, amount, runtime_minutes)."
+        },
+        {
+          "source_references": [
+            "sakila.customer.active",
+            "sakila.staff.active",
+            "imdb.title_basics.isadult",
+            "imdb.title_akas.isoriginaltitle"
+          ],
+          "description": "Boolean flags are inconsistently typed: 'string' in Sakila (active) versus 'boolean' in IMDb (isadult, isoriginaltitle), and encoded as 0/1 in IMDb.",
+          "resolution": "All flags are typed 'boolean' (active, is_adult, is_original_title)."
+        },
+        {
+          "source_references": [
+            "sakila.rental.rental_date",
+            "sakila.rental.return_date",
+            "sakila.payment.payment_date"
+          ],
+          "description": "Columns described as 'date and time' are typed 'date', losing the time component.",
+          "resolution": "Re-typed to 'datetime'."
+        },
+        {
+          "source_references": [
+            "sakila.actor.actor_id",
+            "sakila.store.store_id",
+            "sakila.customer.customer_id"
+          ],
+          "description": "Sakila surrogate keys are declared as 'string' although they are integer surrogates, whereas IMDb uses alphanumeric natural keys.",
+          "resolution": "Uniformly typed 'string' to allow the merged keys of both sources to co-exist."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Data Semantic",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_ratings.averagerating",
+            "sakila.film.rating"
+          ],
+          "description": "Two different notions of 'rating': IMDb is a continuous weighted average (0-10), Sakila is a categorical age/MPAA rating (G, PG, PG-13, R, NC-17). Different scale and encoding.",
+          "resolution": "Kept as separate semantics: 'average_rating' (number) in the title_rating resource and 'content_rating' (string) on 'title'."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.runtimeminutes",
+            "sakila.film.length"
+          ],
+          "description": "Both express the runtime, and both use minutes as the unit; Sakila's column is however typed as string and unlabelled.",
+          "resolution": "Aligned on the common SI-friendly unit of minutes into a single 'runtime_minutes' integer column."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.birthyear",
+            "imdb.name_basics.deathyear",
+            "imdb.title_basics.startyear",
+            "imdb.title_basics.endyear"
+          ],
+          "description": "IMDb encodes missing values with the literal '\\N' inside year strings, which is a value-level encoding not representable once years become integers.",
+          "resolution": "The '\\N' sentinel is normalized to a null value when casting years to integer."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.language",
+            "sakila.language.name"
+          ],
+          "description": "Same concept (language) encoded differently: IMDb uses ISO-like codes, Sakila uses English language names.",
+          "resolution": "Unified into a 'language' dimension; IMDb codes are harmonized to the dimension's identity while its name attribute carries the English label."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "sakila.category.name"
+          ],
+          "description": "Genre/category vocabularies differ between sources (IMDb's fixed genre set vs Sakila's rental-shop categories), and IMDb limits a title to three genres.",
+          "resolution": "Both are mapped into a single 'genre' dimension and a shared 'title_genre' bridge; vocabulary harmonization is left to a controlled value list."
+        },
+        {
+          "source_references": [
+            "sakila.customer.active",
+            "sakila.staff.active"
+          ],
+          "description": "Active flags are documented to be set to 'FALSE' (rather than deleting rows), implying string/boolean ambiguity in encoding.",
+          "resolution": "Normalized to a real boolean type with a uniform true/false semantics."
+        },
+        {
+          "source_references": [
+            "imdb.title_akas.region",
+            "sakila.country.country",
+            "sakila.address.district"
+          ],
+          "description": "Geographic scope is represented at different granularities (distribution region, country dimension, and free-text district).",
+          "resolution": "Preserved as separate attributes at the correct granularity rather than forcing a lossy merge."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Structure",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "imdb.title_crew.directors",
+            "imdb.title_crew.writers",
+            "imdb.name_basics.primaryprofession",
+            "imdb.name_basics.knownfortitles",
+            "imdb.title_principals.characters",
+            "imdb.title_akas.attributes",
+            "imdb.title_akas.types",
+            "sakila.film_category",
+            "sakila.film_actor"
+          ],
+          "description": "IMDb stores many-to-many data as delimited/array values packed into a single column, whereas Sakila stores the same kinds of associations in fully normalized bridge tables.",
+          "resolution": "IMDb arrays are decomposed into bridge/child resources (title_genre, title_credit, person_profession, person_known_for) consistent with the normalized Sakila pattern; free-text arrays that are non-enumerated (attributes, types, characters) remain delimited strings."
+        },
+        {
+          "source_references": [
+            "sakila.film_text.title",
+            "sakila.film_text.description",
+            "sakila.film_text.film_id"
+          ],
+          "description": "film_text is a denormalized projection of the film table (title + description keyed by film_id), introducing redundancy.",
+          "resolution": "Dropped as a separate resource; its columns are folded into 'title' with provenance retained."
+        },
+        {
+          "source_references": [
+            "imdb.title_crew.tconst",
+            "imdb.title_crew.directors",
+            "imdb.title_crew.writers",
+            "imdb.title_principals.tconst"
+          ],
+          "description": "IMDb splits the title/person relationship across two tables of differing shape: title_crew packs director and writer arrays into one row per title, while title_principals holds one row per person credit.",
+          "resolution": "Both are unpivoted and unified into the row-per-credit 'title_credit' resource alongside Sakila's film_actor."
+        },
+        {
+          "source_references": [
+            "sakila.country",
+            "sakila.city",
+            "sakila.address"
+          ],
+          "description": "Sakila has a normalized three-level location hierarchy that has no counterpart in IMDb.",
+          "resolution": "Preserved as separate country, city, and address resources, with foreign keys maintaining the hierarchy."
+        },
+        {
+          "source_references": [
+            "imdb.title_episode.tconst",
+            "imdb.title_episode.parenttconst"
+          ],
+          "description": "IMDb models the series/episode relationship as a self-referencing association within a title-oriented table, unlike the flat Sakila model.",
+          "resolution": "Extracted into a dedicated 'title_episode' child resource with a self-referencing foreign key to 'title'."
+        },
+        {
+          "source_references": [
+            "sakila.inventory",
+            "sakila.rental",
+            "sakila.payment",
+            "sakila.store",
+            "sakila.staff"
+          ],
+          "description": "Sakila contains a complete rental/commerce domain (inventory, rental, payment, store, staff, customer) with no counterpart in IMDb.",
+          "resolution": "Retained as-is (normalized to the unified 'title' foreign key where it referenced 'film'), as these are legitimate domain-specific resources."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Cardinality",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_basics.tconst",
+            "imdb.title_ratings.tconst"
+          ],
+          "description": "The title-to-ratings relationship is 1:1 (a single ratings row per title), whereas most other audio-visual relationships are 1:N or N:M.",
+          "resolution": "Modeled as a 1:1 extension resource 'title_rating' whose primary key is the title_id foreign key."
+        },
+        {
+          "source_references": [
+            "imdb.title_principals.nconst",
+            "imdb.title_principals.tconst",
+            "sakila.film_actor.actor_id",
+            "sakila.film_actor.film_id"
+          ],
+          "description": "Person-to-title is N:M in both sources but is expressed through different mechanisms and role semantics.",
+          "resolution": "Unified into the N:M 'title_credit' bridge between 'person' and 'title'."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.genres",
+            "sakila.film_category.film_id",
+            "sakila.film_category.category_id"
+          ],
+          "description": "Sakila title-to-genre is a clean N:M bridge; IMDb embeds an inline array of up to three genres per title.",
+          "resolution": "Unified into the N:M 'title_genre' bridge."
+        },
+        {
+          "source_references": [
+            "imdb.title_episode.parenttconst",
+            "imdb.title_episode.tconst"
+          ],
+          "description": "A TV series relates 1:N to its episodes, and each episode maps back to exactly one parent series.",
+          "resolution": "Represented via self-referencing foreign keys on 'title_episode'."
+        },
+        {
+          "source_references": [
+            "sakila.store.manager_staff_id",
+            "sakila.staff.store_id"
+          ],
+          "description": "Circular 1:N references between store and staff (a store has a manager staff member; a staff member belongs to a home store).",
+          "resolution": "Both foreign keys are retained in the unified schema; the cycle is preserved as-is."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.knownfortitles",
+            "imdb.name_basics.nconst"
+          ],
+          "description": "The 'known for' relationship is 1:N from a person to several titles in IMDb.",
+          "resolution": "Normalized into the 'person_known_for' resource linking person to title."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Key",
+      "conflicts": [
+        {
+          "source_references": [
+            "imdb.title_akas.titleid",
+            "imdb.title_akas.ordering"
+          ],
+          "description": "title_akas declares no primary key, although the pair (titleid, ordering) is the natural unique identifier.",
+          "resolution": "Adopted the composite natural key (title_id, ordering) as the primary key of 'title_alternative'."
+        },
+        {
+          "source_references": [
+            "imdb.title_crew.tconst",
+            "imdb.title_episode.tconst",
+            "imdb.title_principals.tconst",
+            "imdb.title_ratings.tconst"
+          ],
+          "description": "Several IMDb tables declare no primary key at all, despite having natural keys (tconst, or tconst+ordering).",
+          "resolution": "Natural keys are inferred: title_episode and title_rating use title_id; title_credit uses a synthetic surrogate key because its natural key spans unpivoted sources."
+        },
+        {
+          "source_references": [
+            "imdb.title_basics.tconst",
+            "sakila.film.film_id",
+            "imdb.name_basics.nconst",
+            "sakila.actor.actor_id"
+          ],
+          "description": "Primary-key conventions differ: IMDb uses alphanumeric natural keys (typed as number) while Sakila uses integer surrogate keys (typed as string).",
+          "resolution": "Both key styles are unified as 'string' identifiers, and merged entities reuse them (title_id, person_id)."
+        },
+        {
+          "source_references": [
+            "sakila.film_actor",
+            "sakila.film_category"
+          ],
+          "description": "Sakila bridge tables declare no primary key even though (film_id, actor_id) and (film_id, category_id) are unique.",
+          "resolution": "Composite primary keys are declared on the corresponding bridge resources (title_genre; title_credit exposed via a surrogate key)."
+        },
+        {
+          "source_references": [
+            "sakila.payment.payment_id",
+            "sakila.rental.rental_id"
+          ],
+          "description": "payment declares payment_id but does not mark it as the primary key, while rental does mark rental_id.",
+          "resolution": "payment_id is adopted as the primary key of 'payment'."
+        },
+        {
+          "source_references": [
+            "imdb.name_basics.nconst",
+            "sakila.actor.actor_id",
+            "imdb.title_basics.tconst",
+            "sakila.film.film_id"
+          ],
+          "description": "Merging entities from two independent sources produces several source primary keys feeding one target key.",
+          "resolution": "The unified 'person' and 'title' primary keys list all contributing source primary keys in their provenance."
+        }
+      ]
+    }
+  ]
+}

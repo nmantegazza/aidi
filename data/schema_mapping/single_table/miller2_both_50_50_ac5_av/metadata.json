@@ -1,0 +1,11 @@
+{
+  "name": "miller2_both_50_50_ac5_av",
+  "domain": "OpenData",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "source_rows": 11627,
+  "source_cols": 38,
+  "target_rows": 17440,
+  "target_cols": 38,
+  "gold_matches": 25,
+  "category": "single_table"
+}

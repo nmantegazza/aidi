@@ -1,0 +1,7070 @@
+{
+  "iteration_index": 3,
+  "category": "multi_table",
+  "metrics": {
+    "precision": 0.6742,
+    "recall": 0.4839,
+    "f1": 0.5634,
+    "true_positives": 60,
+    "false_positives": 29,
+    "false_negatives": 64,
+    "predicted_pairs_count": 89,
+    "gold_pairs_count": 124,
+    "tp_pairs": [
+      [
+        "allergies.code",
+        "observation.observation_source_value"
+      ],
+      [
+        "allergies.encounter",
+        "observation.visit_occurrence_id"
+      ],
+      [
+        "allergies.patient",
+        "observation.person_id"
+      ],
+      [
+        "allergies.start",
+        "observation.observation_date"
+      ],
+      [
+        "allergies.start",
+        "observation.observation_datetime"
+      ],
+      [
+        "conditions.code",
+        "condition_occurrence.condition_source_value"
+      ],
+      [
+        "conditions.encounter",
+        "condition_occurrence.visit_occurrence_id"
+      ],
+      [
+        "conditions.patient",
+        "condition_occurrence.person_id"
+      ],
+      [
+        "conditions.start",
+        "condition_occurrence.condition_start_date"
+      ],
+      [
+        "conditions.start",
+        "condition_occurrence.condition_start_datetime"
+      ],
+      [
+        "conditions.stop",
+        "condition_occurrence.condition_end_date"
+      ],
+      [
+        "conditions.stop",
+        "condition_occurrence.condition_end_datetime"
+      ],
+      [
+        "encounters.patient",
+        "visit_occurrence.person_id"
+      ],
+      [
+        "encounters.start",
+        "visit_occurrence.visit_start_date"
+      ],
+      [
+        "encounters.start",
+        "visit_occurrence.visit_start_datetime"
+      ],
+      [
+        "encounters.stop",
+        "visit_occurrence.visit_end_date"
+      ],
+      [
+        "encounters.stop",
+        "visit_occurrence.visit_end_datetime"
+      ],
+      [
+        "immunizations.code",
+        "drug_exposure.drug_source_value"
+      ],
+      [
+        "immunizations.date",
+        "drug_exposure.drug_exposure_start_date"
+      ],
+      [
+        "immunizations.date",
+        "drug_exposure.drug_exposure_start_datetime"
+      ],
+      [
+        "immunizations.encounter",
+        "drug_exposure.visit_occurrence_id"
+      ],
+      [
+        "immunizations.patient",
+        "drug_exposure.person_id"
+      ],
+      [
+        "medications.code",
+        "drug_exposure.drug_source_value"
+      ],
+      [
+        "medications.encounter",
+        "drug_exposure.visit_occurrence_id"
+      ],
+      [
+        "medications.patient",
+        "drug_exposure.person_id"
+      ],
+      [
+        "medications.start",
+        "drug_exposure.drug_exposure_start_date"
+      ],
+      [
+        "medications.start",
+        "drug_exposure.drug_exposure_start_datetime"
+      ],
+      [
+        "medications.stop",
+        "drug_exposure.drug_exposure_end_date"
+      ],
+      [
+        "medications.stop",
+        "drug_exposure.drug_exposure_end_datetime"
+      ],
+      [
+        "observations.code",
+        "measurement.measurement_source_value"
+      ],
+      [
+        "observations.date",
+        "measurement.measurement_date"
+      ],
+      [
+        "observations.date",
+        "measurement.measurement_datetime"
+      ],
+      [
+        "observations.encounter",
+        "measurement.visit_occurrence_id"
+      ],
+      [
+        "observations.patient",
+        "measurement.person_id"
+      ],
+      [
+        "observations.units",
+        "measurement.unit_source_value"
+      ],
+      [
+        "observations.value",
+        "measurement.value_as_number"
+      ],
+      [
+        "observations.value",
+        "measurement.value_source_value"
+      ],
+      [
+        "organizations.id",
+        "care_site.care_site_source_value"
+      ],
+      [
+        "organizations.name",
+        "care_site.care_site_name"
+      ],
+      [
+        "patients.birthdate",
+        "person.birth_datetime"
+      ],
+      [
+        "patients.birthdate",
+        "person.day_of_birth"
+      ],
+      [
+        "patients.birthdate",
+        "person.month_of_birth"
+      ],
+      [
+        "patients.birthdate",
+        "person.year_of_birth"
+      ],
+      [
+        "patients.city",
+        "location.city"
+      ],
+      [
+        "patients.deathdate",
+        "death.death_date"
+      ],
+      [
+        "patients.deathdate",
+        "death.death_datetime"
+      ],
+      [
+        "patients.ethnicity",
+        "person.ethnicity_source_value"
+      ],
+      [
+        "patients.gender",
+        "person.gender_source_value"
+      ],
+      [
+        "patients.id",
+        "person.person_source_value"
+      ],
+      [
+        "patients.race",
+        "person.race_source_value"
+      ],
+      [
+        "patients.state",
+        "location.state"
+      ],
+      [
+        "patients.zip",
+        "location.zip"
+      ],
+      [
+        "procedures.code",
+        "procedure_occurrence.procedure_source_value"
+      ],
+      [
+        "procedures.date",
+        "procedure_occurrence.procedure_date"
+      ],
+      [
+        "procedures.date",
+        "procedure_occurrence.procedure_datetime"
+      ],
+      [
+        "procedures.encounter",
+        "procedure_occurrence.visit_occurrence_id"
+      ],
+      [
+        "procedures.patient",
+        "procedure_occurrence.person_id"
+      ],
+      [
+        "providers.gender",
+        "provider.gender_source_value"
+      ],
+      [
+        "providers.id",
+        "provider.provider_source_value"
+      ],
+      [
+        "providers.name",
+        "provider.provider_name"
+      ]
+    ],
+    "fp_pairs": [
+      [
+        "allergies.description",
+        "observation.value_source_value"
+      ],
+      [
+        "careplans.code",
+        "episode.episode_source_value"
+      ],
+      [
+        "careplans.id",
+        "episode.episode_id"
+      ],
+      [
+        "careplans.patient",
+        "episode.person_id"
+      ],
+      [
+        "careplans.start",
+        "episode.episode_start_date"
+      ],
+      [
+        "careplans.stop",
+        "episode.episode_end_date"
+      ],
+      [
+        "encounters.code",
+        "visit_occurrence.visit_source_value"
+      ],
+      [
+        "encounters.id",
+        "visit_occurrence.visit_occurrence_id"
+      ],
+      [
+        "encounters.provider",
+        "visit_occurrence.provider_id"
+      ],
+      [
+        "imaging_studies.date",
+        "procedure_occurrence.procedure_date"
+      ],
+      [
+        "imaging_studies.date",
+        "procedure_occurrence.procedure_datetime"
+      ],
+      [
+        "imaging_studies.encounter",
+        "procedure_occurrence.visit_occurrence_id"
+      ],
+      [
+        "imaging_studies.id",
+        "procedure_occurrence.procedure_occurrence_id"
+      ],
+      [
+        "imaging_studies.patient",
+        "procedure_occurrence.person_id"
+      ],
+      [
+        "imaging_studies.sop code",
+        "procedure_occurrence.procedure_source_value"
+      ],
+      [
+        "organizations.address",
+        "care_site.location_id"
+      ],
+      [
+        "organizations.address",
+        "location.address_1"
+      ],
+      [
+        "organizations.city",
+        "location.city"
+      ],
+      [
+        "organizations.id",
+        "care_site.care_site_id"
+      ],
+      [
+        "organizations.state",
+        "location.state"
+      ],
+      [
+        "organizations.zip",
+        "location.zip"
+      ],
+      [
+        "patients.address",
+        "location.address_1"
+      ],
+      [
+        "patients.address",
+        "location.location_source_value"
+      ],
+      [
+        "patients.address",
+        "person.location_id"
+      ],
+      [
+        "patients.id",
+        "death.person_id"
+      ],
+      [
+        "patients.id",
+        "person.person_id"
+      ],
+      [
+        "providers.id",
+        "provider.provider_id"
+      ],
+      [
+        "providers.organization",
+        "provider.care_site_id"
+      ],
+      [
+        "providers.speciality",
+        "provider.specialty_source_value"
+      ]
+    ],
+    "fn_pairs": [
+      [
+        "allergies.code",
+        "observation.observation_concept_id"
+      ],
+      [
+        "allergies.code",
+        "observation.observation_source_concept_id"
+      ],
+      [
+        "conditions.code",
+        "condition_occurrence.condition_concept_id"
+      ],
+      [
+        "conditions.code",
+        "condition_occurrence.condition_source_concept_id"
+      ],
+      [
+        "conditions.code",
+        "drug_exposure.drug_concept_id"
+      ],
+      [
+        "conditions.code",
+        "observation.observation_concept_id"
+      ],
+      [
+        "conditions.code",
+        "observation.observation_source_concept_id"
+      ],
+      [
+        "conditions.code",
+        "observation.observation_source_value"
+      ],
+      [
+        "conditions.encounter",
+        "condition_occurrence.visit_detail_id"
+      ],
+      [
+        "conditions.encounter",
+        "observation.visit_occurrence_id"
+      ],
+      [
+        "conditions.patient",
+        "drug_exposure.person_id"
+      ],
+      [
+        "conditions.patient",
+        "observation.person_id"
+      ],
+      [
+        "conditions.start",
+        "drug_exposure.drug_exposure_start_date"
+      ],
+      [
+        "conditions.start",
+        "drug_exposure.drug_exposure_start_datetime"
+      ],
+      [
+        "conditions.start",
+        "observation.observation_date"
+      ],
+      [
+        "conditions.start",
+        "observation.observation_datetime"
+      ],
+      [
+        "encounters.encounterclass",
+        "visit_detail.visit_detail_concept_id"
+      ],
+      [
+        "encounters.encounterclass",
+        "visit_detail.visit_detail_source_value"
+      ],
+      [
+        "encounters.encounterclass",
+        "visit_occurrence.visit_concept_id"
+      ],
+      [
+        "encounters.encounterclass",
+        "visit_occurrence.visit_source_value"
+      ],
+      [
+        "encounters.patient",
+        "observation_period.person_id"
+      ],
+      [
+        "encounters.patient",
+        "visit_detail.person_id"
+      ],
+      [
+        "encounters.provider",
+        "provider.provider_id"
+      ],
+      [
+        "encounters.provider",
+        "visit_detail.provider_id"
+      ],
+      [
+        "encounters.start",
+        "observation_period.observation_period_start_date"
+      ],
+      [
+        "encounters.start",
+        "visit_detail.visit_detail_start_date"
+      ],
+      [
+        "encounters.start",
+        "visit_detail.visit_detail_start_datetime"
+      ],
+      [
+        "encounters.stop",
+        "observation_period.observation_period_end_date"
+      ],
+      [
+        "encounters.stop",
+        "visit_detail.visit_detail_end_date"
+      ],
+      [
+        "encounters.stop",
+        "visit_detail.visit_detail_end_datetime"
+      ],
+      [
+        "immunizations.code",
+        "drug_exposure.drug_concept_id"
+      ],
+      [
+        "immunizations.code",
+        "drug_exposure.drug_source_concept_id"
+      ],
+      [
+        "immunizations.date",
+        "drug_exposure.drug_exposure_end_date"
+      ],
+      [
+        "immunizations.date",
+        "drug_exposure.drug_exposure_end_datetime"
+      ],
+      [
+        "immunizations.date",
+        "drug_exposure.verbatim_end_date"
+      ],
+      [
+        "medications.code",
+        "drug_exposure.drug_concept_id"
+      ],
+      [
+        "medications.code",
+        "drug_exposure.drug_source_concept_id"
+      ],
+      [
+        "medications.start",
+        "drug_exposure.days_supply"
+      ],
+      [
+        "medications.start",
+        "drug_exposure.drug_exposure_end_date"
+      ],
+      [
+        "medications.start",
+        "drug_exposure.drug_exposure_end_datetime"
+      ],
+      [
+        "medications.stop",
+        "drug_exposure.days_supply"
+      ],
+      [
+        "medications.stop",
+        "drug_exposure.verbatim_end_date"
+      ],
+      [
+        "observations.code",
+        "measurement.measurement_concept_id"
+      ],
+      [
+        "observations.code",
+        "measurement.measurement_source_concept_id"
+      ],
+      [
+        "patients.birthplace",
+        "location.city"
+      ],
+      [
+        "patients.ethnicity",
+        "person.ethnicity_concept_id"
+      ],
+      [
+        "patients.ethnicity",
+        "person.ethnicity_source_concept_id"
+      ],
+      [
+        "patients.gender",
+        "person.gender_concept_id"
+      ],
+      [
+        "patients.race",
+        "person.race_concept_id"
+      ],
+      [
+        "patients.race",
+        "person.race_source_concept_id"
+      ],
+      [
+        "patients.zip",
+        "location.location_source_value"
+      ],
+      [
+        "procedures.code",
+        "measurement.measurement_concept_id"
+      ],
+      [
+        "procedures.code",
+        "measurement.measurement_source_concept_id"
+      ],
+      [
+        "procedures.code",
+        "measurement.measurement_source_value"
+      ],
+      [
+        "procedures.code",
+        "procedure_occurrence.procedure_concept_id"
+      ],
+      [
+        "procedures.code",
+        "procedure_occurrence.procedure_source_concept_id"
+      ],
+      [
+        "procedures.date",
+        "measurement.measurement_date"
+      ],
+      [
+        "procedures.date",
+        "measurement.measurement_datetime"
+      ],
+      [
+        "procedures.date",
+        "measurement.measurement_time"
+      ],
+      [
+        "procedures.encounter",
+        "measurement.visit_occurrence_id"
+      ],
+      [
+        "procedures.patient",
+        "measurement.person_id"
+      ],
+      [
+        "providers.gender",
+        "provider.gender_concept_id"
+      ],
+      [
+        "providers.gender",
+        "provider.gender_source_concept_id"
+      ],
+      [
+        "providers.specialty",
+        "provider.specialty_source_value"
+      ]
+    ]
+  },
+  "latency_seconds": 35.341,
+  "token_usage": {
+    "prompt_tokens": 47812,
+    "completion_tokens": 11462,
+    "cached_tokens": 0,
+    "reasoning_tokens": 0,
+    "total_tokens": 59274,
+    "latency_seconds": 35.341,
+    "cost_usd": null
+  },
+  "predicted_pairs": [
+    [
+      "allergies.code",
+      "observation.observation_source_value"
+    ],
+    [
+      "allergies.description",
+      "observation.value_source_value"
+    ],
+    [
+      "allergies.encounter",
+      "observation.visit_occurrence_id"
+    ],
+    [
+      "allergies.patient",
+      "observation.person_id"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_date"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_datetime"
+    ],
+    [
+      "careplans.code",
+      "episode.episode_source_value"
+    ],
+    [
+      "careplans.id",
+      "episode.episode_id"
+    ],
+    [
+      "careplans.patient",
+      "episode.person_id"
+    ],
+    [
+      "careplans.start",
+      "episode.episode_start_date"
+    ],
+    [
+      "careplans.stop",
+      "episode.episode_end_date"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_source_value"
+    ],
+    [
+      "conditions.encounter",
+      "condition_occurrence.visit_occurrence_id"
+    ],
+    [
+      "conditions.patient",
+      "condition_occurrence.person_id"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_date"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_datetime"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_date"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_datetime"
+    ],
+    [
+      "encounters.code",
+      "visit_occurrence.visit_source_value"
+    ],
+    [
+      "encounters.id",
+      "visit_occurrence.visit_occurrence_id"
+    ],
+    [
+      "encounters.patient",
+      "visit_occurrence.person_id"
+    ],
+    [
+      "encounters.provider",
+      "visit_occurrence.provider_id"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_datetime"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_datetime"
+    ],
+    [
+      "imaging_studies.date",
+      "procedure_occurrence.procedure_date"
+    ],
+    [
+      "imaging_studies.date",
+      "procedure_occurrence.procedure_datetime"
+    ],
+    [
+      "imaging_studies.encounter",
+      "procedure_occurrence.visit_occurrence_id"
+    ],
+    [
+      "imaging_studies.id",
+      "procedure_occurrence.procedure_occurrence_id"
+    ],
+    [
+      "imaging_studies.patient",
+      "procedure_occurrence.person_id"
+    ],
+    [
+      "imaging_studies.sop code",
+      "procedure_occurrence.procedure_source_value"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "immunizations.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "immunizations.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "medications.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "medications.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_source_value"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_date"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_datetime"
+    ],
+    [
+      "observations.encounter",
+      "measurement.visit_occurrence_id"
+    ],
+    [
+      "observations.patient",
+      "measurement.person_id"
+    ],
+    [
+      "observations.units",
+      "measurement.unit_source_value"
+    ],
+    [
+      "observations.value",
+      "measurement.value_as_number"
+    ],
+    [
+      "observations.value",
+      "measurement.value_source_value"
+    ],
+    [
+      "organizations.address",
+      "care_site.location_id"
+    ],
+    [
+      "organizations.address",
+      "location.address_1"
+    ],
+    [
+      "organizations.city",
+      "location.city"
+    ],
+    [
+      "organizations.id",
+      "care_site.care_site_id"
+    ],
+    [
+      "organizations.id",
+      "care_site.care_site_source_value"
+    ],
+    [
+      "organizations.name",
+      "care_site.care_site_name"
+    ],
+    [
+      "organizations.state",
+      "location.state"
+    ],
+    [
+      "organizations.zip",
+      "location.zip"
+    ],
+    [
+      "patients.address",
+      "location.address_1"
+    ],
+    [
+      "patients.address",
+      "location.location_source_value"
+    ],
+    [
+      "patients.address",
+      "person.location_id"
+    ],
+    [
+      "patients.birthdate",
+      "person.birth_datetime"
+    ],
+    [
+      "patients.birthdate",
+      "person.day_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.month_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.year_of_birth"
+    ],
+    [
+      "patients.city",
+      "location.city"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_date"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_datetime"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_source_value"
+    ],
+    [
+      "patients.gender",
+      "person.gender_source_value"
+    ],
+    [
+      "patients.id",
+      "death.person_id"
+    ],
+    [
+      "patients.id",
+      "person.person_id"
+    ],
+    [
+      "patients.id",
+      "person.person_source_value"
+    ],
+    [
+      "patients.race",
+      "person.race_source_value"
+    ],
+    [
+      "patients.state",
+      "location.state"
+    ],
+    [
+      "patients.zip",
+      "location.zip"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_source_value"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_date"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_datetime"
+    ],
+    [
+      "procedures.encounter",
+      "procedure_occurrence.visit_occurrence_id"
+    ],
+    [
+      "procedures.patient",
+      "procedure_occurrence.person_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_source_value"
+    ],
+    [
+      "providers.id",
+      "provider.provider_id"
+    ],
+    [
+      "providers.id",
+      "provider.provider_source_value"
+    ],
+    [
+      "providers.name",
+      "provider.provider_name"
+    ],
+    [
+      "providers.organization",
+      "provider.care_site_id"
+    ],
+    [
+      "providers.speciality",
+      "provider.specialty_source_value"
+    ]
+  ],
+  "tp_pairs": [
+    [
+      "allergies.code",
+      "observation.observation_source_value"
+    ],
+    [
+      "allergies.encounter",
+      "observation.visit_occurrence_id"
+    ],
+    [
+      "allergies.patient",
+      "observation.person_id"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_date"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_datetime"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_source_value"
+    ],
+    [
+      "conditions.encounter",
+      "condition_occurrence.visit_occurrence_id"
+    ],
+    [
+      "conditions.patient",
+      "condition_occurrence.person_id"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_date"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_datetime"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_date"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_datetime"
+    ],
+    [
+      "encounters.patient",
+      "visit_occurrence.person_id"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_datetime"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_datetime"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "immunizations.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "immunizations.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "medications.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "medications.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_source_value"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_date"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_datetime"
+    ],
+    [
+      "observations.encounter",
+      "measurement.visit_occurrence_id"
+    ],
+    [
+      "observations.patient",
+      "measurement.person_id"
+    ],
+    [
+      "observations.units",
+      "measurement.unit_source_value"
+    ],
+    [
+      "observations.value",
+      "measurement.value_as_number"
+    ],
+    [
+      "observations.value",
+      "measurement.value_source_value"
+    ],
+    [
+      "organizations.id",
+      "care_site.care_site_source_value"
+    ],
+    [
+      "organizations.name",
+      "care_site.care_site_name"
+    ],
+    [
+      "patients.birthdate",
+      "person.birth_datetime"
+    ],
+    [
+      "patients.birthdate",
+      "person.day_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.month_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.year_of_birth"
+    ],
+    [
+      "patients.city",
+      "location.city"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_date"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_datetime"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_source_value"
+    ],
+    [
+      "patients.gender",
+      "person.gender_source_value"
+    ],
+    [
+      "patients.id",
+      "person.person_source_value"
+    ],
+    [
+      "patients.race",
+      "person.race_source_value"
+    ],
+    [
+      "patients.state",
+      "location.state"
+    ],
+    [
+      "patients.zip",
+      "location.zip"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_source_value"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_date"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_datetime"
+    ],
+    [
+      "procedures.encounter",
+      "procedure_occurrence.visit_occurrence_id"
+    ],
+    [
+      "procedures.patient",
+      "procedure_occurrence.person_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_source_value"
+    ],
+    [
+      "providers.id",
+      "provider.provider_source_value"
+    ],
+    [
+      "providers.name",
+      "provider.provider_name"
+    ]
+  ],
+  "fp_pairs": [
+    [
+      "allergies.description",
+      "observation.value_source_value"
+    ],
+    [
+      "careplans.code",
+      "episode.episode_source_value"
+    ],
+    [
+      "careplans.id",
+      "episode.episode_id"
+    ],
+    [
+      "careplans.patient",
+      "episode.person_id"
+    ],
+    [
+      "careplans.start",
+      "episode.episode_start_date"
+    ],
+    [
+      "careplans.stop",
+      "episode.episode_end_date"
+    ],
+    [
+      "encounters.code",
+      "visit_occurrence.visit_source_value"
+    ],
+    [
+      "encounters.id",
+      "visit_occurrence.visit_occurrence_id"
+    ],
+    [
+      "encounters.provider",
+      "visit_occurrence.provider_id"
+    ],
+    [
+      "imaging_studies.date",
+      "procedure_occurrence.procedure_date"
+    ],
+    [
+      "imaging_studies.date",
+      "procedure_occurrence.procedure_datetime"
+    ],
+    [
+      "imaging_studies.encounter",
+      "procedure_occurrence.visit_occurrence_id"
+    ],
+    [
+      "imaging_studies.id",
+      "procedure_occurrence.procedure_occurrence_id"
+    ],
+    [
+      "imaging_studies.patient",
+      "procedure_occurrence.person_id"
+    ],
+    [
+      "imaging_studies.sop code",
+      "procedure_occurrence.procedure_source_value"
+    ],
+    [
+      "organizations.address",
+      "care_site.location_id"
+    ],
+    [
+      "organizations.address",
+      "location.address_1"
+    ],
+    [
+      "organizations.city",
+      "location.city"
+    ],
+    [
+      "organizations.id",
+      "care_site.care_site_id"
+    ],
+    [
+      "organizations.state",
+      "location.state"
+    ],
+    [
+      "organizations.zip",
+      "location.zip"
+    ],
+    [
+      "patients.address",
+      "location.address_1"
+    ],
+    [
+      "patients.address",
+      "location.location_source_value"
+    ],
+    [
+      "patients.address",
+      "person.location_id"
+    ],
+    [
+      "patients.id",
+      "death.person_id"
+    ],
+    [
+      "patients.id",
+      "person.person_id"
+    ],
+    [
+      "providers.id",
+      "provider.provider_id"
+    ],
+    [
+      "providers.organization",
+      "provider.care_site_id"
+    ],
+    [
+      "providers.speciality",
+      "provider.specialty_source_value"
+    ]
+  ],
+  "fn_pairs": [
+    [
+      "allergies.code",
+      "observation.observation_concept_id"
+    ],
+    [
+      "allergies.code",
+      "observation.observation_source_concept_id"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_concept_id"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_source_concept_id"
+    ],
+    [
+      "conditions.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_source_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_source_value"
+    ],
+    [
+      "conditions.encounter",
+      "condition_occurrence.visit_detail_id"
+    ],
+    [
+      "conditions.encounter",
+      "observation.visit_occurrence_id"
+    ],
+    [
+      "conditions.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "conditions.patient",
+      "observation.person_id"
+    ],
+    [
+      "conditions.start",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "conditions.start",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "conditions.start",
+      "observation.observation_date"
+    ],
+    [
+      "conditions.start",
+      "observation.observation_datetime"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_detail.visit_detail_concept_id"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_detail.visit_detail_source_value"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_occurrence.visit_concept_id"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_occurrence.visit_source_value"
+    ],
+    [
+      "encounters.patient",
+      "observation_period.person_id"
+    ],
+    [
+      "encounters.patient",
+      "visit_detail.person_id"
+    ],
+    [
+      "encounters.provider",
+      "provider.provider_id"
+    ],
+    [
+      "encounters.provider",
+      "visit_detail.provider_id"
+    ],
+    [
+      "encounters.start",
+      "observation_period.observation_period_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_detail.visit_detail_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_detail.visit_detail_start_datetime"
+    ],
+    [
+      "encounters.stop",
+      "observation_period.observation_period_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_detail.visit_detail_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_detail.visit_detail_end_datetime"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_source_concept_id"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.verbatim_end_date"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_source_concept_id"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.days_supply"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.days_supply"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.verbatim_end_date"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_concept_id"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_source_concept_id"
+    ],
+    [
+      "patients.birthplace",
+      "location.city"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_concept_id"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_source_concept_id"
+    ],
+    [
+      "patients.gender",
+      "person.gender_concept_id"
+    ],
+    [
+      "patients.race",
+      "person.race_concept_id"
+    ],
+    [
+      "patients.race",
+      "person.race_source_concept_id"
+    ],
+    [
+      "patients.zip",
+      "location.location_source_value"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_concept_id"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_source_concept_id"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_source_value"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_concept_id"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_source_concept_id"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_date"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_datetime"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_time"
+    ],
+    [
+      "procedures.encounter",
+      "measurement.visit_occurrence_id"
+    ],
+    [
+      "procedures.patient",
+      "measurement.person_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_concept_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_source_concept_id"
+    ],
+    [
+      "providers.specialty",
+      "provider.specialty_source_value"
+    ]
+  ],
+  "transformation_counts": {
+    "direct_copy": 85,
+    "substring": 3,
+    "type_cast": 1
+  },
+  "mapping_report": {
+    "rules": [
+      {
+        "target_table": "person",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "person_source_value",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "gender_source_value",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "gender"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "race_source_value",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "race"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "ethnicity_source_value",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "ethnicity"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "birth_datetime",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "birthdate"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "year_of_birth",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "birthdate"
+        ],
+        "transformations": [
+          {
+            "type": "substring",
+            "start": 0,
+            "end": 4
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "month_of_birth",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "birthdate"
+        ],
+        "transformations": [
+          {
+            "type": "substring",
+            "start": 5,
+            "end": 7
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "day_of_birth",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "birthdate"
+        ],
+        "transformations": [
+          {
+            "type": "substring",
+            "start": 8,
+            "end": 10
+          }
+        ]
+      },
+      {
+        "target_table": "person",
+        "target_column": "location_id",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "address"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "death",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "death",
+        "target_column": "death_date",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "deathdate"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "death",
+        "target_column": "death_datetime",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "deathdate"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "address_1",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "address"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "city",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "city"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "state",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "state"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "zip",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "zip"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "location_source_value",
+        "source_label": "synthea",
+        "source_table": "patients",
+        "source_columns": [
+          "address"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "address_1",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "address"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "city",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "city"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "state",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "state"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "location",
+        "target_column": "zip",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "zip"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "care_site",
+        "target_column": "care_site_id",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "care_site",
+        "target_column": "care_site_name",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "name"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "care_site",
+        "target_column": "care_site_source_value",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "care_site",
+        "target_column": "location_id",
+        "source_label": "synthea",
+        "source_table": "organizations",
+        "source_columns": [
+          "address"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "provider_id",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "provider_source_value",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "provider_name",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "name"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "gender_source_value",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "gender"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "specialty_source_value",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "speciality"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "provider",
+        "target_column": "care_site_id",
+        "source_label": "synthea",
+        "source_table": "providers",
+        "source_columns": [
+          "organization"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "provider_id",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "provider"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_source_value",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_start_date",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_end_date",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_start_datetime",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "visit_occurrence",
+        "target_column": "visit_end_datetime",
+        "source_label": "synthea",
+        "source_table": "encounters",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "condition_source_value",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "condition_start_date",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "condition_end_date",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "condition_start_datetime",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "condition_occurrence",
+        "target_column": "condition_end_datetime",
+        "source_label": "synthea",
+        "source_table": "conditions",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_source_value",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_start_date",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_end_date",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_start_datetime",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_end_datetime",
+        "source_label": "synthea",
+        "source_table": "medications",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "immunizations",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "immunizations",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_source_value",
+        "source_label": "synthea",
+        "source_table": "immunizations",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_start_date",
+        "source_label": "synthea",
+        "source_table": "immunizations",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "drug_exposure",
+        "target_column": "drug_exposure_start_datetime",
+        "source_label": "synthea",
+        "source_table": "immunizations",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "procedures",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "procedures",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_source_value",
+        "source_label": "synthea",
+        "source_table": "procedures",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_date",
+        "source_label": "synthea",
+        "source_table": "procedures",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_datetime",
+        "source_label": "synthea",
+        "source_table": "procedures",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_source_value",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "sop code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_date",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "procedure_occurrence",
+        "target_column": "procedure_datetime",
+        "source_label": "synthea",
+        "source_table": "imaging_studies",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "measurement_source_value",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "measurement_date",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "measurement_datetime",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "date"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "unit_source_value",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "units"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "value_source_value",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "value"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "measurement",
+        "target_column": "value_as_number",
+        "source_label": "synthea",
+        "source_table": "observations",
+        "source_columns": [
+          "value"
+        ],
+        "transformations": [
+          {
+            "type": "type_cast",
+            "target_type": "number"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "visit_occurrence_id",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "encounter"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "observation_source_value",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "observation_date",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "observation_datetime",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "observation",
+        "target_column": "value_source_value",
+        "source_label": "synthea",
+        "source_table": "allergies",
+        "source_columns": [
+          "description"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "episode",
+        "target_column": "episode_id",
+        "source_label": "synthea",
+        "source_table": "careplans",
+        "source_columns": [
+          "id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "episode",
+        "target_column": "person_id",
+        "source_label": "synthea",
+        "source_table": "careplans",
+        "source_columns": [
+          "patient"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "episode",
+        "target_column": "episode_source_value",
+        "source_label": "synthea",
+        "source_table": "careplans",
+        "source_columns": [
+          "code"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "episode",
+        "target_column": "episode_start_date",
+        "source_label": "synthea",
+        "source_table": "careplans",
+        "source_columns": [
+          "start"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "episode",
+        "target_column": "episode_end_date",
+        "source_label": "synthea",
+        "source_table": "careplans",
+        "source_columns": [
+          "stop"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      }
+    ]
+  },
+  "field_inspections": [
+    {
+      "target_column": "care_site.care_site_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "organizations.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "care_site.care_site_name",
+      "target_type": "string",
+      "expected_source_columns": [
+        "organizations.name"
+      ],
+      "predicted_source_columns": [
+        "organizations.name"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "care_site.care_site_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "organizations.id"
+      ],
+      "predicted_source_columns": [
+        "organizations.id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "care_site.location_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "organizations.address"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "care_site.place_of_service_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "care_site.place_of_service_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_etl_reference",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_holder",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_release_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_source_abbreviation",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_source_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_version",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.cdm_version_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.source_description",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.source_documentation_reference",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.source_release_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cdm_source.vocabulary_version",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort.cohort_definition_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort.cohort_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort.cohort_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort.subject_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.cohort_definition_description",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.cohort_definition_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.cohort_definition_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.cohort_definition_syntax",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.cohort_initiation_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.definition_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cohort_definition.subject_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.concept_class_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.concept_code",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.concept_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.domain_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.invalid_reason",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.standard_concept",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.valid_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.valid_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept.vocabulary_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_ancestor.ancestor_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_ancestor.descendant_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_ancestor.max_levels_of_separation",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_ancestor.min_levels_of_separation",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_class.concept_class_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_class.concept_class_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_class.concept_class_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.concept_id_1",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.concept_id_2",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.invalid_reason",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.relationship_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.valid_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_relationship.valid_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_synonym.concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_synonym.concept_synonym_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "concept_synonym.language_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.condition_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.condition_era_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.condition_era_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.condition_era_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.condition_occurrence_count",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_era.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.stop"
+      ],
+      "predicted_source_columns": [
+        "conditions.stop"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.condition_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.stop"
+      ],
+      "predicted_source_columns": [
+        "conditions.stop"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.condition_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.code"
+      ],
+      "predicted_source_columns": [
+        "conditions.code"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.condition_start_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.start"
+      ],
+      "predicted_source_columns": [
+        "conditions.start"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.condition_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.start"
+      ],
+      "predicted_source_columns": [
+        "conditions.start"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.condition_status_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_status_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.condition_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.patient"
+      ],
+      "predicted_source_columns": [
+        "conditions.patient"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "condition_occurrence.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.stop_reason",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.encounter"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "condition_occurrence.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.encounter"
+      ],
+      "predicted_source_columns": [
+        "conditions.encounter"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "cost.amount_allowed",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.cost_domain_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.cost_event_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.cost_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.cost_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.currency_concept_id",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.drg_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.drg_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_by_patient",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_by_payer",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_by_primary",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_dispensing_fee",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_ingredient_cost",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_patient_coinsurance",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_patient_copay",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.paid_patient_deductible",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.payer_plan_period_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.revenue_code_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.revenue_code_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.total_charge",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.total_cost",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cost.total_paid",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "death.cause_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "death.cause_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "death.cause_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "death.death_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.deathdate"
+      ],
+      "predicted_source_columns": [
+        "patients.deathdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "death.death_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.deathdate"
+      ],
+      "predicted_source_columns": [
+        "patients.deathdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "death.death_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "death.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "patients.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "device_exposure.device_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_exposure_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_exposure_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_exposure_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_exposure_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_exposure_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.device_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.production_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.quantity",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.unique_device_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.unit_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.unit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "device_exposure.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "domain.domain_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "domain.domain_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "domain.domain_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.dose_era_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.dose_era_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.dose_era_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.dose_value",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.drug_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "dose_era.unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.drug_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.drug_era_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.drug_era_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.drug_era_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.drug_exposure_count",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.gap_days",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_era.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.days_supply",
+      "target_type": "string",
+      "expected_source_columns": [
+        "medications.start",
+        "medications.stop"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.dose_unit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.drug_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.code",
+        "immunizations.code",
+        "medications.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.drug_exposure_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "immunizations.date",
+        "medications.start",
+        "medications.stop"
+      ],
+      "predicted_source_columns": [
+        "medications.stop"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.drug_exposure_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "immunizations.date",
+        "medications.start",
+        "medications.stop"
+      ],
+      "predicted_source_columns": [
+        "medications.stop"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.drug_exposure_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.drug_exposure_start_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.start",
+        "immunizations.date",
+        "medications.start"
+      ],
+      "predicted_source_columns": [
+        "immunizations.date",
+        "medications.start"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.drug_exposure_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "conditions.start",
+        "immunizations.date",
+        "medications.start"
+      ],
+      "predicted_source_columns": [
+        "immunizations.date",
+        "medications.start"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.drug_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "immunizations.code",
+        "medications.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.drug_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "immunizations.code",
+        "medications.code"
+      ],
+      "predicted_source_columns": [
+        "immunizations.code",
+        "medications.code"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.drug_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.lot_number",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "conditions.patient",
+        "immunizations.patient",
+        "medications.patient"
+      ],
+      "predicted_source_columns": [
+        "immunizations.patient",
+        "medications.patient"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_exposure.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.quantity",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.refills",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.route_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.route_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.sig",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.stop_reason",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.verbatim_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "immunizations.date",
+        "medications.stop"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_exposure.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "immunizations.encounter",
+        "medications.encounter"
+      ],
+      "predicted_source_columns": [
+        "immunizations.encounter",
+        "medications.encounter"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "drug_strength.amount_unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.amount_value",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.box_size",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.denominator_unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.denominator_value",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.drug_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.ingredient_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.invalid_reason",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.numerator_unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.numerator_value",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.valid_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "drug_strength.valid_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "careplans.stop"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "episode.episode_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "careplans.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "episode.episode_number",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_object_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_parent_id",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "careplans.code"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "episode.episode_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "careplans.start"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "episode.episode_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.episode_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "careplans.patient"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "episode_event.episode_event_field_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode_event.episode_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "episode_event.event_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "fact_relationship.domain_concept_id_1",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "fact_relationship.domain_concept_id_2",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "fact_relationship.fact_id_1",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "fact_relationship.fact_id_2",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "fact_relationship.relationship_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.address_1",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "organizations.address",
+        "patients.address"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "location.address_2",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.city",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.birthplace",
+        "patients.city"
+      ],
+      "predicted_source_columns": [
+        "organizations.city",
+        "patients.city"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "location.country_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.country_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.county",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.latitude",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.location_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.location_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.zip"
+      ],
+      "predicted_source_columns": [
+        "patients.address"
+      ],
+      "status": "MISMATCH (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "location.longitude",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "location.state",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.state"
+      ],
+      "predicted_source_columns": [
+        "organizations.state",
+        "patients.state"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "location.zip",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.zip"
+      ],
+      "predicted_source_columns": [
+        "organizations.zip",
+        "patients.zip"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.meas_event_field_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.code",
+        "procedures.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "observations.date",
+        "procedures.date"
+      ],
+      "predicted_source_columns": [
+        "observations.date"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.measurement_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "observations.date",
+        "procedures.date"
+      ],
+      "predicted_source_columns": [
+        "observations.date"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.measurement_event_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.code",
+        "procedures.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.code",
+        "procedures.code"
+      ],
+      "predicted_source_columns": [
+        "observations.code"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.measurement_time",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.date"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.measurement_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.operator_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.patient",
+        "procedures.patient"
+      ],
+      "predicted_source_columns": [
+        "observations.patient"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.range_high",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.range_low",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.unit_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.unit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.units"
+      ],
+      "predicted_source_columns": [
+        "observations.units"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.value_as_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.value_as_number",
+      "target_type": "number",
+      "expected_source_columns": [
+        "observations.value"
+      ],
+      "predicted_source_columns": [
+        "observations.value"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "number"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.value_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.value"
+      ],
+      "predicted_source_columns": [
+        "observations.value"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "measurement.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "measurement.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "observations.encounter",
+        "procedures.encounter"
+      ],
+      "predicted_source_columns": [
+        "observations.encounter"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "metadata.metadata_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.metadata_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.metadata_datetime",
+      "target_type": "datetime",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.metadata_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.metadata_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.value_as_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.value_as_number",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "metadata.value_as_string",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.encoding_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.language_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_class_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_event_field_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_event_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_text",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_title",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.note_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.lexical_variant",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.nlp_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.nlp_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.nlp_system",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.note_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.note_nlp_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.note_nlp_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.note_nlp_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.offset",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.section_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.snippet",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.term_exists",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.term_modifiers",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "note_nlp.term_temporal",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.obs_event_field_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.observation_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "allergies.code",
+        "conditions.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.observation_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "allergies.start",
+        "conditions.start"
+      ],
+      "predicted_source_columns": [
+        "allergies.start"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation.observation_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "allergies.start",
+        "conditions.start"
+      ],
+      "predicted_source_columns": [
+        "allergies.start"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation.observation_event_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.observation_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.observation_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "allergies.code",
+        "conditions.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.observation_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "allergies.code",
+        "conditions.code"
+      ],
+      "predicted_source_columns": [
+        "allergies.code"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation.observation_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "allergies.patient",
+        "conditions.patient"
+      ],
+      "predicted_source_columns": [
+        "allergies.patient"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.qualifier_concept_id",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.qualifier_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.unit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.unit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.value_as_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.value_as_number",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.value_as_string",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.value_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "allergies.description"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "allergies.encounter",
+        "conditions.encounter"
+      ],
+      "predicted_source_columns": [
+        "allergies.encounter"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "observation_period.observation_period_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.stop"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "observation_period.observation_period_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation_period.observation_period_start_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.start"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "observation_period.period_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "observation_period.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.patient"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.family_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_plan_period_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_plan_period_id",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_plan_period_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.payer_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.plan_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.plan_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.plan_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.sponsor_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.sponsor_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.sponsor_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.stop_reason_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.stop_reason_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "payer_plan_period.stop_reason_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "person.birth_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.birthdate"
+      ],
+      "predicted_source_columns": [
+        "patients.birthdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.care_site_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "person.day_of_birth",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.birthdate"
+      ],
+      "predicted_source_columns": [
+        "patients.birthdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 8,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "target_column": "person.ethnicity_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.ethnicity"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "person.ethnicity_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.ethnicity"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "person.ethnicity_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.ethnicity"
+      ],
+      "predicted_source_columns": [
+        "patients.ethnicity"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.gender_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.gender"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "person.gender_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "person.gender_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.gender"
+      ],
+      "predicted_source_columns": [
+        "patients.gender"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.location_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "patients.address"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.month_of_birth",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.birthdate"
+      ],
+      "predicted_source_columns": [
+        "patients.birthdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 5,
+          "end": 7
+        }
+      ]
+    },
+    {
+      "target_column": "person.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "patients.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.person_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.id"
+      ],
+      "predicted_source_columns": [
+        "patients.id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "person.race_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.race"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "person.race_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.race"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "person.race_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "patients.race"
+      ],
+      "predicted_source_columns": [
+        "patients.race"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "person.year_of_birth",
+      "target_type": "date",
+      "expected_source_columns": [
+        "patients.birthdate"
+      ],
+      "predicted_source_columns": [
+        "patients.birthdate"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 0,
+          "end": 4
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.modifier_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.modifier_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.patient"
+      ],
+      "predicted_source_columns": [
+        "imaging_studies.patient",
+        "procedures.patient"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "procedures.date"
+      ],
+      "predicted_source_columns": [
+        "imaging_studies.date",
+        "procedures.date"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "procedures.date"
+      ],
+      "predicted_source_columns": [
+        "imaging_studies.date",
+        "procedures.date"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "imaging_studies.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.code"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.code"
+      ],
+      "predicted_source_columns": [
+        "imaging_studies.sop code",
+        "procedures.code"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "procedure_occurrence.procedure_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.quantity",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "procedure_occurrence.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "procedures.encounter"
+      ],
+      "predicted_source_columns": [
+        "imaging_studies.encounter",
+        "procedures.encounter"
+      ],
+      "status": "PARTIAL MATCH",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        },
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.care_site_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "providers.organization"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.dea",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.gender_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.gender"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.gender_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.gender"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.gender_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.gender"
+      ],
+      "predicted_source_columns": [
+        "providers.gender"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.npi",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.provider"
+      ],
+      "predicted_source_columns": [
+        "providers.id"
+      ],
+      "status": "MISMATCH (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.provider_name",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.name"
+      ],
+      "predicted_source_columns": [
+        "providers.name"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.provider_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.id"
+      ],
+      "predicted_source_columns": [
+        "providers.id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.specialty_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.specialty_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "provider.specialty_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "providers.specialty"
+      ],
+      "predicted_source_columns": [
+        "providers.speciality"
+      ],
+      "status": "MISMATCH (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "provider.year_of_birth",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.defines_ancestry",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.is_hierarchical",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.relationship_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.relationship_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.relationship_name",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "relationship.reverse_relationship_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.invalid_reason",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.source_code",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.source_code_description",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.source_concept_id",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.source_vocabulary_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.target_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.target_vocabulary_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.valid_end_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "source_to_concept_map.valid_start_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.anatomic_site_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.anatomic_site_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.disease_status_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.disease_status_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.person_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.quantity",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_date",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_datetime",
+      "target_type": "date",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_source_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.specimen_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.unit_concept_id",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "specimen.unit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.admitted_from_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.admitted_from_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.care_site_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.discharged_to_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.discharged_to_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.patient"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.preceding_visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.provider"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.encounterclass"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.stop"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.stop"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_parent_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.encounterclass"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_start_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.start"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.start"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_detail_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_detail.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.admitted_from_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.admitted_from_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.care_site_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.discharged_to_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.discharged_to_source_value",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.person_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.patient"
+      ],
+      "predicted_source_columns": [
+        "encounters.patient"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.preceding_visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.provider_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "encounters.provider"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.encounterclass"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.visit_end_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.stop"
+      ],
+      "predicted_source_columns": [
+        "encounters.stop"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_end_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.stop"
+      ],
+      "predicted_source_columns": [
+        "encounters.stop"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_occurrence_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "encounters.id"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_source_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "visit_occurrence.visit_source_value",
+      "target_type": "string",
+      "expected_source_columns": [
+        "encounters.encounterclass"
+      ],
+      "predicted_source_columns": [
+        "encounters.code"
+      ],
+      "status": "MISMATCH (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_start_date",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.start"
+      ],
+      "predicted_source_columns": [
+        "encounters.start"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_start_datetime",
+      "target_type": "date",
+      "expected_source_columns": [
+        "encounters.start"
+      ],
+      "predicted_source_columns": [
+        "encounters.start"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "visit_occurrence.visit_type_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "vocabulary.vocabulary_concept_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "vocabulary.vocabulary_id",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "vocabulary.vocabulary_name",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "vocabulary.vocabulary_reference",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "vocabulary.vocabulary_version",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    }
+  ],
+  "retry_count": 0,
+  "retry_log": [],
+  "error_message": null
+}

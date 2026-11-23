@@ -1,0 +1,11 @@
+{
+  "name": "prospect_both_50_50_ac5_av",
+  "domain": "TPC-DI",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "source_rows": 7491,
+  "source_cols": 16,
+  "target_rows": 11236,
+  "target_cols": 17,
+  "gold_matches": 11,
+  "category": "single_table"
+}

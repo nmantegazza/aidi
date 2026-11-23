@@ -1,0 +1,1204 @@
+{
+  "dataset_name": "miller2_both_50_50_ac5_av",
+  "domain": "OpenData",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "category": "single_table",
+  "source_table": {
+    "table_name": "miller2_both_50_50_ac5_av_source",
+    "row_count": 11627,
+    "column_count": 38,
+    "columns": [
+      {
+        "name": "Fiscal year",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Status",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Climate change adaptation (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Regional program (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Division ID",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Participatory development and good governance",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Enviromental sustainability (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Biodiversity (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Continent name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Climate change mitigation (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Branch name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Organisation sub-class",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Children issues (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Trade development (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Knowledge for development (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Maximum CIDA contribution (project-level)",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "PBA type",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Fund centre name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Project number",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "CIDA business delivery model (old)",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "CFLI (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Programming process (new)",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Untied amount(Project-level budget)",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Sector ID",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Branch ID",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Division name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Section ID",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Section name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Fund centre ID",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "FSTC percent",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "IRTC percent",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Bilateral aid (international marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Desertification (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Urban issues (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Youth issues (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Indigenous issues (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "Disability issues (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "ICT as a tool for development (marker)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "target_table": {
+    "table_name": "miller2_both_50_50_ac5_av_target",
+    "row_count": 17440,
+    "column_count": 38,
+    "columns": [
+      {
+        "name": "miller2_fsclr",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_stts",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_clmtchngdpttn(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnlprgrm(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_dvsnd",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_prtcptrdvlpmntndgdgvrnnc",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_nvrmntlsstnblt(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_bdvrst(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cntnntnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_clmtchngmtgtn(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_brnchnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnstnsb-clss",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_chldrnsss(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_trddvlpmnt(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_knwldgfrdvlpmnt(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_pbtp",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_fndcntrnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_prjctnmbr",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cdbsnssdlvrmdl(ld)",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cfl(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_prgrmmngprcss(nw)",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_ntdmnt(prjct-lvlbdgt)",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_sctrd",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_brnchd",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_gndrqlt(mrkr)",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnstnd",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnstnnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnstntp",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_rgnstnclss",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cntnntd",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_prjctbrwsrcntrd",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cntrrgnd",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cntrrgnnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_cntrrgnprcnt",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_sctrnm",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_sctrprcnt",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "miller2_mntspnt",
+        "type": "number",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "source_tables": [
+    {
+      "table_name": "miller2_both_50_50_ac5_av_source",
+      "row_count": 11627,
+      "column_count": 38,
+      "columns": [
+        {
+          "name": "Fiscal year",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Climate change adaptation (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Regional program (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Division ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Participatory development and good governance",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Enviromental sustainability (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Biodiversity (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Continent name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Climate change mitigation (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Branch name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Organisation sub-class",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Children issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Trade development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Knowledge for development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Maximum CIDA contribution (project-level)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "PBA type",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Fund centre name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Project number",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "CIDA business delivery model (old)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "CFLI (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Programming process (new)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Untied amount(Project-level budget)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Sector ID",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Branch ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Division name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Section ID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Section name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Fund centre ID",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "FSTC percent",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "IRTC percent",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Bilateral aid (international marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Desertification (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Urban issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Youth issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Indigenous issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Disability issues (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ICT as a tool for development (marker)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "target_tables": [
+    {
+      "table_name": "miller2_both_50_50_ac5_av_target",
+      "row_count": 17440,
+      "column_count": 38,
+      "columns": [
+        {
+          "name": "miller2_fsclr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_stts",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_clmtchngdpttn(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnlprgrm(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_dvsnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prtcptrdvlpmntndgdgvrnnc",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_nvrmntlsstnblt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_bdvrst(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntnntnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_clmtchngmtgtn(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_brnchnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnsb-clss",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_chldrnsss(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_trddvlpmnt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_knwldgfrdvlpmnt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_mxmmcdcntrbtn(prjct-lvl)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_pbtp",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_fndcntrnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prjctnmbr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cdbsnssdlvrmdl(ld)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cfl(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prgrmmngprcss(nw)",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_ntdmnt(prjct-lvlbdgt)",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrd",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_brnchd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_gndrqlt(mrkr)",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstntp",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_rgnstnclss",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntnntd",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_prjctbrwsrcntrd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_cntrrgnprcnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_sctrprcnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "miller2_mntspnt",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "ground_truth_pairs": [
+    [
+      "Biodiversity (marker)",
+      "miller2_bdvrst(mrkr)"
+    ],
+    [
+      "Branch ID",
+      "miller2_brnchd"
+    ],
+    [
+      "Branch name",
+      "miller2_brnchnm"
+    ],
+    [
+      "CFLI (marker)",
+      "miller2_cfl(mrkr)"
+    ],
+    [
+      "CIDA business delivery model (old)",
+      "miller2_cdbsnssdlvrmdl(ld)"
+    ],
+    [
+      "Children issues (marker)",
+      "miller2_chldrnsss(mrkr)"
+    ],
+    [
+      "Climate change adaptation (marker)",
+      "miller2_clmtchngdpttn(mrkr)"
+    ],
+    [
+      "Climate change mitigation (marker)",
+      "miller2_clmtchngmtgtn(mrkr)"
+    ],
+    [
+      "Continent name",
+      "miller2_cntnntnm"
+    ],
+    [
+      "Division ID",
+      "miller2_dvsnd"
+    ],
+    [
+      "Enviromental sustainability (marker)",
+      "miller2_nvrmntlsstnblt(mrkr)"
+    ],
+    [
+      "Fiscal year",
+      "miller2_fsclr"
+    ],
+    [
+      "Fund centre name",
+      "miller2_fndcntrnm"
+    ],
+    [
+      "Knowledge for development (marker)",
+      "miller2_knwldgfrdvlpmnt(mrkr)"
+    ],
+    [
+      "Maximum CIDA contribution (project-level)",
+      "miller2_mxmmcdcntrbtn(prjct-lvl)"
+    ],
+    [
+      "Organisation sub-class",
+      "miller2_rgnstnsb-clss"
+    ],
+    [
+      "PBA type",
+      "miller2_pbtp"
+    ],
+    [
+      "Participatory development and good governance",
+      "miller2_prtcptrdvlpmntndgdgvrnnc"
+    ],
+    [
+      "Programming process (new)",
+      "miller2_prgrmmngprcss(nw)"
+    ],
+    [
+      "Project number",
+      "miller2_prjctnmbr"
+    ],
+    [
+      "Regional program (marker)",
+      "miller2_rgnlprgrm(mrkr)"
+    ],
+    [
+      "Sector ID",
+      "miller2_sctrd"
+    ],
+    [
+      "Status",
+      "miller2_stts"
+    ],
+    [
+      "Trade development (marker)",
+      "miller2_trddvlpmnt(mrkr)"
+    ],
+    [
+      "Untied amount(Project-level budget)",
+      "miller2_ntdmnt(prjct-lvlbdgt)"
+    ]
+  ]
+}

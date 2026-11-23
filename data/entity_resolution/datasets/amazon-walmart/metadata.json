@@ -1,0 +1,24 @@
+{
+  "name": "amazon-walmart",
+  "domain": "e-commerce",
+  "ground_truth_type": "exhaustive",
+  "table_a": {
+    "file": "amazon_standardized.csv",
+    "id_column": "custom_id"
+  },
+  "table_b": {
+    "file": "walmart_standardized.csv",
+    "id_column": "custom_id"
+  },
+  "ground_truth": {
+    "file": "matches_walmart_amazon.csv",
+    "column_a": "id2",
+    "column_b": "id1",
+    "label_column": null
+  },
+  "candidates": {
+    "file": "candidate_pairs.csv",
+    "column_a": "id2",
+    "column_b": "id1"
+  }
+}

@@ -1,0 +1,5854 @@
+{
+  "target_schema": {
+    "name": "global_healthcare",
+    "title": "Unified Synthea + OMOP CDM target schema",
+    "resources": [
+      {
+        "name": "patient",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "patient_id",
+          "fields": [
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": "Unique identifier of the patient/person.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.patients.id",
+                "omop.person.person_id"
+              ]
+            },
+            {
+              "name": "person_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.person_source_value"
+              ]
+            },
+            {
+              "name": "first_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.first"
+              ]
+            },
+            {
+              "name": "last_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.last"
+              ]
+            },
+            {
+              "name": "maiden_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.maiden"
+              ]
+            },
+            {
+              "name": "name_prefix",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.prefix"
+              ]
+            },
+            {
+              "name": "name_suffix",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.suffix"
+              ]
+            },
+            {
+              "name": "birth_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.birthdate",
+                "omop.person.birth_datetime"
+              ]
+            },
+            {
+              "name": "birth_year",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.year_of_birth"
+              ]
+            },
+            {
+              "name": "birth_month",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.month_of_birth"
+              ]
+            },
+            {
+              "name": "birth_day",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.day_of_birth"
+              ]
+            },
+            {
+              "name": "birthplace",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.birthplace"
+              ]
+            },
+            {
+              "name": "death_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.deathdate",
+                "omop.death.death_date"
+              ]
+            },
+            {
+              "name": "death_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.death.death_datetime"
+              ]
+            },
+            {
+              "name": "death_cause_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.death.cause_concept_id"
+              ]
+            },
+            {
+              "name": "death_cause_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.death.cause_source_concept_id"
+              ]
+            },
+            {
+              "name": "death_cause_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.death.cause_source_value"
+              ]
+            },
+            {
+              "name": "death_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.death.death_type_concept_id"
+              ]
+            },
+            {
+              "name": "gender",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.gender"
+              ]
+            },
+            {
+              "name": "gender_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.gender_concept_id"
+              ]
+            },
+            {
+              "name": "gender_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.gender_source_value"
+              ]
+            },
+            {
+              "name": "gender_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.gender_source_concept_id"
+              ]
+            },
+            {
+              "name": "race",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.race"
+              ]
+            },
+            {
+              "name": "race_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.race_concept_id"
+              ]
+            },
+            {
+              "name": "race_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.race_source_value"
+              ]
+            },
+            {
+              "name": "race_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.race_source_concept_id"
+              ]
+            },
+            {
+              "name": "ethnicity",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.ethnicity"
+              ]
+            },
+            {
+              "name": "ethnicity_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.ethnicity_concept_id"
+              ]
+            },
+            {
+              "name": "ethnicity_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.ethnicity_source_value"
+              ]
+            },
+            {
+              "name": "ethnicity_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.ethnicity_source_concept_id"
+              ]
+            },
+            {
+              "name": "marital_status",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.marital"
+              ]
+            },
+            {
+              "name": "ssn",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.ssn"
+              ]
+            },
+            {
+              "name": "drivers_license",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.drivers"
+              ]
+            },
+            {
+              "name": "passport",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.passport"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.address"
+              ]
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.city"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.state"
+              ]
+            },
+            {
+              "name": "zip",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.patients.zip"
+              ]
+            },
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.location_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.provider_id"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.person.care_site_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "location_id",
+              "reference": {
+                "resource": "location",
+                "fields": "location_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "organization",
+                "fields": "organization_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "provider",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "provider_id",
+          "fields": [
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": "Unique identifier of the provider/clinician.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.providers.id",
+                "omop.provider.provider_id"
+              ]
+            },
+            {
+              "name": "provider_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.name",
+                "omop.provider.provider_name"
+              ]
+            },
+            {
+              "name": "provider_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.provider_source_value"
+              ]
+            },
+            {
+              "name": "npi",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.npi"
+              ]
+            },
+            {
+              "name": "dea",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.dea"
+              ]
+            },
+            {
+              "name": "year_of_birth",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.year_of_birth"
+              ]
+            },
+            {
+              "name": "gender",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.gender"
+              ]
+            },
+            {
+              "name": "gender_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.gender_concept_id"
+              ]
+            },
+            {
+              "name": "gender_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.gender_source_value"
+              ]
+            },
+            {
+              "name": "gender_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.gender_source_concept_id"
+              ]
+            },
+            {
+              "name": "speciality",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.speciality"
+              ]
+            },
+            {
+              "name": "specialty_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.specialty_concept_id"
+              ]
+            },
+            {
+              "name": "specialty_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.specialty_source_value"
+              ]
+            },
+            {
+              "name": "specialty_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.provider.specialty_source_concept_id"
+              ]
+            },
+            {
+              "name": "utilization",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.utilization"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.address"
+              ]
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.city"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.state"
+              ]
+            },
+            {
+              "name": "zip",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.zip"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": "Organization/care site the provider practices at.",
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.providers.organization",
+                "omop.provider.care_site_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "organization",
+                "fields": "organization_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "organization",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "organization_id",
+          "fields": [
+            {
+              "name": "organization_id",
+              "type": "string",
+              "description": "Unique identifier of the organization/care site.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.organizations.id",
+                "omop.care_site.care_site_id"
+              ]
+            },
+            {
+              "name": "organization_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.name",
+                "omop.care_site.care_site_name"
+              ]
+            },
+            {
+              "name": "care_site_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.care_site_source_value"
+              ]
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.phone"
+              ]
+            },
+            {
+              "name": "utilization",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.utilization"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.address"
+              ]
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.city"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.state"
+              ]
+            },
+            {
+              "name": "zip",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.organizations.zip"
+              ]
+            },
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.location_id"
+              ]
+            },
+            {
+              "name": "place_of_service_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.place_of_service_concept_id"
+              ]
+            },
+            {
+              "name": "place_of_service_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.care_site.place_of_service_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "location_id",
+              "reference": {
+                "resource": "location",
+                "fields": "location_id"
+              }
+            },
+            {
+              "fields": "place_of_service_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "location",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "location_id",
+          "fields": [
+            {
+              "name": "location_id",
+              "type": "string",
+              "description": "Unique identifier of the geographic location.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.location.location_id"
+              ]
+            },
+            {
+              "name": "address_1",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.address_1"
+              ]
+            },
+            {
+              "name": "address_2",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.address_2"
+              ]
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.city"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.state"
+              ]
+            },
+            {
+              "name": "zip",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.zip"
+              ]
+            },
+            {
+              "name": "county",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.county"
+              ]
+            },
+            {
+              "name": "country_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.country_concept_id"
+              ]
+            },
+            {
+              "name": "country_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.country_source_value"
+              ]
+            },
+            {
+              "name": "latitude",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.latitude"
+              ]
+            },
+            {
+              "name": "longitude",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.longitude"
+              ]
+            },
+            {
+              "name": "location_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.location.location_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "country_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "encounter",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "encounter_id",
+          "fields": [
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": "Unique identifier of the encounter/visit.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.encounters.id",
+                "omop.visit_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.patient",
+                "omop.visit_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.provider",
+                "omop.visit_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.care_site_id"
+              ]
+            },
+            {
+              "name": "visit_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_concept_id"
+              ]
+            },
+            {
+              "name": "visit_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_source_concept_id"
+              ]
+            },
+            {
+              "name": "visit_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.code",
+                "omop.visit_occurrence.visit_source_value"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.description"
+              ]
+            },
+            {
+              "name": "encounter_class",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.encounterclass"
+              ]
+            },
+            {
+              "name": "visit_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_type_concept_id"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.start",
+                "omop.visit_occurrence.visit_start_date"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_start_datetime"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.stop",
+                "omop.visit_occurrence.visit_end_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.visit_end_datetime"
+              ]
+            },
+            {
+              "name": "admitted_from_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.admitted_from_concept_id"
+              ]
+            },
+            {
+              "name": "admitted_from_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.admitted_from_source_value"
+              ]
+            },
+            {
+              "name": "discharged_to_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.discharged_to_concept_id"
+              ]
+            },
+            {
+              "name": "discharged_to_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.discharged_to_source_value"
+              ]
+            },
+            {
+              "name": "preceding_visit_occurrence_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_occurrence.preceding_visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "reason_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.reasondescription"
+              ]
+            },
+            {
+              "name": "cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.encounters.cost"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "organization",
+                "fields": "organization_id"
+              }
+            },
+            {
+              "fields": "preceding_visit_occurrence_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "visit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "visit_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "visit_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "admitted_from_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "discharged_to_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "encounter_detail",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "encounter_detail_id",
+          "fields": [
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.person_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.provider_id"
+              ]
+            },
+            {
+              "name": "care_site_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.care_site_id"
+              ]
+            },
+            {
+              "name": "visit_detail_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_concept_id"
+              ]
+            },
+            {
+              "name": "visit_detail_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_source_concept_id"
+              ]
+            },
+            {
+              "name": "visit_detail_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_source_value"
+              ]
+            },
+            {
+              "name": "visit_detail_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_type_concept_id"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_start_date"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_start_datetime"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_end_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_end_datetime"
+              ]
+            },
+            {
+              "name": "admitted_from_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.admitted_from_concept_id"
+              ]
+            },
+            {
+              "name": "admitted_from_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.admitted_from_source_value"
+              ]
+            },
+            {
+              "name": "discharged_to_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.discharged_to_concept_id"
+              ]
+            },
+            {
+              "name": "discharged_to_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.discharged_to_source_value"
+              ]
+            },
+            {
+              "name": "preceding_encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.preceding_visit_detail_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_parent_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.visit_detail.visit_detail_parent_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "care_site_id",
+              "reference": {
+                "resource": "organization",
+                "fields": "organization_id"
+              }
+            },
+            {
+              "fields": "preceding_encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_parent_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "visit_detail_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "visit_detail_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "visit_detail_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "condition",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "condition_occurrence_id",
+          "fields": [
+            {
+              "name": "condition_occurrence_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_occurrence_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.patient",
+                "omop.condition_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.encounter",
+                "omop.condition_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.visit_detail_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "condition_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_concept_id"
+              ]
+            },
+            {
+              "name": "condition_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_source_concept_id"
+              ]
+            },
+            {
+              "name": "condition_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.code",
+                "omop.condition_occurrence.condition_source_value"
+              ]
+            },
+            {
+              "name": "condition_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.description"
+              ]
+            },
+            {
+              "name": "condition_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_type_concept_id"
+              ]
+            },
+            {
+              "name": "condition_status_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_status_concept_id"
+              ]
+            },
+            {
+              "name": "condition_status_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_status_source_value"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.start",
+                "omop.condition_occurrence.condition_start_date"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_start_datetime"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.conditions.stop",
+                "omop.condition_occurrence.condition_end_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.condition_end_datetime"
+              ]
+            },
+            {
+              "name": "stop_reason",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.condition_occurrence.stop_reason"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "condition_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "condition_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "condition_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "condition_status_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "medication",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "drug_exposure_id",
+          "fields": [
+            {
+              "name": "drug_exposure_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_exposure_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.patient",
+                "omop.drug_exposure.person_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.encounter",
+                "omop.drug_exposure.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.visit_detail_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.provider_id"
+              ]
+            },
+            {
+              "name": "drug_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_concept_id"
+              ]
+            },
+            {
+              "name": "drug_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_source_concept_id"
+              ]
+            },
+            {
+              "name": "drug_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.code",
+                "omop.drug_exposure.drug_source_value"
+              ]
+            },
+            {
+              "name": "drug_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.description"
+              ]
+            },
+            {
+              "name": "drug_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_type_concept_id"
+              ]
+            },
+            {
+              "name": "route_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.route_concept_id"
+              ]
+            },
+            {
+              "name": "route_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.route_source_value"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.start",
+                "omop.drug_exposure.drug_exposure_start_date"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_exposure_start_datetime"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.stop",
+                "omop.drug_exposure.drug_exposure_end_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.drug_exposure_end_datetime"
+              ]
+            },
+            {
+              "name": "verbatim_end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.verbatim_end_date"
+              ]
+            },
+            {
+              "name": "days_supply",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.days_supply"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.quantity"
+              ]
+            },
+            {
+              "name": "refills",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.refills"
+              ]
+            },
+            {
+              "name": "sig",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.sig"
+              ]
+            },
+            {
+              "name": "lot_number",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.lot_number"
+              ]
+            },
+            {
+              "name": "stop_reason",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.stop_reason"
+              ]
+            },
+            {
+              "name": "dose_unit_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.drug_exposure.dose_unit_source_value"
+              ]
+            },
+            {
+              "name": "cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.cost"
+              ]
+            },
+            {
+              "name": "reason_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.medications.reasondescription"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "drug_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "drug_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "drug_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "route_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "procedure",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "procedure_occurrence_id",
+          "fields": [
+            {
+              "name": "procedure_occurrence_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_occurrence_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.patient",
+                "omop.procedure_occurrence.person_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.encounter",
+                "omop.procedure_occurrence.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.visit_detail_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.provider_id"
+              ]
+            },
+            {
+              "name": "procedure_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_concept_id"
+              ]
+            },
+            {
+              "name": "procedure_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_source_concept_id"
+              ]
+            },
+            {
+              "name": "procedure_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.code",
+                "omop.procedure_occurrence.procedure_source_value"
+              ]
+            },
+            {
+              "name": "procedure_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.description"
+              ]
+            },
+            {
+              "name": "procedure_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_type_concept_id"
+              ]
+            },
+            {
+              "name": "modifier_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.modifier_concept_id"
+              ]
+            },
+            {
+              "name": "modifier_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.modifier_source_value"
+              ]
+            },
+            {
+              "name": "procedure_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.date",
+                "omop.procedure_occurrence.procedure_date"
+              ]
+            },
+            {
+              "name": "procedure_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_datetime"
+              ]
+            },
+            {
+              "name": "procedure_end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_end_date"
+              ]
+            },
+            {
+              "name": "procedure_end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.procedure_end_datetime"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.procedure_occurrence.quantity"
+              ]
+            },
+            {
+              "name": "cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.cost"
+              ]
+            },
+            {
+              "name": "reason_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.procedures.reasondescription"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "procedure_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "procedure_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "procedure_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "modifier_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "observation",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "observation_id",
+          "fields": [
+            {
+              "name": "observation_id",
+              "type": "string",
+              "description": "Unified identifier spanning OMOP observation and measurement facts.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.observation.observation_id",
+                "omop.measurement.measurement_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.patient",
+                "omop.observation.person_id",
+                "omop.measurement.person_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.encounter",
+                "omop.observation.visit_occurrence_id",
+                "omop.measurement.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.visit_detail_id",
+                "omop.measurement.visit_detail_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.provider_id",
+                "omop.measurement.provider_id"
+              ]
+            },
+            {
+              "name": "observation_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_concept_id",
+                "omop.measurement.measurement_concept_id"
+              ]
+            },
+            {
+              "name": "observation_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_source_concept_id",
+                "omop.measurement.measurement_source_concept_id"
+              ]
+            },
+            {
+              "name": "observation_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.code",
+                "omop.observation.observation_source_value",
+                "omop.measurement.measurement_source_value"
+              ]
+            },
+            {
+              "name": "observation_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.description"
+              ]
+            },
+            {
+              "name": "observation_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_type_concept_id",
+                "omop.measurement.measurement_type_concept_id"
+              ]
+            },
+            {
+              "name": "value_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.type"
+              ]
+            },
+            {
+              "name": "observation_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.date",
+                "omop.observation.observation_date",
+                "omop.measurement.measurement_date"
+              ]
+            },
+            {
+              "name": "observation_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_datetime",
+                "omop.measurement.measurement_datetime"
+              ]
+            },
+            {
+              "name": "value_as_number",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.value_as_number",
+                "omop.measurement.value_as_number"
+              ]
+            },
+            {
+              "name": "value_as_string",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.value",
+                "omop.observation.value_as_string"
+              ]
+            },
+            {
+              "name": "value_as_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.value_as_concept_id",
+                "omop.measurement.value_as_concept_id"
+              ]
+            },
+            {
+              "name": "value_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.value_source_value",
+                "omop.measurement.value_source_value"
+              ]
+            },
+            {
+              "name": "unit_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.observations.units",
+                "omop.observation.unit_source_value",
+                "omop.measurement.unit_source_value"
+              ]
+            },
+            {
+              "name": "unit_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.unit_concept_id",
+                "omop.measurement.unit_concept_id"
+              ]
+            },
+            {
+              "name": "unit_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.unit_source_concept_id"
+              ]
+            },
+            {
+              "name": "range_low",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.range_low"
+              ]
+            },
+            {
+              "name": "range_high",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.range_high"
+              ]
+            },
+            {
+              "name": "operator_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.measurement.operator_concept_id"
+              ]
+            },
+            {
+              "name": "qualifier_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.qualifier_concept_id"
+              ]
+            },
+            {
+              "name": "qualifier_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.qualifier_source_value"
+              ]
+            },
+            {
+              "name": "observation_event_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.observation_event_id",
+                "omop.measurement.measurement_event_id"
+              ]
+            },
+            {
+              "name": "obs_event_field_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation.obs_event_field_concept_id",
+                "omop.measurement.meas_event_field_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "observation_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "observation_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "observation_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "value_as_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "operator_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "qualifier_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "device_exposure",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "device_exposure_id",
+          "fields": [
+            {
+              "name": "device_exposure_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_exposure_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.person_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.provider_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.visit_detail_id"
+              ]
+            },
+            {
+              "name": "device_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_concept_id"
+              ]
+            },
+            {
+              "name": "device_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_source_concept_id"
+              ]
+            },
+            {
+              "name": "device_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_source_value"
+              ]
+            },
+            {
+              "name": "device_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_type_concept_id"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_exposure_start_date"
+              ]
+            },
+            {
+              "name": "start_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_exposure_start_datetime"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_exposure_end_date"
+              ]
+            },
+            {
+              "name": "end_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.device_exposure_end_datetime"
+              ]
+            },
+            {
+              "name": "unique_device_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.unique_device_id"
+              ]
+            },
+            {
+              "name": "production_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.production_id"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.quantity"
+              ]
+            },
+            {
+              "name": "unit_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.unit_concept_id"
+              ]
+            },
+            {
+              "name": "unit_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.unit_source_concept_id"
+              ]
+            },
+            {
+              "name": "unit_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.device_exposure.unit_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "device_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "device_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "device_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "specimen",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "specimen_id",
+          "fields": [
+            {
+              "name": "specimen_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.person_id"
+              ]
+            },
+            {
+              "name": "specimen_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_concept_id"
+              ]
+            },
+            {
+              "name": "specimen_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_type_concept_id"
+              ]
+            },
+            {
+              "name": "specimen_source_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_source_id"
+              ]
+            },
+            {
+              "name": "specimen_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_source_value"
+              ]
+            },
+            {
+              "name": "anatomic_site_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.anatomic_site_concept_id"
+              ]
+            },
+            {
+              "name": "anatomic_site_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.anatomic_site_source_value"
+              ]
+            },
+            {
+              "name": "disease_status_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.disease_status_concept_id"
+              ]
+            },
+            {
+              "name": "disease_status_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.disease_status_source_value"
+              ]
+            },
+            {
+              "name": "specimen_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_date"
+              ]
+            },
+            {
+              "name": "specimen_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.specimen_datetime"
+              ]
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.quantity"
+              ]
+            },
+            {
+              "name": "unit_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.unit_concept_id"
+              ]
+            },
+            {
+              "name": "unit_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.specimen.unit_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "specimen_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "specimen_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "anatomic_site_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "disease_status_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "unit_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "note",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "note_id",
+          "fields": [
+            {
+              "name": "note_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.note.note_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.person_id"
+              ]
+            },
+            {
+              "name": "provider_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.provider_id"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.visit_occurrence_id"
+              ]
+            },
+            {
+              "name": "encounter_detail_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.visit_detail_id"
+              ]
+            },
+            {
+              "name": "note_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_date"
+              ]
+            },
+            {
+              "name": "note_datetime",
+              "type": "datetime",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_datetime"
+              ]
+            },
+            {
+              "name": "note_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_type_concept_id"
+              ]
+            },
+            {
+              "name": "note_class_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_class_concept_id"
+              ]
+            },
+            {
+              "name": "note_title",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_title"
+              ]
+            },
+            {
+              "name": "note_text",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_text"
+              ]
+            },
+            {
+              "name": "encoding_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.encoding_concept_id"
+              ]
+            },
+            {
+              "name": "language_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.language_concept_id"
+              ]
+            },
+            {
+              "name": "note_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_source_value"
+              ]
+            },
+            {
+              "name": "note_event_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_event_id"
+              ]
+            },
+            {
+              "name": "note_event_field_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.note.note_event_field_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "provider_id",
+              "reference": {
+                "resource": "provider",
+                "fields": "provider_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            },
+            {
+              "fields": "encounter_detail_id",
+              "reference": {
+                "resource": "encounter_detail",
+                "fields": "encounter_detail_id"
+              }
+            },
+            {
+              "fields": "note_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "note_class_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "encoding_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "language_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "note_event_field_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "observation_period",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "observation_period_id",
+          "fields": [
+            {
+              "name": "observation_period_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.observation_period.observation_period_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation_period.person_id"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation_period.observation_period_start_date"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation_period.observation_period_end_date"
+              ]
+            },
+            {
+              "name": "period_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.observation_period.period_type_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "period_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "payer_plan_period",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "payer_plan_period_id",
+          "fields": [
+            {
+              "name": "payer_plan_period_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_plan_period_id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.person_id"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_plan_period_start_date"
+              ]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_plan_period_end_date"
+              ]
+            },
+            {
+              "name": "payer_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_concept_id"
+              ]
+            },
+            {
+              "name": "payer_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_source_concept_id"
+              ]
+            },
+            {
+              "name": "payer_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.payer_source_value"
+              ]
+            },
+            {
+              "name": "plan_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.plan_concept_id"
+              ]
+            },
+            {
+              "name": "plan_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.plan_source_concept_id"
+              ]
+            },
+            {
+              "name": "plan_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.plan_source_value"
+              ]
+            },
+            {
+              "name": "sponsor_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.sponsor_concept_id"
+              ]
+            },
+            {
+              "name": "sponsor_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.sponsor_source_concept_id"
+              ]
+            },
+            {
+              "name": "sponsor_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.sponsor_source_value"
+              ]
+            },
+            {
+              "name": "family_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.family_source_value"
+              ]
+            },
+            {
+              "name": "stop_reason_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.stop_reason_concept_id"
+              ]
+            },
+            {
+              "name": "stop_reason_source_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.stop_reason_source_concept_id"
+              ]
+            },
+            {
+              "name": "stop_reason_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.payer_plan_period.stop_reason_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "payer_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "payer_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "plan_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "plan_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "sponsor_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "sponsor_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "stop_reason_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "stop_reason_source_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "cost",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "cost_id",
+          "fields": [
+            {
+              "name": "cost_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.cost.cost_id"
+              ]
+            },
+            {
+              "name": "cost_event_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.cost_event_id"
+              ]
+            },
+            {
+              "name": "cost_domain_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.cost_domain_id"
+              ]
+            },
+            {
+              "name": "cost_type_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.cost_type_concept_id"
+              ]
+            },
+            {
+              "name": "currency_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.currency_concept_id"
+              ]
+            },
+            {
+              "name": "payer_plan_period_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.payer_plan_period_id"
+              ]
+            },
+            {
+              "name": "total_charge",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_charge"
+              ]
+            },
+            {
+              "name": "total_cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_cost"
+              ]
+            },
+            {
+              "name": "total_paid",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.total_paid"
+              ]
+            },
+            {
+              "name": "paid_by_patient",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_by_patient"
+              ]
+            },
+            {
+              "name": "paid_by_payer",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_by_payer"
+              ]
+            },
+            {
+              "name": "paid_by_primary",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_by_primary"
+              ]
+            },
+            {
+              "name": "paid_patient_copay",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_patient_copay"
+              ]
+            },
+            {
+              "name": "paid_patient_coinsurance",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_patient_coinsurance"
+              ]
+            },
+            {
+              "name": "paid_patient_deductible",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_patient_deductible"
+              ]
+            },
+            {
+              "name": "paid_ingredient_cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_ingredient_cost"
+              ]
+            },
+            {
+              "name": "paid_dispensing_fee",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.paid_dispensing_fee"
+              ]
+            },
+            {
+              "name": "amount_allowed",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.amount_allowed"
+              ]
+            },
+            {
+              "name": "revenue_code_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.revenue_code_concept_id"
+              ]
+            },
+            {
+              "name": "revenue_code_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.revenue_code_source_value"
+              ]
+            },
+            {
+              "name": "drg_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.drg_concept_id"
+              ]
+            },
+            {
+              "name": "drg_source_value",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.cost.drg_source_value"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "payer_plan_period_id",
+              "reference": {
+                "resource": "payer_plan_period",
+                "fields": "payer_plan_period_id"
+              }
+            },
+            {
+              "fields": "cost_domain_id",
+              "reference": {
+                "resource": "domain",
+                "fields": "domain_id"
+              }
+            },
+            {
+              "fields": "cost_type_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "currency_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "revenue_code_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "drg_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "immunization",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "immunization_id",
+          "fields": [
+            {
+              "name": "immunization_id",
+              "type": "string",
+              "description": "Synthetic surrogate key; no source counterpart.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.patient"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.encounter"
+              ]
+            },
+            {
+              "name": "code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.code"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.description"
+              ]
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.date"
+              ]
+            },
+            {
+              "name": "cost",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.immunizations.cost"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "allergy",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "allergy_id",
+          "fields": [
+            {
+              "name": "allergy_id",
+              "type": "string",
+              "description": "Synthetic surrogate key; no source counterpart.",
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": []
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.patient"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.encounter"
+              ]
+            },
+            {
+              "name": "code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.code"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.description"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.start"
+              ]
+            },
+            {
+              "name": "stop_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.allergies.stop"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "care_plan",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "care_plan_id",
+          "fields": [
+            {
+              "name": "care_plan_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.careplans.id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.patient"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.encounter"
+              ]
+            },
+            {
+              "name": "code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.code"
+              ]
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.description"
+              ]
+            },
+            {
+              "name": "reason_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.reasoncode"
+              ]
+            },
+            {
+              "name": "reason_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.reasondescription"
+              ]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.start"
+              ]
+            },
+            {
+              "name": "stop_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.careplans.stop"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "imaging_study",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "imaging_study_id",
+          "fields": [
+            {
+              "name": "imaging_study_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.id"
+              ]
+            },
+            {
+              "name": "patient_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.patient"
+              ]
+            },
+            {
+              "name": "encounter_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.encounter"
+              ]
+            },
+            {
+              "name": "study_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.date"
+              ]
+            },
+            {
+              "name": "body_site_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.body site code"
+              ]
+            },
+            {
+              "name": "body_site_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.body site description"
+              ]
+            },
+            {
+              "name": "modality_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.modality code"
+              ]
+            },
+            {
+              "name": "modality_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.modality description"
+              ]
+            },
+            {
+              "name": "sop_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.sop code"
+              ]
+            },
+            {
+              "name": "sop_description",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "synthea.imaging_studies.sop description"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "patient_id",
+              "reference": {
+                "resource": "patient",
+                "fields": "patient_id"
+              }
+            },
+            {
+              "fields": "encounter_id",
+              "reference": {
+                "resource": "encounter",
+                "fields": "encounter_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "concept",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "concept_id",
+          "fields": [
+            {
+              "name": "concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.concept.concept_id"
+              ]
+            },
+            {
+              "name": "concept_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_name"
+              ]
+            },
+            {
+              "name": "domain_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.domain_id"
+              ]
+            },
+            {
+              "name": "vocabulary_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.vocabulary_id"
+              ]
+            },
+            {
+              "name": "concept_class_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_class_id"
+              ]
+            },
+            {
+              "name": "standard_concept",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.standard_concept"
+              ]
+            },
+            {
+              "name": "concept_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.concept_code"
+              ]
+            },
+            {
+              "name": "valid_start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.valid_start_date"
+              ]
+            },
+            {
+              "name": "valid_end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.valid_end_date"
+              ]
+            },
+            {
+              "name": "invalid_reason",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept.invalid_reason"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "domain_id",
+              "reference": {
+                "resource": "domain",
+                "fields": "domain_id"
+              }
+            },
+            {
+              "fields": "vocabulary_id",
+              "reference": {
+                "resource": "vocabulary",
+                "fields": "vocabulary_id"
+              }
+            },
+            {
+              "fields": "concept_class_id",
+              "reference": {
+                "resource": "concept_class",
+                "fields": "concept_class_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "vocabulary",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "vocabulary_id",
+          "fields": [
+            {
+              "name": "vocabulary_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_id"
+              ]
+            },
+            {
+              "name": "vocabulary_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_name"
+              ]
+            },
+            {
+              "name": "vocabulary_reference",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_reference"
+              ]
+            },
+            {
+              "name": "vocabulary_version",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_version"
+              ]
+            },
+            {
+              "name": "vocabulary_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.vocabulary.vocabulary_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "vocabulary_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "domain",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "domain_id",
+          "fields": [
+            {
+              "name": "domain_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.domain.domain_id"
+              ]
+            },
+            {
+              "name": "domain_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.domain.domain_name"
+              ]
+            },
+            {
+              "name": "domain_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.domain.domain_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "domain_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "concept_class",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "concept_class_id",
+          "fields": [
+            {
+              "name": "concept_class_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.concept_class.concept_class_id"
+              ]
+            },
+            {
+              "name": "concept_class_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_class.concept_class_name"
+              ]
+            },
+            {
+              "name": "concept_class_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_class.concept_class_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "concept_class_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "relationship",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "relationship_id",
+          "fields": [
+            {
+              "name": "relationship_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "omop.relationship.relationship_id"
+              ]
+            },
+            {
+              "name": "relationship_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.relationship.relationship_name"
+              ]
+            },
+            {
+              "name": "is_hierarchical",
+              "type": "boolean",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.relationship.is_hierarchical"
+              ]
+            },
+            {
+              "name": "defines_ancestry",
+              "type": "boolean",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.relationship.defines_ancestry"
+              ]
+            },
+            {
+              "name": "reverse_relationship_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.relationship.reverse_relationship_id"
+              ]
+            },
+            {
+              "name": "relationship_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.relationship.relationship_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "relationship_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "concept_relationship",
+        "path": null,
+        "schema_info": {
+          "primaryKey": null,
+          "fields": [
+            {
+              "name": "concept_id_1",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.concept_id_1"
+              ]
+            },
+            {
+              "name": "concept_id_2",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.concept_id_2"
+              ]
+            },
+            {
+              "name": "relationship_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.relationship_id"
+              ]
+            },
+            {
+              "name": "valid_start_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.valid_start_date"
+              ]
+            },
+            {
+              "name": "valid_end_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.valid_end_date"
+              ]
+            },
+            {
+              "name": "invalid_reason",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_relationship.invalid_reason"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "concept_id_1",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "concept_id_2",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "relationship_id",
+              "reference": {
+                "resource": "relationship",
+                "fields": "relationship_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "concept_synonym",
+        "path": null,
+        "schema_info": {
+          "primaryKey": null,
+          "fields": [
+            {
+              "name": "concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_synonym.concept_id"
+              ]
+            },
+            {
+              "name": "concept_synonym_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_synonym.concept_synonym_name"
+              ]
+            },
+            {
+              "name": "language_concept_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "omop.concept_synonym.language_concept_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            },
+            {
+              "fields": "language_concept_id",
+              "reference": {
+                "resource": "concept",
+                "fields": "concept_id"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "conflict_report": [
+    {
+      "conflict_type": "Naming",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients",
+            "omop.person"
+          ],
+          "description": "The core person entity is named 'patients' in Synthea and 'person' in OMOP.",
+          "resolution": "Unified into target resource 'patient' (snake_case, singular)."
+        },
+        {
+          "source_references": [
+            "synthea.encounters",
+            "omop.visit_occurrence"
+          ],
+          "description": "The clinical interaction entity is 'encounters' in Synthea and 'visit_occurrence' in OMOP.",
+          "resolution": "Unified into target resource 'encounter'; related sub-entity visit_detail mapped to 'encounter_detail'."
+        },
+        {
+          "source_references": [
+            "synthea.organizations",
+            "omop.care_site"
+          ],
+          "description": "Facility/location-of-care entity named 'organizations' vs 'care_site'.",
+          "resolution": "Unified into target resource 'organization'; OMOP care_site identifiers retained as care_site_* columns/FKs."
+        },
+        {
+          "source_references": [
+            "synthea.medications",
+            "omop.drug_exposure"
+          ],
+          "description": "Medication fact named 'medications' vs 'drug_exposure'.",
+          "resolution": "Unified into target resource 'medication'."
+        },
+        {
+          "source_references": [
+            "synthea.procedures",
+            "omop.procedure_occurrence"
+          ],
+          "description": "Procedure fact named 'procedures' vs 'procedure_occurrence'.",
+          "resolution": "Unified into target resource 'procedure'."
+        },
+        {
+          "source_references": [
+            "synthea.conditions",
+            "omop.condition_occurrence"
+          ],
+          "description": "Condition fact named 'conditions' vs 'condition_occurrence'.",
+          "resolution": "Unified into target resource 'condition'."
+        },
+        {
+          "source_references": [
+            "synthea.observations",
+            "omop.observation",
+            "omop.measurement"
+          ],
+          "description": "Synthea 'observations' overlaps both OMOP 'observation' and 'measurement'.",
+          "resolution": "Unified into a single target resource 'observation' capturing textual and numeric results."
+        },
+        {
+          "source_references": [
+            "synthea.providers",
+            "omop.provider"
+          ],
+          "description": "Clinician entity uses plural 'providers' vs singular 'provider'.",
+          "resolution": "Unified into target resource 'provider'."
+        },
+        {
+          "source_references": [
+            "synthea.patients.id",
+            "omop.person.person_id",
+            "synthea.encounters.id",
+            "omop.visit_occurrence.visit_occurrence_id"
+          ],
+          "description": "Identifier naming differs: Synthea uses bare 'id', OMOP uses '<entity>_id'.",
+          "resolution": "Standardized to snake_case '<entity>_id' surrogate naming across all target tables."
+        },
+        {
+          "source_references": [
+            "synthea.imaging_studies.body site code",
+            "synthea.imaging_studies.modality code",
+            "synthea.imaging_studies.sop code"
+          ],
+          "description": "Synthea imaging_studies columns contain spaces and are not snake_case.",
+          "resolution": "Renamed to snake_case (body_site_code, modality_code, sop_code, etc.)."
+        },
+        {
+          "source_references": [
+            "synthea.providers.speciality",
+            "omop.provider.specialty_concept_id"
+          ],
+          "description": "Spelling inconsistency: 'speciality' (Synthea) vs 'specialty' (OMOP).",
+          "resolution": "Standardized on 'specialty'-based naming; kept Synthea verbatim value in 'speciality'."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.provider"
+          ],
+          "description": "Column named 'provider' is described as a foreign key to the organization, conflicting with provider semantics.",
+          "resolution": "Resolved as a provider (clinician) foreign key and merged with omop.visit_occurrence.provider_id, aligned with naming."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Type",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.encounters.cost",
+            "synthea.medications.cost",
+            "synthea.procedures.cost",
+            "synthea.immunizations.cost"
+          ],
+          "description": "Monetary cost fields are stored as 'string' in Synthea but are numeric quantities.",
+          "resolution": "Cast to 'number' in target (cost)."
+        },
+        {
+          "source_references": [
+            "omop.person.year_of_birth",
+            "omop.person.month_of_birth",
+            "omop.person.day_of_birth"
+          ],
+          "description": "OMOP types the birth-date components as 'date', though they are integer calendar components.",
+          "resolution": "Retyped to 'integer' (birth_year, birth_month, birth_day)."
+        },
+        {
+          "source_references": [
+            "omop.location.latitude",
+            "omop.location.longitude"
+          ],
+          "description": "Coordinates typed as 'string' though they are numeric.",
+          "resolution": "Retyped to 'number'."
+        },
+        {
+          "source_references": [
+            "omop.measurement.range_low",
+            "omop.measurement.range_high"
+          ],
+          "description": "Reference-range bounds typed as 'string' though numeric.",
+          "resolution": "Retyped to 'number'."
+        },
+        {
+          "source_references": [
+            "omop.drug_exposure.quantity",
+            "omop.procedure_occurrence.quantity",
+            "omop.specimen.quantity",
+            "omop.device_exposure.quantity"
+          ],
+          "description": "Quantity fields typed as 'string' though numeric.",
+          "resolution": "Retyped to 'number'."
+        },
+        {
+          "source_references": [
+            "omop.payer_plan_period.payer_plan_period_id"
+          ],
+          "description": "Primary key typed as 'date' instead of an identifier.",
+          "resolution": "Retyped to 'string'."
+        },
+        {
+          "source_references": [
+            "omop.vocabulary.vocabulary_name"
+          ],
+          "description": "Vocabulary name typed as 'integer' though it is text.",
+          "resolution": "Retyped to 'string'."
+        },
+        {
+          "source_references": [
+            "omop.specimen.unit_concept_id"
+          ],
+          "description": "Concept identifier typed as 'number' while all sibling concept ids are 'string'.",
+          "resolution": "Retyped to 'string' for consistency."
+        },
+        {
+          "source_references": [
+            "omop.concept.invalid_reason",
+            "omop.concept_relationship.invalid_reason",
+            "omop.drug_strength.invalid_reason"
+          ],
+          "description": "Categorical reason flags (D/U/NULL) typed as 'date'.",
+          "resolution": "Retyped to 'string'."
+        },
+        {
+          "source_references": [
+            "omop.cost.currency_concept_id",
+            "omop.cost.paid_patient_coinsurance"
+          ],
+          "description": "Concept/monetary fields inconsistently typed as 'integer' while peers are 'string'/'number'.",
+          "resolution": "currency_concept_id retyped to 'string'; paid_patient_coinsurance retyped to 'number'."
+        },
+        {
+          "source_references": [
+            "synthea.observations.type"
+          ],
+          "description": "Field described as a datatype indicator (text/numeric) but typed as 'number'.",
+          "resolution": "Retyped to 'string' (value_type)."
+        },
+        {
+          "source_references": [
+            "omop.relationship.is_hierarchical",
+            "omop.relationship.defines_ancestry"
+          ],
+          "description": "Boolean flag fields typed as 'integer'/'string' with values 1/0.",
+          "resolution": "Retyped to 'boolean'."
+        },
+        {
+          "source_references": [
+            "omop.note_nlp.term_modifiers"
+          ],
+          "description": "Concatenated modifier string typed as 'integer'.",
+          "resolution": "Retyped to 'string'."
+        },
+        {
+          "source_references": [
+            "omop.source_to_concept_map.source_code",
+            "omop.source_to_concept_map.source_concept_id"
+          ],
+          "description": "Source coding fields typed as 'integer' though codes may be alphanumeric.",
+          "resolution": "Retyped to 'string'."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Data Semantic",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients.gender",
+            "omop.person.gender_concept_id",
+            "omop.person.gender_source_value"
+          ],
+          "description": "Gender encoded as single letters ('m'/'f') in Synthea vs a standardized gender Concept plus verbatim source value in OMOP.",
+          "resolution": "Retained 'gender' (verbatim Synthea code) alongside 'gender_concept_id'/'gender_source_value'; scale normalization handled via the concept vocabulary."
+        },
+        {
+          "source_references": [
+            "synthea.patients.race",
+            "synthea.patients.ethnicity",
+            "omop.person.race_concept_id",
+            "omop.person.ethnicity_concept_id"
+          ],
+          "description": "Race/ethnicity are free-text descriptions in Synthea vs standardized multi-column concept+source representations in OMOP.",
+          "resolution": "Kept Synthea description columns and OMOP concept/source columns side by side; standardized values expressible via the concept table."
+        },
+        {
+          "source_references": [
+            "synthea.observations.units",
+            "omop.measurement.unit_concept_id",
+            "omop.measurement.unit_source_value"
+          ],
+          "description": "Units are free text in Synthea vs a coded unit concept + verbatim source in OMOP.",
+          "resolution": "Unified to 'unit_source_value' (verbatim, all sources) plus 'unit_concept_id' (standardized); standard SI units promoted through the concept mapping."
+        },
+        {
+          "source_references": [
+            "omop.cost.currency_concept_id",
+            "synthea.encounters.cost",
+            "synthea.medications.cost"
+          ],
+          "description": "OMOP monetary values carry an explicit currency concept; Synthea costs carry no currency information.",
+          "resolution": "Cost amounts kept numeric; currency only available through the OMOP cost table, documented as a semantic gap for Synthea-sourced costs."
+        },
+        {
+          "source_references": [
+            "synthea.conditions.code",
+            "synthea.medications.code",
+            "synthea.observations.code",
+            "synthea.immunizations.code"
+          ],
+          "description": "Synthea stores native vocabulary codes (SNOMED-CT, RxNorm, LOINC, CVX); OMOP stores both a source value and a mapped standard Concept id.",
+          "resolution": "Synthea codes mapped to '*_source_value' columns and harmonized with OMOP source values; standardized meaning via '*_concept_id'."
+        },
+        {
+          "source_references": [
+            "synthea.patients.marital"
+          ],
+          "description": "Marital status uses single-letter codes (m/s) with limited coverage (no d/w).",
+          "resolution": "Retained verbatim as 'marital_status' string; no OMOP counterpart column, left as source-specific attribute."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.start",
+            "omop.visit_occurrence.visit_start_datetime",
+            "omop.measurement.measurement_datetime"
+          ],
+          "description": "Temporal granularity differs: Synthea keeps date only; OMOP keeps parallel date and datetime columns.",
+          "resolution": "Both granularities preserved with distinct '*_date'/'*_datetime' columns."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Structure",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.patients.address",
+            "synthea.providers.address",
+            "synthea.organizations.address",
+            "omop.location"
+          ],
+          "description": "Synthea denormalizes address attributes into patient/provider/organization rows, whereas OMOP normalizes them into a separate LOCATION table referenced by FK.",
+          "resolution": "Introduced a normalized 'location' resource for OMOP geometry; Synthea address attributes retained as denormalized columns on their owner entities to preserve column-level provenance."
+        },
+        {
+          "source_references": [
+            "omop.person.gender_concept_id",
+            "omop.person.gender_source_value",
+            "synthea.patients.gender"
+          ],
+          "description": "OMOP uses a paired concept/source representation for coded attributes; Synthea uses a single code+description pair.",
+          "resolution": "Both representations coexisted per attribute (concept_id + source_value + verbatim description) rather than collapsing them."
+        },
+        {
+          "source_references": [
+            "synthea.observations",
+            "omop.observation",
+            "omop.measurement"
+          ],
+          "description": "OMOP splits observation-type facts and numeric lab measurements into separate tables; Synthea holds them in one table with a value/units/type triple.",
+          "resolution": "Decomposed/normalized into a single unified 'observation' table that captures both textual (value_as_string) and numeric (value_as_number) results."
+        },
+        {
+          "source_references": [
+            "synthea.patients.birthdate",
+            "omop.person.birth_datetime",
+            "omop.person.year_of_birth"
+          ],
+          "description": "Synthea keeps a single full birth date; OMOP keeps a datetime plus extracted year/month/day components.",
+          "resolution": "Kept 'birth_date' plus explicit birth_year/month/day integer components in the unified patient table."
+        },
+        {
+          "source_references": [
+            "synthea.encounters",
+            "omop.visit_occurrence",
+            "omop.visit_detail"
+          ],
+          "description": "Synthea models a single encounter; OMOP decomposes visits into visit_occurrence plus a child visit_detail hierarchy.",
+          "resolution": "Preserved both levels as 'encounter' and 'encounter_detail' with a parent-child FK between them."
+        },
+        {
+          "source_references": [
+            "synthea.patients.deathdate",
+            "omop.death"
+          ],
+          "description": "Synthea stores death as a single patient attribute; OMOP models a separate 1:1 DEATH table with cause/type concepts.",
+          "resolution": "Folded the 1:1 death record into the 'patient' resource (death_date/datetime, cause and type concepts)."
+        },
+        {
+          "source_references": [
+            "synthea.imaging_studies",
+            "omop.procedure_occurrence"
+          ],
+          "description": "Synthea imaging studies have no dedicated OMOP table and overlap loosely with procedure/measurement facts.",
+          "resolution": "Retained as a standalone 'imaging_study' resource to avoid lossy forcing into procedure/observation."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Cardinality",
+      "conflicts": [
+        {
+          "source_references": [
+            "omop.visit_occurrence.visit_occurrence_id",
+            "omop.visit_detail.visit_detail_id"
+          ],
+          "description": "OMOP defines a 1:N relationship between visit_occurrence and visit_detail; Synthea's encounter has no such nesting.",
+          "resolution": "Modeled as encounter (1) to encounter_detail (N) via encounter_id FK; Synthea encounters populate only the parent level."
+        },
+        {
+          "source_references": [
+            "omop.condition_occurrence",
+            "omop.condition_era",
+            "synthea.conditions"
+          ],
+          "description": "Synthea conditions are event-level (1 row per event) while OMOP additionally aggregates events into condition eras (1:N events per era).",
+          "resolution": "Event-level 'condition' retained as canonical; aggregated era structures left to be derived and not conflated with event rows."
+        },
+        {
+          "source_references": [
+            "synthea.providers.organization",
+            "omop.provider.care_site_id"
+          ],
+          "description": "Both describe a many-to-one relationship between providers and the organization/care site they belong to.",
+          "resolution": "Merged both provider-to-organization references into a single 'care_site_id' FK to the 'organization' resource."
+        },
+        {
+          "source_references": [
+            "omop.person.provider_id",
+            "synthea.patients.id"
+          ],
+          "description": "OMOP links a person to a primary care provider (1:1 attribute); Synthea has no such patient-provider link.",
+          "resolution": "Retained patient.provider_id (nullable) sourced only from OMOP; no Synthea provenance."
+        },
+        {
+          "source_references": [
+            "omop.person",
+            "omop.payer_plan_period",
+            "omop.observation_period"
+          ],
+          "description": "OMOP defines one-to-many person-to-coverage and person-to-observation-period relationships that Synthea lacks.",
+          "resolution": "Modeled as separate child resources (payer_plan_period, observation_period) keyed to patient."
+        }
+      ]
+    },
+    {
+      "conflict_type": "Key",
+      "conflicts": [
+        {
+          "source_references": [
+            "synthea.allergies",
+            "synthea.conditions",
+            "synthea.medications",
+            "synthea.procedures",
+            "synthea.observations",
+            "synthea.immunizations"
+          ],
+          "description": "Several Synthea tables (allergies, conditions, medications, procedures, observations, immunizations) declare no primary key.",
+          "resolution": "OMOP surrogate keys adopted where available; purely synthetic surrogate keys (e.g., allergy_id, immunization_id) introduced only for target mechanics and marked with empty provenance."
+        },
+        {
+          "source_references": [
+            "synthea.patients.id",
+            "omop.person.person_id",
+            "synthea.encounters.id",
+            "omop.visit_occurrence.visit_occurrence_id"
+          ],
+          "description": "Primary key identification differs: Synthea relies on a generic 'id' while OMOP uses explicit entity-scoped keys, and some OMOP keys were mistyped.",
+          "resolution": "Harmonized to a single snake_case '<entity>_id' key per unified resource, with both source keys listed in provenance."
+        },
+        {
+          "source_references": [
+            "synthea.encounters.provider",
+            "omop.visit_occurrence.provider_id",
+            "omop.visit_occurrence.care_site_id"
+          ],
+          "description": "Synthea's encounter 'provider' column ambiguously references an organization, whereas OMOP separates provider_id and care_site_id foreign keys.",
+          "resolution": "Resolved as a provider clinician FK (provider_id) and retained a distinct care_site_id FK to organization."
+        },
+        {
+          "source_references": [
+            "synthea.patients",
+            "synthea.conditions.patient",
+            "synthea.conditions.encounter"
+          ],
+          "description": "Synthea expresses foreign keys as bare columns (patient, encounter) with no declared key relationships.",
+          "resolution": "Reconstructed explicit foreign keys (patient_id, encounter_id, provider_id) referencing the unified parent resources."
+        },
+        {
+          "source_references": [
+            "omop.payer_plan_period"
+          ],
+          "description": "payer_plan_period_id was declared with a non-identifier type, weakening key identification.",
+          "resolution": "Retyped to 'string' and promoted to the primary key of 'payer_plan_period'."
+        },
+        {
+          "source_references": [
+            "omop.observation.observation_event_id",
+            "omop.measurement.measurement_event_id",
+            "omop.note.note_event_id"
+          ],
+          "description": "OMOP uses polymorphic 'event_id' + '*_event_field_concept_id' keys whose target entity is data-dependent.",
+          "resolution": "Preserved as generic event id plus field concept id (not resolvable as a static FK), documented as a polymorphic relationship."
+        }
+      ]
+    }
+  ]
+}

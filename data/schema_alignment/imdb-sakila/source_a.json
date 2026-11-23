@@ -1,0 +1,429 @@
+{
+  "schema_name": "imdb",
+  "resources": [
+    {
+      "name": "name_basics",
+      "schema": {
+        "primaryKey": "nconst",
+        "fields": [
+          {
+            "name": "birthyear",
+            "type": "string",
+            "description": "birth year (YYYY)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "deathyear",
+            "type": "string",
+            "description": "death year if applicable, else ",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "knownfortitles",
+            "type": "string",
+            "description": "titles the person is known for (array of tconsts)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "nconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the name/person (string)",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "primaryname",
+            "type": "string",
+            "description": "name by which the person is most often credited (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "primaryprofession",
+            "type": "string",
+            "description": "the top-3 professions of the person (array of strings)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "title_akas",
+      "schema": {
+        "fields": [
+          {
+            "name": "attributes",
+            "type": "string",
+            "description": "Additional terms to describe this alternative title (array), not enumerated",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "isoriginaltitle",
+            "type": "boolean",
+            "description": "0: not original title. 1: original title (boolean)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "description": "the language of the title (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "ordering",
+            "type": "integer",
+            "description": "a number to uniquely identify rows for a given titleId (integer)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "region",
+            "type": "string",
+            "description": "the region for this version of the title (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "the localized title (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "titleid",
+            "type": "number",
+            "description": "a tconst (string, an alphanumeric unique identifier of the title)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "types",
+            "type": "string",
+            "description": "Enumerated set of attributes for this alternative title (array). One or more of the following: \"alternative\", \"dvd\", \"festival\", \"tv\", \"video\", \"working\", \"original\", \"imdbDisplay\". New values may be added in the future without warning",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "titleid",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "title_basics",
+      "schema": {
+        "primaryKey": "tconst",
+        "fields": [
+          {
+            "name": "endyear",
+            "type": "string",
+            "description": "TV Series end year (YYYY). ‘\\N’ for all other title types",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "genres",
+            "type": "string",
+            "description": "includes up to three genres associated with the title (string array)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "isadult",
+            "type": "boolean",
+            "description": "0: non-adult title. 1: adult title (boolean)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "originaltitle",
+            "type": "string",
+            "description": "original title (string) (in the original language)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "primarytitle",
+            "type": "integer",
+            "description": "the more popular title (string) (the title used by the filmmakers on promotional materials at the point of release)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "runtimeminutes",
+            "type": "integer",
+            "description": "primary runtime of the title (integer, in minutes)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "startyear",
+            "type": "string",
+            "description": "represents the release year of a title (YYYY). In the case of TV Series, it is the series start year",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "tconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the title (string)",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "titletype",
+            "type": "string",
+            "description": "the type/format of the title (string) (e.g. movie, short, tvseries, tvepisode, video, etc)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "title_crew",
+      "schema": {
+        "fields": [
+          {
+            "name": "directors",
+            "type": "string",
+            "description": "director(s) of the given title (array of nconsts)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "tconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the title (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "writers",
+            "type": "string",
+            "description": "writer(s) of the given title (array of nconsts)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "tconst",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "title_episode",
+      "schema": {
+        "fields": [
+          {
+            "name": "episodenumber",
+            "type": "integer",
+            "description": "episode number of the tconst in the TV series (integer)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "parenttconst",
+            "type": "number",
+            "description": "alphanumeric identifier of the parent TV Series (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "seasonnumber",
+            "type": "integer",
+            "description": "season number the episode belongs to (integer)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "tconst",
+            "type": "number",
+            "description": "alphanumeric identifier of episode (string)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "parenttconst",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          },
+          {
+            "fields": "tconst",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "title_principals",
+      "schema": {
+        "fields": [
+          {
+            "name": "category",
+            "type": "string",
+            "description": "the category of job that person was in (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "characters",
+            "type": "string",
+            "description": "the name of the character played if applicable, else ",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "job",
+            "type": "string",
+            "description": "the specific job title if applicable, else ",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "nconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the name/person (string)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "ordering",
+            "type": "integer",
+            "description": "a number to uniquely identify rows for a given titleId (integer)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "tconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the title (string)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "nconst",
+            "reference": {
+              "resource": "name_basics",
+              "fields": "nconst"
+            }
+          },
+          {
+            "fields": "tconst",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "title_ratings",
+      "schema": {
+        "fields": [
+          {
+            "name": "averagerating",
+            "type": "number",
+            "description": "weighted average of all the individual user ratings (float)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "numvotes",
+            "type": "integer",
+            "description": "number of votes the title has received (integer)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "tconst",
+            "type": "number",
+            "description": "alphanumeric unique identifier of the title (string)",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "tconst",
+            "reference": {
+              "resource": "title_basics",
+              "fields": "tconst"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,973 @@
+{
+  "target_schema": {
+    "name": "unified_bank_schema",
+    "title": null,
+    "resources": [
+      {
+        "name": "bank",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "id",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.bank.code"
+              ]
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.bank.name"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.bank.address"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "branch",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "branch_id",
+          "fields": [
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.branch.branch_id",
+                "bank2.branch.branch_id"
+              ]
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.branch.name",
+                "bank2.branch.branch_name"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.branch.address",
+                "bank2.branch.branch_address"
+              ]
+            },
+            {
+              "name": "bank_id",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.branch.bank_code"
+              ]
+            },
+            {
+              "name": "assets",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank2.branch.assets"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "bank_id"
+              ],
+              "reference": {
+                "resource": "bank",
+                "fields": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "customer_id",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.customer.custid",
+                "bank2.customer.customer_id"
+              ]
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.customer.name",
+                "bank2.customer.customer_name"
+              ]
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.customer.phone",
+                "bank2.customer.mobileno"
+              ]
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.customer.address"
+              ]
+            },
+            {
+              "name": "dob",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank2.customer.dob"
+              ]
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "account",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "account_id",
+          "fields": [
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.account.account_no",
+                "bank2.account.account_id"
+              ]
+            },
+            {
+              "name": "account_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.account.acc_type",
+                "bank2.account.account_type"
+              ]
+            },
+            {
+              "name": "balance",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.account.balance",
+                "bank2.account.account_balance"
+              ]
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.account.branch_id",
+                "bank2.account.branch_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "branch_id"
+              ],
+              "reference": {
+                "resource": "branch",
+                "fields": [
+                  "branch_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "loan",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "loan_id",
+          "fields": [
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.loan.loan_id",
+                "bank2.loan.loan_id"
+              ]
+            },
+            {
+              "name": "loan_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.loan.loan_type"
+              ]
+            },
+            {
+              "name": "issued_amount",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.loan.amount",
+                "bank2.loan.issued_amount"
+              ]
+            },
+            {
+              "name": "remaining_amount",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank2.loan.remaining_amount"
+              ]
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank1.loan.branch_id",
+                "bank2.loan.branch_id"
+              ]
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": [
+                "bank2.loan.account_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "branch_id"
+              ],
+              "reference": {
+                "resource": "branch",
+                "fields": [
+                  "branch_id"
+                ]
+              }
+            },
+            {
+              "fields": [
+                "account_id"
+              ],
+              "reference": {
+                "resource": "account",
+                "fields": [
+                  "account_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "banker",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "banker_id",
+          "fields": [
+            {
+              "name": "banker_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.banker_info.banker_id"
+              ]
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.banker_info.banker_name"
+              ]
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.banker_info.branch_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "branch_id"
+              ],
+              "reference": {
+                "resource": "branch",
+                "fields": [
+                  "branch_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "transaction",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "transaction_id",
+          "fields": [
+            {
+              "name": "transaction_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.transaction.transaction_id"
+              ]
+            },
+            {
+              "name": "amount",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.transaction.amount"
+              ]
+            },
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.transaction.customer_id"
+              ]
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.transaction.account_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "customer_id"
+              ],
+              "reference": {
+                "resource": "customer",
+                "fields": [
+                  "customer_id"
+                ]
+              }
+            },
+            {
+              "fields": [
+                "account_id"
+              ],
+              "reference": {
+                "resource": "account",
+                "fields": [
+                  "account_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "credit_card",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "credit_card_id",
+          "fields": [
+            {
+              "name": "credit_card_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.customer_credit_card.credit_card_id"
+              ]
+            },
+            {
+              "name": "expiry_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.customer_credit_card.expiry_date"
+              ]
+            },
+            {
+              "name": "card_limit",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.customer_credit_card.card_limit"
+              ]
+            },
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.customer_credit_card.customer_id"
+              ]
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.customer_credit_card.account_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "customer_id"
+              ],
+              "reference": {
+                "resource": "customer",
+                "fields": [
+                  "customer_id"
+                ]
+              }
+            },
+            {
+              "fields": [
+                "account_id"
+              ],
+              "reference": {
+                "resource": "account",
+                "fields": [
+                  "account_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "loan_payment",
+        "path": null,
+        "schema_info": {
+          "primaryKey": "loan_payment_id",
+          "fields": [
+            {
+              "name": "loan_payment_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.loan_payment.loan_payment_id"
+              ]
+            },
+            {
+              "name": "amount",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.loan_payment.amount"
+              ]
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank2.loan_payment.loan_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "loan_id"
+              ],
+              "reference": {
+                "resource": "loan",
+                "fields": [
+                  "loan_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer_account",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "customer_id",
+            "account_id"
+          ],
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.hold_by.custid",
+                "bank2.customer.customer_id"
+              ]
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.hold_by.account_no",
+                "bank2.customer.account_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "customer_id"
+              ],
+              "reference": {
+                "resource": "customer",
+                "fields": [
+                  "customer_id"
+                ]
+              }
+            },
+            {
+              "fields": [
+                "account_id"
+              ],
+              "reference": {
+                "resource": "account",
+                "fields": [
+                  "account_id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer_loan",
+        "path": null,
+        "schema_info": {
+          "primaryKey": [
+            "customer_id",
+            "loan_id"
+          ],
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.availed_by.custid",
+                "bank2.borrower.customer_id"
+              ]
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": [
+                "bank1.availed_by.loan_id",
+                "bank2.borrower.loan_id"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": [
+                "customer_id"
+              ],
+              "reference": {
+                "resource": "customer",
+                "fields": [
+                  "customer_id"
+                ]
+              }
+            },
+            {
+              "fields": [
+                "loan_id"
+              ],
+              "reference": {
+                "resource": "loan",
+                "fields": [
+                  "loan_id"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "conflict_report": [
+    {
+      "conflict_type": "Naming",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.branch.name",
+            "bank2.branch.branch_name"
+          ],
+          "description": "Synonym conflict: branch name field uses different naming conventions ('name' vs 'branch_name')",
+          "resolution": "Standardized to 'name' in unified schema to maintain consistency with other entity naming patterns"
+        },
+        {
+          "source_references": [
+            "bank1.customer.custid",
+            "bank2.customer.customer_id"
+          ],
+          "description": "Synonym conflict: customer primary key uses different naming ('custid' vs 'customer_id')",
+          "resolution": "Adopted 'customer_id' as the standardized primary key name for clarity and consistency"
+        },
+        {
+          "source_references": [
+            "bank1.customer.name",
+            "bank2.customer.customer_name"
+          ],
+          "description": "Synonym conflict: customer name field uses different naming ('name' vs 'customer_name')",
+          "resolution": "Standardized to 'name' to maintain atomic field naming convention"
+        },
+        {
+          "source_references": [
+            "bank1.customer.phone",
+            "bank2.customer.mobileno"
+          ],
+          "description": "Synonym conflict: phone number field uses different naming ('phone' vs 'mobileno')",
+          "resolution": "Standardized to 'phone' as a more generic term that encompasses mobile numbers"
+        },
+        {
+          "source_references": [
+            "bank1.account.account_no",
+            "bank2.account.account_id"
+          ],
+          "description": "Synonym conflict: account primary key uses different naming ('account_no' vs 'account_id')",
+          "resolution": "Adopted 'account_id' as the standardized primary key name for consistency with other ID fields"
+        },
+        {
+          "source_references": [
+            "bank1.account.acc_type",
+            "bank2.account.account_type"
+          ],
+          "description": "Synonym conflict: account type field uses different naming ('acc_type' vs 'account_type')",
+          "resolution": "Standardized to 'account_type' for clarity and completeness"
+        },
+        {
+          "source_references": [
+            "bank1.loan.amount",
+            "bank2.loan.issued_amount"
+          ],
+          "description": "Synonym conflict: loan amount field uses different naming ('amount' vs 'issued_amount')",
+          "resolution": "Mapped both to 'issued_amount' in unified schema, with bank1.amount representing the issued amount"
+        }
+      ]
+    },
+    {
+      "conflict_type": "Type",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.loan.amount",
+            "bank2.loan.issued_amount"
+          ],
+          "description": "Data type mismatch: bank1 uses 'number' for loan amount while bank2 uses 'integer' for issued_amount",
+          "resolution": "Standardized to 'number' type to accommodate decimal values in monetary amounts"
+        },
+        {
+          "source_references": [
+            "bank1.account.balance",
+            "bank2.account.account_balance"
+          ],
+          "description": "Data type mismatch: bank1 uses 'number' for balance while bank2 uses 'integer' for account_balance",
+          "resolution": "Standardized to 'number' type to support fractional monetary values"
+        },
+        {
+          "source_references": [
+            "bank2.transaction.amount"
+          ],
+          "description": "Incomplete type specification: transaction amount uses 'integer' which cannot represent fractional currency values",
+          "resolution": "Changed to 'number' type for consistency with other monetary fields"
+        },
+        {
+          "source_references": [
+            "bank2.customer_credit_card.card_limit"
+          ],
+          "description": "Incomplete type specification: card limit uses 'integer' which may not accommodate all limit values",
+          "resolution": "Changed to 'number' type for consistency with monetary amount handling"
+        },
+        {
+          "source_references": [
+            "bank2.loan_payment.amount"
+          ],
+          "description": "Incomplete type specification: payment amount uses 'integer' which cannot represent fractional payment values",
+          "resolution": "Changed to 'number' type to support precise monetary calculations"
+        }
+      ]
+    },
+    {
+      "conflict_type": "Data Semantic",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.loan.amount",
+            "bank2.loan.issued_amount",
+            "bank2.loan.remaining_amount"
+          ],
+          "description": "Semantic granularity difference: bank1 has a single amount field while bank2 distinguishes between issued and remaining amounts",
+          "resolution": "Created separate 'issued_amount' (mapped from both sources) and 'remaining_amount' (bank2 only) fields to capture full semantic detail"
+        },
+        {
+          "source_references": [
+            "bank1.bank.code",
+            "bank2.branch"
+          ],
+          "description": "Semantic scope difference: bank1 explicitly models bank entity while bank2 has no bank reference in branches",
+          "resolution": "Retained bank entity in unified schema with nullable bank_id in branch table to accommodate both models"
+        }
+      ]
+    },
+    {
+      "conflict_type": "Structure",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.bank",
+            "bank2.branch"
+          ],
+          "description": "Structural presence conflict: bank1 includes explicit bank entity while bank2 has no corresponding entity",
+          "resolution": "Included bank entity in unified schema to preserve bank1's hierarchy, with bank2 branches having null bank_id"
+        },
+        {
+          "source_references": [
+            "bank1.offer",
+            "bank1.maintain",
+            "bank1.availed_by",
+            "bank1.hold_by",
+            "bank2.borrower"
+          ],
+          "description": "Structural modeling conflict: bank1 uses dedicated bridge tables for relationships while bank2 uses direct foreign keys or entity tables",
+          "resolution": "Normalized to use direct foreign keys for one-to-many relationships and bridge tables for many-to-many relationships"
+        },
+        {
+          "source_references": [
+            "bank2.banker_info",
+            "bank2.transaction",
+            "bank2.customer_credit_card",
+            "bank2.loan_payment"
+          ],
+          "description": "Structural presence conflict: bank2 contains additional entities not present in bank1",
+          "resolution": "Included all unique entities from both schemas in unified model to preserve complete data coverage"
+        }
+      ]
+    },
+    {
+      "conflict_type": "Cardinality",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.hold_by",
+            "bank2.customer.account_id"
+          ],
+          "description": "Cardinality conflict: bank1 models customer-account as many-to-many via hold_by table while bank2 models it as many-to-one via customer.account_id foreign key",
+          "resolution": "Implemented as many-to-many relationship using customer_account bridge table to support both models"
+        },
+        {
+          "source_references": [
+            "bank1.availed_by",
+            "bank2.borrower"
+          ],
+          "description": "Cardinality representation conflict: bank1 uses direct many-to-many table (availed_by) while bank2 uses borrower entity with surrogate key",
+          "resolution": "Standardized to natural key bridge table (customer_loan) to represent the many-to-many relationship"
+        }
+      ]
+    },
+    {
+      "conflict_type": "Key",
+      "conflicts": [
+        {
+          "source_references": [
+            "bank1.branch.bank_code",
+            "bank2.branch"
+          ],
+          "description": "Foreign key presence conflict: bank1 branches reference bank via bank_code while bank2 branches have no bank reference",
+          "resolution": "Added nullable bank_id foreign key in branch table referencing bank.id, populated from bank1.branch.bank_code"
+        },
+        {
+          "source_references": [
+            "bank1.customer.custid",
+            "bank1.account.account_no",
+            "bank1.loan.loan_id",
+            "bank2.customer.customer_id",
+            "bank2.account.account_id",
+            "bank2.loan.loan_id"
+          ],
+          "description": "Primary key naming inconsistency across schemas for equivalent entities",
+          "resolution": "Standardized all primary keys to consistent naming convention (e.g., customer_id, account_id, loan_id) while maintaining semantic equivalence"
+        }
+      ]
+    }
+  ]
+}

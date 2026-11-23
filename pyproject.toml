@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aidi"
+version = "1.0.0"
+description = "AIDI (Agentic AI for Data Integration) — End-to-end LLM-powered schema integration, entity resolution, and data fusion pipeline"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Niccolò Mantegazza" },
+]
+requires-python = ">=3.10"
+dependencies = [
+    "google-genai",
+    "mistralai",
+    "pydantic",
+    "sentence-transformers",
+    "pandas",
+    "numpy",
+    "python-dotenv",
+    "mermaid-py",
+    "markdown",
+    "tabulate",
+    "pydantic-ai",
+    "jsonref",
+    "rich",
+    "inflect",
+    "pyarrow",
+    "recordlinkage",
+    "datasketch",
+    "gradio<6.11.0",
+    "pytest",
+    "pytest-asyncio",
+    "anyio",
+    "faker",
+    "scikit-learn>=1.7.2",
+    "valentine",
+]
+
+[project.scripts]
+entity-resolution = "entity_resolution.__main__:main"
+er-benchmark = "entity_resolution.benchmarking.runner:main"
+er-index-benchmark = "entity_resolution.benchmarking.index_runner:main"
+er-matching-benchmark = "entity_resolution.benchmarking.matching_runner:main"
+integration = "pipeline.cli:main"
+data-fusion = "data_fusion.cli:main"
+df-benchmark = "data_fusion.benchmarking.runner:main"
+schema-integration = "schema_integration.cli:main"
+si-alignment-benchmark = "schema_integration.benchmarking.alignment.runner:main"
+si-mapping-benchmark = "schema_integration.benchmarking.mapping.runner:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/entity_resolution", "src/shared", "src/pipeline", "src/data_fusion", "src/schema_integration"]
+
+[dependency-groups]
+dev = [
+    "playwright>=1.63.0",
+    "ruff>=0.16.7",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["data", ".venv"]

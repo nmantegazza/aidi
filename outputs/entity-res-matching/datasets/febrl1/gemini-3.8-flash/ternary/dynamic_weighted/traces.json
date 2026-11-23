@@ -1,0 +1,99 @@
+[
+  {
+    "iteration": 2,
+    "status": "SUCCESS",
+    "precision": 1.0,
+    "recall": 0.62,
+    "f1": 0.765432,
+    "tp": 310,
+    "fp": 0,
+    "fn": 190,
+    "potential_recall": 1.0,
+    "potential_f1": 1.0,
+    "unrecoverable_loss": 0.0,
+    "llm_workload_ratio": 0.1181592039800995,
+    "uncertain_purity": 1.0,
+    "uncertain_count": 190,
+    "execution_time_sec": 0.429647,
+    "peak_memory_mb": 1.028724,
+    "token_usage": {
+      "prompt_tokens": 3413,
+      "completion_tokens": 1866,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0,
+      "total_tokens": 5279,
+      "latency_seconds": 13.613083250000273,
+      "cost_usd": 0.00955725
+    },
+    "llm_interaction": {
+      "system_prompt": "\nYou are an expert Data Steward configuring the Scoring and Classification stage of an Entity Resolution pipeline.\n\nYou will receive comparative metadata for two source datasets (null %, uniqueness %, cardinality, average field length) AND a set of **Exemplar Candidate Matching Pairs** discovered via holistic zero-configuration row-level textual overlap.\n\nThese exemplar pairs represent high-probability matches of the same real-world entity across Source A and Source B. You MUST carefully inspect these aligned pairs to observe how identical entities are represented across sources on each column (e.g., whether they exhibit minor typos, abbreviations, unit shifts, or divergent taxonomies), and use these direct empirical observations to select the most effective comparison algorithm and weight.\n\nYour goal is to select the columns that best determine whether two records refer to the same real-world entity, assign appropriate comparison algorithms, and assign importance weights for aggregate similarity scoring.\n\n## Task 1 \u2014 Select Matching Columns and Assign Comparison Algorithms\n\n### Step 1a: Understand each column semantically\n- **Identity attributes** (names, emails, tax IDs, phone numbers) \u2192 these directly identify an entity.\n- **Descriptive attributes** (addresses, descriptions, categories) \u2192 these characterize the entity and can confirm or disambiguate matches.\n- **Contextual attributes** (dates, amounts, coordinates) \u2192 these add supporting evidence.\n- **System/internal attributes** (auto-increment IDs, UUIDs, row numbers) \u2192 exclude these.\n\n### Step 1b: Apply exclusion rules\nExclude columns with:\n- **Source-specific keys**: `id`, `uuid`, `row_id`, or internal auto-generated keys.\n- **High nulls**: > 50% null in either source.\n- **No variance**: cardinality = 1 in either source.\n\n### Comparison Algorithms & Explicit Trade-Offs\n\nSelect the algorithm that best fits each column's semantic type and empirical variation:\n\n- **`cosine` (Token / Word-Level TF-IDF Cosine Similarity)**:\n  - **Strengths**: Multi-word free text (avg length >= 20), long descriptions, multi-word titles, article abstracts. Completely order-invariant, resilient to token permutations, additions, or omissions of other words.\n  - **Weaknesses / Critical Limitations**:\n    - **Zero tolerance for sub-word typos or spelling variants**: Operates strictly at the word/token level. If a word has a typo, abbreviation, or hyphenation variation (e.g. \"MDR-7506\" vs \"MDR7506\", \"Smith\" vs \"Smyth\", \"ProBook\" vs \"Pro Book\"), word-level TF-IDF treats them as completely distinct orthogonal tokens with 0 similarity.\n    - **Fails on short strings, codes, and single words (< 20 chars)**: If a single-word name or brand has even a 1-character typo, the entire token match fails (score drops to 0.0). Always use `jarowinkler` or `damerau_levenshtein` instead!\n    - **Fails on divergent taxonomies**: Different vocabularies (e.g. \"electronics\" vs \"consumer audio\") yield 0.0 similarity.\n  - **When to use**: Multi-word descriptions, article abstracts, long titles, full addresses where individual words are standard dictionary words or consistently spelled tokens.\n\n- **`jarowinkler` (Prefix-Weighted Character Alignment)**:\n  - **Strengths**: Short strings (avg length < 20-30), single words, names, brands, cities. Extremely robust to typos, phonetic variants, or suffix truncations on short words.\n  - **Weaknesses**: Word order shifts, long multi-word text.\n  - **When to use**: Person/author names, brand names, cities, single-phrase titles, short labels.\n\n- **`damerau_levenshtein` (Edit Distance with Transpositions)**:\n  - **Strengths**: Preserves exact character positions and lengths; detects single digit/char flips or swaps.\n  - **Weaknesses**: Heavy penalty on length mismatches; useless on multi-word reordering.\n  - **When to use**: Alphanumeric codes, serial numbers, part codes, phone numbers, tax IDs, SKUs.\n\n- **`numeric_relative` (Percentage Difference)**:\n  - **Strengths**: Scale-invariant; measures relative gap (|x1 - x2| / (max(|x1|, |x2|) + eps)). A $10 difference on a $20 item is penalized heavily (50%), while a $10 difference on a $1,500 item is penalized minimally (0.7%).\n  - **Weaknesses**: Nonsensical on interval scales like calendar years.\n  - **When to use**: Prices, monetary amounts, weights, physical dimensions, measurements spanning multiple orders of magnitude.\n\n- **`numeric_linear` (Absolute Uniform Distance)**:\n  - **Strengths**: Measures uniform absolute distance |x1 - x2| regardless of baseline.\n  - **Weaknesses**: Distorts scale when values span orders of magnitude.\n  - **When to use**: Uniform interval scales where absolute difference is constant: calendar years, ages, page counts.\n\n- **`exact` (Strict Binary Identity)**:\n  - **Strengths**: Zero tolerance for false positives.\n  - **Weaknesses**: Zero tolerance for typos or format quirks.\n  - **When to use**: Standardized codes, status booleans, or discrete identifier/temporal keys where any discrepancy indicates distinct entities.\n\n- **`date` (Calendar Hierarchy Matcher)**:\n  - **When to use**: Full calendar dates, birth dates, timestamps where small day/month/year shifts should yield continuous similarity.\n\n### Step 1d: Assign importance weights (0.0 to 1.0)\n- **0.8-1.0**: Core identity attributes (emails, tax IDs, phone numbers).\n- **0.5-0.7**: Strong descriptive attributes (names, titles).\n- **0.2-0.4**: Supporting contextual attributes (dates, amounts).\n- **0.05-0.19**: Weak signals.\n\n## Task 2 \u2014 Structured Reasoning\n\nIn your `reasoning` field, follow this exact protocol:\n### Mandatory 4-Step Column Reasoning Protocol\n\nFor EACH evaluated column, your reasoning MUST follow this exact 4-step sequence:\n1. **Inspect Exemplar Candidate Matches**: Observe how matching entities actually differ on this column (typos, abbreviations, units, taxonomy).\n2. **Inspect Statistical Profile**: Check null percentage, cardinality, and avg length. Exclude if >50% null or cardinality = 1.\n3. **Algorithm Trade-off Evaluation**: Explicitly justify why the chosen algorithm fits the sample data and why competing alternatives would fail on this column.\n4. **Weight Justification**: Assign importance weight based on whether the attribute is core identity (0.8-1.0), primary descriptive (0.5-0.7), or auxiliary context (0.2-0.4).\n",
+      "user_prompt": "### 1. Dataset Comparison Summary\n| Metric | Source A | Source B |\n| :--- | :--- | :--- |\n| **Total Rows** | 500 | 500 |\n| **Column Count** | 11 | 11 |\n\n### 2. Exemplar Candidate Matches (High-Confidence Entity Pairs)\nThe following candidate pairs were discovered via holistic zero-configuration row-level textual overlap.\nInspect how field values, units, abbreviations, typos, and taxonomies vary across matching records:\n\n#### Candidate Match 1 (Overall Text Match Score: 0.97)\n| Column | Value in Source A | Value in Source B |\n| :--- | :--- | :--- |\n| rec_id | \"rec177org\" | \"rec177dup0\" |\n| given_name | \"thomas\" | \"guthridge\" |\n| surname | \"guthridge\" | \"thomas\" |\n| street_number | \"6.0\" | \"6.0\" |\n| address_1 | \"brunswick circuit\" | \"brunswick circuit\" |\n| address_2 | \"tintagel\" | \"tintagel\" |\n| suburb | \"avondale heights\" | \"avondale heights\" |\n| postcode | \"2073\" | \"2073\" |\n| state | \"vic\" | \"vic\" |\n| date_of_birth | \"19080625.0\" | \"19080625.0\" |\n| soc_sec_id | \"4255165\" | \"4255165\" |\n\n#### Candidate Match 2 (Overall Text Match Score: 0.97)\n| Column | Value in Source A | Value in Source B |\n| :--- | :--- | :--- |\n| rec_id | \"rec447org\" | \"rec447dup0\" |\n| given_name | \"lara\" | \"lara\" |\n| surname | \"matthews\" | \"matthews\" |\n| street_number | \"6.0\" | \"6.0\" |\n| address_1 | \"beaumaris street\" | \"sunforest therapy centre\" |\n| address_2 | \"sunforest therapy centre\" | \"beaumaris street\" |\n| suburb | \"the basin\" | \"the basin\" |\n| postcode | \"4179\" | \"4179\" |\n| state | \"nsw\" | \"nsw\" |\n| date_of_birth | \"19911006.0\" | \"19911006.0\" |\n| soc_sec_id | \"2164704\" | \"2164704\" |\n\n#### Candidate Match 3 (Overall Text Match Score: 0.96)\n| Column | Value in Source A | Value in Source B |\n| :--- | :--- | :--- |\n| rec_id | \"rec57org\" | \"rec57dup0\" |\n| given_name | \"dante\" | \"davilasanhdars\" |\n| surname | \"davilasanhdars\" | \"dante\" |\n| street_number | \"303.0\" | \"303.0\" |\n| address_1 | \"wild street\" | \"wild street\" |\n| address_2 | \"surama\" | \"surama\" |\n| suburb | \"avondale heights\" | \"avondale heights\" |\n| postcode | \"2029\" | \"2029\" |\n| state | \"wa\" | \"wa\" |\n| date_of_birth | \"19120206.0\" | \"19120206.0\" |\n| soc_sec_id | \"2609420\" | \"2609420\" |\n\n### 3. Integrated Column Profile (Comparison)\n| Column | Null % (A|B) | Unique % (A|B) | Card. (A|B) | Avg Len (A|B) | Aligned Match (Source A \u2194 Source B) |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **rec_id** | 0.0% | 0.0% | 100.0% | 100.0% | 500 | 500 | 8.78 | 9.78 | \"rec177org\" \u2194 \"rec177dup0\" |\n| **given_name** | 3.0% | 5.8% | 51.8% | 64.0% | 259 | 320 | 5.92 | 5.97 | \"thomas\" \u2194 \"guthridge\" |\n| **surname** | 1.2% | 2.4% | 68.0% | 77.4% | 340 | 387 | 6.57 | 6.57 | \"guthridge\" \u2194 \"thomas\" |\n| **street_number** | 2.8% | 6.2% | 29.2% | 28.2% | 146 | 141 | N/A | N/A | \"6.0\" \u2194 \"6.0\" |\n| **address_1** | 1.4% | 3.6% | 89.0% | 93.8% | 445 | 469 | 14.45 | 14.47 | \"brunswick circuit\" \u2194 \"brunswick circuit\" |\n| **address_2** | 7.4% | 15.6% | 82.2% | 80.2% | 411 | 401 | 11.87 | 12.09 | \"tintagel\" \u2194 \"tintagel\" |\n| **suburb** | 1.2% | 2.4% | 78.0% | 85.4% | 390 | 427 | 9.45 | 9.57 | \"avondale heights\" \u2194 \"avondale heights\" |\n| **postcode** | 0.0% | 0.0% | 77.8% | 81.8% | 389 | 409 | N/A | N/A | \"2073\" \u2194 \"2073\" |\n| **state** | 1.2% | 1.8% | 1.6% | 3.4% | 8 | 17 | 2.84 | 2.84 | \"vic\" \u2194 \"vic\" |\n| **date_of_birth** | 2.6% | 5.6% | 96.6% | 93.8% | 483 | 469 | N/A | N/A | \"19080625.0\" \u2194 \"19080625.0\" |\n| **soc_sec_id** | 0.0% | 0.0% | 100.0% | 100.0% | 500 | 500 | N/A | N/A | \"4255165\" \u2194 \"4255165\" |\n",
+      "response": {
+        "reasoning": "Mandatory 4-Step Column Reasoning Protocol:\n\n1. rec_id:\n- Step 1 (Exemplar Inspection): Exemplars show values like 'rec177org' vs 'rec177dup0'. These are synthetic record identifiers.\n- Step 2 (Statistical Profile): 0% null, 100% unique in both datasets.\n- Step 3 (Algorithm Trade-off): Excluded per Step 1b exclusion rules as it is a dataset-internal / source-specific key.\n- Step 4 (Weight Justification): Excluded (weight 0).\n\n2. soc_sec_id:\n- Step 1 (Exemplar Inspection): Candidates show exact matches ('4255165' \u2194 '4255165', '2164704' \u2194 '2164704'). Represents social security identifier.\n- Step 2 (Statistical Profile): 0.0% null, 100% uniqueness in both datasets. \n- Step 3 (Algorithm Trade-off): As an alphanumeric/numeric code/identifier, damerau_levenshtein is optimal to account for possible single-digit typos or digit transpositions, while heavily penalizing divergent digits.\n- Step 4 (Weight Justification): Core unique identity attribute. Assigned a high weight of 0.95.\n\n3. date_of_birth:\n- Step 1 (Exemplar Inspection): Stored as float/string formatted YYYYMMDD.0 ('19080625.0' \u2194 '19080625.0').\n- Step 2 (Statistical Profile): Low nulls (2.6% / 5.6%), high uniqueness (96.6% / 93.8%), 483 / 469 distinct values.\n- Step 3 (Algorithm Trade-off): Since dates are formatted consistently as fixed discrete strings with decimal notation ('YYYYMMDD.0'), 'exact' is best to avoid parsing issues with non-standard date formats or spurious linear distance scaling.\n- Step 4 (Weight Justification): Highly distinguishing demographic identifier; assigned weight of 0.75.\n\n4. surname:\n- Step 1 (Exemplar Inspection): Candidates show surname/given_name swaps in Candidate 1 ('guthridge' vs 'thomas') and Candidate 3, while Candidate 2 matches directly ('matthews' vs 'matthews').\n- Step 2 (Statistical Profile): 1.2% / 2.4% nulls, cardinality 340 / 387, avg length ~6.57.\n- Step 3 (Algorithm Trade-off): For short personal names (avg length < 10), jarowinkler is standard and handles prefix matching and minor typographical errors effectively. Cosine is unsuitable for short single-token names.\n- Step 4 (Weight Justification): Primary descriptive attribute for personal identity. Assigned weight of 0.65.\n\n5. given_name:\n- Step 1 (Exemplar Inspection): Candidates show name swaps and variations ('thomas' vs 'guthridge', 'dante' vs 'davilasanhdars', 'lara' vs 'lara').\n- Step 2 (Statistical Profile): 3.0% / 5.8% nulls, cardinality 259 / 320, avg length ~5.95.\n- Step 3 (Algorithm Trade-off): Short string name attribute. Jarowinkler is best suited for catching typos or phonetic variants.\n- Step 4 (Weight Justification): Primary descriptive attribute. Assigned weight of 0.60.\n\n6. address_1:\n- Step 1 (Exemplar Inspection): Candidate 1 and 3 match exactly ('brunswick circuit', 'wild street'); Candidate 2 shows swapped values with address_2 ('beaumaris street' vs 'sunforest therapy centre').\n- Step 2 (Statistical Profile): Low nulls (1.4% / 3.6%), high cardinality (445 / 469), avg length ~14.46.\n- Step 3 (Algorithm Trade-off): Multi-word street addresses. 'cosine' handles word-level matching, token rearrangements, and address token comparisons well without overly penalizing word order.\n- Step 4 (Weight Justification): Strong descriptive attribute for physical location. Assigned weight of 0.60.\n\n7. address_2:\n- Step 1 (Exemplar Inspection): Candidate 1 matches ('tintagel'), Candidate 2 shows swap with address_1 ('sunforest therapy centre' vs 'beaumaris street').\n- Step 2 (Statistical Profile): Moderate nulls (7.4% / 15.6%), high uniqueness/cardinality (411 / 401), avg length ~12.\n- Step 3 (Algorithm Trade-off): Multi-word text values. 'cosine' provides robust token-level similarity across multi-word address additions/secondary designations.\n- Step 4 (Weight Justification): Supporting descriptive attribute, but higher null rate and secondary address nature warrants a weight of 0.40.\n\n8. street_number:\n- Step 1 (Exemplar Inspection): Stored as float strings like '6.0', '303.0'. Aligned matches show exact parity.\n- Step 2 (Statistical Profile): Low nulls (2.8% / 6.2%), cardinality ~146.\n- Step 3 (Algorithm Trade-off): Street numbers are discrete addresses; 6 is fundamentally different from 7 or 60. 'exact' matching ensures exact street address alignment.\n- Step 4 (Weight Justification): Strong supporting contextual identifier for street address. Assigned weight of 0.50.\n\n9. suburb:\n- Step 1 (Exemplar Inspection): Candidate pairs show exact matches ('avondale heights', 'the basin').\n- Step 2 (Statistical Profile): Low nulls (1.2% / 2.4%), high cardinality (390 / 427), avg length ~9.5.\n- Step 3 (Algorithm Trade-off): Typically 1-2 words representing locality/suburb names. 'jarowinkler' handles typographical variations on short city/suburb names well.\n- Step 4 (Weight Justification): Strong geographic descriptive attribute. Assigned weight of 0.60.\n\n10. postcode:\n- Step 1 (Exemplar Inspection): 4-digit postal codes ('2073', '4179', '2029').\n- Step 2 (Statistical Profile): 0.0% nulls, cardinality 389 / 409.\n- Step 3 (Algorithm Trade-off): Standard discrete geographic code. 'exact' is best as postal codes are categorical and non-linear.\n- Step 4 (Weight Justification): Supporting geographic attribute. Assigned weight of 0.50.\n\n11. state:\n- Step 1 (Exemplar Inspection): State abbreviations ('vic', 'nsw', 'wa').\n- Step 2 (Statistical Profile): 1.2% / 1.8% nulls, very low cardinality (8 / 17), avg length 2.84.\n- Step 3 (Algorithm Trade-off): Short discrete codes. 'exact' is strictly necessary to avoid matching distinct state abbreviations (e.g. 'wa' vs 'sa').\n- Step 4 (Weight Justification): Broad geographic grouping with low cardinality. Assigned supporting weight of 0.30.",
+        "matching_columns": {
+          "state": {
+            "algorithm": "exact",
+            "weight": 0.3
+          },
+          "address_1": {
+            "algorithm": "cosine",
+            "weight": 0.6
+          },
+          "soc_sec_id": {
+            "algorithm": "damerau_levenshtein",
+            "weight": 0.95
+          },
+          "address_2": {
+            "algorithm": "cosine",
+            "weight": 0.4
+          },
+          "given_name": {
+            "algorithm": "jarowinkler",
+            "weight": 0.6
+          },
+          "surname": {
+            "algorithm": "jarowinkler",
+            "weight": 0.65
+          },
+          "date_of_birth": {
+            "algorithm": "exact",
+            "weight": 0.75
+          },
+          "suburb": {
+            "algorithm": "jarowinkler",
+            "weight": 0.6
+          },
+          "street_number": {
+            "algorithm": "exact",
+            "weight": 0.5
+          },
+          "postcode": {
+            "algorithm": "exact",
+            "weight": 0.5
+          }
+        }
+      },
+      "model_name": "gemini-3.8-flash",
+      "provider": "google-cloud",
+      "execution_time_seconds": 13.613083250000273,
+      "log_file_path": "outputs/logs/llm_calls/20260919_154038_273304_IndexingConfigWeightedScoreMatchingConfig.json"
+    },
+    "dynamic_thresholds": {
+      "mode": "dynamic_skew",
+      "alpha": 0.6,
+      "std_high": 0.043,
+      "lower_threshold": 0.5158,
+      "upper_threshold": 0.8719,
+      "centroids": [
+        0.2568,
+        0.7748,
+        0.9366
+      ],
+      "cluster_sizes": [
+        786,
+        163,
+        337
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "name": "fodors-zagats",
+  "domain": "restaurants",
+  "ground_truth_type": "exhaustive",
+  "table_a": {
+    "file": "fodors.csv",
+    "id_column": "id"
+  },
+  "table_b": {
+    "file": "zagats.csv",
+    "id_column": "id"
+  },
+  "ground_truth": {
+    "file": "matches_fodors_zagats.csv",
+    "column_a": "fodors_id",
+    "column_b": "zagats_id",
+    "label_column": null
+  },
+  "candidates": {
+    "file": "candidate_pairs.csv",
+    "column_a": "fodors_id",
+    "column_b": "zagats_id"
+  }
+}

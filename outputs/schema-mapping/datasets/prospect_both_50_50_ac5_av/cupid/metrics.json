@@ -1,0 +1,838 @@
+{
+  "baseline_name": "cupid",
+  "dataset_name": "prospect_both_50_50_ac5_av",
+  "domain": "TPC-DI",
+  "scenario": "Semantically-Joinable (Full Noise)",
+  "category": "single_table",
+  "schema_info": {
+    "dataset_name": "prospect_both_50_50_ac5_av",
+    "domain": "TPC-DI",
+    "scenario": "Semantically-Joinable (Full Noise)",
+    "category": "single_table",
+    "source_table": {
+      "table_name": "prospect_both_50_50_ac5_av_source",
+      "row_count": 7491,
+      "column_count": 16,
+      "columns": [
+        {
+          "name": "AgencyID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "AddressLine2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "City",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "NumberCars",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "PostalCode",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "MiddleInitial",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "NumberCreditCards",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "AddressLine1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Age",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Country",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Gender",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "State",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Phone",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "Income",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    "target_table": {
+      "table_name": "prospect_both_50_50_ac5_av_target",
+      "row_count": 11236,
+      "column_count": 17,
+      "columns": [
+        {
+          "name": "prospect_gncd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_ddrssln2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_ct",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_nmbrcrs",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_pstlcd",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_mddlntl",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_nmbrcrdtcrds",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_ddrssln1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_frstnm",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_g",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_cntr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_nmbrchldrn",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_mrtlstts",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_crdtrtng",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_wnrrntflg",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_mplr",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prospect_ntwrth",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    "source_tables": [
+      {
+        "table_name": "prospect_both_50_50_ac5_av_source",
+        "row_count": 7491,
+        "column_count": 16,
+        "columns": [
+          {
+            "name": "AgencyID",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "AddressLine2",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "City",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "NumberCars",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "PostalCode",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "MiddleInitial",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "NumberCreditCards",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "AddressLine1",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "FirstName",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Age",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Country",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "LastName",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Gender",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "State",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Phone",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "Income",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "target_tables": [
+      {
+        "table_name": "prospect_both_50_50_ac5_av_target",
+        "row_count": 11236,
+        "column_count": 17,
+        "columns": [
+          {
+            "name": "prospect_gncd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_ddrssln2",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_ct",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_nmbrcrs",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_pstlcd",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_mddlntl",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_nmbrcrdtcrds",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_ddrssln1",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_frstnm",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_g",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_cntr",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_nmbrchldrn",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_mrtlstts",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_crdtrtng",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_wnrrntflg",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_mplr",
+            "type": "string",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prospect_ntwrth",
+            "type": "number",
+            "constraints": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "ground_truth_pairs": [
+      [
+        "AddressLine1",
+        "prospect_ddrssln1"
+      ],
+      [
+        "AddressLine2",
+        "prospect_ddrssln2"
+      ],
+      [
+        "Age",
+        "prospect_g"
+      ],
+      [
+        "AgencyID",
+        "prospect_gncd"
+      ],
+      [
+        "City",
+        "prospect_ct"
+      ],
+      [
+        "Country",
+        "prospect_cntr"
+      ],
+      [
+        "FirstName",
+        "prospect_frstnm"
+      ],
+      [
+        "MiddleInitial",
+        "prospect_mddlntl"
+      ],
+      [
+        "NumberCars",
+        "prospect_nmbrcrs"
+      ],
+      [
+        "NumberCreditCards",
+        "prospect_nmbrcrdtcrds"
+      ],
+      [
+        "PostalCode",
+        "prospect_pstlcd"
+      ]
+    ]
+  },
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "true_positives": 0,
+    "false_positives": 1,
+    "false_negatives": 11,
+    "predicted_pairs_count": 1,
+    "gold_pairs_count": 11,
+    "tp_pairs": [],
+    "fp_pairs": [
+      [
+        "State",
+        "prospect_ct"
+      ]
+    ],
+    "fn_pairs": [
+      [
+        "AddressLine1",
+        "prospect_ddrssln1"
+      ],
+      [
+        "AddressLine2",
+        "prospect_ddrssln2"
+      ],
+      [
+        "Age",
+        "prospect_g"
+      ],
+      [
+        "AgencyID",
+        "prospect_gncd"
+      ],
+      [
+        "City",
+        "prospect_ct"
+      ],
+      [
+        "Country",
+        "prospect_cntr"
+      ],
+      [
+        "FirstName",
+        "prospect_frstnm"
+      ],
+      [
+        "MiddleInitial",
+        "prospect_mddlntl"
+      ],
+      [
+        "NumberCars",
+        "prospect_nmbrcrs"
+      ],
+      [
+        "NumberCreditCards",
+        "prospect_nmbrcrdtcrds"
+      ],
+      [
+        "PostalCode",
+        "prospect_pstlcd"
+      ]
+    ]
+  },
+  "latency_seconds": 0.146,
+  "predicted_pairs": [
+    [
+      "State",
+      "prospect_ct"
+    ]
+  ],
+  "tp_pairs": [],
+  "fp_pairs": [
+    [
+      "State",
+      "prospect_ct"
+    ]
+  ],
+  "fn_pairs": [
+    [
+      "AddressLine1",
+      "prospect_ddrssln1"
+    ],
+    [
+      "AddressLine2",
+      "prospect_ddrssln2"
+    ],
+    [
+      "Age",
+      "prospect_g"
+    ],
+    [
+      "AgencyID",
+      "prospect_gncd"
+    ],
+    [
+      "City",
+      "prospect_ct"
+    ],
+    [
+      "Country",
+      "prospect_cntr"
+    ],
+    [
+      "FirstName",
+      "prospect_frstnm"
+    ],
+    [
+      "MiddleInitial",
+      "prospect_mddlntl"
+    ],
+    [
+      "NumberCars",
+      "prospect_nmbrcrs"
+    ],
+    [
+      "NumberCreditCards",
+      "prospect_nmbrcrdtcrds"
+    ],
+    [
+      "PostalCode",
+      "prospect_pstlcd"
+    ]
+  ],
+  "field_inspections": [
+    {
+      "target_column": "prospect_gncd",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AgencyID"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_ddrssln2",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AddressLine2"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_ct",
+      "target_type": "string",
+      "expected_source_columns": [
+        "City"
+      ],
+      "predicted_source_columns": [
+        "State"
+      ],
+      "status": "MISMATCH (FP)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_nmbrcrs",
+      "target_type": "number",
+      "expected_source_columns": [
+        "NumberCars"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_pstlcd",
+      "target_type": "string",
+      "expected_source_columns": [
+        "PostalCode"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_mddlntl",
+      "target_type": "string",
+      "expected_source_columns": [
+        "MiddleInitial"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_nmbrcrdtcrds",
+      "target_type": "number",
+      "expected_source_columns": [
+        "NumberCreditCards"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_ddrssln1",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AddressLine1"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_frstnm",
+      "target_type": "string",
+      "expected_source_columns": [
+        "FirstName"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_g",
+      "target_type": "number",
+      "expected_source_columns": [
+        "Age"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_cntr",
+      "target_type": "string",
+      "expected_source_columns": [
+        "Country"
+      ],
+      "predicted_source_columns": [],
+      "status": "MISSED (FN)",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_nmbrchldrn",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_mrtlstts",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_crdtrtng",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_wnrrntflg",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_mplr",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_ntwrth",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    }
+  ]
+}

@@ -1,0 +1,4764 @@
+{
+  "dataset_name": "synthea-omop",
+  "domain": "Clinical & Healthcare",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "source_table": {
+    "table_name": "allergies",
+    "row_count": 0,
+    "column_count": 6,
+    "columns": [
+      {
+        "name": "code",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "encounter",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "patient",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "start",
+        "type": "date",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "stop",
+        "type": "date",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "target_table": {
+    "table_name": "care_site",
+    "row_count": 0,
+    "column_count": 6,
+    "columns": [
+      {
+        "name": "care_site_id",
+        "type": "string",
+        "constraints": {
+          "required": true
+        }
+      },
+      {
+        "name": "care_site_name",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "care_site_source_value",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "location_id",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "place_of_service_concept_id",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "place_of_service_source_value",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "source_tables": [
+    {
+      "table_name": "allergies",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "start",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "careplans",
+      "row_count": 0,
+      "column_count": 9,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasoncode",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasondescription",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "start",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "conditions",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "start",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "encounters",
+      "row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounterclass",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasoncode",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasondescription",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "start",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "imaging_studies",
+      "row_count": 0,
+      "column_count": 10,
+      "columns": [
+        {
+          "name": "body site code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "body site description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "modality code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "modality description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sop code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sop description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "immunizations",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "medications",
+      "row_count": 0,
+      "column_count": 9,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasoncode",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasondescription",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "start",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "observations",
+      "row_count": 0,
+      "column_count": 8,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "type",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "units",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "organizations",
+      "row_count": 0,
+      "column_count": 8,
+      "columns": [
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "utilization",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "zip",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "patients",
+      "row_count": 0,
+      "column_count": 20,
+      "columns": [
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "birthdate",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "birthplace",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "deathdate",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drivers",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "first",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "last",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "maiden",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "marital",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "passport",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "race",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ssn",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "zip",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "procedures",
+      "row_count": 0,
+      "column_count": 8,
+      "columns": [
+        {
+          "name": "code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasoncode",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reasondescription",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "providers",
+      "row_count": 0,
+      "column_count": 10,
+      "columns": [
+        {
+          "name": "address",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "organization",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "speciality",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "utilization",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "zip",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "target_tables": [
+    {
+      "table_name": "care_site",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "care_site_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "care_site_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "care_site_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "place_of_service_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "place_of_service_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "cdm_source",
+      "row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "cdm_etl_reference",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_holder",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_release_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_source_abbreviation",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_source_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_version",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cdm_version_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_documentation_reference",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_release_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "vocabulary_version",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "cohort",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "cohort_definition_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "subject_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "cohort_definition",
+      "row_count": 0,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "cohort_definition_description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_definition_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_definition_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_definition_syntax",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cohort_initiation_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "definition_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "subject_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "concept",
+      "row_count": 0,
+      "column_count": 10,
+      "columns": [
+        {
+          "name": "concept_class_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "concept_code",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "concept_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "concept_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "domain_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "invalid_reason",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "standard_concept",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "vocabulary_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "concept_ancestor",
+      "row_count": 0,
+      "column_count": 4,
+      "columns": [
+        {
+          "name": "ancestor_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "descendant_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "max_levels_of_separation",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "min_levels_of_separation",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "concept_class",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "concept_class_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "concept_class_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "concept_class_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "concept_relationship",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "concept_id_1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "concept_id_2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "invalid_reason",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "relationship_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "concept_synonym",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "concept_synonym_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "language_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "condition_era",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "condition_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_era_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_era_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_era_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_occurrence_count",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "condition_occurrence",
+      "row_count": 0,
+      "column_count": 16,
+      "columns": [
+        {
+          "name": "condition_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_status_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_status_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "condition_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop_reason",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "cost",
+      "row_count": 0,
+      "column_count": 22,
+      "columns": [
+        {
+          "name": "amount_allowed",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost_domain_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost_event_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cost_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "currency_concept_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drg_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drg_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_by_patient",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_by_payer",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_by_primary",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_dispensing_fee",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_ingredient_cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_patient_coinsurance",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_patient_copay",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "paid_patient_deductible",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_plan_period_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "revenue_code_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "revenue_code_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "total_charge",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "total_cost",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "total_paid",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "death",
+      "row_count": 0,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "cause_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cause_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cause_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "death_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "death_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "death_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "device_exposure",
+      "row_count": 0,
+      "column_count": 19,
+      "columns": [
+        {
+          "name": "device_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_exposure_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_exposure_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_exposure_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_exposure_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_exposure_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "device_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "production_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unique_device_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "domain",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "domain_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "domain_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "domain_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "dose_era",
+      "row_count": 0,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "dose_era_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "dose_era_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "dose_era_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "dose_value",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "drug_era",
+      "row_count": 0,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "drug_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_era_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_era_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_era_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_count",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gap_days",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "drug_exposure",
+      "row_count": 0,
+      "column_count": 23,
+      "columns": [
+        {
+          "name": "days_supply",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "dose_unit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_exposure_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "lot_number",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "refills",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "route_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "route_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sig",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop_reason",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "verbatim_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "drug_strength",
+      "row_count": 0,
+      "column_count": 12,
+      "columns": [
+        {
+          "name": "amount_unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "amount_value",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "box_size",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "denominator_unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "denominator_value",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "drug_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ingredient_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "invalid_reason",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "numerator_unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "numerator_value",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "episode",
+      "row_count": 0,
+      "column_count": 13,
+      "columns": [
+        {
+          "name": "episode_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "episode_number",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_object_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_parent_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "episode_event",
+      "row_count": 0,
+      "column_count": 3,
+      "columns": [
+        {
+          "name": "episode_event_field_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "episode_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "fact_relationship",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "domain_concept_id_1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "domain_concept_id_2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "fact_id_1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "fact_id_2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "relationship_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "location",
+      "row_count": 0,
+      "column_count": 12,
+      "columns": [
+        {
+          "name": "address_1",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "address_2",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "country_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "country_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "county",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "latitude",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "location_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "longitude",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "zip",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "measurement",
+      "row_count": 0,
+      "column_count": 23,
+      "columns": [
+        {
+          "name": "meas_event_field_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_event_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_time",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "measurement_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "operator_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "range_high",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "range_low",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_number",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "metadata",
+      "row_count": 0,
+      "column_count": 9,
+      "columns": [
+        {
+          "name": "metadata_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "metadata_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "metadata_datetime",
+          "type": "datetime",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "metadata_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "metadata_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_number",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_string",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "note",
+      "row_count": 0,
+      "column_count": 16,
+      "columns": [
+        {
+          "name": "encoding_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "language_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_class_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_event_field_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_event_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_text",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_title",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "note_nlp",
+      "row_count": 0,
+      "column_count": 14,
+      "columns": [
+        {
+          "name": "lexical_variant",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "nlp_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "nlp_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "nlp_system",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_nlp_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_nlp_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "note_nlp_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "offset",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "section_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "snippet",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "term_exists",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "term_modifiers",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "term_temporal",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "observation",
+      "row_count": 0,
+      "column_count": 21,
+      "columns": [
+        {
+          "name": "obs_event_field_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_event_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "qualifier_concept_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "qualifier_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_number",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_as_string",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "value_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "observation_period",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "observation_period_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_period_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "observation_period_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "period_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "payer_plan_period",
+      "row_count": 0,
+      "column_count": 17,
+      "columns": [
+        {
+          "name": "family_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_plan_period_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_plan_period_id",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_plan_period_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "payer_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "plan_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "plan_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "plan_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sponsor_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sponsor_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "sponsor_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop_reason_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop_reason_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "stop_reason_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "person",
+      "row_count": 0,
+      "column_count": 18,
+      "columns": [
+        {
+          "name": "birth_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "care_site_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "day_of_birth",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicity_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicity_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicity_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "month_of_birth",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "person_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "race_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "race_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "race_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "year_of_birth",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "procedure_occurrence",
+      "row_count": 0,
+      "column_count": 16,
+      "columns": [
+        {
+          "name": "modifier_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "modifier_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "procedure_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "provider",
+      "row_count": 0,
+      "column_count": 13,
+      "columns": [
+        {
+          "name": "care_site_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "dea",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "gender_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "npi",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "provider_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specialty_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specialty_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specialty_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "year_of_birth",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "relationship",
+      "row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "defines_ancestry",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "is_hierarchical",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "relationship_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "relationship_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "relationship_name",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "reverse_relationship_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "source_to_concept_map",
+      "row_count": 0,
+      "column_count": 9,
+      "columns": [
+        {
+          "name": "invalid_reason",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_code",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_code_description",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_concept_id",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "source_vocabulary_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "target_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "target_vocabulary_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "valid_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "specimen",
+      "row_count": 0,
+      "column_count": 15,
+      "columns": [
+        {
+          "name": "anatomic_site_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "anatomic_site_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "disease_status_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "disease_status_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_source_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "specimen_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_concept_id",
+          "type": "number",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "unit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "visit_detail",
+      "row_count": 0,
+      "column_count": 19,
+      "columns": [
+        {
+          "name": "admitted_from_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "admitted_from_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "care_site_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "discharged_to_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "discharged_to_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "preceding_visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "visit_detail_parent_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_detail_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "visit_occurrence",
+      "row_count": 0,
+      "column_count": 17,
+      "columns": [
+        {
+          "name": "admitted_from_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "admitted_from_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "care_site_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "discharged_to_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "discharged_to_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "person_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "preceding_visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "provider_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_end_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_end_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_occurrence_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "visit_source_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_source_value",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_start_date",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_start_datetime",
+          "type": "date",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "visit_type_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "vocabulary",
+      "row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "vocabulary_concept_id",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "vocabulary_id",
+          "type": "string",
+          "constraints": {
+            "required": true
+          }
+        },
+        {
+          "name": "vocabulary_name",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "vocabulary_reference",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "vocabulary_version",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "ground_truth_pairs": [
+    [
+      "allergies.code",
+      "observation.observation_concept_id"
+    ],
+    [
+      "allergies.code",
+      "observation.observation_source_concept_id"
+    ],
+    [
+      "allergies.code",
+      "observation.observation_source_value"
+    ],
+    [
+      "allergies.encounter",
+      "observation.visit_occurrence_id"
+    ],
+    [
+      "allergies.patient",
+      "observation.person_id"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_date"
+    ],
+    [
+      "allergies.start",
+      "observation.observation_datetime"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_concept_id"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_source_concept_id"
+    ],
+    [
+      "conditions.code",
+      "condition_occurrence.condition_source_value"
+    ],
+    [
+      "conditions.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_source_concept_id"
+    ],
+    [
+      "conditions.code",
+      "observation.observation_source_value"
+    ],
+    [
+      "conditions.encounter",
+      "condition_occurrence.visit_detail_id"
+    ],
+    [
+      "conditions.encounter",
+      "condition_occurrence.visit_occurrence_id"
+    ],
+    [
+      "conditions.encounter",
+      "observation.visit_occurrence_id"
+    ],
+    [
+      "conditions.patient",
+      "condition_occurrence.person_id"
+    ],
+    [
+      "conditions.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "conditions.patient",
+      "observation.person_id"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_date"
+    ],
+    [
+      "conditions.start",
+      "condition_occurrence.condition_start_datetime"
+    ],
+    [
+      "conditions.start",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "conditions.start",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "conditions.start",
+      "observation.observation_date"
+    ],
+    [
+      "conditions.start",
+      "observation.observation_datetime"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_date"
+    ],
+    [
+      "conditions.stop",
+      "condition_occurrence.condition_end_datetime"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_detail.visit_detail_concept_id"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_detail.visit_detail_source_value"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_occurrence.visit_concept_id"
+    ],
+    [
+      "encounters.encounterclass",
+      "visit_occurrence.visit_source_value"
+    ],
+    [
+      "encounters.patient",
+      "observation_period.person_id"
+    ],
+    [
+      "encounters.patient",
+      "visit_detail.person_id"
+    ],
+    [
+      "encounters.patient",
+      "visit_occurrence.person_id"
+    ],
+    [
+      "encounters.provider",
+      "provider.provider_id"
+    ],
+    [
+      "encounters.provider",
+      "visit_detail.provider_id"
+    ],
+    [
+      "encounters.start",
+      "observation_period.observation_period_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_detail.visit_detail_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_detail.visit_detail_start_datetime"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_date"
+    ],
+    [
+      "encounters.start",
+      "visit_occurrence.visit_start_datetime"
+    ],
+    [
+      "encounters.stop",
+      "observation_period.observation_period_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_detail.visit_detail_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_detail.visit_detail_end_datetime"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_date"
+    ],
+    [
+      "encounters.stop",
+      "visit_occurrence.visit_end_datetime"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_source_concept_id"
+    ],
+    [
+      "immunizations.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "immunizations.date",
+      "drug_exposure.verbatim_end_date"
+    ],
+    [
+      "immunizations.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "immunizations.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_concept_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_source_concept_id"
+    ],
+    [
+      "medications.code",
+      "drug_exposure.drug_source_value"
+    ],
+    [
+      "medications.encounter",
+      "drug_exposure.visit_occurrence_id"
+    ],
+    [
+      "medications.patient",
+      "drug_exposure.person_id"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.days_supply"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_date"
+    ],
+    [
+      "medications.start",
+      "drug_exposure.drug_exposure_start_datetime"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.days_supply"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_date"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.drug_exposure_end_datetime"
+    ],
+    [
+      "medications.stop",
+      "drug_exposure.verbatim_end_date"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_concept_id"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_source_concept_id"
+    ],
+    [
+      "observations.code",
+      "measurement.measurement_source_value"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_date"
+    ],
+    [
+      "observations.date",
+      "measurement.measurement_datetime"
+    ],
+    [
+      "observations.encounter",
+      "measurement.visit_occurrence_id"
+    ],
+    [
+      "observations.patient",
+      "measurement.person_id"
+    ],
+    [
+      "observations.units",
+      "measurement.unit_source_value"
+    ],
+    [
+      "observations.value",
+      "measurement.value_as_number"
+    ],
+    [
+      "observations.value",
+      "measurement.value_source_value"
+    ],
+    [
+      "organizations.id",
+      "care_site.care_site_source_value"
+    ],
+    [
+      "organizations.name",
+      "care_site.care_site_name"
+    ],
+    [
+      "patients.birthdate",
+      "person.birth_datetime"
+    ],
+    [
+      "patients.birthdate",
+      "person.day_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.month_of_birth"
+    ],
+    [
+      "patients.birthdate",
+      "person.year_of_birth"
+    ],
+    [
+      "patients.birthplace",
+      "location.city"
+    ],
+    [
+      "patients.city",
+      "location.city"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_date"
+    ],
+    [
+      "patients.deathdate",
+      "death.death_datetime"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_concept_id"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_source_concept_id"
+    ],
+    [
+      "patients.ethnicity",
+      "person.ethnicity_source_value"
+    ],
+    [
+      "patients.gender",
+      "person.gender_concept_id"
+    ],
+    [
+      "patients.gender",
+      "person.gender_source_value"
+    ],
+    [
+      "patients.id",
+      "person.person_source_value"
+    ],
+    [
+      "patients.race",
+      "person.race_concept_id"
+    ],
+    [
+      "patients.race",
+      "person.race_source_concept_id"
+    ],
+    [
+      "patients.race",
+      "person.race_source_value"
+    ],
+    [
+      "patients.state",
+      "location.state"
+    ],
+    [
+      "patients.zip",
+      "location.location_source_value"
+    ],
+    [
+      "patients.zip",
+      "location.zip"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_concept_id"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_source_concept_id"
+    ],
+    [
+      "procedures.code",
+      "measurement.measurement_source_value"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_concept_id"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_source_concept_id"
+    ],
+    [
+      "procedures.code",
+      "procedure_occurrence.procedure_source_value"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_date"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_datetime"
+    ],
+    [
+      "procedures.date",
+      "measurement.measurement_time"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_date"
+    ],
+    [
+      "procedures.date",
+      "procedure_occurrence.procedure_datetime"
+    ],
+    [
+      "procedures.encounter",
+      "measurement.visit_occurrence_id"
+    ],
+    [
+      "procedures.encounter",
+      "procedure_occurrence.visit_occurrence_id"
+    ],
+    [
+      "procedures.patient",
+      "measurement.person_id"
+    ],
+    [
+      "procedures.patient",
+      "procedure_occurrence.person_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_concept_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_source_concept_id"
+    ],
+    [
+      "providers.gender",
+      "provider.gender_source_value"
+    ],
+    [
+      "providers.id",
+      "provider.provider_source_value"
+    ],
+    [
+      "providers.name",
+      "provider.provider_name"
+    ],
+    [
+      "providers.specialty",
+      "provider.specialty_source_value"
+    ]
+  ]
+}

@@ -1,0 +1,750 @@
+{
+  "iteration_index": 2,
+  "category": "single_table",
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "true_positives": 16,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "predicted_pairs_count": 16,
+    "gold_pairs_count": 16,
+    "tp_pairs": [
+      [
+        "assay_cell_type",
+        "ss_cll_tp"
+      ],
+      [
+        "assay_id",
+        "ss_d"
+      ],
+      [
+        "assay_strain",
+        "ss_strn"
+      ],
+      [
+        "assay_subcellular_fraction",
+        "ss_sbclllr_frctn"
+      ],
+      [
+        "assay_test_type",
+        "ss_tst_tp"
+      ],
+      [
+        "assay_tissue",
+        "ss_tss"
+      ],
+      [
+        "bao_format",
+        "b_frmt"
+      ],
+      [
+        "cell_id",
+        "cll_d"
+      ],
+      [
+        "chembl_id",
+        "chmbl_d"
+      ],
+      [
+        "curated_by",
+        "crtd_b"
+      ],
+      [
+        "doc_id",
+        "dc_d"
+      ],
+      [
+        "relationship_type",
+        "rltnshp_tp"
+      ],
+      [
+        "src_id",
+        "src_d"
+      ],
+      [
+        "tid",
+        "td"
+      ],
+      [
+        "tissue_id",
+        "tss_d"
+      ],
+      [
+        "variant_id",
+        "vrnt_d"
+      ]
+    ],
+    "fp_pairs": [],
+    "fn_pairs": []
+  },
+  "latency_seconds": 18.631,
+  "token_usage": {
+    "prompt_tokens": 3408,
+    "completion_tokens": 1623,
+    "cached_tokens": 0,
+    "reasoning_tokens": 0,
+    "total_tokens": 5031,
+    "latency_seconds": 18.631,
+    "cost_usd": 0.00864225
+  },
+  "predicted_pairs": [
+    [
+      "assay_cell_type",
+      "ss_cll_tp"
+    ],
+    [
+      "assay_id",
+      "ss_d"
+    ],
+    [
+      "assay_strain",
+      "ss_strn"
+    ],
+    [
+      "assay_subcellular_fraction",
+      "ss_sbclllr_frctn"
+    ],
+    [
+      "assay_test_type",
+      "ss_tst_tp"
+    ],
+    [
+      "assay_tissue",
+      "ss_tss"
+    ],
+    [
+      "bao_format",
+      "b_frmt"
+    ],
+    [
+      "cell_id",
+      "cll_d"
+    ],
+    [
+      "chembl_id",
+      "chmbl_d"
+    ],
+    [
+      "curated_by",
+      "crtd_b"
+    ],
+    [
+      "doc_id",
+      "dc_d"
+    ],
+    [
+      "relationship_type",
+      "rltnshp_tp"
+    ],
+    [
+      "src_id",
+      "src_d"
+    ],
+    [
+      "tid",
+      "td"
+    ],
+    [
+      "tissue_id",
+      "tss_d"
+    ],
+    [
+      "variant_id",
+      "vrnt_d"
+    ]
+  ],
+  "tp_pairs": [
+    [
+      "assay_cell_type",
+      "ss_cll_tp"
+    ],
+    [
+      "assay_id",
+      "ss_d"
+    ],
+    [
+      "assay_strain",
+      "ss_strn"
+    ],
+    [
+      "assay_subcellular_fraction",
+      "ss_sbclllr_frctn"
+    ],
+    [
+      "assay_test_type",
+      "ss_tst_tp"
+    ],
+    [
+      "assay_tissue",
+      "ss_tss"
+    ],
+    [
+      "bao_format",
+      "b_frmt"
+    ],
+    [
+      "cell_id",
+      "cll_d"
+    ],
+    [
+      "chembl_id",
+      "chmbl_d"
+    ],
+    [
+      "curated_by",
+      "crtd_b"
+    ],
+    [
+      "doc_id",
+      "dc_d"
+    ],
+    [
+      "relationship_type",
+      "rltnshp_tp"
+    ],
+    [
+      "src_id",
+      "src_d"
+    ],
+    [
+      "tid",
+      "td"
+    ],
+    [
+      "tissue_id",
+      "tss_d"
+    ],
+    [
+      "variant_id",
+      "vrnt_d"
+    ]
+  ],
+  "fp_pairs": [],
+  "fn_pairs": [],
+  "transformation_counts": {
+    "direct_copy": 16
+  },
+  "mapping_report": {
+    "rules": [
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "tss_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "tissue_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "b_frmt",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "bao_format"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "vrnt_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "variant_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "rltnshp_tp",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "relationship_type"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "crtd_b",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "curated_by"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_strn",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_strain"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_cll_tp",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_cell_type"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "cll_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "cell_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "src_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "src_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_tss",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_tissue"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "td",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "tid"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_tst_tp",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_test_type"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "dc_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "doc_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "ss_sbclllr_frctn",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "assay_subcellular_fraction"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "assays_both_0_70_ac3_av_target",
+        "target_column": "chmbl_d",
+        "source_label": "assays_both_0_70_ac3_av_source",
+        "source_table": "assays_both_0_70_ac3_av_source",
+        "source_columns": [
+          "chembl_id"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      }
+    ]
+  },
+  "field_inspections": [
+    {
+      "target_column": "ss_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "assay_id"
+      ],
+      "predicted_source_columns": [
+        "assay_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "tss_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "tissue_id"
+      ],
+      "predicted_source_columns": [
+        "tissue_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "b_frmt",
+      "target_type": "string",
+      "expected_source_columns": [
+        "bao_format"
+      ],
+      "predicted_source_columns": [
+        "bao_format"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "vrnt_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "variant_id"
+      ],
+      "predicted_source_columns": [
+        "variant_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "rltnshp_tp",
+      "target_type": "string",
+      "expected_source_columns": [
+        "relationship_type"
+      ],
+      "predicted_source_columns": [
+        "relationship_type"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "crtd_b",
+      "target_type": "string",
+      "expected_source_columns": [
+        "curated_by"
+      ],
+      "predicted_source_columns": [
+        "curated_by"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_strn",
+      "target_type": "string",
+      "expected_source_columns": [
+        "assay_strain"
+      ],
+      "predicted_source_columns": [
+        "assay_strain"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_cll_tp",
+      "target_type": "string",
+      "expected_source_columns": [
+        "assay_cell_type"
+      ],
+      "predicted_source_columns": [
+        "assay_cell_type"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "cll_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "cell_id"
+      ],
+      "predicted_source_columns": [
+        "cell_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "src_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "src_id"
+      ],
+      "predicted_source_columns": [
+        "src_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_tss",
+      "target_type": "string",
+      "expected_source_columns": [
+        "assay_tissue"
+      ],
+      "predicted_source_columns": [
+        "assay_tissue"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "td",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "tid"
+      ],
+      "predicted_source_columns": [
+        "tid"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_tst_tp",
+      "target_type": "string",
+      "expected_source_columns": [
+        "assay_test_type"
+      ],
+      "predicted_source_columns": [
+        "assay_test_type"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "dc_d",
+      "target_type": "integer",
+      "expected_source_columns": [
+        "doc_id"
+      ],
+      "predicted_source_columns": [
+        "doc_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_sbclllr_frctn",
+      "target_type": "string",
+      "expected_source_columns": [
+        "assay_subcellular_fraction"
+      ],
+      "predicted_source_columns": [
+        "assay_subcellular_fraction"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "chmbl_d",
+      "target_type": "string",
+      "expected_source_columns": [
+        "chembl_id"
+      ],
+      "predicted_source_columns": [
+        "chembl_id"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "ss_rgnsm",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "ss_tx_d",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "cnfdnc_scr",
+      "target_type": "integer",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "src_ss_d",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    }
+  ],
+  "retry_count": 0,
+  "retry_log": [],
+  "error_message": null
+}

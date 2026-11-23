@@ -1,0 +1,13 @@
+dataset,domain,model,status,success_count,failure_count,failed_iterations,completeness,structural_integrity,intra_table_uniqueness,clones_detected,latency_sec,prompt_tokens,completion_tokens,total_tokens
+bank1-bank2,Financial & Banking,gemini-3.8-flash,SUCCESS (3/3),3,0,none,0.9206,0.8261,0.991933,2,22.357,22677,12672,35349
+imdb-sakila,Media & Entertainment,gemini-3.8-flash,SUCCESS (3/3),3,0,none,0.974133,0.9885,1.0,0,42.356667,36669,25269,61938
+synthea-omop,Clinical & Healthcare,gemini-3.8-flash,SUCCESS (3/3),3,0,none,0.429067,0.111733,0.970667,10,315.691667,157920,71540,229460
+bank1-bank2,Financial & Banking,gpt-5.6-sol,SUCCESS (3/3),3,0,none,1.0,1.0,0.9902,1,60.085,19218,18308,37526
+imdb-sakila,Media & Entertainment,gpt-5.6-sol,SUCCESS (3/3),3,0,none,1.0,1.0,0.9997,1,83.107333,32127,28135,60262
+synthea-omop,Clinical & Healthcare,gpt-5.6-sol,SUCCESS (3/3),3,0,none,0.524267,0.359867,0.989667,6,105.603667,137649,41837,179486
+bank1-bank2,Financial & Banking,mistral-medium-latest,SUCCESS (3/3),3,0,none,0.915333,0.840567,1.0,0,471.575,81563,74130,155693
+imdb-sakila,Media & Entertainment,mistral-medium-latest,SUCCESS (3/3),3,0,none,0.7158,0.4507,1.0,0,279.675667,114551,145937,260488
+synthea-omop,Clinical & Healthcare,mistral-medium-latest,PARTIAL (2/3),2,1,2,0.6151,0.52755,0.9463,35,268.173,95634,96412,192046
+bank1-bank2,Financial & Banking,deepseek-v4.1-flash,SUCCESS (3/3),3,0,none,0.9841,0.9855,0.998767,0,56.819,22272,49763,72035
+imdb-sakila,Media & Entertainment,deepseek-v4.1-flash,SUCCESS (3/3),3,0,none,0.992233,1.0,0.9996,1,106.385333,82923,98006,180929
+synthea-omop,Clinical & Healthcare,deepseek-v4.1-flash,SUCCESS (3/3),3,0,none,0.777167,0.427767,0.975467,12,120.725667,143691,121033,264724

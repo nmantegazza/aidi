@@ -1,0 +1,680 @@
+{
+  "dataset_name": "Musicians_unionable",
+  "domain": "Wikidata",
+  "scenario": "Real-World Web Graph",
+  "category": "single_table",
+  "source_table": {
+    "table_name": "Musicians_unionable_source",
+    "row_count": 10845,
+    "column_count": 20,
+    "columns": [
+      {
+        "name": "musician",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "musicianLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "genderLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "birthDate",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "cityLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "familyNameLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "givenNameLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "fatherLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "motherLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "partner",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "numberOfChildren",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "genreLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "websiteLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "residenceLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "ethnicityLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "religionLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "activityStart",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "twitterNameLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "geniusNameLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "recordLabelLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "target_table": {
+    "table_name": "Musicians_unionable_target",
+    "row_count": 10845,
+    "column_count": 20,
+    "columns": [
+      {
+        "name": "musicianID",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "musicianName",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "genderType",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "birthDate",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "city",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "familyName",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "forename",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "fatherName",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "motherName",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "spouse",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "NChildren",
+        "type": "integer",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "webpage",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "residence",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "ethnicity",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "religionLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "kickoff",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "twitterUsername",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "geniusNameLabel",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      },
+      {
+        "name": "recordCompany",
+        "type": "string",
+        "constraints": {
+          "required": false
+        }
+      }
+    ]
+  },
+  "source_tables": [
+    {
+      "table_name": "Musicians_unionable_source",
+      "row_count": 10845,
+      "column_count": 20,
+      "columns": [
+        {
+          "name": "musician",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "musicianLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "genderLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "birthDate",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "cityLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "familyNameLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "givenNameLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "fatherLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "motherLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "partner",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "numberOfChildren",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "genreLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "websiteLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "residenceLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicityLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "religionLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "activityStart",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "twitterNameLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "geniusNameLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "recordLabelLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "target_tables": [
+    {
+      "table_name": "Musicians_unionable_target",
+      "row_count": 10845,
+      "column_count": 20,
+      "columns": [
+        {
+          "name": "musicianID",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "musicianName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "genderType",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "birthDate",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "familyName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "forename",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "fatherName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "motherName",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "spouse",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "NChildren",
+          "type": "integer",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "webpage",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "residence",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "ethnicity",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "religionLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "kickoff",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "twitterUsername",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "geniusNameLabel",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        },
+        {
+          "name": "recordCompany",
+          "type": "string",
+          "constraints": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "ground_truth_pairs": [
+    [
+      "activityStart",
+      "kickoff"
+    ],
+    [
+      "birthDate",
+      "birthDate"
+    ],
+    [
+      "cityLabel",
+      "city"
+    ],
+    [
+      "ethnicityLabel",
+      "ethnicity"
+    ],
+    [
+      "familyNameLabel",
+      "familyName"
+    ],
+    [
+      "fatherLabel",
+      "fatherName"
+    ],
+    [
+      "genderLabel",
+      "genderType"
+    ],
+    [
+      "geniusNameLabel",
+      "geniusNameLabel"
+    ],
+    [
+      "genreLabel",
+      "kind"
+    ],
+    [
+      "givenNameLabel",
+      "forename"
+    ],
+    [
+      "motherLabel",
+      "motherName"
+    ],
+    [
+      "musician",
+      "musicianID"
+    ],
+    [
+      "musicianLabel",
+      "musicianName"
+    ],
+    [
+      "numberOfChildren",
+      "NChildren"
+    ],
+    [
+      "partner",
+      "spouse"
+    ],
+    [
+      "recordLabelLabel",
+      "recordCompany"
+    ],
+    [
+      "religionLabel",
+      "religionLabel"
+    ],
+    [
+      "residenceLabel",
+      "residence"
+    ],
+    [
+      "twitterNameLabel",
+      "twitterUsername"
+    ],
+    [
+      "websiteLabel",
+      "webpage"
+    ]
+  ]
+}

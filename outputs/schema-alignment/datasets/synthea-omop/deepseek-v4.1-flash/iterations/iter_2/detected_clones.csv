@@ -1,0 +1,12 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+encounter,encounter_id,encounter_concept_id,string,0.8998,synthea.encounters.id; omop.visit_occurrence.visit_occurrence_id,omop.visit_occurrence.visit_concept_id,,
+encounter,start_date,start_datetime,date,0.8825,synthea.encounters.start; omop.visit_occurrence.visit_start_date,omop.visit_occurrence.visit_start_datetime,,
+encounter,end_date,end_datetime,date,0.8939,synthea.encounters.stop; omop.visit_occurrence.visit_end_date,omop.visit_occurrence.visit_end_datetime,,
+condition_occurrence,condition_source_value,condition_status_source_value,string,0.8867,synthea.conditions.code; omop.condition_occurrence.condition_source_value,omop.condition_occurrence.condition_status_source_value,,
+condition_occurrence,start_date,start_datetime,date,0.8825,synthea.conditions.start; omop.condition_occurrence.condition_start_date,omop.condition_occurrence.condition_start_datetime,,
+condition_occurrence,end_date,end_datetime,date,0.8939,synthea.conditions.stop; omop.condition_occurrence.condition_end_date,omop.condition_occurrence.condition_end_datetime,,
+drug_exposure,start_date,start_datetime,date,0.8825,synthea.medications.start; omop.drug_exposure.drug_exposure_start_date,omop.drug_exposure.drug_exposure_start_datetime,,
+drug_exposure,end_date,end_datetime,date,0.8939,synthea.medications.stop; omop.drug_exposure.drug_exposure_end_date,omop.drug_exposure.drug_exposure_end_datetime,,
+procedure_occurrence,procedure_date,procedure_datetime,date,0.9108,synthea.procedures.date; omop.procedure_occurrence.procedure_date,omop.procedure_occurrence.procedure_datetime,,
+procedure_occurrence,procedure_date,procedure_end_date,date,0.9058,synthea.procedures.date; omop.procedure_occurrence.procedure_date,omop.procedure_occurrence.procedure_end_date,,
+observation,observation_date,observation_datetime,date,0.8947,synthea.observations.date; omop.observation.observation_date,omop.observation.observation_datetime,,

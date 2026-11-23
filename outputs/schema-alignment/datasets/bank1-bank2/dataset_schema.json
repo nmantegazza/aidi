@@ -1,0 +1,1112 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "source_a": {
+    "schema_name": "bank1",
+    "title": null,
+    "resources": [
+      {
+        "name": "bank",
+        "path": null,
+        "schema": {
+          "primaryKey": "code",
+          "fields": [
+            {
+              "name": "code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "branch",
+        "path": null,
+        "schema": {
+          "primaryKey": "branch_id",
+          "fields": [
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "bank_code",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "bank_code",
+              "reference": {
+                "resource": "bank",
+                "fields": "code"
+              }
+            },
+            {
+              "fields": "Bank_Code",
+              "reference": {
+                "resource": "bank",
+                "fields": "Code"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "loan",
+        "path": null,
+        "schema": {
+          "primaryKey": "loan_id",
+          "fields": [
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "loan_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "amount",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "Branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "Branch_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer",
+        "path": null,
+        "schema": {
+          "primaryKey": "custid",
+          "fields": [
+            {
+              "name": "custid",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "account",
+        "path": null,
+        "schema": {
+          "primaryKey": "account_no",
+          "fields": [
+            {
+              "name": "account_no",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "acc_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "balance",
+              "type": "number",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "Branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "Branch_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "offer",
+        "path": null,
+        "schema": {
+          "primaryKey": [
+            "Branch_id",
+            "Loan_id"
+          ],
+          "fields": [
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            },
+            {
+              "fields": "Branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "Branch_id"
+              }
+            },
+            {
+              "fields": "Loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "Loan_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "maintain",
+        "path": null,
+        "schema": {
+          "primaryKey": [
+            "Branch_id",
+            "Account_No"
+          ],
+          "fields": [
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_no",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "account_no",
+              "reference": {
+                "resource": "account",
+                "fields": "account_no"
+              }
+            },
+            {
+              "fields": "Branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "Branch_id"
+              }
+            },
+            {
+              "fields": "Account_No",
+              "reference": {
+                "resource": "account",
+                "fields": "Account_No"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "availed_by",
+        "path": null,
+        "schema": {
+          "primaryKey": [
+            "Custid",
+            "Loan_id"
+          ],
+          "fields": [
+            {
+              "name": "custid",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "custid",
+              "reference": {
+                "resource": "customer",
+                "fields": "custid"
+              }
+            },
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            },
+            {
+              "fields": "Custid",
+              "reference": {
+                "resource": "customer",
+                "fields": "Custid"
+              }
+            },
+            {
+              "fields": "Loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "Loan_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "hold_by",
+        "path": null,
+        "schema": {
+          "primaryKey": [
+            "Custid",
+            "Account_No"
+          ],
+          "fields": [
+            {
+              "name": "custid",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_no",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "custid",
+              "reference": {
+                "resource": "customer",
+                "fields": "custid"
+              }
+            },
+            {
+              "fields": "account_no",
+              "reference": {
+                "resource": "account",
+                "fields": "account_no"
+              }
+            },
+            {
+              "fields": "Custid",
+              "reference": {
+                "resource": "customer",
+                "fields": "Custid"
+              }
+            },
+            {
+              "fields": "Account_No",
+              "reference": {
+                "resource": "account",
+                "fields": "Account_No"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "source_b": {
+    "schema_name": "bank2",
+    "title": null,
+    "resources": [
+      {
+        "name": "branch",
+        "path": null,
+        "schema": {
+          "primaryKey": "branch_id",
+          "fields": [
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "assets",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_address",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": []
+        }
+      },
+      {
+        "name": "banker_info",
+        "path": null,
+        "schema": {
+          "primaryKey": "banker_id",
+          "fields": [
+            {
+              "name": "banker_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "banker_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "account",
+        "path": null,
+        "schema": {
+          "primaryKey": "account_id",
+          "fields": [
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_type",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_balance",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "transaction",
+        "path": null,
+        "schema": {
+          "primaryKey": "transaction_id",
+          "fields": [
+            {
+              "name": "transaction_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "amount",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer",
+        "path": null,
+        "schema": {
+          "primaryKey": "customer_id",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "customer_name",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "mobileno",
+              "type": "string",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "dob",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": false
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "customer_credit_card",
+        "path": null,
+        "schema": {
+          "primaryKey": "credit_card_id",
+          "fields": [
+            {
+              "name": "credit_card_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "expiry_date",
+              "type": "date",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "card_limit",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "loan",
+        "path": null,
+        "schema": {
+          "primaryKey": "loan_id",
+          "fields": [
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "issued_amount",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "remaining_amount",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "branch_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "account_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            },
+            {
+              "fields": "branch_id",
+              "reference": {
+                "resource": "branch",
+                "fields": "branch_id"
+              }
+            },
+            {
+              "fields": "account_id",
+              "reference": {
+                "resource": "account",
+                "fields": "account_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "loan_payment",
+        "path": null,
+        "schema": {
+          "primaryKey": "loan_payment_id",
+          "fields": [
+            {
+              "name": "loan_payment_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "amount",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            },
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "borrower",
+        "path": null,
+        "schema": {
+          "primaryKey": "borrower_id",
+          "fields": [
+            {
+              "name": "borrower_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "customer_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            },
+            {
+              "name": "loan_id",
+              "type": "integer",
+              "description": null,
+              "constraints": {
+                "required": true
+              },
+              "source_provenance": null
+            }
+          ],
+          "foreignKeys": [
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            },
+            {
+              "fields": "loan_id",
+              "reference": {
+                "resource": "loan",
+                "fields": "loan_id"
+              }
+            },
+            {
+              "fields": "customer_id",
+              "reference": {
+                "resource": "customer",
+                "fields": "customer_id"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

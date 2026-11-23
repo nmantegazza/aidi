@@ -1,0 +1,16 @@
+source_col_a,source_col_b,coaligned_runs,total_runs,agreement_rate,status,target_field_names
+name_basics.nconst,actor.actor_id,3,3,1.0,STABLE,person.person_id
+title_basics.genres,category.name,2,3,0.6667,VOLATILE,genre.genre_name; genre.name
+title_basics.genres,film_category.category_id,2,3,0.6667,VOLATILE,title_genre.genre_id
+title_basics.primarytitle,film.title,3,3,1.0,STABLE,title.primary_title
+title_basics.primarytitle,film_text.title,2,3,0.6667,VOLATILE,title.primary_title
+title_basics.runtimeminutes,film.length,3,3,1.0,STABLE,title.runtime_minutes
+title_basics.startyear,film.release_year,3,3,1.0,STABLE,title.release_year; title.start_year
+title_basics.tconst,film.film_id,3,3,1.0,STABLE,title.title_id
+title_basics.tconst,film_category.film_id,2,3,0.6667,VOLATILE,title_genre.title_id
+title_basics.tconst,film_text.film_id,2,3,0.6667,VOLATILE,title.title_id
+title_crew.directors,film_actor.actor_id,2,3,0.6667,VOLATILE,title_credit.person_id
+title_crew.tconst,film_actor.film_id,2,3,0.6667,VOLATILE,title_credit.title_id
+title_crew.writers,film_actor.actor_id,2,3,0.6667,VOLATILE,title_credit.person_id
+title_principals.nconst,film_actor.actor_id,3,3,1.0,STABLE,title_credit.person_id
+title_principals.tconst,film_actor.film_id,3,3,1.0,STABLE,title_credit.title_id

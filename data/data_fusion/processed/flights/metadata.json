@@ -1,0 +1,12 @@
+{
+  "dataset_id": "flights",
+  "entity_id_column": "FlightID",
+  "attributes": [
+    "ScheduledDep",
+    "ActualDep",
+    "DepGate",
+    "ScheduledArr",
+    "ActualArr",
+    "ArrGate"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "mode": "dynamic_skew",
+  "alpha": 0.6,
+  "std_high": 0.0651,
+  "lower_threshold": 0.3773,
+  "upper_threshold": 0.7382,
+  "centroids": [
+    0.3255,
+    0.4291,
+    0.9444
+  ],
+  "cluster_sizes": [
+    42774,
+    51180,
+    4955
+  ]
+}

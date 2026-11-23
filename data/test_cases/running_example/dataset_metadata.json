@@ -1,0 +1,28 @@
+{
+  "dataset_name": "thesis_running_example",
+  "seed": 42,
+  "row_counts": {
+    "source_a": {
+      "organizations": 75,
+      "departments": 80,
+      "staff": 100
+    },
+    "source_b": {
+      "businesses": 75,
+      "locations": 75,
+      "workers": 100
+    }
+  },
+  "ground_truth": {
+    "organizations": {
+      "total_matches": 36,
+      "exact_matches": 19,
+      "uncertain_matches": 17
+    },
+    "staff": {
+      "total_matches": 50,
+      "exact_matches": 35,
+      "uncertain_matches": 15
+    }
+  }
+}

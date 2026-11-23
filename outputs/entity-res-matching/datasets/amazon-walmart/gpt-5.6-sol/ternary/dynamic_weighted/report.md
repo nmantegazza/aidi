@@ -1,0 +1,277 @@
+# Matching Benchmark: amazon-walmart — Dynamic Weighted
+
+- **Domain**: e-commerce
+- **Strategy**: Dynamic Weighted
+- **Model**: gpt-5.6-sol
+- **Classification Mode**: ClassificationMode.TERNARY
+- **Successful Iterations**: 3 / 3
+
+## Aggregated Metrics
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Precision | 0.8318 | 0.1643 |
+| Recall | 0.4734 | 0.0339 |
+| F1 Score | 0.5998 | 0.0586 |
+| Execution Time (s) | 30.5760 | 3.7840 |
+| Peak Memory (MB) | 292.46 | 1.74 |
+
+## Telemetry
+
+| Metric | Value |
+| :--- | :--- |
+| Prompt Tokens | 15,231 |
+| Completion Tokens | 10,436 |
+| Total Tokens | 25,667 |
+| Estimated Cost (USD) | $0.2317 |
+
+## Triage Perspective Metrics (Cascaded Tier 1)
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Potential Recall Ceiling | 0.8749 | 0.0185 |
+| Potential F1 Ceiling | 0.8460 | 0.0796 |
+| LLM Workload Ratio | 3.3% | - |
+| Unrecoverable Loss | 0.1251 | - |
+| Uncertain Purity | 3.8% | - |
+
+## Deterministic Flakiness Analysis
+
+| Metric | Value |
+| :--- | :--- |
+| Stability Ratio | 35.94% |
+| Consistent Matches | 377 |
+| Flaky Matches | 672 |
+
+## Iterations
+
+| Iter | Status | Precision | Recall | F1 | Pot-R | Pot-F1 | Workload | Purity | TP | FP | FN | Time (s) | Mem (MB) | Tokens | Cost (USD) | Error |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | SUCCESS | 0.9948 | 0.5017 | 0.6671 | 0.8614 | 0.9233 | 3.4% | 3.1% | 579 | 3 | 575 | 28.6296 | 290.45 | 8634 | $0.0892 |  |
+| 2 | SUCCESS | 0.6663 | 0.4827 | 0.5598 | 0.8960 | 0.7642 | 4.4% | 2.8% | 557 | 279 | 597 | 28.1614 | 293.46 | 8526 | $0.0714 |  |
+| 3 | SUCCESS | 0.8342 | 0.4359 | 0.5726 | 0.8674 | 0.8505 | 2.3% | 5.6% | 503 | 100 | 651 | 34.9370 | 293.45 | 8507 | $0.0711 |  |
+
+## Dynamic Thresholds
+
+| Iter | Mode | Lower Threshold | Upper Threshold | Centroids (Low, Mid, High) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | dispersion_boost | 0.5132 | 0.7077 | [0.2662, 0.3673, 0.5132] |
+| 2 | dispersion_boost | 0.5164 | 0.6921 | [0.2691, 0.3795, 0.5164] |
+| 3 | dispersion_boost | 0.5278 | 0.7321 | [0.2576, 0.3593, 0.5278] |
+
+## LLM Strategy Configuration & Prompts
+
+- **Model**: `gpt-5.6-sol`
+- **Provider**: `openai`
+- **Latency**: `52.21s`
+- **Log File**: `outputs/logs/llm_calls/20260919_160650_367412_IndexingConfigWeightedScoreMatchingConfig.json`
+
+### LLM Output (Generated Strategy Configuration)
+
+```json
+{
+  "reasoning": "custom_id \u2014 1. Inspect Exemplar Candidate Matches: Values such as 18154\u21941179 and 19012\u2194853 differ systematically by source and do not identify the same product across systems. 2. Inspect Statistical Profile: It is complete and 100% unique, with cardinalities equal to row counts (22,074 and 2,554), which is characteristic of an internal row key; it is excluded under the source-specific-key rule. 3. Algorithm Trade-off Evaluation: Exact or edit-distance matching would compare unrelated source identifiers and create misleading negative evidence; fuzzy matching is equally inappropriate. 4. Weight Justification: Excluded, so no weight is assigned.\n\nproduct_id \u2014 1. Inspect Exemplar Candidate Matches: Amazon-like IDs such as b001fx1riu align to unrelated Walmart-like numeric IDs such as 15142373, showing source-specific identifier namespaces. 2. Inspect Statistical Profile: The field is complete and 100% unique in both sources, with cardinalities 22,074 and 2,554 and Source A average length 10; this strongly indicates a source-system key. 3. Algorithm Trade-off Evaluation: Exact matching cannot bridge namespaces, while character-distance algorithms could produce accidental similarities with no entity meaning. 4. Weight Justification: Excluded as a source-specific system identifier, so no weight is assigned.\n\nbrand \u2014 1. Inspect Exemplar Candidate Matches: All exemplars show the same short brand, dalite\u2194dalite; the field is expected to have occasional spelling, spacing, or suffix variants outside this sample. 2. Inspect Statistical Profile: Null rates are low (0.01% and 5.21%), cardinalities are 1,896 and 463, and average lengths are about 7.3, so it is eligible and informative but not unique. 3. Algorithm Trade-off Evaluation: Jaro-Winkler is appropriate for short brand strings and tolerates minor character errors. Word-level cosine is unsafe on such short or single-token values because one typo can produce zero overlap; exact would be unnecessarily brittle. 4. Weight Justification: Brand is a primary descriptive attribute but is shared by many products, so weight 0.55 provides strong confirmation without allowing brand alone to determine a match.\n\nmodelno \u2014 1. Inspect Exemplar Candidate Matches: One pair has a missing value versus 27651, while the other pairs show 23050\u219423046 and 23181\u219423096. Those differing codes accompany materially different titles, screen sizes, and prices, indicating distinct variants rather than harmless spelling variation. 2. Inspect Statistical Profile: Null rates are 28.54% and 6.42%, below the exclusion threshold; cardinalities are high (15,505 and 2,389), uniqueness is 70.24% and 93.54%, and average lengths are short (8.52 and 7.55). 3. Algorithm Trade-off Evaluation: Exact comparison best preserves the discriminative meaning of standardized model codes: a different digit can denote a different SKU. Damerau-Levenshtein would give dangerously high similarity to codes such as 23050 and 23046 even though the exemplars show they represent different variants; Jaro-Winkler has the same false-positive risk, and cosine is unsuitable for short codes. Missing values should contribute no positive agreement rather than a mismatch penalty. 4. Weight Justification: Model number is the strongest cross-source product identity attribute, so weight 0.95 is assigned.\n\ncategory \u2014 1. Inspect Exemplar Candidate Matches: Specific Source A labels such as projection screens televisions video and projection screens office electronics accessories map to the broad Source B label electronics general, demonstrating divergent taxonomy and granularity. 2. Inspect Statistical Profile: Null rates are acceptable (5.57% and 0%), but Source B has only 63 categories, 2.47% uniqueness, and a much shorter average length (17.15 versus 39.53). 3. Algorithm Trade-off Evaluation: Cosine would often return little overlap for semantically related labels from different taxonomies, while Jaro-Winkler and edit distance measure surface spelling rather than taxonomy equivalence; exact is far too strict. Without a taxonomy crosswalk, this column is not safely comparable. 4. Weight Justification: Excluded because it would be a weak, potentially biased contextual signal; no weight is assigned.\n\ntitle \u2014 1. Inspect Exemplar Candidate Matches: Pair 1 differs mainly by omission of model token 27651, while pairs 2 and 3 share many product-family words but differ in material terms such as Daglas versus DaView, Data Pro versus DaPlex, and 72 x 96 versus 60 x 80. The title therefore both tolerates token omission and exposes variant-level conflicts. 2. Inspect Statistical Profile: It is complete, nearly unique (99.16% and 99.41%), has cardinalities 21,888 and 2,539, and is long multi-word text (average lengths 67.6 and 53.38). 3. Algorithm Trade-off Evaluation: Token-level cosine fits long multi-word titles and tolerates a missing model token or modest word-order differences while still considering variant and dimension tokens. Jaro-Winkler and Damerau-Levenshtein are less robust to long-string insertions or reordered words; exact would reject benign omissions. Cosine can miss sub-word spelling variants, so it is complemented by brand and exact model evidence. 4. Weight Justification: Title is the strongest broadly populated descriptive attribute, so weight 0.70 is assigned.\n\nprice \u2014 1. Inspect Exemplar Candidate Matches: Pair 1 is missing on Source A; pairs 2 and 3 differ substantially (8968.99\u219413997.99 and 15985.81\u219410048.99), helping distinguish superficially similar screen variants. 2. Inspect Statistical Profile: Null rates are 12.96% and 0%, so the field is eligible; cardinalities are 7,491 and 1,398, with moderate uniqueness (33.94% and 54.74%). 3. Algorithm Trade-off Evaluation: Numeric-relative comparison is appropriate because prices span a broad range and proportional difference is more meaningful than a fixed absolute gap. Numeric-linear would treat the same dollar gap uniformly regardless of product price, while exact would reject normal retailer or temporal price variation. 4. Weight Justification: Price is auxiliary context affected by retailer and time, so weight 0.30 supplies useful corroboration without overriding identity attributes.\n\nfeatures \u2014 1. Inspect Exemplar Candidate Matches: Pair 1 is missing on Source A but populated on Source B; pairs 2 and 3 contain only model text in Source A versus a long generic product-family paragraph in Source B. The content is also largely duplicated in long_description. 2. Inspect Statistical Profile: Null rates are below 50% (17.26% and 4.7%), average lengths are very long (259.25 and 228.08), and cardinalities are 15,247 and 2,206, so it passes formal eligibility checks. 3. Algorithm Trade-off Evaluation: Cosine would be the natural algorithm for this long text, but the exemplars show severe asymmetry and boilerplate reuse; it could incorrectly boost different variants. Character-distance algorithms would be even worse on the length mismatch, and exact would almost never match. 4. Weight Justification: Excluded because it is redundant with long_description and empirically unreliable; no weight is assigned.\n\nshort_description \u2014 1. Inspect Exemplar Candidate Matches: It is empty on both sides in all three exemplars and provides no observed matching evidence. 2. Inspect Statistical Profile: Source A is 80.13% null, exceeding the mandatory 50% exclusion threshold, even though Source B is 23.06% null; therefore the field must be excluded. 3. Algorithm Trade-off Evaluation: Cosine would otherwise suit its long average text, but no comparison algorithm can compensate for the excessive missingness and absent exemplar evidence. 4. Weight Justification: Excluded, so no weight is assigned.\n\nlong_description \u2014 1. Inspect Exemplar Candidate Matches: Pair 1 has nearly identical narrative text with different leading codes, while pairs 2 and 3 also share almost the entire narrative despite conflicting model numbers, titles, dimensions, and prices. This reveals both strong cross-source overlap and substantial family-level boilerplate reuse. 2. Inspect Statistical Profile: Null rates are very low (0.83% and 1.33%), cardinalities are high (19,751 and 2,474), and average lengths are 995.47 and 397.85, making it eligible as long free text. 3. Algorithm Trade-off Evaluation: Cosine is best for the very long multi-word text because it tolerates the inserted leading codes, length differences, and token-order variation. Jaro-Winkler or edit distance would be distorted by length and insertions, while exact would fail. However, cosine cannot distinguish variants when most tokens are shared boilerplate, which requires a low weight. 4. Weight Justification: Because the exemplars prove that different variants can share the same description, it is only a weak corroborating signal and receives weight 0.15.\n\ndimensions \u2014 1. Inspect Exemplar Candidate Matches: The field is empty on both sides in all three exemplars, although dimensions embedded in titles differ materially for pairs 2 and 3. There is therefore no direct evidence of cross-source formatting when this dedicated field is populated. 2. Inspect Statistical Profile: Null rates are 38.58% and 27.33%, below 50%; cardinalities are 9,115 and 1,660, and average lengths are about 20 characters, so it remains eligible and potentially discriminative. 3. Algorithm Trade-off Evaluation: Jaro-Winkler is selected for short dimension phrases because it can tolerate punctuation, spacing, and unit-format differences. Exact would be brittle to forms such as 96x96 versus 96 x 96, cosine can lose evidence when compact dimension tokens change formatting, and numeric comparison cannot directly represent a multi-axis dimension string without prior parsing. 4. Weight Justification: Dimensions are auxiliary product-variant context, so weight 0.25 is assigned; the modest weight reflects missingness and lack of populated exemplar evidence.\n\nimageurl \u2014 1. Inspect Exemplar Candidate Matches: Amazon-hosted URLs align to Walmart-hosted URLs with entirely different domains, paths, and image identifiers, even for candidate matches. 2. Inspect Statistical Profile: The field is nearly complete and highly unique (93.84% and 100%) with average lengths around 56\u201359, but this uniqueness is source-specific rather than cross-source identity evidence. 3. Algorithm Trade-off Evaluation: Exact, cosine, and character-distance methods would all primarily compare retailer infrastructure and path conventions; coincidental URL fragments could also create false evidence. Image-content hashing could be useful, but it is not available among the supported algorithms. 4. Weight Justification: Excluded as a source-specific locator rather than a stable entity attribute; no weight is assigned.\n\nshipweight \u2014 1. Inspect Exemplar Candidate Matches: Pair 1 shows a formatting/unit-label difference, 1 065 pounds\u21941065.0, that appears numerically equivalent after normalization. Pairs 2 and 3 show substantive differences, 1 340 pounds\u2194809.0 and 1 000 pounds\u21941206.0, which can help reject wrong variants. 2. Inspect Statistical Profile: Null rates are low (2.04% and 7.28%); cardinalities are 590 and 829, with low-to-moderate uniqueness (2.67% and 32.46%). Source A average text length is 8.47, while Source B is numeric. 3. Algorithm Trade-off Evaluation: After stripping unit labels and normalizing separators to a common weight unit, numeric-relative comparison handles proportional measurement differences and broad weight ranges. Numeric-linear would impose the same absolute tolerance at every scale; exact would fail on formatting and minor measurement differences; string algorithms would compare presentation rather than quantity. 4. Weight Justification: Shipping weight is auxiliary physical context and can vary through packaging or data quality, so weight 0.25 is assigned.",
+  "matching_columns": {
+    "brand": {
+      "algorithm": "jarowinkler",
+      "weight": 0.55
+    },
+    "modelno": {
+      "algorithm": "exact",
+      "weight": 0.95
+    },
+    "title": {
+      "algorithm": "cosine",
+      "weight": 0.7
+    },
+    "price": {
+      "algorithm": "numeric_relative",
+      "weight": 0.3
+    },
+    "long_description": {
+      "algorithm": "cosine",
+      "weight": 0.15
+    },
+    "dimensions": {
+      "algorithm": "jarowinkler",
+      "weight": 0.25
+    },
+    "shipweight": {
+      "algorithm": "numeric_relative",
+      "weight": 0.25
+    }
+  }
+}
+```
+
+### LLM Input Prompts
+
+<details>
+<summary><b>System Prompt</b> (click to expand)</summary>
+
+```text
+You are an expert Data Steward configuring the Scoring and Classification stage of an Entity Resolution pipeline.
+
+You will receive comparative metadata for two source datasets (null %, uniqueness %, cardinality, average field length) AND a set of **Exemplar Candidate Matching Pairs** discovered via holistic zero-configuration row-level textual overlap.
+
+These exemplar pairs represent high-probability matches of the same real-world entity across Source A and Source B. You MUST carefully inspect these aligned pairs to observe how identical entities are represented across sources on each column (e.g., whether they exhibit minor typos, abbreviations, unit shifts, or divergent taxonomies), and use these direct empirical observations to select the most effective comparison algorithm and weight.
+
+Your goal is to select the columns that best determine whether two records refer to the same real-world entity, assign appropriate comparison algorithms, and assign importance weights for aggregate similarity scoring.
+
+## Task 1 — Select Matching Columns and Assign Comparison Algorithms
+
+### Step 1a: Understand each column semantically
+- **Identity attributes** (names, emails, tax IDs, phone numbers) → these directly identify an entity.
+- **Descriptive attributes** (addresses, descriptions, categories) → these characterize the entity and can confirm or disambiguate matches.
+- **Contextual attributes** (dates, amounts, coordinates) → these add supporting evidence.
+- **System/internal attributes** (auto-increment IDs, UUIDs, row numbers) → exclude these.
+
+### Step 1b: Apply exclusion rules
+Exclude columns with:
+- **Source-specific keys**: `id`, `uuid`, `row_id`, or internal auto-generated keys.
+- **High nulls**: > 50% null in either source.
+- **No variance**: cardinality = 1 in either source.
+
+### Comparison Algorithms & Explicit Trade-Offs
+
+Select the algorithm that best fits each column's semantic type and empirical variation:
+
+- **`cosine` (Token / Word-Level TF-IDF Cosine Similarity)**:
+  - **Strengths**: Multi-word free text (avg length >= 20), long descriptions, multi-word titles, article abstracts. Completely order-invariant, resilient to token permutations, additions, or omissions of other words.
+  - **Weaknesses / Critical Limitations**:
+    - **Zero tolerance for sub-word typos or spelling variants**: Operates strictly at the word/token level. If a word has a typo, abbreviation, or hyphenation variation (e.g. "MDR-7506" vs "MDR7506", "Smith" vs "Smyth", "ProBook" vs "Pro Book"), word-level TF-IDF treats them as completely distinct orthogonal tokens with 0 similarity.
+    - **Fails on short strings, codes, and single words (< 20 chars)**: If a single-word name or brand has even a 1-character typo, the entire token match fails (score drops to 0.0). Always use `jarowinkler` or `damerau_levenshtein` instead!
+    - **Fails on divergent taxonomies**: Different vocabularies (e.g. "electronics" vs "consumer audio") yield 0.0 similarity.
+  - **When to use**: Multi-word descriptions, article abstracts, long titles, full addresses where individual words are standard dictionary words or consistently spelled tokens.
+
+- **`jarowinkler` (Prefix-Weighted Character Alignment)**:
+  - **Strengths**: Short strings (avg length < 20-30), single words, names, brands, cities. Extremely robust to typos, phonetic variants, or suffix truncations on short words.
+  - **Weaknesses**: Word order shifts, long multi-word text.
+  - **When to use**: Person/author names, brand names, cities, single-phrase titles, short labels.
+
+- **`damerau_levenshtein` (Edit Distance with Transpositions)**:
+  - **Strengths**: Preserves exact character positions and lengths; detects single digit/char flips or swaps.
+  - **Weaknesses**: Heavy penalty on length mismatches; useless on multi-word reordering.
+  - **When to use**: Alphanumeric codes, serial numbers, part codes, phone numbers, tax IDs, SKUs.
+
+- **`numeric_relative` (Percentage Difference)**:
+  - **Strengths**: Scale-invariant; measures relative gap (|x1 - x2| / (max(|x1|, |x2|) + eps)). A $10 difference on a $20 item is penalized heavily (50%), while a $10 difference on a $1,500 item is penalized minimally (0.7%).
+  - **Weaknesses**: Nonsensical on interval scales like calendar years.
+  - **When to use**: Prices, monetary amounts, weights, physical dimensions, measurements spanning multiple orders of magnitude.
+
+- **`numeric_linear` (Absolute Uniform Distance)**:
+  - **Strengths**: Measures uniform absolute distance |x1 - x2| regardless of baseline.
+  - **Weaknesses**: Distorts scale when values span orders of magnitude.
+  - **When to use**: Uniform interval scales where absolute difference is constant: calendar years, ages, page counts.
+
+- **`exact` (Strict Binary Identity)**:
+  - **Strengths**: Zero tolerance for false positives.
+  - **Weaknesses**: Zero tolerance for typos or format quirks.
+  - **When to use**: Standardized codes, status booleans, or discrete identifier/temporal keys where any discrepancy indicates distinct entities.
+
+- **`date` (Calendar Hierarchy Matcher)**:
+  - **When to use**: Full calendar dates, birth dates, timestamps where small day/month/year shifts should yield continuous similarity.
+
+### Step 1d: Assign importance weights (0.0 to 1.0)
+- **0.8-1.0**: Core identity attributes (emails, tax IDs, phone numbers).
+- **0.5-0.7**: Strong descriptive attributes (names, titles).
+- **0.2-0.4**: Supporting contextual attributes (dates, amounts).
+- **0.05-0.19**: Weak signals.
+
+## Task 2 — Structured Reasoning
+
+In your `reasoning` field, follow this exact protocol:
+### Mandatory 4-Step Column Reasoning Protocol
+
+For EACH evaluated column, your reasoning MUST follow this exact 4-step sequence:
+1. **Inspect Exemplar Candidate Matches**: Observe how matching entities actually differ on this column (typos, abbreviations, units, taxonomy).
+2. **Inspect Statistical Profile**: Check null percentage, cardinality, and avg length. Exclude if >50% null or cardinality = 1.
+3. **Algorithm Trade-off Evaluation**: Explicitly justify why the chosen algorithm fits the sample data and why competing alternatives would fail on this column.
+4. **Weight Justification**: Assign importance weight based on whether the attribute is core identity (0.8-1.0), primary descriptive (0.5-0.7), or auxiliary context (0.2-0.4).
+```
+</details>
+
+<details>
+<summary><b>User Prompt (Comparative Profile & Exemplars)</b> (click to expand)</summary>
+
+```markdown
+### 1. Dataset Comparison Summary
+| Metric | Source A | Source B |
+| :--- | :--- | :--- |
+| **Total Rows** | 22074 | 2554 |
+| **Column Count** | 13 | 13 |
+
+### 2. Exemplar Candidate Matches (High-Confidence Entity Pairs)
+The following candidate pairs were discovered via holistic zero-configuration row-level textual overlap.
+Inspect how field values, units, abbreviations, typos, and taxonomies vary across matching records:
+
+#### Candidate Match 1 (Overall Text Match Score: 0.91)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| custom_id | "18154" | "1179" |
+| product_id | "b001fx1riu" | "15142373" |
+| brand | "dalite" | "dalite" |
+| modelno | "" | "27651" |
+| category | "projection screens office electronics accessories" | "electronics general" |
+| title | "dalite 27651 daglas deluxe rear projection screen 96 x 96 av format" | "dalite daglas deluxe rear projection screen 96 x 96 av format" |
+| price | "" | "6128.99" |
+| features | "" | "dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" |
+| short_description | "" | "" |
+| long_description | "dalite 27651 dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" | "dl8302dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" |
+| dimensions | "" | "" |
+| imageurl | "httpecximagesamazoncomimagesi412bgcln7arl_sl500_aa300_jpg" | "httpiwalmartimagescomimp00717068020071706802825_p255045_300x300jpg" |
+| shipweight | "1 065 pounds" | "1065.0" |
+
+#### Candidate Match 2 (Overall Text Match Score: 0.90)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| custom_id | "19012" | "853" |
+| product_id | "b001rijw2g" | "15142352" |
+| brand | "dalite" | "dalite" |
+| modelno | "23050" | "23046" |
+| category | "projection screens televisions video" | "electronics general" |
+| title | "dalite daglas thruthewall rear projection screen 72 x 96 video format" | "dalite daview thruthewall rear projection screen 60 x 80 video format" |
+| price | "8968.99" | "13997.99" |
+| features | "model 23050" | "the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" |
+| short_description | "" | "" |
+| long_description | "23050 the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" | "dl8440the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" |
+| dimensions | "" | "" |
+| imageurl | "httpecximagesamazoncomimagesi41rfyasotnl_sl500_aa300_jpg" | "httpiwalmartimagescomimp00717068050071706805248_p255045_300x300jpg" |
+| shipweight | "1 340 pounds" | "809.0" |
+
+#### Candidate Match 3 (Overall Text Match Score: 0.89)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| custom_id | "6741" | "2431" |
+| product_id | "b003001i8k" | "15142480" |
+| brand | "dalite" | "dalite" |
+| modelno | "23181" | "23096" |
+| category | "projection screens televisions video" | "electronics general" |
+| title | "dalite data pro thruthewall rear projection screen 52 x 92 hdtv format" | "dalite daplex thruthewall rear projection screen 81 x 108 video format" |
+| price | "15985.81" | "10048.99" |
+| features | "model 23181" | "the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" |
+| short_description | "" | "" |
+| long_description | "23181 the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" | "dl8426the dalite thruthewall rear projection screen is a rear projection package that comes complete with a factory framed rear projection screen of your choice and a rear projection module the rpm is a precision made aluminum extrusion based rear projection system custom engineered to meet the exacting requirements of today s digital projectors the rpm is standard with a finetuning projector mount cradle which provides a host of alignment adjustments and features a mirror mounted by a threepoint suspension system to ensure superior stability and flatness the perfect mirror adjustment systems is a standard feature on all mirror systems for 42 x 60 and smaller mirrors" |
+| dimensions | "" | "" |
+| imageurl | "httpecximagesamazoncomimagesi41rfyasotnl_sl500_aa300_jpg" | "httpiwalmartimagescomimp00717068080071706808278_p255045_300x300jpg" |
+| shipweight | "1 000 pounds" | "1206.0" |
+
+### 3. Integrated Column Profile (Comparison)
+| Column | Null % (A|B) | Unique % (A|B) | Card. (A|B) | Avg Len (A|B) | Aligned Match (Source A ↔ Source B) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **custom_id** | 0.0% | 0.0% | 100.0% | 100.0% | 22074 | 2554 | N/A | N/A | "18154" ↔ "1179" |
+| **product_id** | 0.0% | 0.0% | 100.0% | 100.0% | 22074 | 2554 | 10.0 | N/A | "b001fx1riu" ↔ "15142373" |
+| **brand** | 0.01% | 5.21% | 8.59% | 18.13% | 1896 | 463 | 7.29 | 7.34 | "dalite" ↔ "dalite" |
+| **modelno** | 28.54% | 6.42% | 70.24% | 93.54% | 15505 | 2389 | 8.52 | 7.55 | "" ↔ "27651" |
+| **category** | 5.57% | 0.0% | 6.75% | 2.47% | 1490 | 63 | 39.53 | 17.15 | "projection screens office electronics accessories" ↔ "electronics general" |
+| **title** | 0.0% | 0.0% | 99.16% | 99.41% | 21888 | 2539 | 67.6 | 53.38 | "dalite 27651 daglas deluxe rear projection screen 96 x 96 av format" ↔ "dalite daglas deluxe rear projection screen 96 x 96 av format" |
+| **price** | 12.96% | 0.0% | 33.94% | 54.74% | 7491 | 1398 | N/A | N/A | "" ↔ "6128.99" |
+| **features** | 17.26% | 4.7% | 69.07% | 86.37% | 15247 | 2206 | 259.25 | 228.08 | "" ↔ "dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" |
+| **short_description** | 80.13% | 23.06% | 18.28% | 72.98% | 4036 | 1864 | 516.38 | 284.68 | "" ↔ "" |
+| **long_description** | 0.83% | 1.33% | 89.48% | 96.87% | 19751 | 2474 | 995.47 | 397.85 | "dalite 27651 dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" ↔ "dl8302dalite offers a wide range of rigid rear projection screen systems for any need ranging from corporate boardrooms to home theaters designed to provide the highest resolution and most accurate color fidelity with dalite rear projection screens viewers can enjoy bright high resolution images without turning the lights off this coating is deposited on a transparent glass daglas or acrylic daplex substrate dalite utilizes a special coating process which chemically bonds the optical layer to the substrate creating a very high degree of adhesion guaranteed not to peel or strip off deluxe frame features impressive architectural design adds sophistication to any installation 13 4 x 3 rectangular base tube dovetail frame eliminates light leakage black anodized finish frame size equals screen viewing area plus 51 2" |
+| **dimensions** | 38.58% | 27.33% | 41.29% | 65.0% | 9115 | 1660 | 19.61 | 20.79 | "" ↔ "" |
+| **imageurl** | 0.08% | 0.0% | 93.84% | 100.0% | 20714 | 2554 | 55.87 | 58.68 | "httpecximagesamazoncomimagesi412bgcln7arl_sl500_aa300_jpg" ↔ "httpiwalmartimagescomimp00717068020071706802825_p255045_300x300jpg" |
+| **shipweight** | 2.04% | 7.28% | 2.67% | 32.46% | 590 | 829 | 8.47 | N/A | "1 065 pounds" ↔ "1065.0" |
+```
+</details>
+

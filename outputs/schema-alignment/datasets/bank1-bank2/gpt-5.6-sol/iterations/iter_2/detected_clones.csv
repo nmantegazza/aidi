@@ -1,0 +1,4 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+account_branch,account_id,branch_id,integer,0.9327,bank1.account.account_no; bank1.maintain.account_no; bank2.account.account_id,bank1.account.branch_id; bank1.maintain.branch_id; bank2.account.branch_id,Account maintained by the branch.,Branch maintaining the account.
+loan_branch,loan_id,branch_id,integer,0.9282,bank1.loan.loan_id; bank1.offer.loan_id; bank2.loan.loan_id,bank1.loan.branch_id; bank1.offer.branch_id; bank2.loan.branch_id,Loan offered or issued through the branch.,Branch offering or issuing the loan.
+loan_borrower,customer_id,loan_id,integer,0.9475,bank1.availed_by.custid; bank2.borrower.customer_id,bank1.availed_by.loan_id; bank2.borrower.loan_id,Customer borrowing the loan.,Loan borrowed by the customer.

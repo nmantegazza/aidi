@@ -1,0 +1,11 @@
+{
+  "name": "assays_both_0_70_ac3_av",
+  "domain": "ChEMBL",
+  "scenario": "View-Unionable (Noise)",
+  "source_rows": 7500,
+  "source_cols": 19,
+  "target_rows": 7500,
+  "target_cols": 20,
+  "gold_matches": 16,
+  "category": "single_table"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "DBLP-ACM",
+  "domain": "citations",
+  "ground_truth_type": "exhaustive",
+  "table_a": {
+    "file": "DBLP2.csv",
+    "id_column": "id"
+  },
+  "table_b": {
+    "file": "ACM.csv",
+    "id_column": "id"
+  },
+  "ground_truth": {
+    "file": "DBLP-ACM_perfectMapping.csv",
+    "column_a": "idDBLP",
+    "column_b": "idACM",
+    "label_column": null
+  },
+  "candidates": {
+    "file": "candidate_pairs.csv",
+    "column_a": "idDBLP",
+    "column_b": "idACM"
+  }
+}

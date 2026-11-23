@@ -1,0 +1,24 @@
+{
+  "name": "itunes-apple",
+  "domain": "music",
+  "ground_truth_type": "sampled",
+  "table_a": {
+    "file": "itunes.csv",
+    "id_column": "Sno"
+  },
+  "table_b": {
+    "file": "amazon_music.csv",
+    "id_column": "Sno"
+  },
+  "ground_truth": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.Sno",
+    "column_b": "rtable.Sno",
+    "label_column": "label"
+  },
+  "candidates": {
+    "file": "labeled_data.csv",
+    "column_a": "ltable.Sno",
+    "column_b": "rtable.Sno"
+  }
+}

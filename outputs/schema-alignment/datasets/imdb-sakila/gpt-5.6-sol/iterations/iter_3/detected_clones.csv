@@ -1,0 +1,2 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+media_title,release_start_year,release_end_year,integer,0.8722,imdb.title_basics.startyear; sakila.film.release_year,imdb.title_basics.endyear,Release year or series start year.,"Series end year, when applicable."

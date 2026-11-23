@@ -1,0 +1,2984 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "table_count_a": 9,
+  "table_count_b": 9,
+  "column_count_a": 27,
+  "column_count_b": 36,
+  "ground_truth_count": 17,
+  "iterations": [
+    {
+      "iteration_index": 1,
+      "completeness": 0.9206,
+      "structural_integrity": 0.8261,
+      "intra_table_uniqueness": 0.9923,
+      "unmapped_source_columns": [
+        "a:maintain.account_no",
+        "a:maintain.branch_id",
+        "a:offer.branch_id",
+        "a:offer.loan_id",
+        "b:borrower.borrower_id"
+      ],
+      "broken_fks": [],
+      "unpreserved_source_fks": [
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+      ],
+      "detected_clones": [
+        {
+          "target_table": "customer_account",
+          "column_a": "customer_id",
+          "column_b": "account_id",
+          "source_prov_a": [
+            "bank1.hold_by.custid",
+            "bank2.customer.customer_id"
+          ],
+          "source_prov_b": [
+            "bank1.hold_by.account_no",
+            "bank2.customer.account_id"
+          ],
+          "data_type": "integer",
+          "similarity_score": 0.935,
+          "description_a": "Customer holding the account",
+          "description_b": "Account held by the customer"
+        }
+      ],
+      "structural_stats": {
+        "pk_validity": 1.0,
+        "fk_validity": 1.0,
+        "source_fk_preservation": 0.8261,
+        "score": 0.8261,
+        "total_tables": 11,
+        "total_fks": 14,
+        "total_source_fks": 46,
+        "preserved_source_fks": 38,
+        "broken_fks": [],
+        "unpreserved_source_fks": [
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+        ]
+      },
+      "latency_seconds": 22.611,
+      "token_usage": {
+        "prompt_tokens": 7559,
+        "completion_tokens": 4193,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 11752,
+        "latency_seconds": 22.61051866699927
+      },
+      "alignment_report": {
+        "target_schema": {
+          "name": "unified_bank_schema",
+          "title": "Unified Bank Management Schema",
+          "resources": [
+            {
+              "name": "bank",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "code",
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "string",
+                    "description": "Unique bank identifier code",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.code"
+                    ]
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "description": "Legal name of the banking institution",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.name"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Headquarters address of the bank",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.bank.address"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "branch",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "branch_id",
+                "fields": [
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Unique identifier for each branch",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.branch_id",
+                      "bank2.branch.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "description": "Branch name",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.name",
+                      "bank2.branch.branch_name"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Physical address of the branch",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.address",
+                      "bank2.branch.branch_address"
+                    ]
+                  },
+                  {
+                    "name": "assets",
+                    "type": "number",
+                    "description": "Total assets held by the branch",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.branch.assets"
+                    ]
+                  },
+                  {
+                    "name": "bank_code",
+                    "type": "string",
+                    "description": "Bank institution code the branch belongs to",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.bank_code"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "bank_code",
+                    "reference": {
+                      "resource": "bank",
+                      "fields": "code"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "banker",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "banker_id",
+                "fields": [
+                  {
+                    "name": "banker_id",
+                    "type": "integer",
+                    "description": "Unique banker identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_id"
+                    ]
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "description": "Name of the banker",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_name"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch where the banker is assigned",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "customer_id",
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Unique customer identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "description": "Full name of the customer",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.name",
+                      "bank2.customer.customer_name"
+                    ]
+                  },
+                  {
+                    "name": "phone",
+                    "type": "string",
+                    "description": "Primary telephone or mobile number",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.phone",
+                      "bank2.customer.mobileno"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Physical residential or mailing address",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.address"
+                    ]
+                  },
+                  {
+                    "name": "dob",
+                    "type": "date",
+                    "description": "Customer date of birth",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.customer.dob"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "account_id",
+                "fields": [
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Unique account identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.account.account_no",
+                      "bank2.account.account_id"
+                    ]
+                  },
+                  {
+                    "name": "account_type",
+                    "type": "string",
+                    "description": "Type of account (e.g. savings, checking)",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.acc_type",
+                      "bank2.account.account_type"
+                    ]
+                  },
+                  {
+                    "name": "balance",
+                    "type": "number",
+                    "description": "Current monetary balance in the account",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.balance",
+                      "bank2.account.account_balance"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch holding the account",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.account.branch_id",
+                      "bank2.account.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "account_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer holding the account",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account held by the customer",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.account_no",
+                      "bank2.customer.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_id",
+                "fields": [
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Unique loan identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_id",
+                      "bank2.loan.loan_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_type",
+                    "type": "string",
+                    "description": "Category or type of loan",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_type"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Original principal or issued loan amount",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.amount",
+                      "bank2.loan.issued_amount"
+                    ]
+                  },
+                  {
+                    "name": "remaining_amount",
+                    "type": "number",
+                    "description": "Outstanding balance on the loan",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.remaining_amount"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch issuing the loan",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.loan.branch_id",
+                      "bank2.loan.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account associated with loan disbursement/servicing",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan_borrower",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "loan_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Borrowing customer identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.custid",
+                      "bank2.borrower.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Associated loan identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.loan_id",
+                      "bank2.borrower.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan_payment",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_payment_id",
+                "fields": [
+                  {
+                    "name": "loan_payment_id",
+                    "type": "integer",
+                    "description": "Unique payment identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_payment_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Payment amount made towards loan",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.amount"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Associated loan being serviced",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "credit_card",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "credit_card_id",
+                "fields": [
+                  {
+                    "name": "credit_card_id",
+                    "type": "integer",
+                    "description": "Unique credit card identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.credit_card_id"
+                    ]
+                  },
+                  {
+                    "name": "expiry_date",
+                    "type": "date",
+                    "description": "Expiration date of the credit card",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.expiry_date"
+                    ]
+                  },
+                  {
+                    "name": "card_limit",
+                    "type": "number",
+                    "description": "Credit limit assigned to the card",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.card_limit"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer owning the credit card",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account backing the credit card",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "transaction",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "transaction_id",
+                "fields": [
+                  {
+                    "name": "transaction_id",
+                    "type": "integer",
+                    "description": "Unique transaction record identifier",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.transaction_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Monetary transaction amount",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.amount"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer initiating or involved in transaction",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account on which transaction occurred",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "conflict_report": [
+          {
+            "conflict_type": "Naming",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.branch.name",
+                  "bank1.branch.address",
+                  "bank2.branch.branch_name",
+                  "bank2.branch.branch_address",
+                  "bank1.customer.custid",
+                  "bank1.customer.name",
+                  "bank1.customer.phone",
+                  "bank2.customer.customer_id",
+                  "bank2.customer.customer_name",
+                  "bank2.customer.mobileno",
+                  "bank1.account.account_no",
+                  "bank1.account.acc_type",
+                  "bank1.account.balance",
+                  "bank2.account.account_id",
+                  "bank2.account.account_type",
+                  "bank2.account.account_balance",
+                  "bank1.availed_by",
+                  "bank2.borrower"
+                ],
+                "description": "Differences in attribute and entity naming across schemas: bank2 uses branch_name/branch_address while bank1 uses name/address; bank1 uses custid/name/phone while bank2 uses customer_id/customer_name/mobileno; bank1 uses account_no/acc_type/balance while bank2 uses account_id/account_type/account_balance; bridge tables availed_by in bank1 corresponds to borrower in bank2; hold_by in bank1 corresponds to customer-account relationship.",
+                "resolution": "Adopted normalized, standardized snake_case naming conventions (e.g., customer, account, branch, loan, loan_customer, customer_account)."
+              },
+              {
+                "source_references": [
+                  "bank1.loan.amount",
+                  "bank2.loan.issued_amount",
+                  "bank2.loan.remaining_amount"
+                ],
+                "description": "Loan amount representation: bank1 defines a single 'amount' while bank2 distinguishes 'issued_amount' and 'remaining_amount'.",
+                "resolution": "Retained 'amount' / 'issued_amount' as total issued amount and included 'remaining_amount' as an optional field in loan."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Type",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.account.balance",
+                  "bank2.account.account_balance",
+                  "bank1.loan.amount",
+                  "bank2.loan.issued_amount",
+                  "bank2.loan.remaining_amount"
+                ],
+                "description": "Account balance and loan amount are defined as 'number' (floating-point) in bank1 but 'integer' in bank2.",
+                "resolution": "Standardized financial amounts and balances to 'number' in the target schema to accommodate fractional currency units without loss of precision."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Data Semantic",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.bank",
+                  "bank1.branch.bank_code"
+                ],
+                "description": "bank1 contains bank institutional information (bank table with code, name, address) whereas bank2 models branches directly without a parent bank entity.",
+                "resolution": "Maintained bank as a parent resource with bank_code foreign keys on branch where applicable."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Structure",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank2.banker_info",
+                  "bank2.customer_credit_card",
+                  "bank2.loan_payment"
+                ],
+                "description": "bank2 contains entities not present in bank1: banker_info, customer_credit_card, and loan_payment.",
+                "resolution": "Included banker_info, credit_card, and loan_payment as distinct first-class resources in the target schema."
+              },
+              {
+                "source_references": [
+                  "bank1.offer",
+                  "bank1.maintain",
+                  "bank1.loan.branch_id",
+                  "bank1.account.branch_id",
+                  "bank2.loan.branch_id",
+                  "bank2.account.branch_id"
+                ],
+                "description": "Redundant relationship tables in bank1: bank1 defines 'offer' (branch-loan) and 'maintain' (branch-account) while both loan and account already possess direct foreign keys to branch.",
+                "resolution": "Omitted redundant relationship tables offer and maintain in favor of direct branch_id foreign keys present on account and loan in both schemas."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Cardinality",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.hold_by",
+                  "bank2.customer.account_id"
+                ],
+                "description": "Customer-to-account relationship: bank1 supports an N:M relationship via bridge table 'hold_by', whereas bank2 models customer with a single foreign key 'account_id' (implying N:1 or 1:1) and credit cards/transactions also linking customer and account.",
+                "resolution": "Standardized customer-to-account relationships into an N:M junction table 'customer_account' (incorporating bank1.hold_by and bank2's customer-account relationship) to accommodate multi-account ownership and joint accounts."
+              },
+              {
+                "source_references": [
+                  "bank1.availed_by",
+                  "bank2.borrower"
+                ],
+                "description": "Customer-to-loan relationship: bank1 models N:M via availed_by (composite PK [custid, loan_id]) while bank2 models N:M via borrower with a surrogate PK borrower_id.",
+                "resolution": "Unified loan borrower / availed_by relationship into a single associative entity 'loan_borrower' with composite key [customer_id, loan_id]."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Key",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.availed_by.custid",
+                  "bank1.availed_by.loan_id",
+                  "bank2.borrower.borrower_id",
+                  "bank2.borrower.customer_id",
+                  "bank2.borrower.loan_id"
+                ],
+                "description": "bank2.borrower uses a surrogate primary key (borrower_id) whereas bank1.availed_by uses a composite primary key (custid, loan_id).",
+                "resolution": "Defined composite primary key [customer_id, loan_id] for the unified loan_borrower bridge table; mapped source identifiers accordingly."
+              }
+            ]
+          }
+        ]
+      },
+      "error_message": null
+    },
+    {
+      "iteration_index": 2,
+      "completeness": 0.9206,
+      "structural_integrity": 0.8261,
+      "intra_table_uniqueness": 1.0,
+      "unmapped_source_columns": [
+        "a:maintain.account_no",
+        "a:maintain.branch_id",
+        "a:offer.branch_id",
+        "a:offer.loan_id",
+        "b:borrower.borrower_id"
+      ],
+      "broken_fks": [],
+      "unpreserved_source_fks": [
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+      ],
+      "detected_clones": [],
+      "structural_stats": {
+        "pk_validity": 1.0,
+        "fk_validity": 1.0,
+        "source_fk_preservation": 0.8261,
+        "score": 0.8261,
+        "total_tables": 11,
+        "total_fks": 14,
+        "total_source_fks": 46,
+        "preserved_source_fks": 38,
+        "broken_fks": [],
+        "unpreserved_source_fks": [
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+        ]
+      },
+      "latency_seconds": 22.379,
+      "token_usage": {
+        "prompt_tokens": 7559,
+        "completion_tokens": 4303,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 11862,
+        "latency_seconds": 22.37949587500043
+      },
+      "alignment_report": {
+        "target_schema": {
+          "name": "unified_banking_system",
+          "title": "Unified Banking System Data Package",
+          "resources": [
+            {
+              "name": "bank",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "bank_code",
+                "fields": [
+                  {
+                    "name": "bank_code",
+                    "type": "string",
+                    "description": "Unique code identifying the bank institution.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.code"
+                    ]
+                  },
+                  {
+                    "name": "bank_name",
+                    "type": "string",
+                    "description": "Name of the bank institution.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.name"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Headquarters or primary address of the bank.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.bank.address"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "branch",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "branch_id",
+                "fields": [
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the bank branch.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.branch_id",
+                      "bank2.branch.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "branch_name",
+                    "type": "string",
+                    "description": "Name of the branch.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.name",
+                      "bank2.branch.branch_name"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Physical address of the branch.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.address",
+                      "bank2.branch.branch_address"
+                    ]
+                  },
+                  {
+                    "name": "assets",
+                    "type": "number",
+                    "description": "Total asset value held by the branch.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.branch.assets"
+                    ]
+                  },
+                  {
+                    "name": "bank_code",
+                    "type": "string",
+                    "description": "Foreign key identifying the owning bank.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.bank_code"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "bank_code",
+                    "reference": {
+                      "resource": "bank",
+                      "fields": "bank_code"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "banker",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "banker_id",
+                "fields": [
+                  {
+                    "name": "banker_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the banker/employee.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_id"
+                    ]
+                  },
+                  {
+                    "name": "banker_name",
+                    "type": "string",
+                    "description": "Full name of the banker.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_name"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch where the banker is assigned.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "customer_id",
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "customer_name",
+                    "type": "string",
+                    "description": "Full name of the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.name",
+                      "bank2.customer.customer_name"
+                    ]
+                  },
+                  {
+                    "name": "phone_number",
+                    "type": "string",
+                    "description": "Primary contact telephone or mobile number.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.phone",
+                      "bank2.customer.mobileno"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Residential address of the customer.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.address"
+                    ]
+                  },
+                  {
+                    "name": "dob",
+                    "type": "date",
+                    "description": "Customer date of birth.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.customer.dob"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "account_id",
+                "fields": [
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.account.account_no",
+                      "bank2.account.account_id"
+                    ]
+                  },
+                  {
+                    "name": "account_type",
+                    "type": "string",
+                    "description": "Category or type of account (e.g., checking, savings).",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.acc_type",
+                      "bank2.account.account_type"
+                    ]
+                  },
+                  {
+                    "name": "balance",
+                    "type": "number",
+                    "description": "Current account monetary balance.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.balance",
+                      "bank2.account.account_balance"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Identifier of branch managing the account.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.branch_id",
+                      "bank2.account.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "account_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Identifier of the participating customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Identifier of the linked account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.account_no",
+                      "bank2.customer.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_id",
+                "fields": [
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_id",
+                      "bank2.loan.loan_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_type",
+                    "type": "string",
+                    "description": "Classification/type of loan product.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_type"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Total amount of the loan granted/issued.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.amount",
+                      "bank2.loan.issued_amount"
+                    ]
+                  },
+                  {
+                    "name": "remaining_amount",
+                    "type": "number",
+                    "description": "Outstanding principal or balance remaining on the loan.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.remaining_amount"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch originating or maintaining the loan.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.branch_id",
+                      "bank2.loan.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Linked account associated with loan disbursements or repayments.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_loan",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "loan_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Identifier of the borrower/customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.custid",
+                      "bank2.borrower.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Identifier of the availed loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.loan_id",
+                      "bank2.borrower.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan_payment",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_payment_id",
+                "fields": [
+                  {
+                    "name": "loan_payment_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the loan repayment event.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_payment_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Monetary amount paid towards the loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.amount"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Identifier of the loan being repaid.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "transaction",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "transaction_id",
+                "fields": [
+                  {
+                    "name": "transaction_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the account transaction.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.transaction_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Transaction monetary amount.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.amount"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer performing the transaction.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account affected by the transaction.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_credit_card",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "credit_card_id",
+                "fields": [
+                  {
+                    "name": "credit_card_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the credit card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.credit_card_id"
+                    ]
+                  },
+                  {
+                    "name": "expiry_date",
+                    "type": "date",
+                    "description": "Card expiration date.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.expiry_date"
+                    ]
+                  },
+                  {
+                    "name": "card_limit",
+                    "type": "number",
+                    "description": "Credit limit approved on the card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.card_limit"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer owning the credit card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Linked billing/settlement account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "conflict_report": [
+          {
+            "conflict_type": "Naming",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.customer.custid",
+                  "bank1.customer.name",
+                  "bank1.customer.phone",
+                  "bank2.customer.customer_id",
+                  "bank2.customer.customer_name",
+                  "bank2.customer.mobileno"
+                ],
+                "description": "Synonymous naming for customer identification, customer name, and customer contact number across bank1 and bank2 (e.g., custid vs customer_id, name vs customer_name, phone vs mobileno).",
+                "resolution": "Standardized customer table columns to snake_case canonical names: customer_id, customer_name, and phone_number."
+              },
+              {
+                "source_references": [
+                  "bank1.branch.name",
+                  "bank1.branch.address",
+                  "bank2.branch.branch_name",
+                  "bank2.branch.branch_address"
+                ],
+                "description": "Synonymous naming for branch attributes between bank1 and bank2 (e.g., name vs branch_name, address vs branch_address).",
+                "resolution": "Standardized branch table columns to canonical names: branch_id, branch_name, and address."
+              },
+              {
+                "source_references": [
+                  "bank1.account.account_no",
+                  "bank1.account.acc_type",
+                  "bank1.account.balance",
+                  "bank2.account.account_id",
+                  "bank2.account.account_type",
+                  "bank2.account.account_balance"
+                ],
+                "description": "Synonymous naming for account attributes between bank1 and bank2 (e.g., account_no vs account_id, acc_type vs account_type, balance vs account_balance).",
+                "resolution": "Standardized account table attributes to account_id, account_type, and balance."
+              },
+              {
+                "source_references": [
+                  "bank1.availed_by",
+                  "bank2.borrower"
+                ],
+                "description": "Synonymous naming between bank1 availed_by association and bank2 borrower table.",
+                "resolution": "Adopted loan_customer (or loan_borrower) associative table naming to consistently capture customer-loan relationships."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Type",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.account.balance",
+                  "bank1.loan.amount",
+                  "bank2.account.account_balance",
+                  "bank2.loan.issued_amount",
+                  "bank2.loan.remaining_amount",
+                  "bank2.loan_payment.amount",
+                  "bank2.transaction.amount"
+                ],
+                "description": "Data type representation difference for monetary values: bank1 uses floating number for balances/amounts whereas bank2 uses integer.",
+                "resolution": "Unified monetary fields (account balance, loan amounts, transaction amounts) under the number type to support decimal precision."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Structure",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.bank",
+                  "bank1.branch.bank_code"
+                ],
+                "description": "bank1 models bank institution in an explicit parent entity 'bank' with 'branch' referencing 'bank', whereas bank2 lacks a dedicated bank entity.",
+                "resolution": "Preserved the normalized 'bank' entity and made bank_code optional on branch to accommodate bank2 branches where bank parent is undefined."
+              },
+              {
+                "source_references": [
+                  "bank1.hold_by",
+                  "bank1.availed_by",
+                  "bank2.customer.account_id",
+                  "bank2.borrower"
+                ],
+                "description": "bank1 models many-to-many relationships using dedicated bridge tables (offer, maintain, availed_by, hold_by) alongside direct foreign keys, while bank2 uses direct foreign keys and separate relationship tables (borrower). Specifically, customer-account is M:N in bank1 (hold_by) but 1:N / directly referenced in bank2.",
+                "resolution": "Preserved the M:N associative bridge table customer_account (merging hold_by and bank2 customer-account association) and loan_customer (merging availed_by and borrower), while maintaining foreign keys to branches on loan and account."
+              },
+              {
+                "source_references": [
+                  "bank2.banker_info",
+                  "bank2.transaction",
+                  "bank2.customer_credit_card",
+                  "bank2.loan_payment"
+                ],
+                "description": "bank2 includes specialized operational entities (banker_info, transaction, customer_credit_card, loan_payment) not present in bank1.",
+                "resolution": "Retained banker_info, transaction, customer_credit_card, and loan_payment as first-class resources in the global schema to preserve operational granularity."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Cardinality",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.hold_by",
+                  "bank2.customer.account_id"
+                ],
+                "description": "Customer to Account relationship cardinality mismatch: bank1 allows an M:N relationship via hold_by, whereas bank2 establishes a direct 1:N or 1:1 foreign key customer.account_id.",
+                "resolution": "Resolved in favor of the more general M:N relationship using the customer_account association table, removing the restrictive single account_id foreign key from customer."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Key",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.availed_by",
+                  "bank2.borrower.borrower_id"
+                ],
+                "description": "bank1 availed_by uses a composite primary key (Custid, Loan_id) whereas bank2 borrower uses a surrogate primary key borrower_id.",
+                "resolution": "Used the natural composite primary key [customer_id, loan_id] for the unified customer_loan table to ensure uniqueness without redundant surrogate keys."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Data Semantic",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.loan.amount",
+                  "bank2.loan.issued_amount",
+                  "bank2.loan.remaining_amount"
+                ],
+                "description": "Loan amount semantics: bank1 specifies a single loan amount, whereas bank2 distinguishes between issued_amount and remaining_amount.",
+                "resolution": "Mapped bank1.loan.amount to amount (total/issued amount) and maintained remaining_amount as a distinct optional attribute for current debt tracking."
+              }
+            ]
+          }
+        ]
+      },
+      "error_message": null
+    },
+    {
+      "iteration_index": 3,
+      "completeness": 0.9206,
+      "structural_integrity": 0.8261,
+      "intra_table_uniqueness": 0.9835,
+      "unmapped_source_columns": [
+        "a:maintain.account_no",
+        "a:maintain.branch_id",
+        "a:offer.branch_id",
+        "a:offer.loan_id",
+        "b:borrower.borrower_id"
+      ],
+      "broken_fks": [],
+      "unpreserved_source_fks": [
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+        "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+      ],
+      "detected_clones": [
+        {
+          "target_table": "customer_account",
+          "column_a": "customer_id",
+          "column_b": "account_id",
+          "source_prov_a": [
+            "bank1.hold_by.custid",
+            "bank2.customer.customer_id"
+          ],
+          "source_prov_b": [
+            "bank1.hold_by.account_no",
+            "bank2.customer.account_id"
+          ],
+          "data_type": "integer",
+          "similarity_score": 0.9546,
+          "description_a": "Identifier of the customer holding the account.",
+          "description_b": "Identifier of the account held by the customer."
+        },
+        {
+          "target_table": "loan_borrower",
+          "column_a": "customer_id",
+          "column_b": "loan_id",
+          "source_prov_a": [
+            "bank1.availed_by.custid",
+            "bank2.borrower.customer_id"
+          ],
+          "source_prov_b": [
+            "bank1.availed_by.loan_id",
+            "bank2.borrower.loan_id"
+          ],
+          "data_type": "integer",
+          "similarity_score": 0.9264,
+          "description_a": "Customer who availed or borrowed the loan.",
+          "description_b": "Loan associated with the customer."
+        }
+      ],
+      "structural_stats": {
+        "pk_validity": 1.0,
+        "fk_validity": 1.0,
+        "source_fk_preservation": 0.8261,
+        "score": 0.8261,
+        "total_tables": 11,
+        "total_fks": 14,
+        "total_source_fks": 46,
+        "preserved_source_fks": 38,
+        "broken_fks": [],
+        "unpreserved_source_fks": [
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'offer' -> 'loan' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'branch' has unmapped columns in target",
+          "Source bank1 FK 'maintain' -> 'account' has unmapped columns in target"
+        ]
+      },
+      "latency_seconds": 22.081,
+      "token_usage": {
+        "prompt_tokens": 7559,
+        "completion_tokens": 4176,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 11735,
+        "latency_seconds": 22.081127582998306
+      },
+      "alignment_report": {
+        "target_schema": {
+          "name": "unified_bank_schema",
+          "title": "Unified Banking Data Schema",
+          "resources": [
+            {
+              "name": "bank",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "bank_code",
+                "fields": [
+                  {
+                    "name": "bank_code",
+                    "type": "string",
+                    "description": "Unique code identifying the bank institution.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.code"
+                    ]
+                  },
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "description": "Name of the bank institution.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.bank.name"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Address of the bank institution headquarters.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.bank.address"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "branch",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "branch_id",
+                "fields": [
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the bank branch.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.branch_id",
+                      "bank2.branch.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "branch_name",
+                    "type": "string",
+                    "description": "Name of the bank branch.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.branch.name",
+                      "bank2.branch.branch_name"
+                    ]
+                  },
+                  {
+                    "name": "branch_address",
+                    "type": "string",
+                    "description": "Physical address of the bank branch.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.address",
+                      "bank2.branch.branch_address"
+                    ]
+                  },
+                  {
+                    "name": "bank_code",
+                    "type": "string",
+                    "description": "Reference to the parent bank institution.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.branch.bank_code"
+                    ]
+                  },
+                  {
+                    "name": "assets",
+                    "type": "number",
+                    "description": "Total asset valuation of the branch.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.branch.assets"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "bank_code",
+                    "reference": {
+                      "resource": "bank",
+                      "fields": "bank_code"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "banker",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "banker_id",
+                "fields": [
+                  {
+                    "name": "banker_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the banker.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_id"
+                    ]
+                  },
+                  {
+                    "name": "banker_name",
+                    "type": "string",
+                    "description": "Full name of the banker.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.banker_name"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch where the banker is stationed.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.banker_info.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "customer_id",
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "customer_name",
+                    "type": "string",
+                    "description": "Full name of the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.customer.name",
+                      "bank2.customer.customer_name"
+                    ]
+                  },
+                  {
+                    "name": "phone_number",
+                    "type": "string",
+                    "description": "Primary phone or mobile number of the customer.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.phone",
+                      "bank2.customer.mobileno"
+                    ]
+                  },
+                  {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Address of the customer.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.customer.address"
+                    ]
+                  },
+                  {
+                    "name": "birth_date",
+                    "type": "date",
+                    "description": "Date of birth of the customer.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.customer.dob"
+                    ]
+                  }
+                ],
+                "foreignKeys": []
+              }
+            },
+            {
+              "name": "account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "account_id",
+                "fields": [
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Unique identifier or account number for the bank account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.account.account_no",
+                      "bank2.account.account_id"
+                    ]
+                  },
+                  {
+                    "name": "account_type",
+                    "type": "string",
+                    "description": "Classification or category of the account (e.g. savings, checking).",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.acc_type",
+                      "bank2.account.account_type"
+                    ]
+                  },
+                  {
+                    "name": "balance",
+                    "type": "number",
+                    "description": "Current balance of funds in the account.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.account.balance",
+                      "bank2.account.account_balance"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Identifier of the branch maintaining this account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.account.branch_id",
+                      "bank2.account.branch_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_account",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "account_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Identifier of the customer holding the account.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.custid",
+                      "bank2.customer.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Identifier of the account held by the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.hold_by.account_no",
+                      "bank2.customer.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_id",
+                "fields": [
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_id",
+                      "bank2.loan.loan_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_type",
+                    "type": "string",
+                    "description": "Type or category of the loan.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.loan_type"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Total initial principal or issued amount of the loan.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.amount",
+                      "bank2.loan.issued_amount"
+                    ]
+                  },
+                  {
+                    "name": "remaining_amount",
+                    "type": "number",
+                    "description": "Outstanding or remaining loan balance amount.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.remaining_amount"
+                    ]
+                  },
+                  {
+                    "name": "branch_id",
+                    "type": "integer",
+                    "description": "Branch that granted or manages the loan.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank1.loan.branch_id",
+                      "bank2.loan.branch_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Associated bank account for loan disbursement or payments.",
+                    "constraints": {
+                      "required": false
+                    },
+                    "source_provenance": [
+                      "bank2.loan.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "branch_id",
+                    "reference": {
+                      "resource": "branch",
+                      "fields": "branch_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan_borrower",
+              "path": null,
+              "schema_info": {
+                "primaryKey": [
+                  "customer_id",
+                  "loan_id"
+                ],
+                "fields": [
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer who availed or borrowed the loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.custid",
+                      "bank2.borrower.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Loan associated with the customer.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank1.availed_by.loan_id",
+                      "bank2.borrower.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "loan_payment",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "loan_payment_id",
+                "fields": [
+                  {
+                    "name": "loan_payment_id",
+                    "type": "integer",
+                    "description": "Unique identifier of the loan payment record.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_payment_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Amount paid towards the loan.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.amount"
+                    ]
+                  },
+                  {
+                    "name": "loan_id",
+                    "type": "integer",
+                    "description": "Identifier of the loan receiving the payment.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.loan_payment.loan_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "loan_id",
+                    "reference": {
+                      "resource": "loan",
+                      "fields": "loan_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "transaction",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "transaction_id",
+                "fields": [
+                  {
+                    "name": "transaction_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the transaction record.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.transaction_id"
+                    ]
+                  },
+                  {
+                    "name": "amount",
+                    "type": "number",
+                    "description": "Monetary amount transacted.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.amount"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Customer initiating or associated with the transaction.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account affected by the transaction.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.transaction.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "customer_credit_card",
+              "path": null,
+              "schema_info": {
+                "primaryKey": "credit_card_id",
+                "fields": [
+                  {
+                    "name": "credit_card_id",
+                    "type": "integer",
+                    "description": "Unique identifier for the credit card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.credit_card_id"
+                    ]
+                  },
+                  {
+                    "name": "expiry_date",
+                    "type": "date",
+                    "description": "Credit card expiration date.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.expiry_date"
+                    ]
+                  },
+                  {
+                    "name": "card_limit",
+                    "type": "number",
+                    "description": "Credit limit allocated to the card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.card_limit"
+                    ]
+                  },
+                  {
+                    "name": "customer_id",
+                    "type": "integer",
+                    "description": "Cardholder customer identifier.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.customer_id"
+                    ]
+                  },
+                  {
+                    "name": "account_id",
+                    "type": "integer",
+                    "description": "Account linked to the credit card.",
+                    "constraints": {
+                      "required": true
+                    },
+                    "source_provenance": [
+                      "bank2.customer_credit_card.account_id"
+                    ]
+                  }
+                ],
+                "foreignKeys": [
+                  {
+                    "fields": "customer_id",
+                    "reference": {
+                      "resource": "customer",
+                      "fields": "customer_id"
+                    }
+                  },
+                  {
+                    "fields": "account_id",
+                    "reference": {
+                      "resource": "account",
+                      "fields": "account_id"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "conflict_report": [
+          {
+            "conflict_type": "Naming",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.branch.name",
+                  "bank2.branch.branch_name",
+                  "bank1.branch.address",
+                  "bank2.branch.branch_address",
+                  "bank1.customer.custid",
+                  "bank2.customer.customer_id",
+                  "bank1.customer.name",
+                  "bank2.customer.customer_name",
+                  "bank1.customer.phone",
+                  "bank2.customer.mobileno",
+                  "bank1.account.account_no",
+                  "bank2.account.account_id",
+                  "bank1.account.acc_type",
+                  "bank2.account.account_type"
+                ],
+                "description": "Entity and attribute name variations across bank1 and bank2: branch name ('name' vs 'branch_name'), address ('address' vs 'branch_address'), customer identifiers ('custid' vs 'customer_id'), customer names ('name' vs 'customer_name'), phone numbers ('phone' vs 'mobileno'), account identifiers ('account_no' vs 'account_id'), and account types ('acc_type' vs 'account_type').",
+                "resolution": "Standardized table and attribute names using descriptive snake_case naming conventions (e.g., branch_name, customer_id, account_id, account_type, phone_number)."
+              },
+              {
+                "source_references": [
+                  "bank1.availed_by",
+                  "bank2.borrower"
+                ],
+                "description": "Customer-loan association table naming: bank1 names the association 'availed_by' while bank2 names it 'borrower'.",
+                "resolution": "Consolidated into the standard associative entity 'loan_borrower' (or 'borrower')."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Type",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.account.balance",
+                  "bank2.account.account_balance",
+                  "bank1.loan.amount",
+                  "bank2.loan.issued_amount"
+                ],
+                "description": "Monetary amount and balance attributes use number (float/decimal) in bank1 but integer in bank2 (e.g., account balance, loan amount).",
+                "resolution": "Standardized all monetary amounts and balance fields to generic type 'number' to accommodate fractional currency units without loss of precision."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Data Semantic",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.loan.amount",
+                  "bank2.loan.issued_amount",
+                  "bank2.loan.remaining_amount"
+                ],
+                "description": "In bank1, 'loan.amount' represents the total principal loan amount, whereas in bank2, loans explicitly distinguish between 'issued_amount' and 'remaining_amount'.",
+                "resolution": "Mapped bank1.loan.amount and bank2.loan.issued_amount to target field 'amount' (principal/issued amount), and retained 'remaining_amount' as an optional field for schemas providing balance tracking."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Structure",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.bank",
+                  "bank1.branch.bank_code"
+                ],
+                "description": "bank1 models an enterprise hierarchy starting with a 'bank' entity with multiple branches, whereas bank2 only models standalone branches without a parent bank entity.",
+                "resolution": "Retained 'bank' as an independent parent resource, making the 'bank_code' reference in 'branch' optional so branches without a parent bank (such as in bank2) can be accommodated."
+              },
+              {
+                "source_references": [
+                  "bank2.banker_info",
+                  "bank2.customer_credit_card",
+                  "bank2.loan_payment",
+                  "bank1.offer",
+                  "bank1.maintain"
+                ],
+                "description": "bank2 includes domain-specific entities not present in bank1: banker information ('banker_info'), customer credit cards ('customer_credit_card'), and loan payment history ('loan_payment'). Additionally, bank1 contains explicit M:N or redundant bridge tables ('offer', 'maintain') which duplicate direct foreign key relationships.",
+                "resolution": "Preserved banker_info, customer_credit_card, and loan_payment in the target schema. Retained direct foreign keys for account-branch and loan-branch relationships, while deprecating redundant binary relationship tables where direct FKs suffice."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Cardinality",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.hold_by",
+                  "bank2.customer.account_id"
+                ],
+                "description": "Customer-to-account relationship: bank1 models a many-to-many relationship via 'hold_by', whereas bank2 embeds a single 'account_id' foreign key directly inside the 'customer' table (1:N or N:1 constraint).",
+                "resolution": "Adopted a normalized bridge resource 'customer_account' (derived from bank1.hold_by and bank2's customer-account relationship) to support many-to-many account ownership without loss of generality."
+              }
+            ]
+          },
+          {
+            "conflict_type": "Key",
+            "conflicts": [
+              {
+                "source_references": [
+                  "bank1.availed_by",
+                  "bank2.borrower.borrower_id"
+                ],
+                "description": "Bridge table primary keys: bank1.availed_by uses composite key (custid, loan_id), whereas bank2.borrower defines a surrogate primary key (borrower_id).",
+                "resolution": "Used composite primary key (customer_id, loan_id) for the associative table 'loan_borrower' to ensure relational uniqueness across customer-loan pairs."
+              }
+            ]
+          }
+        ]
+      },
+      "error_message": null
+    }
+  ],
+  "mean_completeness": 0.9206,
+  "std_completeness": 0.0,
+  "mean_structural_integrity": 0.8261,
+  "std_structural_integrity": 0.0,
+  "mean_intra_table_uniqueness": 0.991933,
+  "std_intra_table_uniqueness": 0.008256,
+  "mean_latency_sec": 22.357,
+  "std_latency_sec": 0.265684,
+  "prompt_tokens": 22677,
+  "completion_tokens": 12672,
+  "total_tokens": 35349,
+  "flakiness_analysis": {
+    "total_distinct_clones": 2,
+    "stable_clones_count": 0,
+    "stability_ratio": 0.0
+  },
+  "consistency_analysis": {
+    "consensus_pairs": [
+      {
+        "source_col_a": "account.acc_type",
+        "source_col_b": "account.account_type",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "account.account_type"
+        ]
+      },
+      {
+        "source_col_a": "account.account_no",
+        "source_col_b": "account.account_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "account.account_id"
+        ]
+      },
+      {
+        "source_col_a": "account.balance",
+        "source_col_b": "account.account_balance",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "account.balance"
+        ]
+      },
+      {
+        "source_col_a": "account.branch_id",
+        "source_col_b": "account.branch_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "account.branch_id"
+        ]
+      },
+      {
+        "source_col_a": "availed_by.custid",
+        "source_col_b": "borrower.customer_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer_loan.customer_id",
+          "loan_borrower.customer_id"
+        ]
+      },
+      {
+        "source_col_a": "availed_by.loan_id",
+        "source_col_b": "borrower.loan_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer_loan.loan_id",
+          "loan_borrower.loan_id"
+        ]
+      },
+      {
+        "source_col_a": "branch.address",
+        "source_col_b": "branch.branch_address",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "branch.address",
+          "branch.branch_address"
+        ]
+      },
+      {
+        "source_col_a": "branch.branch_id",
+        "source_col_b": "branch.branch_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "branch.branch_id"
+        ]
+      },
+      {
+        "source_col_a": "branch.name",
+        "source_col_b": "branch.branch_name",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "branch.branch_name",
+          "branch.name"
+        ]
+      },
+      {
+        "source_col_a": "customer.custid",
+        "source_col_b": "customer.customer_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer.customer_id"
+        ]
+      },
+      {
+        "source_col_a": "customer.name",
+        "source_col_b": "customer.customer_name",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer.customer_name",
+          "customer.name"
+        ]
+      },
+      {
+        "source_col_a": "customer.phone",
+        "source_col_b": "customer.mobileno",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer.phone",
+          "customer.phone_number"
+        ]
+      },
+      {
+        "source_col_a": "hold_by.account_no",
+        "source_col_b": "customer.account_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer_account.account_id"
+        ]
+      },
+      {
+        "source_col_a": "hold_by.custid",
+        "source_col_b": "customer.customer_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "customer_account.customer_id"
+        ]
+      },
+      {
+        "source_col_a": "loan.amount",
+        "source_col_b": "loan.issued_amount",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "loan.amount"
+        ]
+      },
+      {
+        "source_col_a": "loan.branch_id",
+        "source_col_b": "loan.branch_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "loan.branch_id"
+        ]
+      },
+      {
+        "source_col_a": "loan.loan_id",
+        "source_col_b": "loan.loan_id",
+        "coaligned_runs": 3,
+        "total_runs": 3,
+        "agreement_rate": 1.0,
+        "status": "STABLE",
+        "target_field_names": [
+          "loan.loan_id"
+        ]
+      }
+    ],
+    "overall_consensus_ratio": 1.0,
+    "stable_pairs_count": 17,
+    "volatile_pairs_count": 0,
+    "topological_drift": {
+      "table_counts": [
+        11,
+        11,
+        11
+      ],
+      "mean_table_count": 11.0,
+      "std_table_count": 0.0,
+      "fk_counts": [
+        14,
+        14,
+        14
+      ],
+      "fk_edge_stability": 0.6236
+    },
+    "clone_flakiness": {
+      "total_distinct_clones": 2,
+      "stable_clones_count": 0,
+      "stability_ratio": 0.0
+    }
+  }
+}

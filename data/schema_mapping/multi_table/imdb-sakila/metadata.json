@@ -1,0 +1,11 @@
+{
+  "name": "imdb-sakila",
+  "domain": "Media & Entertainment",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "source_tables": 7,
+  "source_cols": 39,
+  "target_tables": 16,
+  "target_cols": 90,
+  "gold_matches": 35
+}

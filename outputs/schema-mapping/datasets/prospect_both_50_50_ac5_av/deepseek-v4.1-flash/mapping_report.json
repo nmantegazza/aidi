@@ -1,0 +1,158 @@
+{
+  "rules": [
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_gncd",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "AgencyID"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_ddrssln2",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "AddressLine2"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_ct",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "City"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_nmbrcrs",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "NumberCars"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_pstlcd",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "PostalCode"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_mddlntl",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "MiddleInitial"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_nmbrcrdtcrds",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "NumberCreditCards"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_ddrssln1",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "AddressLine1"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_frstnm",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "FirstName"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_g",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "Age"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "prospect_both_50_50_ac5_av_target",
+      "target_column": "prospect_cntr",
+      "source_label": "prospect_both_50_50_ac5_av_source",
+      "source_table": "prospect_both_50_50_ac5_av_source",
+      "source_columns": [
+        "Country"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    }
+  ]
+}

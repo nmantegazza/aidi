@@ -1,0 +1,1030 @@
+{
+  "schema_name": "sakila",
+  "resources": [
+    {
+      "name": "actor",
+      "schema": {
+        "primaryKey": "actor_id",
+        "fields": [
+          {
+            "name": "actor_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each actor in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "first_name",
+            "type": "string",
+            "description": "The actor\\",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_name",
+            "type": "string",
+            "description": "The actor\\",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "address",
+      "schema": {
+        "primaryKey": "address_id",
+        "fields": [
+          {
+            "name": "address",
+            "type": "string",
+            "description": "The first line of an address.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "address2",
+            "type": "string",
+            "description": "An optional second line of an address.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "address_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each address in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "city_id",
+            "type": "integer",
+            "description": "A foreign key pointing to the city table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "district",
+            "type": "string",
+            "description": "The region of an address, this may be a state, province, prefecture, etc.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "location",
+            "type": "string",
+            "description": "A Geometry column with a spatial index on it.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "description": "The telephone number for the address.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "postal_code",
+            "type": "string",
+            "description": "The postal code or ZIP code of the address (where applicable).",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "city_id",
+            "reference": {
+              "resource": "city",
+              "fields": "city_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "category",
+      "schema": {
+        "primaryKey": "category_id",
+        "fields": [
+          {
+            "name": "category_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each category in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The name of the category. such as [ \"Action\", \"Animation\", \"Children\", \"Classics\", \"Comedy\", \"Documentary\", \"Drama\", \"Family\", \"Foreign\", \"Games\", \"Horror\", \"Music\", \"New\", \"Sci-Fi\", \"Sports\", \"Travel\" ]",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "city",
+      "schema": {
+        "primaryKey": "city_id",
+        "fields": [
+          {
+            "name": "city",
+            "type": "string",
+            "description": "The name of the city.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "city_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each city in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "country_id",
+            "type": "string",
+            "description": "A foreign key identifying the country that the city belongs to.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "country_id",
+            "reference": {
+              "resource": "country",
+              "fields": "country_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "country",
+      "schema": {
+        "primaryKey": "country_id",
+        "fields": [
+          {
+            "name": "country",
+            "type": "string",
+            "description": "The name of the country.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "country_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each country in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "customer",
+      "schema": {
+        "primaryKey": "customer_id",
+        "fields": [
+          {
+            "name": "active",
+            "type": "string",
+            "description": "Indicates whether the customer is an active customer. Setting this to FALSE serves as an alternative to deleting a customer outright. Most queries should have a WHERE active = TRUE clause.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "address_id",
+            "type": "string",
+            "description": "A foreign key identifying the customer address in the address table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "create_date",
+            "type": "date",
+            "description": "The date the customer was added to the system. This date is automatically set using a trigger during an INSERT.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "customer_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each customer in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "description": "The customer email address.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "first_name",
+            "type": "string",
+            "description": "The customer first name.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_name",
+            "type": "string",
+            "description": "The customer last name.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "store_id",
+            "type": "string",
+            "description": "A foreign key identifying the customer \"home store.\" Customers are not limited to renting only from this store, but this is the store at which they generally shop.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "address_id",
+            "reference": {
+              "resource": "address",
+              "fields": "address_id"
+            }
+          },
+          {
+            "fields": "store_id",
+            "reference": {
+              "resource": "store",
+              "fields": "store_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "film",
+      "schema": {
+        "primaryKey": "film_id",
+        "fields": [
+          {
+            "name": "description",
+            "type": "string",
+            "description": "A short description or plot summary of the film.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "film_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each film in the table.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "language_id",
+            "type": "integer",
+            "description": "A foreign key pointing at the language table. identifies the language of the film.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "length",
+            "type": "string",
+            "description": "The duration of the film, in minutes.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "original_language_id",
+            "type": "integer",
+            "description": "A foreign key pointing at the language table. identifies the original language of the film. Used when a film has been dubbed into a new language.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rating",
+            "type": "string",
+            "description": "The rating assigned to the film. Can be one of: G, PG, PG-13, R, or NC-17.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "release_year",
+            "type": "string",
+            "description": "The year in which the movie was released.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rental_duration",
+            "type": "string",
+            "description": "The length of the rental period, in days.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rental_rate",
+            "type": "string",
+            "description": "The cost to rent the film for the period specified in the rental_duration column.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "replacement_cost",
+            "type": "string",
+            "description": "The amount charged to the customer if the film is not returned or is returned in a damaged state.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "special_features",
+            "type": "string",
+            "description": "Lists which common special features are included on the DVD. Can be zero or more of: Trailers, Commentaries, Deleted Scenes, Behind the Scenes.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "The title of the film.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "language_id",
+            "reference": {
+              "resource": "language",
+              "fields": "language_id"
+            }
+          },
+          {
+            "fields": "original_language_id",
+            "reference": {
+              "resource": "language",
+              "fields": "language_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "film_actor",
+      "schema": {
+        "fields": [
+          {
+            "name": "actor_id",
+            "type": "string",
+            "description": "A foreign key identifying the actor.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "film_id",
+            "type": "string",
+            "description": "A foreign key identifying the film.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "actor_id",
+            "reference": {
+              "resource": "actor",
+              "fields": "actor_id"
+            }
+          },
+          {
+            "fields": "film_id",
+            "reference": {
+              "resource": "film",
+              "fields": "film_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "film_category",
+      "schema": {
+        "fields": [
+          {
+            "name": "category_id",
+            "type": "string",
+            "description": "A foreign key identifying the category.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "film_id",
+            "type": "string",
+            "description": "A foreign key identifying the film.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "category_id",
+            "reference": {
+              "resource": "category",
+              "fields": "category_id"
+            }
+          },
+          {
+            "fields": "film_id",
+            "reference": {
+              "resource": "film",
+              "fields": "film_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "film_text",
+      "schema": {
+        "fields": [
+          {
+            "name": "description",
+            "type": "string",
+            "description": "A short description or plot summary of the film.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "film_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each film in the table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "The title of the film.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "inventory",
+      "schema": {
+        "primaryKey": "inventory_id",
+        "fields": [
+          {
+            "name": "film_id",
+            "type": "integer",
+            "description": "A foreign key pointing to the film this item represents.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "inventory_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each item in inventory.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "store_id",
+            "type": "integer",
+            "description": "A foreign key pointing to the store stocking this item.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "film_id",
+            "reference": {
+              "resource": "film",
+              "fields": "film_id"
+            }
+          },
+          {
+            "fields": "store_id",
+            "reference": {
+              "resource": "store",
+              "fields": "store_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "language",
+      "schema": {
+        "primaryKey": "language_id",
+        "fields": [
+          {
+            "name": "language_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each language.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The English name of the language.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "payment",
+      "schema": {
+        "fields": [
+          {
+            "name": "amount",
+            "type": "string",
+            "description": "The amount of the payment.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "customer_id",
+            "type": "string",
+            "description": "The customer whose balance the payment is being applied to. This is a foreign key reference to the customer table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "payment_date",
+            "type": "date",
+            "description": "The date the payment was processed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "payment_id",
+            "type": "string",
+            "description": "A surrogate primary key used to uniquely identify each payment.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rental_id",
+            "type": "string",
+            "description": "The rental that the payment is being applied to. This is optional because some payments are for outstanding fees and may not be directly related to a rental.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "staff_id",
+            "type": "string",
+            "description": "The staff member who processed the payment. This is a foreign key reference to the staff table.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "customer_id",
+            "reference": {
+              "resource": "customer",
+              "fields": "customer_id"
+            }
+          },
+          {
+            "fields": "rental_id",
+            "reference": {
+              "resource": "rental",
+              "fields": "rental_id"
+            }
+          },
+          {
+            "fields": "staff_id",
+            "reference": {
+              "resource": "staff",
+              "fields": "staff_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "rental",
+      "schema": {
+        "primaryKey": "rental_id",
+        "fields": [
+          {
+            "name": "customer_id",
+            "type": "string",
+            "description": "The customer renting the item. This is a foreign key reference to the customer table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "inventory_id",
+            "type": "string",
+            "description": "The item being rented. This is a foreign key reference to the inventory table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rental_date",
+            "type": "date",
+            "description": "The date and time that the item was rented.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "rental_id",
+            "type": "string",
+            "description": "A surrogate primary key that uniquely identifies the rental.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "return_date",
+            "type": "date",
+            "description": "The date and time the item was returned.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "staff_id",
+            "type": "string",
+            "description": "The staff member who processed the rental. This is a foreign key reference to the staff table.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "customer_id",
+            "reference": {
+              "resource": "customer",
+              "fields": "customer_id"
+            }
+          },
+          {
+            "fields": "inventory_id",
+            "reference": {
+              "resource": "inventory",
+              "fields": "inventory_id"
+            }
+          },
+          {
+            "fields": "staff_id",
+            "reference": {
+              "resource": "staff",
+              "fields": "staff_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "staff",
+      "schema": {
+        "primaryKey": "staff_id",
+        "fields": [
+          {
+            "name": "active",
+            "type": "string",
+            "description": "Whether this is an active employee. If employees leave, their rows are not deleted from this table. instead, this column is set to FALSE.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "address_id",
+            "type": "string",
+            "description": "A foreign key to the staff member address in the address table.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "description": "The staff member email address.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "first_name",
+            "type": "string",
+            "description": "The first name of the staff member.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_name",
+            "type": "string",
+            "description": "The last name of the staff member.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "description": "The password used by the staff member to access the rental system. The password should be stored as a hash using the SHA2() function.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "picture",
+            "type": "string",
+            "description": "A BLOB containing a photograph of the employee.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "staff_id",
+            "type": "string",
+            "description": "A surrogate primary key that uniquely identifies the staff member.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "store_id",
+            "type": "string",
+            "description": "The staff member “home store.” The employee can work at other stores but is generally assigned to the store listed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "description": "The user name used by the staff member to access the rental system.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "address_id",
+            "reference": {
+              "resource": "address",
+              "fields": "address_id"
+            }
+          },
+          {
+            "fields": "store_id",
+            "reference": {
+              "resource": "store",
+              "fields": "store_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "store",
+      "schema": {
+        "primaryKey": "store_id",
+        "fields": [
+          {
+            "name": "address_id",
+            "type": "string",
+            "description": "A foreign key identifying the address of this store.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last_update",
+            "type": "date",
+            "description": "When the row was created or most recently updated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "manager_staff_id",
+            "type": "string",
+            "description": "A foreign key identifying the manager of this store.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "store_id",
+            "type": "string",
+            "description": "A surrogate primary key that uniquely identifies the store.",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "address_id",
+            "reference": {
+              "resource": "address",
+              "fields": "address_id"
+            }
+          },
+          {
+            "fields": "manager_staff_id",
+            "reference": {
+              "resource": "staff",
+              "fields": "staff_id"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

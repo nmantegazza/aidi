@@ -1,0 +1,88 @@
+{
+  "dataset_name": "Musicians_unionable",
+  "domain": "Wikidata",
+  "scenario": "Real-World Web Graph",
+  "matches_count": 20,
+  "matches": [
+    {
+      "source_column": "musician",
+      "target_column": "musicianID"
+    },
+    {
+      "source_column": "musicianLabel",
+      "target_column": "musicianName"
+    },
+    {
+      "source_column": "genderLabel",
+      "target_column": "genderType"
+    },
+    {
+      "source_column": "birthDate",
+      "target_column": "birthDate"
+    },
+    {
+      "source_column": "cityLabel",
+      "target_column": "city"
+    },
+    {
+      "source_column": "familyNameLabel",
+      "target_column": "familyName"
+    },
+    {
+      "source_column": "givenNameLabel",
+      "target_column": "forename"
+    },
+    {
+      "source_column": "fatherLabel",
+      "target_column": "fatherName"
+    },
+    {
+      "source_column": "motherLabel",
+      "target_column": "motherName"
+    },
+    {
+      "source_column": "partner",
+      "target_column": "spouse"
+    },
+    {
+      "source_column": "numberOfChildren",
+      "target_column": "NChildren"
+    },
+    {
+      "source_column": "genreLabel",
+      "target_column": "kind"
+    },
+    {
+      "source_column": "websiteLabel",
+      "target_column": "webpage"
+    },
+    {
+      "source_column": "residenceLabel",
+      "target_column": "residence"
+    },
+    {
+      "source_column": "ethnicityLabel",
+      "target_column": "ethnicity"
+    },
+    {
+      "source_column": "religionLabel",
+      "target_column": "religionLabel"
+    },
+    {
+      "source_column": "activityStart",
+      "target_column": "kickoff"
+    },
+    {
+      "source_column": "twitterNameLabel",
+      "target_column": "twitterUsername"
+    },
+    {
+      "source_column": "geniusNameLabel",
+      "target_column": "geniusNameLabel"
+    },
+    {
+      "source_column": "recordLabelLabel",
+      "target_column": "recordCompany"
+    }
+  ]
+}

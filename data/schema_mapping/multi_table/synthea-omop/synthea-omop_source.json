@@ -1,0 +1,989 @@
+{
+  "schema_name": "synthea",
+  "resources": [
+    {
+      "name": "allergies",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "allergy code from snomed-ct",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the allergy",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter when the allergy was diagnosed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "start",
+            "type": "date",
+            "description": "the date the allergy was diagnosed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stop",
+            "type": "date",
+            "description": "the date the allergy ended, if applicable.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "careplans",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "code from snomed-ct",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the care plan.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter when the care plan was initiated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key. unique identifier of the care plan.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasoncode",
+            "type": "string",
+            "description": "diagnosis code from snomed-ct that this care plan addresses.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasondescription",
+            "type": "string",
+            "description": "description of the reason code.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "start",
+            "type": "date",
+            "description": "the date the care plan was initiated.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stop",
+            "type": "date",
+            "description": "the date the care plan ended, if applicable.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "conditions",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "diagnosis code from snomed-ct",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the condition.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter when the condition was diagnosed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "start",
+            "type": "date",
+            "description": "the date the condition was diagnosed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stop",
+            "type": "date",
+            "description": "the date the condition resolved, if applicable.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "encounters",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "encounter code from snomed-ct",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "cost",
+            "type": "string",
+            "description": "the base cost of the encounter, not including any line item costs related to medications, immunizations, procedures, or other services.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the type of encounter.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounterclass",
+            "type": "string",
+            "description": "the class of the encounter, such as ambulatory, emergency, inpatient, wellness, or urgentcare",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key. unique identifier of the encounter.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "provider",
+            "type": "string",
+            "description": "foreign key to the organization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasoncode",
+            "type": "string",
+            "description": "diagnosis code from snomed-ct, only if this encounter targeted a specific condition.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasondescription",
+            "type": "string",
+            "description": "description of the reason code.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "start",
+            "type": "date",
+            "description": "the date and time the encounter started.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stop",
+            "type": "date",
+            "description": "the date and time the encounter concluded.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "imaging_studies",
+      "schema": {
+        "fields": [
+          {
+            "name": "body site code",
+            "type": "string",
+            "description": "a snomed body structures code describing what part of the body the images in the series were taken of.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "body site description",
+            "type": "string",
+            "description": "description of the body site.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "description": "the date the imaging study was conducted.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter where the imaging study was conducted.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key. unique identifier of the imaging study.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "modality code",
+            "type": "string",
+            "description": "a dicom-dcm code describing the method used to take the images.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "modality description",
+            "type": "string",
+            "description": "description of the modality.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "sop code",
+            "type": "string",
+            "description": "a dicom-sop code describing the subject-object pair (sop) that constitutes the image.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "sop description",
+            "type": "string",
+            "description": "description of the sop code.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "immunizations",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "immunization code from cvx.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "cost",
+            "type": "string",
+            "description": "the line item cost of the immunization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "description": "the date the immunization was administered.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the immunization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter where the immunization was administered.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "medications",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "medication code from rxnorm.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "cost",
+            "type": "string",
+            "description": "the line item cost of the medication.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the medication.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter where the medication was prescribed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasoncode",
+            "type": "string",
+            "description": "diagnosis code from snomed-ct specifying why this medication was prescribed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasondescription",
+            "type": "string",
+            "description": "description of the reason code.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "start",
+            "type": "date",
+            "description": "the date the medication was prescribed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stop",
+            "type": "date",
+            "description": "the date the prescription ended, if applicable.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "observations",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "observation or lab code from loinc",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "description": "the date the observation was performed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the observation or lab.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter where the observation was performed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "type",
+            "type": "number",
+            "description": "the datatype of value text or numeric.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "units",
+            "type": "string",
+            "description": "the units of measure for the value.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "description": "the recorded value of the observation.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "organizations",
+      "schema": {
+        "fields": [
+          {
+            "name": "address",
+            "type": "string",
+            "description": "organization's street address without commas or newlines.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "description": "street address city.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key of the organization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "name of the organization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "description": "organization's phone number.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "state",
+            "type": "string",
+            "description": "street address state abbreviation.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "utilization",
+            "type": "string",
+            "description": "the number of encounter's performed by this organization.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "zip",
+            "type": "string",
+            "description": "street address zip or postal code.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "patients",
+      "schema": {
+        "fields": [
+          {
+            "name": "address",
+            "type": "string",
+            "description": "patient's street address without commas or newlines.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "birthdate",
+            "type": "date",
+            "description": "the date the patient was born.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "birthplace",
+            "type": "string",
+            "description": "name of the town where the patient was born.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "description": "patient's address city.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "deathdate",
+            "type": "date",
+            "description": "the date the patient died.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "drivers",
+            "type": "string",
+            "description": "patient drivers license identifier.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "ethnicity",
+            "type": "string",
+            "description": "description of the patient's primary ethnicity.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "first",
+            "type": "string",
+            "description": "first name of the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "gender",
+            "type": "string",
+            "description": "gender. m is male, f is female.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key. unique identifier of the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "last",
+            "type": "string",
+            "description": "last or surname of the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "maiden",
+            "type": "string",
+            "description": "maiden name of the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "marital",
+            "type": "string",
+            "description": "marital status. m is married, s is single. currently no support for divorce (d) or widowing (w)",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "passport",
+            "type": "string",
+            "description": "patient passport identifier.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "prefix",
+            "type": "string",
+            "description": "name prefix, such as mr., mrs., dr., etc.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "race",
+            "type": "string",
+            "description": "description of the patient's primary race.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "ssn",
+            "type": "string",
+            "description": "patient social security identifier.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "state",
+            "type": "string",
+            "description": "patient's address state.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "suffix",
+            "type": "string",
+            "description": "name suffix, such as phd, md, jd, etc.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "zip",
+            "type": "string",
+            "description": "patient's zip code.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "procedures",
+      "schema": {
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "procedure code from snomed-ct",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "cost",
+            "type": "string",
+            "description": "the line item cost of the procedure.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "description": "the date the procedure was performed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "description of the procedure.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "encounter",
+            "type": "string",
+            "description": "foreign key to the encounter where the procedure was performed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "patient",
+            "type": "string",
+            "description": "foreign key to the patient.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasoncode",
+            "type": "string",
+            "description": "diagnosis code from snomed-ct specifying why this procedure was performed.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "reasondescription",
+            "type": "string",
+            "description": "description of the reason code.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    },
+    {
+      "name": "providers",
+      "schema": {
+        "fields": [
+          {
+            "name": "address",
+            "type": "string",
+            "description": "provider's street address without commas or newlines.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "description": "street address city.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "gender",
+            "type": "string",
+            "description": "gender. m is male, f is female.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "primary key of the provider/clinician.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "first and last name of the provider.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "organization",
+            "type": "string",
+            "description": "foreign key to the organization that employees this provider.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "speciality",
+            "type": "string",
+            "description": "provider speciality.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "state",
+            "type": "string",
+            "description": "street address state abbreviation.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "utilization",
+            "type": "string",
+            "description": "the number of encounter's performed by this provider.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "zip",
+            "type": "string",
+            "description": "street address zip or postal code.",
+            "constraints": {
+              "required": false
+            }
+          }
+        ],
+        "foreignKeys": []
+      }
+    }
+  ]
+}

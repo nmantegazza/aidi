@@ -1,0 +1,19 @@
+source_col_a,source_col_b,coaligned_runs,total_runs,agreement_rate,status,target_field_names
+name_basics.nconst,actor.actor_id,3,3,1.0,STABLE,person.person_id
+title_akas.language,language.language_id,1,3,0.3333,VOLATILE,language.language_id
+title_basics.genres,category.category_id,3,3,1.0,STABLE,category.category_id; classification.classification_id; genre.genre_id
+title_basics.genres,category.name,3,3,1.0,STABLE,category.category_name; classification.classification_name; genre.genre_name
+title_basics.genres,film_category.category_id,3,3,1.0,STABLE,title_category.category_id; work_classification.classification_id; work_genre.genre_id
+title_basics.primarytitle,film.title,3,3,1.0,STABLE,media_title.primary_title; work.primary_title
+title_basics.primarytitle,film_text.title,3,3,1.0,STABLE,media_title.primary_title; work.primary_title
+title_basics.runtimeminutes,film.length,3,3,1.0,STABLE,media_title.runtime_seconds; work.runtime_seconds
+title_basics.startyear,film.release_year,3,3,1.0,STABLE,media_title.release_start_year; work.release_start_year; work.release_year
+title_basics.tconst,film.film_id,3,3,1.0,STABLE,media_title.media_title_id; work.work_id
+title_basics.tconst,film_category.film_id,3,3,1.0,STABLE,title_category.media_title_id; work_classification.work_id; work_genre.work_id
+title_basics.tconst,film_text.film_id,3,3,1.0,STABLE,media_title.media_title_id; work.work_id
+title_crew.directors,film_actor.actor_id,2,3,0.6667,VOLATILE,title_credit.person_id; work_credit.role_category
+title_crew.tconst,film_actor.film_id,2,3,0.6667,VOLATILE,title_credit.media_title_id; work_credit.work_id
+title_crew.writers,film_actor.actor_id,2,3,0.6667,VOLATILE,title_credit.person_id; work_credit.role_category
+title_principals.category,film_actor.actor_id,1,3,0.3333,VOLATILE,work_credit.role_category
+title_principals.nconst,film_actor.actor_id,3,3,1.0,STABLE,title_credit.person_id; work_credit.person_id
+title_principals.tconst,film_actor.film_id,3,3,1.0,STABLE,title_credit.media_title_id; work_credit.work_id

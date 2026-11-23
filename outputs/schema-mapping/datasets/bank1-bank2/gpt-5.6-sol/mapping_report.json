@@ -1,0 +1,230 @@
+{
+  "rules": [
+    {
+      "target_table": "branch",
+      "target_column": "branch_id",
+      "source_label": "bank1",
+      "source_table": "branch",
+      "source_columns": [
+        "branch_id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "branch",
+      "target_column": "branch_name",
+      "source_label": "bank1",
+      "source_table": "branch",
+      "source_columns": [
+        "name"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "branch",
+      "target_column": "branch_address",
+      "source_label": "bank1",
+      "source_table": "branch",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "account",
+      "target_column": "account_id",
+      "source_label": "bank1",
+      "source_table": "account",
+      "source_columns": [
+        "account_no"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "account",
+      "target_column": "account_type",
+      "source_label": "bank1",
+      "source_table": "account",
+      "source_columns": [
+        "acc_type"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "account",
+      "target_column": "account_balance",
+      "source_label": "bank1",
+      "source_table": "account",
+      "source_columns": [
+        "balance"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "integer"
+        }
+      ]
+    },
+    {
+      "target_table": "account",
+      "target_column": "branch_id",
+      "source_label": "bank1",
+      "source_table": "account",
+      "source_columns": [
+        "branch_id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "customer",
+      "target_column": "customer_id",
+      "source_label": "bank1",
+      "source_table": "customer",
+      "source_columns": [
+        "custid"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "customer",
+      "target_column": "customer_name",
+      "source_label": "bank1",
+      "source_table": "customer",
+      "source_columns": [
+        "name"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "customer",
+      "target_column": "mobileno",
+      "source_label": "bank1",
+      "source_table": "customer",
+      "source_columns": [
+        "phone"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "customer",
+      "target_column": "account_id",
+      "source_label": "bank1",
+      "source_table": "hold_by",
+      "source_columns": [
+        "account_no"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "loan",
+      "target_column": "loan_id",
+      "source_label": "bank1",
+      "source_table": "loan",
+      "source_columns": [
+        "loan_id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "loan",
+      "target_column": "issued_amount",
+      "source_label": "bank1",
+      "source_table": "loan",
+      "source_columns": [
+        "amount"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "integer"
+        }
+      ]
+    },
+    {
+      "target_table": "loan",
+      "target_column": "branch_id",
+      "source_label": "bank1",
+      "source_table": "loan",
+      "source_columns": [
+        "branch_id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "borrower",
+      "target_column": "customer_id",
+      "source_label": "bank1",
+      "source_table": "availed_by",
+      "source_columns": [
+        "custid"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "borrower",
+      "target_column": "loan_id",
+      "source_label": "bank1",
+      "source_table": "availed_by",
+      "source_columns": [
+        "loan_id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    }
+  ]
+}

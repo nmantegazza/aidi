@@ -1,0 +1,111 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "matches_count": 17,
+  "matches": [
+    {
+      "source_table": "branch",
+      "source_column": "branch_id",
+      "target_table": "branch",
+      "target_column": "branch_id"
+    },
+    {
+      "source_table": "branch",
+      "source_column": "name",
+      "target_table": "branch",
+      "target_column": "branch_name"
+    },
+    {
+      "source_table": "branch",
+      "source_column": "address",
+      "target_table": "branch",
+      "target_column": "branch_address"
+    },
+    {
+      "source_table": "account",
+      "source_column": "account_no",
+      "target_table": "account",
+      "target_column": "account_id"
+    },
+    {
+      "source_table": "account",
+      "source_column": "acc_type",
+      "target_table": "account",
+      "target_column": "account_type"
+    },
+    {
+      "source_table": "account",
+      "source_column": "balance",
+      "target_table": "account",
+      "target_column": "account_balance"
+    },
+    {
+      "source_table": "account",
+      "source_column": "branch_id",
+      "target_table": "account",
+      "target_column": "branch_id"
+    },
+    {
+      "source_table": "customer",
+      "source_column": "custid",
+      "target_table": "customer",
+      "target_column": "customer_id"
+    },
+    {
+      "source_table": "customer",
+      "source_column": "name",
+      "target_table": "customer",
+      "target_column": "customer_name"
+    },
+    {
+      "source_table": "customer",
+      "source_column": "phone",
+      "target_table": "customer",
+      "target_column": "mobileno"
+    },
+    {
+      "source_table": "loan",
+      "source_column": "loan_id",
+      "target_table": "loan",
+      "target_column": "loan_id"
+    },
+    {
+      "source_table": "loan",
+      "source_column": "amount",
+      "target_table": "loan",
+      "target_column": "issued_amount"
+    },
+    {
+      "source_table": "loan",
+      "source_column": "branch_id",
+      "target_table": "loan",
+      "target_column": "branch_id"
+    },
+    {
+      "source_table": "availed_by",
+      "source_column": "custid",
+      "target_table": "borrower",
+      "target_column": "customer_id"
+    },
+    {
+      "source_table": "availed_by",
+      "source_column": "loan_id",
+      "target_table": "borrower",
+      "target_column": "loan_id"
+    },
+    {
+      "source_table": "hold_by",
+      "source_column": "custid",
+      "target_table": "customer",
+      "target_column": "customer_id"
+    },
+    {
+      "source_table": "hold_by",
+      "source_column": "account_no",
+      "target_table": "customer",
+      "target_column": "account_id"
+    }
+  ]
+}

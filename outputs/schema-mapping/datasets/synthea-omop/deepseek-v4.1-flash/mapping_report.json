@@ -1,0 +1,1257 @@
+{
+  "rules": [
+    {
+      "target_table": "person",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "person_source_value",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "gender_source_value",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "gender"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "race_source_value",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "race"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "ethnicity_source_value",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "ethnicity"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "birth_datetime",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "birthdate"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "year_of_birth",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "birthdate"
+      ],
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 0,
+          "end": 4
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "month_of_birth",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "birthdate"
+      ],
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 5,
+          "end": 7
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "day_of_birth",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "birthdate"
+      ],
+      "transformations": [
+        {
+          "type": "substring",
+          "start": 8,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "target_table": "person",
+      "target_column": "location_id",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "death",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "death",
+      "target_column": "death_date",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "deathdate"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "death",
+      "target_column": "death_datetime",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "deathdate"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "address_1",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "city",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "city"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "state",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "state"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "zip",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "zip"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "location_source_value",
+      "source_label": "synthea",
+      "source_table": "patients",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "address_1",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "city",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "city"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "state",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "state"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "location",
+      "target_column": "zip",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "zip"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "care_site",
+      "target_column": "care_site_id",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "care_site",
+      "target_column": "care_site_name",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "name"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "care_site",
+      "target_column": "care_site_source_value",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "care_site",
+      "target_column": "location_id",
+      "source_label": "synthea",
+      "source_table": "organizations",
+      "source_columns": [
+        "address"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "provider_id",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "provider_source_value",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "provider_name",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "name"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "gender_source_value",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "gender"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "specialty_source_value",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "speciality"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "provider",
+      "target_column": "care_site_id",
+      "source_label": "synthea",
+      "source_table": "providers",
+      "source_columns": [
+        "organization"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "provider_id",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "provider"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_source_value",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_start_date",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_end_date",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_start_datetime",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "visit_occurrence",
+      "target_column": "visit_end_datetime",
+      "source_label": "synthea",
+      "source_table": "encounters",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "condition_source_value",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "condition_start_date",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "condition_end_date",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "condition_start_datetime",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "condition_occurrence",
+      "target_column": "condition_end_datetime",
+      "source_label": "synthea",
+      "source_table": "conditions",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_value",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_date",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_date",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_datetime",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_end_datetime",
+      "source_label": "synthea",
+      "source_table": "medications",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "immunizations",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "immunizations",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_source_value",
+      "source_label": "synthea",
+      "source_table": "immunizations",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_date",
+      "source_label": "synthea",
+      "source_table": "immunizations",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "drug_exposure",
+      "target_column": "drug_exposure_start_datetime",
+      "source_label": "synthea",
+      "source_table": "immunizations",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "procedures",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "procedures",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_source_value",
+      "source_label": "synthea",
+      "source_table": "procedures",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_date",
+      "source_label": "synthea",
+      "source_table": "procedures",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_datetime",
+      "source_label": "synthea",
+      "source_table": "procedures",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_source_value",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "sop code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_date",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "procedure_occurrence",
+      "target_column": "procedure_datetime",
+      "source_label": "synthea",
+      "source_table": "imaging_studies",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "measurement_source_value",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "measurement_date",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "measurement_datetime",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "date"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "unit_source_value",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "units"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "value_source_value",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "value"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "measurement",
+      "target_column": "value_as_number",
+      "source_label": "synthea",
+      "source_table": "observations",
+      "source_columns": [
+        "value"
+      ],
+      "transformations": [
+        {
+          "type": "type_cast",
+          "target_type": "number"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "visit_occurrence_id",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "encounter"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "observation_source_value",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "observation_date",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "observation_datetime",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "observation",
+      "target_column": "value_source_value",
+      "source_label": "synthea",
+      "source_table": "allergies",
+      "source_columns": [
+        "description"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "episode",
+      "target_column": "episode_id",
+      "source_label": "synthea",
+      "source_table": "careplans",
+      "source_columns": [
+        "id"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "episode",
+      "target_column": "person_id",
+      "source_label": "synthea",
+      "source_table": "careplans",
+      "source_columns": [
+        "patient"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "episode",
+      "target_column": "episode_source_value",
+      "source_label": "synthea",
+      "source_table": "careplans",
+      "source_columns": [
+        "code"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "episode",
+      "target_column": "episode_start_date",
+      "source_label": "synthea",
+      "source_table": "careplans",
+      "source_columns": [
+        "start"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_table": "episode",
+      "target_column": "episode_end_date",
+      "source_label": "synthea",
+      "source_table": "careplans",
+      "source_columns": [
+        "stop"
+      ],
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    }
+  ]
+}

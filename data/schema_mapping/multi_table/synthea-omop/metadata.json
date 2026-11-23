@@ -1,0 +1,11 @@
+{
+  "name": "synthea-omop",
+  "domain": "Clinical & Healthcare",
+  "scenario": "Multi-Table Relational Schema",
+  "category": "multi_table",
+  "source_tables": 12,
+  "source_cols": 111,
+  "target_tables": 39,
+  "target_cols": 432,
+  "gold_matches": 124
+}

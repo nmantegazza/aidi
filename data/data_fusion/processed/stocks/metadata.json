@@ -1,0 +1,13 @@
+{
+  "dataset_id": "stocks",
+  "entity_id_column": "Ticker",
+  "attributes": [
+    "ChangePct",
+    "Price",
+    "PrevClose",
+    "Change",
+    "Volume",
+    "High",
+    "Low"
+  ]
+}

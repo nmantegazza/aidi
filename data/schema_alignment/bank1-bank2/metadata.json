@@ -1,0 +1,15 @@
+{
+  "dataset_name": "bank1-bank2",
+  "domain": "Financial & Banking",
+  "source_a": {
+    "schema_name": "bank1",
+    "table_count": 9,
+    "column_count": 27
+  },
+  "source_b": {
+    "schema_name": "bank2",
+    "table_count": 9,
+    "column_count": 36
+  },
+  "ground_truth_synonyms_count": 17
+}

@@ -1,0 +1,23 @@
+source_col_a,source_col_b,coaligned_runs,total_runs,agreement_rate,status,target_field_names
+name_basics.nconst,actor.actor_id,2,3,0.6667,VOLATILE,person.person_id; person_work_role.person_id
+name_basics.nconst,customer.customer_id,2,3,0.6667,VOLATILE,person.person_id
+name_basics.nconst,film_actor.actor_id,1,3,0.3333,VOLATILE,person_work_role.person_id
+name_basics.nconst,staff.staff_id,2,3,0.6667,VOLATILE,person.person_id
+title_akas.language,language.name,2,3,0.6667,VOLATILE,language.name
+title_basics.genres,category.name,3,3,1.0,STABLE,genre.name
+title_basics.genres,film_category.category_id,1,3,0.3333,VOLATILE,work_genre.genre_id
+title_basics.primarytitle,film.title,3,3,1.0,STABLE,media_title.primary_title; work.title
+title_basics.runtimeminutes,film.length,3,3,1.0,STABLE,media_title.runtime_minutes; work.runtime_minutes
+title_basics.startyear,film.release_year,3,3,1.0,STABLE,media_title.release_year; work.release_year; work.start_year
+title_basics.tconst,film.film_id,2,3,0.6667,VOLATILE,media_genre.media_id; work_genre.work_id
+title_basics.tconst,film_category.film_id,1,3,0.3333,VOLATILE,work_genre.work_id
+title_crew.directors,actor.actor_id,1,3,0.3333,VOLATILE,person_work_role.person_id
+title_crew.directors,film_actor.actor_id,3,3,1.0,STABLE,media_person.person_id; person_work_role.person_id; work_person.person_id
+title_crew.tconst,film_actor.film_id,3,3,1.0,STABLE,media_person.media_id; person_work_role.work_id; work_person.work_id
+title_crew.writers,actor.actor_id,1,3,0.3333,VOLATILE,person_work_role.person_id
+title_crew.writers,film_actor.actor_id,3,3,1.0,STABLE,media_person.person_id; person_work_role.person_id; work_person.person_id
+title_principals.nconst,actor.actor_id,1,3,0.3333,VOLATILE,person_work_role.person_id
+title_principals.nconst,film_actor.actor_id,3,3,1.0,STABLE,media_person.person_id; person_work_role.person_id; work_person.person_id
+title_principals.tconst,film_actor.film_id,3,3,1.0,STABLE,media_person.media_id; person_work_role.work_id; work_person.work_id
+title_ratings.averagerating,film.rating,1,3,0.3333,VOLATILE,media_rating.rating_value
+title_ratings.tconst,film.film_id,1,3,0.3333,VOLATILE,media_rating.media_id

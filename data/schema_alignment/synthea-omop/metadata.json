@@ -1,0 +1,15 @@
+{
+  "dataset_name": "synthea-omop",
+  "domain": "Clinical & Healthcare",
+  "source_a": {
+    "schema_name": "synthea",
+    "table_count": 12,
+    "column_count": 111
+  },
+  "source_b": {
+    "schema_name": "omop",
+    "table_count": 39,
+    "column_count": 432
+  },
+  "ground_truth_synonyms_count": 124
+}

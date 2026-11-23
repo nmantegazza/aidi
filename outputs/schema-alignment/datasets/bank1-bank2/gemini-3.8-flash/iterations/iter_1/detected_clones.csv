@@ -1,0 +1,2 @@
+target_table,column_a,column_b,data_type,similarity_score,source_prov_a,source_prov_b,description_a,description_b
+customer_account,customer_id,account_id,integer,0.935,bank1.hold_by.custid; bank2.customer.customer_id,bank1.hold_by.account_no; bank2.customer.account_id,Customer holding the account,Account held by the customer

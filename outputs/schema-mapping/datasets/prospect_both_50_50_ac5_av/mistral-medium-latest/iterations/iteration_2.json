@@ -1,0 +1,654 @@
+{
+  "iteration_index": 2,
+  "category": "single_table",
+  "metrics": {
+    "precision": 0.8462,
+    "recall": 1.0,
+    "f1": 0.9167,
+    "true_positives": 11,
+    "false_positives": 2,
+    "false_negatives": 0,
+    "predicted_pairs_count": 13,
+    "gold_pairs_count": 11,
+    "tp_pairs": [
+      [
+        "AddressLine1",
+        "prospect_ddrssln1"
+      ],
+      [
+        "AddressLine2",
+        "prospect_ddrssln2"
+      ],
+      [
+        "Age",
+        "prospect_g"
+      ],
+      [
+        "AgencyID",
+        "prospect_gncd"
+      ],
+      [
+        "City",
+        "prospect_ct"
+      ],
+      [
+        "Country",
+        "prospect_cntr"
+      ],
+      [
+        "FirstName",
+        "prospect_frstnm"
+      ],
+      [
+        "MiddleInitial",
+        "prospect_mddlntl"
+      ],
+      [
+        "NumberCars",
+        "prospect_nmbrcrs"
+      ],
+      [
+        "NumberCreditCards",
+        "prospect_nmbrcrdtcrds"
+      ],
+      [
+        "PostalCode",
+        "prospect_pstlcd"
+      ]
+    ],
+    "fp_pairs": [
+      [
+        "Income",
+        "prospect_ntwrth"
+      ],
+      [
+        "Phone",
+        "prospect_mplr"
+      ]
+    ],
+    "fn_pairs": []
+  },
+  "latency_seconds": 48.115,
+  "token_usage": {
+    "prompt_tokens": 3552,
+    "completion_tokens": 8355,
+    "cached_tokens": 0,
+    "reasoning_tokens": 0,
+    "total_tokens": 11907,
+    "latency_seconds": 48.115,
+    "cost_usd": 0.0679905
+  },
+  "predicted_pairs": [
+    [
+      "AddressLine1",
+      "prospect_ddrssln1"
+    ],
+    [
+      "AddressLine2",
+      "prospect_ddrssln2"
+    ],
+    [
+      "Age",
+      "prospect_g"
+    ],
+    [
+      "AgencyID",
+      "prospect_gncd"
+    ],
+    [
+      "City",
+      "prospect_ct"
+    ],
+    [
+      "Country",
+      "prospect_cntr"
+    ],
+    [
+      "FirstName",
+      "prospect_frstnm"
+    ],
+    [
+      "Income",
+      "prospect_ntwrth"
+    ],
+    [
+      "MiddleInitial",
+      "prospect_mddlntl"
+    ],
+    [
+      "NumberCars",
+      "prospect_nmbrcrs"
+    ],
+    [
+      "NumberCreditCards",
+      "prospect_nmbrcrdtcrds"
+    ],
+    [
+      "Phone",
+      "prospect_mplr"
+    ],
+    [
+      "PostalCode",
+      "prospect_pstlcd"
+    ]
+  ],
+  "tp_pairs": [
+    [
+      "AddressLine1",
+      "prospect_ddrssln1"
+    ],
+    [
+      "AddressLine2",
+      "prospect_ddrssln2"
+    ],
+    [
+      "Age",
+      "prospect_g"
+    ],
+    [
+      "AgencyID",
+      "prospect_gncd"
+    ],
+    [
+      "City",
+      "prospect_ct"
+    ],
+    [
+      "Country",
+      "prospect_cntr"
+    ],
+    [
+      "FirstName",
+      "prospect_frstnm"
+    ],
+    [
+      "MiddleInitial",
+      "prospect_mddlntl"
+    ],
+    [
+      "NumberCars",
+      "prospect_nmbrcrs"
+    ],
+    [
+      "NumberCreditCards",
+      "prospect_nmbrcrdtcrds"
+    ],
+    [
+      "PostalCode",
+      "prospect_pstlcd"
+    ]
+  ],
+  "fp_pairs": [
+    [
+      "Income",
+      "prospect_ntwrth"
+    ],
+    [
+      "Phone",
+      "prospect_mplr"
+    ]
+  ],
+  "fn_pairs": [],
+  "transformation_counts": {
+    "direct_copy": 13
+  },
+  "mapping_report": {
+    "rules": [
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_gncd",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "AgencyID"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_ddrssln2",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "AddressLine2"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_ct",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "City"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_nmbrcrs",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "NumberCars"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_pstlcd",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "PostalCode"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_mddlntl",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "MiddleInitial"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_nmbrcrdtcrds",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "NumberCreditCards"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_ddrssln1",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "AddressLine1"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_frstnm",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "FirstName"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_g",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "Age"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_cntr",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "Country"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_ntwrth",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "Income"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_mplr",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [
+          "Phone"
+        ],
+        "transformations": [
+          {
+            "type": "direct_copy"
+          }
+        ]
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_nmbrchldrn",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [],
+        "transformations": []
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_mrtlstts",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [],
+        "transformations": []
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_crdtrtng",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [],
+        "transformations": []
+      },
+      {
+        "target_table": "prospect_both_50_50_ac5_av_target",
+        "target_column": "prospect_wnrrntflg",
+        "source_label": "prospect_both_50_50_ac5_av_source",
+        "source_table": "prospect_both_50_50_ac5_av_source",
+        "source_columns": [],
+        "transformations": []
+      }
+    ]
+  },
+  "field_inspections": [
+    {
+      "target_column": "prospect_gncd",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AgencyID"
+      ],
+      "predicted_source_columns": [
+        "AgencyID"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_ddrssln2",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AddressLine2"
+      ],
+      "predicted_source_columns": [
+        "AddressLine2"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_ct",
+      "target_type": "string",
+      "expected_source_columns": [
+        "City"
+      ],
+      "predicted_source_columns": [
+        "City"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_nmbrcrs",
+      "target_type": "number",
+      "expected_source_columns": [
+        "NumberCars"
+      ],
+      "predicted_source_columns": [
+        "NumberCars"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_pstlcd",
+      "target_type": "string",
+      "expected_source_columns": [
+        "PostalCode"
+      ],
+      "predicted_source_columns": [
+        "PostalCode"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_mddlntl",
+      "target_type": "string",
+      "expected_source_columns": [
+        "MiddleInitial"
+      ],
+      "predicted_source_columns": [
+        "MiddleInitial"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_nmbrcrdtcrds",
+      "target_type": "number",
+      "expected_source_columns": [
+        "NumberCreditCards"
+      ],
+      "predicted_source_columns": [
+        "NumberCreditCards"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_ddrssln1",
+      "target_type": "string",
+      "expected_source_columns": [
+        "AddressLine1"
+      ],
+      "predicted_source_columns": [
+        "AddressLine1"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_frstnm",
+      "target_type": "string",
+      "expected_source_columns": [
+        "FirstName"
+      ],
+      "predicted_source_columns": [
+        "FirstName"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_g",
+      "target_type": "number",
+      "expected_source_columns": [
+        "Age"
+      ],
+      "predicted_source_columns": [
+        "Age"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_cntr",
+      "target_type": "string",
+      "expected_source_columns": [
+        "Country"
+      ],
+      "predicted_source_columns": [
+        "Country"
+      ],
+      "status": "MATCH (TP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_nmbrchldrn",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_mrtlstts",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_crdtrtng",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_wnrrntflg",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [],
+      "status": "UNMAPPED",
+      "transformations": []
+    },
+    {
+      "target_column": "prospect_mplr",
+      "target_type": "string",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "Phone"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    },
+    {
+      "target_column": "prospect_ntwrth",
+      "target_type": "number",
+      "expected_source_columns": [],
+      "predicted_source_columns": [
+        "Income"
+      ],
+      "status": "EXTRA (FP)",
+      "transformations": [
+        {
+          "type": "direct_copy"
+        }
+      ]
+    }
+  ],
+  "retry_count": 0,
+  "retry_log": [],
+  "error_message": null
+}

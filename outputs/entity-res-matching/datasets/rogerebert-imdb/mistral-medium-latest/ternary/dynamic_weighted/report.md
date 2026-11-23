@@ -1,0 +1,252 @@
+# Matching Benchmark: rogerebert-imdb — Dynamic Weighted
+
+- **Domain**: movies
+- **Strategy**: Dynamic Weighted
+- **Model**: mistral-medium-latest
+- **Classification Mode**: ClassificationMode.TERNARY
+- **Successful Iterations**: 3 / 3
+
+## Aggregated Metrics
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Precision | 0.9926 | 0.0075 |
+| Recall | 0.5712 | 0.0254 |
+| F1 Score | 0.7250 | 0.0225 |
+| Execution Time (s) | 0.3549 | 0.0043 |
+| Peak Memory (MB) | 1.18 | 0.02 |
+
+## Telemetry
+
+| Metric | Value |
+| :--- | :--- |
+| Prompt Tokens | 9,708 |
+| Completion Tokens | 29,648 |
+| Total Tokens | 39,356 |
+| Estimated Cost (USD) | $0.2369 |
+
+## Triage Perspective Metrics (Cascaded Tier 1)
+
+| Metric | Mean | Std Dev |
+| :--- | :--- | :--- |
+| Potential Recall Ceiling | 0.9710 | 0.0072 |
+| Potential F1 Ceiling | 0.9817 | 0.0071 |
+| LLM Workload Ratio | 33.3% | - |
+| Unrecoverable Loss | 0.0290 | - |
+| Uncertain Purity | 77.5% | - |
+
+## Deterministic Flakiness Analysis
+
+| Metric | Value |
+| :--- | :--- |
+| Stability Ratio | 81.17% |
+| Consistent Matches | 125 |
+| Flaky Matches | 29 |
+
+## Iterations
+
+| Iter | Status | Precision | Recall | F1 | Pot-R | Pot-F1 | Workload | Purity | TP | FP | FN | Time (s) | Mem (MB) | Tokens | Cost (USD) | Error |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | SUCCESS | 1.0000 | 0.5934 | 0.7448 | 0.9751 | 0.9874 | 32.4% | 76.0% | 143 | 0 | 98 | 0.3591 | 1.16 | 13433 | $0.0813 |  |
+| 2 | SUCCESS | 0.9850 | 0.5436 | 0.7005 | 0.9627 | 0.9737 | 34.0% | 79.5% | 131 | 2 | 110 | 0.3551 | 1.19 | 12246 | $0.0724 |  |
+| 3 | SUCCESS | 0.9929 | 0.5768 | 0.7297 | 0.9751 | 0.9839 | 33.5% | 76.8% | 139 | 1 | 102 | 0.3506 | 1.19 | 13677 | $0.0832 |  |
+
+## Dynamic Thresholds
+
+| Iter | Mode | Lower Threshold | Upper Threshold | Centroids (Low, Mid, High) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | dynamic_skew | 0.6660 | 0.8176 | [0.5685, 0.7635, 0.8537] |
+| 2 | dynamic_skew | 0.6029 | 0.7684 | [0.5092, 0.6965, 0.8164] |
+| 3 | dynamic_skew | 0.5966 | 0.7574 | [0.5003, 0.6930, 0.8004] |
+
+## LLM Strategy Configuration & Prompts
+
+- **Model**: `mistral-medium-latest`
+- **Provider**: `mistral`
+- **Latency**: `85.53s`
+- **Log File**: `outputs/logs/llm_calls/20260919_170850_797186_IndexingConfigWeightedScoreMatchingConfig.json`
+
+### LLM Output (Generated Strategy Configuration)
+
+```json
+{
+  "reasoning": "### Column: movie_name\n1. **Inspect Exemplar Candidate Matches**: All three exemplar pairs show *exact* string alignment (e.g., \"all is lost\" \u2194 \"all is lost\"). No typos, abbreviations, or reordering are observed in the sample.\n2. **Inspect Statistical Profile**: Null % = 0.0% in both sources; cardinality = 3417 / 6492 (very high); average length \u2248 15 characters (short, < 20). No exclusion criteria violated.\n3. **Algorithm Trade-off Evaluation**: The strings are short (avg ~15 chars), so `cosine` (which fails on short strings and sub-word typos) is inappropriate. `damerau_levenshtein` is overkill for non-code text. `jarowinkler` excels on short, name-like strings and handles minor character-level noise (though none is observed in the sample, it is robust to potential typos like \"mumbai\" vs \"mumbaik\"). `exact` would be brittle to any future formatting noise.\n4. **Weight Justification**: Movie title is the *core identity attribute* for films. Weight = **0.95** (top of the 0.8\u20131.0 range).\n\n### Column: directors\n1. **Inspect Exemplar Candidate Matches**: Two pairs are exact; one pair shows a *character-level typo* (\"milan lutheria\" \u2194 \"milan luthria\").\n2. **Inspect Statistical Profile**: Null % = 25.31% in A (below 50% threshold); cardinality = 1929 / 3889 (high); average length \u2248 13\u201315 characters (short).\n3. **Algorithm Trade-off Evaluation**: Short strings with observed typos rule out `cosine` (short-string failure) and `exact` (brittle). `damerau_levenshtein` is designed for codes, not names. `jarowinkler` is purpose-built for short names and handles the observed typo robustly via prefix-weighted character alignment.\n4. **Weight Justification**: Director is a *primary descriptive attribute* critical for disambiguation. Weight = **0.75** (mid-high in the 0.5\u20130.7 band).\n\n### Column: actors\n1. **Inspect Exemplar Candidate Matches**: Exhibits *severe formatting divergence*: Source A uses concatenated camelCase (e.g., \"ronperlmantonyjaa...\"), while Source B uses space-separated lists (e.g., \"dolph lundgren tony jaa ron perlman\"). The semantic content is identical, but tokenization differs drastically.\n2. **Inspect Statistical Profile**: Null % = 16.54% / 2.33%; cardinality = 2907 / 6492 (very high); average length = 85.24 / 40.05 characters (long, multi-word).\n3. **Algorithm Trade-off Evaluation**: The long, multi-word nature and need for order invariance and partial overlap matching make `cosine` (TF-IDF bag-of-words) the only viable choice. `jarowinkler` and `damerau_levenshtein` fail on long strings and reordering. `exact` fails on formatting differences. Despite tokenization mismatches, `cosine` can still capture lexical overlap at the word level (e.g., \"perlman\" as a token in B may partially match substrings in A\u2019s concatenated tokens).\n4. **Weight Justification**: Actors provide strong supporting evidence but suffer from formatting noise. Weight = **0.40** (lower end of the 0.2\u20130.4 contextual range due to reliability concerns).\n\n### Column: year\n1. **Inspect Exemplar Candidate Matches**: Shows *minor format variance* (\"2013.0\" \u2194 \"2013\") and one *1-year discrepancy* (\"2015.0\" \u2194 \"2014\"), likely due to different release dates (festival vs. theatrical).\n2. **Inspect Statistical Profile**: Null % \u2248 0%; cardinality = 96 / 96 (low, as expected for years); numeric field.\n3. **Algorithm Trade-off Evaluation**: Calendar years require absolute difference semantics. `numeric_relative` would distort (e.g., |2015-2014|/2015 \u2248 0.05%, making a 1-year gap seem negligible). `numeric_linear` treats the gap uniformly (1 unit), which is appropriate for interval scales like years. `date` is unnecessary (no day/month).\n4. **Weight Justification**: Year is a *supporting contextual attribute* for disambiguation. Weight = **0.35** (mid contextual range).\n\n### Column: genre\n1. **Inspect Exemplar Candidate Matches**: Mostly exact, but one pair shows *additive taxonomy divergence* (\"action adventure\" \u2194 \"action adventure drama\").\n2. **Inspect Statistical Profile**: Null % = 5.85% / 0%; cardinality = 704 / 285; average length \u2248 18 characters (borderline short).\n3. **Algorithm Trade-off Evaluation**: The short-but-multi-word nature and observed additions/omissions fit `cosine` well (order-invariant, partial credit for shared tokens). `jarowinkler` would struggle with the addition of \"drama\" as a separate word. `exact` fails on divergence.\n4. **Weight Justification**: Genre is a *supporting contextual attribute*. Weight = **0.30** (lower contextual range).\n\n### Column: duration\n1. **Inspect Exemplar Candidate Matches**: Shows *unit abbreviation variance* (\"106 minutes\" \u2194 \"106 min\") and missing values in Source A for some records.\n2. **Inspect Statistical Profile**: Null % = 7.51% / 0%; cardinality = 138 / 186 (low); average length = 10.58 / 6.43 characters (short).\n3. **Algorithm Trade-off Evaluation**: Short strings with minor character-level differences (\"minutes\" vs \"min\") are best handled by `jarowinkler`. `damerau_levenshtein` is less ideal for natural language abbreviations. `cosine` would fail due to short length and token mismatch (\"minutes\" vs \"min\" as separate tokens).\n4. **Weight Justification**: Duration is a *weak contextual signal*. Weight = **0.25** (lower contextual range).\n\n### Excluded Columns\n- **id**: Source-specific auto-increment key (excluded per Step 1b).\n- **critic_rating**: Only present in Source A (excluded per Step 1b).\n- **pg_rating**: Only present in Source A (excluded per Step 1b).\n- **movie_rating**: Only present in Source B (excluded per Step 1b).",
+  "matching_columns": {
+    "movie_name": {
+      "algorithm": "jarowinkler",
+      "weight": 0.95
+    },
+    "directors": {
+      "algorithm": "jarowinkler",
+      "weight": 0.75
+    },
+    "actors": {
+      "algorithm": "cosine",
+      "weight": 0.4
+    },
+    "year": {
+      "algorithm": "numeric_linear",
+      "weight": 0.35
+    },
+    "genre": {
+      "algorithm": "cosine",
+      "weight": 0.3
+    },
+    "duration": {
+      "algorithm": "jarowinkler",
+      "weight": 0.25
+    }
+  }
+}
+```
+
+### LLM Input Prompts
+
+<details>
+<summary><b>System Prompt</b> (click to expand)</summary>
+
+```text
+You are an expert Data Steward configuring the Scoring and Classification stage of an Entity Resolution pipeline.
+
+You will receive comparative metadata for two source datasets (null %, uniqueness %, cardinality, average field length) AND a set of **Exemplar Candidate Matching Pairs** discovered via holistic zero-configuration row-level textual overlap.
+
+These exemplar pairs represent high-probability matches of the same real-world entity across Source A and Source B. You MUST carefully inspect these aligned pairs to observe how identical entities are represented across sources on each column (e.g., whether they exhibit minor typos, abbreviations, unit shifts, or divergent taxonomies), and use these direct empirical observations to select the most effective comparison algorithm and weight.
+
+Your goal is to select the columns that best determine whether two records refer to the same real-world entity, assign appropriate comparison algorithms, and assign importance weights for aggregate similarity scoring.
+
+## Task 1 — Select Matching Columns and Assign Comparison Algorithms
+
+### Step 1a: Understand each column semantically
+- **Identity attributes** (names, emails, tax IDs, phone numbers) → these directly identify an entity.
+- **Descriptive attributes** (addresses, descriptions, categories) → these characterize the entity and can confirm or disambiguate matches.
+- **Contextual attributes** (dates, amounts, coordinates) → these add supporting evidence.
+- **System/internal attributes** (auto-increment IDs, UUIDs, row numbers) → exclude these.
+
+### Step 1b: Apply exclusion rules
+Exclude columns with:
+- **Source-specific keys**: `id`, `uuid`, `row_id`, or internal auto-generated keys.
+- **High nulls**: > 50% null in either source.
+- **No variance**: cardinality = 1 in either source.
+
+### Comparison Algorithms & Explicit Trade-Offs
+
+Select the algorithm that best fits each column's semantic type and empirical variation:
+
+- **`cosine` (Token / Word-Level TF-IDF Cosine Similarity)**:
+  - **Strengths**: Multi-word free text (avg length >= 20), long descriptions, multi-word titles, article abstracts. Completely order-invariant, resilient to token permutations, additions, or omissions of other words.
+  - **Weaknesses / Critical Limitations**:
+    - **Zero tolerance for sub-word typos or spelling variants**: Operates strictly at the word/token level. If a word has a typo, abbreviation, or hyphenation variation (e.g. "MDR-7506" vs "MDR7506", "Smith" vs "Smyth", "ProBook" vs "Pro Book"), word-level TF-IDF treats them as completely distinct orthogonal tokens with 0 similarity.
+    - **Fails on short strings, codes, and single words (< 20 chars)**: If a single-word name or brand has even a 1-character typo, the entire token match fails (score drops to 0.0). Always use `jarowinkler` or `damerau_levenshtein` instead!
+    - **Fails on divergent taxonomies**: Different vocabularies (e.g. "electronics" vs "consumer audio") yield 0.0 similarity.
+  - **When to use**: Multi-word descriptions, article abstracts, long titles, full addresses where individual words are standard dictionary words or consistently spelled tokens.
+
+- **`jarowinkler` (Prefix-Weighted Character Alignment)**:
+  - **Strengths**: Short strings (avg length < 20-30), single words, names, brands, cities. Extremely robust to typos, phonetic variants, or suffix truncations on short words.
+  - **Weaknesses**: Word order shifts, long multi-word text.
+  - **When to use**: Person/author names, brand names, cities, single-phrase titles, short labels.
+
+- **`damerau_levenshtein` (Edit Distance with Transpositions)**:
+  - **Strengths**: Preserves exact character positions and lengths; detects single digit/char flips or swaps.
+  - **Weaknesses**: Heavy penalty on length mismatches; useless on multi-word reordering.
+  - **When to use**: Alphanumeric codes, serial numbers, part codes, phone numbers, tax IDs, SKUs.
+
+- **`numeric_relative` (Percentage Difference)**:
+  - **Strengths**: Scale-invariant; measures relative gap (|x1 - x2| / (max(|x1|, |x2|) + eps)). A $10 difference on a $20 item is penalized heavily (50%), while a $10 difference on a $1,500 item is penalized minimally (0.7%).
+  - **Weaknesses**: Nonsensical on interval scales like calendar years.
+  - **When to use**: Prices, monetary amounts, weights, physical dimensions, measurements spanning multiple orders of magnitude.
+
+- **`numeric_linear` (Absolute Uniform Distance)**:
+  - **Strengths**: Measures uniform absolute distance |x1 - x2| regardless of baseline.
+  - **Weaknesses**: Distorts scale when values span orders of magnitude.
+  - **When to use**: Uniform interval scales where absolute difference is constant: calendar years, ages, page counts.
+
+- **`exact` (Strict Binary Identity)**:
+  - **Strengths**: Zero tolerance for false positives.
+  - **Weaknesses**: Zero tolerance for typos or format quirks.
+  - **When to use**: Standardized codes, status booleans, or discrete identifier/temporal keys where any discrepancy indicates distinct entities.
+
+- **`date` (Calendar Hierarchy Matcher)**:
+  - **When to use**: Full calendar dates, birth dates, timestamps where small day/month/year shifts should yield continuous similarity.
+
+### Step 1d: Assign importance weights (0.0 to 1.0)
+- **0.8-1.0**: Core identity attributes (emails, tax IDs, phone numbers).
+- **0.5-0.7**: Strong descriptive attributes (names, titles).
+- **0.2-0.4**: Supporting contextual attributes (dates, amounts).
+- **0.05-0.19**: Weak signals.
+
+## Task 2 — Structured Reasoning
+
+In your `reasoning` field, follow this exact protocol:
+### Mandatory 4-Step Column Reasoning Protocol
+
+For EACH evaluated column, your reasoning MUST follow this exact 4-step sequence:
+1. **Inspect Exemplar Candidate Matches**: Observe how matching entities actually differ on this column (typos, abbreviations, units, taxonomy).
+2. **Inspect Statistical Profile**: Check null percentage, cardinality, and avg length. Exclude if >50% null or cardinality = 1.
+3. **Algorithm Trade-off Evaluation**: Explicitly justify why the chosen algorithm fits the sample data and why competing alternatives would fail on this column.
+4. **Weight Justification**: Assign importance weight based on whether the attribute is core identity (0.8-1.0), primary descriptive (0.5-0.7), or auxiliary context (0.2-0.4).
+```
+</details>
+
+<details>
+<summary><b>User Prompt (Comparative Profile & Exemplars)</b> (click to expand)</summary>
+
+```markdown
+### 1. Dataset Comparison Summary
+| Metric | Source A | Source B |
+| :--- | :--- | :--- |
+| **Total Rows** | 3556 | 6913 |
+| **Column Count** | 9 | 8 |
+
+### 2. Exemplar Candidate Matches (High-Confidence Entity Pairs)
+The following candidate pairs were discovered via holistic zero-configuration row-level textual overlap.
+Inspect how field values, units, abbreviations, typos, and taxonomies vary across matching records:
+
+#### Candidate Match 1 (Overall Text Match Score: 0.82)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| id | "1410" | "640" |
+| movie_name | "all is lost" | "all is lost" |
+| year | "2013.0" | "2013" |
+| directors | "jc chandor" | "jc chandor" |
+| actors | "robert redford" | "robert redford" |
+| genre | "action adventure" | "action adventure drama" |
+| duration | "106 minutes" | "106 min" |
+
+#### Candidate Match 2 (Overall Text Match Score: 0.75)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| id | "543" | "221" |
+| movie_name | "skin trade" | "skin trade" |
+| year | "2015.0" | "2014" |
+| directors | "ekachai uekrongtham" | "ekachai uekrongtham" |
+| actors | "ron perlmantony jaadolph lundgrencelina jademichael jai whitepeter weller" | "dolph lundgren tony jaa ron perlman" |
+| genre | "action crime thriller" | "action crime thriller" |
+| duration | "96 minutes" | "96 min" |
+
+#### Candidate Match 3 (Overall Text Match Score: 0.75)
+| Column | Value in Source A | Value in Source B |
+| :--- | :--- | :--- |
+| id | "1497" | "622" |
+| movie_name | "once upon a time in mumbai dobaara" | "once upon a time in mumbai dobaara" |
+| year | "2013.0" | "2013" |
+| directors | "milan lutheria" | "milan luthria" |
+| actors | "akshay kumarsonakshi sinhaimran khansonali bendrepitobash tripathy" | "akshay kumar imran khan sonakshi sinha" |
+| genre | "action crime drama" | "action crime drama" |
+| duration | "" | "160 min" |
+
+### 3. Integrated Column Profile (Comparison)
+| Column | Null % (A|B) | Unique % (A|B) | Card. (A|B) | Avg Len (A|B) | Aligned Match (Source A ↔ Source B) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **id** | 0.0% | 0.0% | 100.0% | 100.0% | 3556 | 6913 | N/A | N/A | "1410" ↔ "640" |
+| **movie_name** | 0.0% | 0.0% | 96.09% | 93.91% | 3417 | 6492 | 14.99 | 14.83 | "all is lost" ↔ "all is lost" |
+| **year** | 0.14% | 0.0% | 2.7% | 1.39% | 96 | 96 | N/A | N/A | "2013.0" ↔ "2013" |
+| **directors** | 25.31% | 0.0% | 54.25% | 56.26% | 1929 | 3889 | 14.62 | 12.93 | "jc chandor" ↔ "jc chandor" |
+| **actors** | 16.54% | 2.33% | 81.75% | 93.91% | 2907 | 6492 | 85.24 | 40.05 | "robert redford" ↔ "robert redford" |
+| **critic_rating** | 0.0% | N/A | 0.25% | N/A | 9 | N/A | N/A | N/A | N/A |
+| **genre** | 5.85% | 0.0% | 19.8% | 4.12% | 704 | 285 | 18.58 | 17.74 | "action adventure" ↔ "action adventure drama" |
+| **pg_rating** | 13.19% | N/A | 0.34% | N/A | 12 | N/A | 8.19 | N/A | N/A |
+| **duration** | 7.51% | 0.0% | 3.88% | 2.69% | 138 | 186 | 10.58 | 6.43 | "106 minutes" ↔ "106 min" |
+| **movie_rating** | N/A | 0.0% | N/A | 1.13% | N/A | 78 | N/A | N/A | N/A |
+```
+</details>
+

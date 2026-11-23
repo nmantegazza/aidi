@@ -1,0 +1,70 @@
+[
+  {
+    "source_a": "branch.branch_id",
+    "source_b": "branch.branch_id"
+  },
+  {
+    "source_a": "branch.name",
+    "source_b": "branch.branch_name"
+  },
+  {
+    "source_a": "branch.address",
+    "source_b": "branch.branch_address"
+  },
+  {
+    "source_a": "account.account_no",
+    "source_b": "account.account_id"
+  },
+  {
+    "source_a": "account.acc_type",
+    "source_b": "account.account_type"
+  },
+  {
+    "source_a": "account.balance",
+    "source_b": "account.account_balance"
+  },
+  {
+    "source_a": "account.branch_id",
+    "source_b": "account.branch_id"
+  },
+  {
+    "source_a": "customer.custid",
+    "source_b": "customer.customer_id"
+  },
+  {
+    "source_a": "customer.name",
+    "source_b": "customer.customer_name"
+  },
+  {
+    "source_a": "customer.phone",
+    "source_b": "customer.mobileno"
+  },
+  {
+    "source_a": "loan.loan_id",
+    "source_b": "loan.loan_id"
+  },
+  {
+    "source_a": "loan.amount",
+    "source_b": "loan.issued_amount"
+  },
+  {
+    "source_a": "loan.branch_id",
+    "source_b": "loan.branch_id"
+  },
+  {
+    "source_a": "availed_by.custid",
+    "source_b": "borrower.customer_id"
+  },
+  {
+    "source_a": "availed_by.loan_id",
+    "source_b": "borrower.loan_id"
+  },
+  {
+    "source_a": "hold_by.custid",
+    "source_b": "customer.customer_id"
+  },
+  {
+    "source_a": "hold_by.account_no",
+    "source_b": "customer.account_id"
+  }
+]

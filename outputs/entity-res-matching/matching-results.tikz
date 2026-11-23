@@ -1,0 +1,250 @@
+\usetikzlibrary{positioning,calc,fit,arrows.meta,shapes.geometric,backgrounds}
+
+% PoliMi & Model Brand Colors (safe against redefinition)
+\providecolor{bluepoli}{RGB}{0, 85, 128}
+\providecolor{gptcolor}{RGB}{0, 82, 136}        % Frontier Navy (PoliMi Primary Blue)
+\providecolor{geminicolor}{RGB}{0, 136, 145}    % Google Cyan-Teal
+\providecolor{deepseekcolor}{RGB}{220, 115, 30} % DeepSeek Warm Amber / Ochre
+\providecolor{mistralcolor}{RGB}{140, 55, 85}   % Mistral Plum / Slate Burgundy
+
+\begin{tikzpicture}[
+    font=\sffamily,
+    >=Stealth
+]
+\linespread{1.0}\selectfont
+
+% ----------------------------------------------------------------
+% Subplot (a): Autonomous Baseline F1-Score (F1, mu +- sigma)
+% ----------------------------------------------------------------
+\begin{axis}[
+    name=ax_f1,
+    width=7.7cm,
+    height=5.8cm,
+    ybar=1.2pt,
+    bar width=3.0pt,
+    title={\textbf{(a) Autonomous Baseline F$_1$-Score ($F_1$, $\mu\pm\sigma$)}},
+    title style={font=\small\bfseries, yshift=4pt},
+    ylabel={Baseline F$_1$-Score ($F_1$)},
+    ylabel style={font=\footnotesize, yshift=-2pt},
+    ymin=0, ymax=1.08,
+    ytick={0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    yticklabels={0.0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    y tick label style={font=\scriptsize},
+    ymajorgrids=true,
+    grid style={dashed, gray!25},
+    symbolic x coords={dblp, amzn, feb1, feb4, fzr, apl, ebk, imdb},
+    xtick=data,
+    xticklabels={%
+        {\texttt{dblp-acm}},%
+        {\texttt{amazon-wm}},%
+        {\texttt{febrl1}},%
+        {\texttt{febrl4}},%
+        {\texttt{fodors-zg}},%
+        {\texttt{itunes-apl}},%
+        {\texttt{itunes-ebk}},%
+        {\texttt{rebert-imdb}}%
+    },
+    x tick label style={
+        font=\scriptsize,
+        rotate=45,
+        anchor=north east,
+        inner sep=1.5pt
+    },
+    enlarge x limits=0.08,
+    legend entries={GPT-5.6 Sol, Gemini 3.8 Flash, DeepSeek v4.1 Flash, Mistral Medium 3.5},
+    legend to name=leg:matching_results_models,
+    legend image code/.code={%
+        \draw[#1, draw=none] (0cm,-0.06cm) rectangle (0.35cm,0.18cm);
+    },
+    legend style={
+        legend columns=4,
+        column sep=4.5mm,
+        font=\footnotesize,
+        draw=gray!35,
+        fill=white,
+        rounded corners=2pt
+    }
+]
+
+% 1. GPT-5.6 Sol (gptcolor)
+\addplot+[fill=gptcolor, draw=gptcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9851) +- (0, 0.0021)
+        (amzn, 0.5998) +- (0, 0.0586)
+        (feb1, 0.8930) +- (0, 0.0254)
+        (feb4, 0.9881) +- (0, 0.0020)
+        (fzr, 0.9558) +- (0, 0.0000)
+        (apl, 0.8464) +- (0, 0.0187)
+        (ebk, 0.9528) +- (0, 0.0065)
+        (imdb, 0.7090) +- (0, 0.0165)
+    };
+
+% 2. Gemini 3.8 Flash (geminicolor)
+\addplot+[fill=geminicolor, draw=geminicolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9861) +- (0, 0.0012)
+        (amzn, 0.4320) +- (0, 0.0063)
+        (feb1, 0.7700) +- (0, 0.0040)
+        (feb4, 0.9917) +- (0, 0.0009)
+        (fzr, 0.9686) +- (0, 0.0000)
+        (apl, 0.8870) +- (0, 0.0000)
+        (ebk, 0.9385) +- (0, 0.0044)
+        (imdb, 0.7354) +- (0, 0.0153)
+    };
+
+% 3. DeepSeek v4.1 Flash (deepseekcolor)
+\addplot+[fill=deepseekcolor, draw=deepseekcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9853) +- (0, 0.0022)
+        (amzn, 0.4062) +- (0, 0.0683)
+        (feb1, 0.9301) +- (0, 0.0947)
+        (feb4, 0.9865) +- (0, 0.0026)
+        (fzr, 0.9910) +- (0, 0.0000)
+        (apl, 0.8280) +- (0, 0.0197)
+        (ebk, 0.9538) +- (0, 0.0024)
+        (imdb, 0.7427) +- (0, 0.0036)
+    };
+
+% 4. Mistral Medium 3.5 (mistralcolor)
+\addplot+[fill=mistralcolor, draw=mistralcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9815) +- (0, 0.0022)
+        (amzn, 0.5117) +- (0, 0.0769)
+        (feb1, 0.8333) +- (0, 0.1419)
+        (feb4, 0.9930) +- (0, 0.0041)
+        (fzr, 0.9836) +- (0, 0.0180)
+        (apl, 0.7838) +- (0, 0.0195)
+        (ebk, 0.9333) +- (0, 0.0106)
+        (imdb, 0.7250) +- (0, 0.0225)
+    };
+
+\end{axis}
+
+% ----------------------------------------------------------------
+% Subplot (b): Potential F1 Ceiling (PF1, mu +- sigma)
+% ----------------------------------------------------------------
+\begin{axis}[
+    name=ax_pf1,
+    at={([xshift=0.8cm]ax_f1.outer north east)},
+    anchor=outer north west,
+    width=7.7cm,
+    height=5.8cm,
+    ybar=1.2pt,
+    bar width=3.0pt,
+    title={\textbf{(b) Potential F$_1$ Ceiling ($PF_1$, $\mu\pm\sigma$)}},
+    title style={font=\small\bfseries, yshift=4pt},
+    ylabel={Potential F$_1$ Ceiling ($PF_1$)},
+    ylabel style={font=\footnotesize, yshift=-2pt},
+    ymin=0, ymax=1.08,
+    ytick={0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    yticklabels={0.0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    y tick label style={font=\scriptsize},
+    ymajorgrids=true,
+    grid style={dashed, gray!25},
+    symbolic x coords={dblp, amzn, feb1, feb4, fzr, apl, ebk, imdb},
+    xtick=data,
+    xticklabels={%
+        {\texttt{dblp-acm}},%
+        {\texttt{amazon-wm}},%
+        {\texttt{febrl1}},%
+        {\texttt{febrl4}},%
+        {\texttt{fodors-zg}},%
+        {\texttt{itunes-apl}},%
+        {\texttt{itunes-ebk}},%
+        {\texttt{rebert-imdb}}%
+    },
+    x tick label style={
+        font=\scriptsize,
+        rotate=45,
+        anchor=north east,
+        inner sep=1.5pt
+    },
+    enlarge x limits=0.08
+]
+
+% 1. GPT-5.6 Sol (gptcolor)
+\addplot+[fill=gptcolor, draw=gptcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9942) +- (0, 0.0009)
+        (amzn, 0.8460) +- (0, 0.0796)
+        (feb1, 0.9993) +- (0, 0.0006)
+        (feb4, 1.0000) +- (0, 0.0000)
+        (fzr, 0.9730) +- (0, 0.0000)
+        (apl, 0.9247) +- (0, 0.0073)
+        (ebk, 0.9918) +- (0, 0.0070)
+        (imdb, 0.9789) +- (0, 0.0022)
+    };
+
+% 2. Gemini 3.8 Flash (geminicolor)
+\addplot+[fill=geminicolor, draw=geminicolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9922) +- (0, 0.0012)
+        (amzn, 0.7974) +- (0, 0.0023)
+        (feb1, 0.9993) +- (0, 0.0006)
+        (feb4, 1.0000) +- (0, 0.0000)
+        (fzr, 0.9819) +- (0, 0.0000)
+        (apl, 0.9481) +- (0, 0.0000)
+        (ebk, 0.9944) +- (0, 0.0049)
+        (imdb, 0.9819) +- (0, 0.0014)
+    };
+
+% 3. DeepSeek v4.1 Flash (deepseekcolor)
+\addplot+[fill=deepseekcolor, draw=deepseekcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9926) +- (0, 0.0011)
+        (amzn, 0.8048) +- (0, 0.0226)
+        (feb1, 0.9997) +- (0, 0.0006)
+        (feb4, 1.0000) +- (0, 0.0000)
+        (fzr, 1.0000) +- (0, 0.0000)
+        (apl, 0.8880) +- (0, 0.0025)
+        (ebk, 0.9959) +- (0, 0.0000)
+        (imdb, 0.9818) +- (0, 0.0039)
+    };
+
+% 4. Mistral Medium 3.5 (mistralcolor)
+\addplot+[fill=mistralcolor, draw=mistralcolor!80!black,
+    error bars/.cd, y dir=both, y explicit,
+    error bar style={line width=0.6pt, color=black!85},
+    error mark options={rotate=90, mark size=1.4pt, line width=0.6pt}]
+    coordinates {
+        (dblp, 0.9919) +- (0, 0.0016)
+        (amzn, 0.7929) +- (0, 0.0033)
+        (feb1, 0.9980) +- (0, 0.0027)
+        (feb4, 1.0000) +- (0, 0.0000)
+        (fzr, 0.9939) +- (0, 0.0105)
+        (apl, 0.8605) +- (0, 0.0076)
+        (ebk, 0.9794) +- (0, 0.0043)
+        (imdb, 0.9817) +- (0, 0.0071)
+    };
+
+\end{axis}
+
+% ----------------------------------------------------------------
+% Shared Global Legend Centered Above Both Subplots
+% ----------------------------------------------------------------
+\node[anchor=south] at ([yshift=1.1cm]$(ax_f1.north)!0.5!(ax_pf1.north)$) {
+    \pgfplotslegendfromname{leg:matching_results_models}
+};
+
+\end{tikzpicture}
