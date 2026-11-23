@@ -177,15 +177,6 @@ uv run integration --gui
 
 ---
 
-## 9. Citation
+## 9. Dataset Attribution
 
-If you use AIDI in your research, please cite it using [`CITATION.cff`](CITATION.cff) or:
-
-```bibtex
-@mastersthesis{mantegazza2026aidi,
-  author  = {Mantegazza, Niccol{\`o}},
-  title   = {Agentic AI for Data Integration},
-  school  = {Politecnico di Milano},
-  year    = {2026}
-}
-```
+> **Attribution:** The benchmark datasets in [`data/`](data/) are curated from established academic benchmarks (University of Leipzig, Magellan, FEBRL, Dong et al., SchemaNet, and Valentine). All third-party datasets remain the property of their respective authors — see [`data/ATTRIBUTION.md`](data/ATTRIBUTION.md) for full references and credits.
