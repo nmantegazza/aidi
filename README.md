@@ -40,7 +40,7 @@ AIDI (Agentic AI for Data Integration) is an LLM-driven data integration pipelin
 │   ├── pipeline/                      # End-to-end pipeline orchestrator & Gradio GUI
 │   └── shared/                        # Cross-cutting utilities (LLM agents, models, config)
 │
-├── data/                              # Benchmark evaluation datasets (see data/ATTRIBUTION.md)
+├── data/                              # Benchmark evaluation datasets (see data/SOURCES.md)
 │   ├── entity_resolution/datasets/    # 8 ER datasets (DBLP-ACM, amazon-walmart, febrl1/4, etc.)
 │   ├── data_fusion/processed/         # 3 bipartite fusion datasets (books, flights, stocks)
 │   ├── schema_alignment/              # SchemaNet alignment benchmarks
@@ -157,6 +157,6 @@ uv run integration data/test_cases/running_example
 uv run integration --gui
 ```
 
-## 9. Dataset attribution
+## 9. Dataset sources
 
-> **Attribution:** The benchmark datasets in [`data/`](data/) come from established academic benchmarks: SchemaNet (Wang et al., 2025), Valentine (Koutras et al., 2021), the Leipzig ER benchmarks (Köpcke et al., 2010), the Magellan and DeepMatcher repositories (Konda et al., 2016; Mudgal et al., 2018), FEBRL (Christen, 2008), and Xin Luna Dong's Truth Discovery repository (Dong and Naumann, 2009; Li et al., 2012). All third-party datasets remain the property of their respective authors. Full references are listed in [`data/ATTRIBUTION.md`](data/ATTRIBUTION.md).
+> **Dataset sources:** The datasets in [`data/`](data/) were downloaded from SchemaNet (LLMatch), Valentine, the University of Leipzig ER portal, the Magellan / DeepMatcher repositories, `recordlinkage.datasets` (FEBRL), and Xin Luna Dong's Truth Discovery page. Download links for each dataset are listed in [`data/SOURCES.md`](data/SOURCES.md).
